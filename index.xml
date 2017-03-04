@@ -304,9 +304,9 @@ paginate = 10
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Код виджетов здесь:
-&lt;a href=&#34;https://github.com/popstas/popstas.github.io/tree/master/themes/octopress/partials/custom/twitterfeed.html&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;
+&lt;a href=&#34;https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/twitterfeed.html&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;
 и
-&lt;a href=&#34;https://github.com/popstas/popstas.github.io/tree/master/themes/octopress/partials/custom/github.html&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/github.html&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;соц-панель-addtoany&#34;&gt;Соц. панель AddToAny&lt;/h3&gt;
 
