@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">10 Dec 2015, 19:55
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Интерактивная Zsh history с поиском и скроллом, percol 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать <code>Ctrl+R</code> и начать набирать
+команду, отобразится последняя команда из истории, для навигации можно использовать
+<code>Ctrl+R</code>, <code>Ctrl+Shift+R</code>. При этом видно одновременно видно только одну команду из истории.</p>
+
+<p>Утилита <a href="https://github.com/mooz/percol#zsh-history-search" target="_blank">percol</a> решает эту проблему.</p>
+
+<p><img src="/images/2015-12/percol.gif" /></p>
+
+<p></p>
+
+<p>Собственно по ссылке выше готовый конфиг для zsh. Я немного изменил его под себя,
+чтобы использовать percol не только для поиска по истории:</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">function</span> exists <span style="color: #719e07">{</span> which <span style="color: #268BD2">$1</span> <span style="color: #93A1A1">&amp;</span>&gt; /dev/null <span style="color: #719e07">}</span>
+<span style="color: #719e07">if</span> exists percol<span style="color: #93A1A1">;</span> <span style="color: #719e07">then</span>
+	<span style="color: #719e07">function</span> percol_select_history<span style="color: #719e07">()</span> <span style="color: #719e07">{</span>
+		<span style="color: #B58900">local</span> tac
+		exists gtac <span style="color: #719e07">&amp;&amp;</span> <span style="color: #268BD2">tac</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;gtac&quot;</span> <span style="color: #719e07">||</span> <span style="color: #719e07">{</span> exists tac <span style="color: #719e07">&amp;&amp;</span> <span style="color: #268BD2">tac</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;tac&quot;</span> <span style="color: #719e07">||</span> <span style="color: #719e07">{</span> <span style="color: #268BD2">tac</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;tail -r&quot;</span> <span style="color: #719e07">}</span> <span style="color: #719e07">}</span>
+		<span style="color: #268BD2">BUFFER</span><span style="color: #719e07">=$(</span><span style="color: #B58900">fc</span> -l -n <span style="color: #2AA198">1</span> <span style="color: #93A1A1">|</span> <span style="color: #B58900">eval</span> <span style="color: #268BD2">$tac</span> <span style="color: #93A1A1">|</span> percol --query <span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$LBUFFER</span><span style="color: #2AA198">&quot;</span><span style="color: #719e07">)</span>
+		<span style="color: #268BD2">CURSOR</span><span style="color: #719e07">=</span><span style="color: #268BD2">$#</span>BUFFER         <span style="color: #586E75"># move cursor</span>
+		zle -R -c               <span style="color: #586E75"># refresh</span>
+	<span style="color: #719e07">}</span>
+
+	zle -N percol_select_history
+	bindkey <span style="color: #2AA198">&#39;^R&#39;</span> percol_select_history
+
+	<span style="color: #586E75"># percol based grep</span>
+	g<span style="color: #719e07">()</span> <span style="color: #719e07">{</span> percol --match-method regex --query<span style="color: #719e07">=</span><span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$*</span><span style="color: #2AA198">&quot;</span><span style="color: #93A1A1">;</span> <span style="color: #719e07">}</span>
+<span style="color: #719e07">fi</span>
+</pre></div>
+
+<p>Код я добавил в <a href="https://github.com/popstas/zsh-config" target="_blank">свой .zshrc</a>. Если <a href="https://github.com/robbyrussell/oh-my-zsh/pull/4582" target="_blank">этот пулл реквест</a> примут, то данный код появится в составе
+<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh-my-zsh</a> в виде плагина <code>percol</code>.</p>
+
+<p>Код полностью взят со страницы percol, от себя добавил функцию g(), она кстати конфиликтует с плагином git для oh-my-zsh,
+зато теперь я могу писать что-то вроде:</p>
+
+<pre><code>find . -type file | g
+</code></pre>
+
+<p>для интерактивного выбора результатов поиска и просто для замены grep. При этом доступен мультивыбор по <code>Ctrl+Space</code>.</p>
+
+<p>Пример посложнее:</p>
+
+<pre><code>vim $(find -name &quot;*.markdown&quot; | g)
+</code></pre>
+
+<p>После запуска откроется список всех <code>.markdown</code> файлов в текущей и вложенных папках, выбранный файл сразу откроется в Vim.
+Это как будто у вас появилась возможность приделывать midnight commander к результатам поиска!</p>
+
+<p>Смотрите больше интересных примеров <a href="https://github.com/mooz/percol" target="_blank">на странице проекта</a>.</p>
+
+<p>Надо сказать, что на github есть программы с таким же функционалом, как у percol, я об этом узнал на странице самого percol.
+Там есть peco, клон percol на Go (а значит поставляется в виде одного бинарника). Мне проще через pip установить percol, так
+что с аналогами не сравнивал.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>10 Dec 2015, 19:55</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh">zsh</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/" title="Простой тайм-трекер для отслеживания потраченного времени">Простой тайм-трекер для отслеживания потраченного времени</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/" title="Разворачиваем Drupal 8 с помощью Otto">Разворачиваем Drupal 8 с помощью Otto</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

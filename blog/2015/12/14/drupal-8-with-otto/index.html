@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Разворачиваем Drupal 8 с помощью Otto</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">14 Dec 2015, 08:16
+         - 6 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Разворачиваем Drupal 8 с помощью Otto 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Репост <a href="https://habrahabr.ru/post/273009/" target="_blank">моей статьи</a> с хабра.</p>
+
+<p>Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
+о котором уже была <a href="http://habrahabr.ru/post/268497/">обзорная статья</a> на хабре.</p>
+
+<p>Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
+чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.</p>
+
+<p><img src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" alt="image"/></p>
+
+<p></p>
+
+<h2 id="установка">Установка</h2>
+
+<p>Последняя версия, отмеченная тегом - 0.1.2 от 20.10.2015. Забегая вперед, скажу, что у меня не получилось сходу настроить MySQL на ней,
+а еще, заглянув в CHANGELOG, решил попробовать master ветку из-за Layered Dev Environments.</p>
+
+<p>Otto 0.1.3-dev требует Vagrant 1.7.99+, <del>так как стабильная версия 1.7.4, это значит, что Vagrant тоже нужен из master ветки</del>.
+UPD: вышел Vagrant 1.8, собирать Vagrant больше не надо.</p>
+
+<p>Компиляция обоих проектов хорошо описана на страницах <a href="https://github.com/hashicorp/otto" target="_blank">otto</a> и <a href="https://github.com/mitchellh/vagrant" target="_blank">vagrant</a>,
+мне хватило полчаса, чтобы поставить golang, настроить gopath и скомпилировать оба проекта без знания Go и Ruby.
+Главное не забыть добавить</p>
+
+<pre><code>export PATH=&quot;$GOPATH/bin:$PATH&quot;
+</code></pre>
+
+<p>Перезапускаем терминал, проверяем, что у нас запускаются dev-версии: <code>vagrant version</code>, <code>otto version</code>.</p>
+
+<h3 id="настройка-nfs">Настройка NFS</h3>
+
+<p>Напрямую к otto не относится, но, узнав об <a href="http://mitchellh.com/comparing-filesystem-performance-in-virtual-machines" target="_blank">ужасной тормознутости</a>
+стандартных virualbox shared folders, осознал необходимость настроить NFS.</p>
+
+<p>На Ubuntu достаточно установить пакеты nfs-common nfs-kernel-server и добавить в /etc/sudoers несколько строк,
+чтобы Vagrant не спрашивал пароль при каждом запуске, подробнее <a href="https://docs.vagrantup.com/v2/synced-folders/nfs.html" target="_blank">в документации</a>.</p>
+
+<h2 id="подготовка-проекта">Подготовка проекта</h2>
+
+<p>Скачаем Drupal 8:</p>
+
+<pre><code>git clone https://github.com/drupal/drupal.git drupal8
+cd drupal8
+</code></pre>
+
+<h3 id="appfile">Appfile</h3>
+
+<p><a href="https://www.ottoproject.io/docs/concepts/appfile.html" target="_blank">Appfile</a> - основной файл конфигурации otto для проекта, должен быть в корне проекта.</p>
+
+<p>Вообще его может вообще не быть, тогда otto сам определит требования к окружению, в котором может запуститься приложение.
+Логика определения типа приложения проще некуда, например, проект будет определен как php, если в корне есть файлы *.php</p>
+
+<h3 id="otto-compile">otto compile</h3>
+
+<p>Первая команда, которая нужна в otto - <a href="https://www.ottoproject.io/docs/concepts/compile.html" target="_blank">otto compile</a>.
+Она анализирует проект и его Appfile, после чего генерирует дерево в папке .otto, содержащее всю информацию о конфигурации dev и deploy окружений.</p>
+
+<p>Документация советует не править руками содержимое этой папки. Но смотреть можно и нужно.</p>
+
+<p>Также будет сгенерирован <code>.ottoid</code> - уникальный идентификатор вашего приложения, по которому otto будет отслеживать его деплой, хранить историю, использовать его как зависимость и т.д.</p>
+
+<p>К этому моменту наше окружение описано и готово к развертыванию.</p>
+
+<h3 id="otto-dev">otto dev</h3>
+
+<p>Следующее, что нужно - развернуть локальное dev окружение на локальной машине.
+По сути, otto dev - то же самое, что vagrant up.</p>
+
+<h4 id="layered-dev-environments">Layered Dev Environments</h4>
+
+<p>Интересна концепция слоев, они очень похожи на слои Docker: при первом запуске <code>otto dev</code> виртуальное окружение Vagrant будет настраиваться последовательно,
+делая снимок после каждого шага. Слои описаны в типе приложения. Всё это позволяет сильно сократить время пересоздания dev окружения.
+Таким образом, мы получаем мгновенный запуск готового окружения даже при полном пересоздании виртуальной машины.
+Разница между перезапуском и пересозданием машины (<code>otto dev halt &amp;&amp; time otto dev</code> и <code>otto dev destroy &amp;&amp; time otto dev</code>) составляет около 5 секунд.</p>
+
+<p>Судя по changelog, vagrant этот функционал не получит, по крайней мере в следующей версии, зато в Vagrant появится функционал для создания snapshots.</p>
+
+<p>Посмотреть слои можно командой <code>otto dev layers</code>:</p>
+
+<pre><code>$ otto dev layers
+consul
+php5.6
+</code></pre>
+
+<p>В результате, в случае PHP приложения, otto должен выдать дальнейшие инструкции:</p>
+
+<pre><code>$ otto dev
+IP address: 100.66.143.21
+
+A development environment has been created for writing a PHP app.
+
+You can access the environment from this machine using the IP address above.
+For example, if you start your app with 'php -S 0.0.0.0:5000', then you can
+access it using the above IP at port 5000.
+</code></pre>
+
+<p>Что мы получили с автоматической настройкой?</p>
+
+<ul>
+<li>Ubuntu 12.04 (на данный момент нельзя выбирать базовый образ системы)</li>
+<li>Consul</li>
+<li>PHP 5.6 (otto устанавливает PHP не из стандартного репозитория, а из PPA)</li>
+<li>Composer</li>
+</ul>
+
+<p>Для работы Drupal критически не хватает MySQL.</p>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<p>Простейший способ добавить MySQL: указать зависимость. Создадим Appfile в корне проекта:</p>
+
+<pre><code>application {
+    name = &quot;drupal8&quot;
+    type = &quot;php&quot;
+
+    dependency {
+        source = &quot;github.com/hashicorp/otto/examples/mysql&quot;
+    }
+}
+</code></pre>
+
+<p>Этот конфиг явно указывает тип приложения (php) и добавляет MySQL как зависимость.
+Несмотря на то, что ссылка в source невалидная, otto ее поймет, есть и <a href="https://www.ottoproject.io/docs/appfile/dep-sources.html" target="_blank">другие форматы source</a>.</p>
+
+<p>Есть способ добавить mysql еще проще, но он неправильный, я скажу о нем в недостатках.</p>
+
+<p><a href="https://github.com/hashicorp/otto/blob/master/examples/mysql/Appfile" target="_blank">Appfile mysql</a> описывает зависимое приложение как Docker-контейнер,
+путь к образу контейнера и параметры запуска. В результате мы получим запущенный контейнер внутри Vagrant,
+благодаря Consul он будет доступен по адресу mysql.service.consul (внутри виртуалки) с юзером и паролем root:root.
+Настроенный по умолчанию Consul существенно облегчает использование Docker, можно не разбираться в тонкостях настройки service discovery, а просто пользоваться.</p>
+
+<p>Зависимостью может быть любое другое приложение, но настоятельно рекомендуется, чтобы оно имело .ottoid файл,
+который позволит otto понять, что он запускает, даже если приложение будет переименовано.</p>
+
+<p>Зависимости в данный момент не поддерживают версионность (в будущем обещают добавить),
+это значит, что при каждом &lsquo;otto compile&rsquo; у вас есть шанс получить не то, что вы ожидали,
+поэтому стоит форкнуть зависимости себе или положить на локальной машине.</p>
+
+<p>Делаем <code>otto compile</code>, <code>otto dev destroy</code>, <code>otto dev</code> - получаем машину, готовую к запуску Drupal. Осталось запустить в ней сервер.</p>
+
+<h3 id="otto-dev-ssh">otto dev ssh</h3>
+
+<p>Заходим в виртуалку по SSH. Выполняем указанную выше команду запуска встроенного в PHP web-сервера, я не вижу ничего плохого в запуске под root на 80 порту на dev:</p>
+
+<pre><code>sudo php -S 0.0.0.0:80
+</code></pre>
+
+<p>После этого можно заходить открывать в браузере IP адрес, который выдал &lsquo;otto dev&rsquo;, можно его получить явно, выполнив &lsquo;otto dev address&rsquo;.</p>
+
+<h2 id="недостатки">Недостатки</h2>
+
+<h3 id="сырой-код">Сырой код</h3>
+
+<p>Видно, что код местами довольно прототипный. Например, в Vagrantfile используется bash для разворачивания окружения, а не ansible или что-то подобное.</p>
+
+<p>Я заглянул в код App type php, нашел там определение того, что запускаемое приложение - wordpress (по наличию файла wp-config.php),
+единственное отличие от стандартного php приложения - автоматическое добавление mysql в зависимости.
+То есть сейчас можно указать в Appfile <code>type = &quot;wordpress&quot;</code> или сделать <code>touch wp-config.php</code>, чтобы получить mysql, но, конечно, так делать не стоит.</p>
+
+<h3 id="окружения-не-проработаны">Окружения не проработаны</h3>
+
+<p>Судя по issue tracker проекта, best practices еще не готовы и не совсем понятно, как будут готовиться.
+Например, в случае PHP, есть Hashicorp, которые не знают особенностей окружения PHP проектов и программисты PHP, которые не знают Go и не могут отправить pull request.</p>
+
+<p>Митчелл Хашимото, автор Otto, предлагает всем заинтересованным писать на Github предложения с улучшениями,
+ссылки на статьи с настройкой правильного окружения, а Hashicorp позаботится об их интеграции в продукт.
+Мне кажется, что позже появятся абстракции, которые дадут возможность широкому кругу не-go программистов помогать в развитии продукта.</p>
+
+<h3 id="dev-отличается-от-prod">Dev отличается от prod</h3>
+
+<p>До команд <code>otto infra</code> и <code>otto deploy</code> я не добрался, но узнал, что сейчас они поддерживают только AWS
+и что для php проектов dev-окружение отличается от deploy-окружения, в первом случае предлагается запускать встроенный в PHP сервер,
+во втором поднимается apache2 с mod-php.</p>
+
+<h3 id="dev-плохо-кастомизируется">Dev плохо кастомизируется</h3>
+
+<p>Otto в данный момент не дает возможность кастомизировать Vagrantfile dev-окружения через Appfile.
+Смотрим <code>.otto/compiled/app/dev/Vagrantfile</code>, оказывается, в нем прописаны параметры монтирования /vagrant, несовместимые с NFS. Исправляем строку на что-то вроде:</p>
+
+<pre><code>config.vm.synced_folder '/home/popstas/projects/site/drupal8', &quot;/vagrant&quot;, type: &quot;nfs&quot;
+</code></pre>
+
+<p>Следующий <code>otto compile</code> затрет эти изменения.</p>
+
+<p>Единственный способ сделать правильно: полностью переопределить Vagrantfile, используя application type = &ldquo;custom&rdquo;,
+но в таком случае вся магия автонастройки окружения пропадает.</p>
+
+<h2 id="выводы">Выводы</h2>
+
+<p>Я сделал для себя вывод, что Otto еще не готов для полноценного использования, на что в общем-то намекает версия продукта 0.1.
+Тем не менее продукт очень интересный и уже сейчас имеет преимущества по сравнению с Vagrant, а все недостатки объясняются новизной Otto,
+разработчики о них знают и имеют планы по устранению.</p>
+
+<p>Сейчас непонятно, как создавать свои слои, когда слои появятся в Otto полноценно, для меня это будет достаточной причиной, чтобы перейти на него с Vagrant&rsquo;а.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>14 Dec 2015, 08:16</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/otto">otto</a>  <a class="category" href="http://blog.popstas.ru/tags/vagrant">vagrant</a>  <a class="category" href="http://blog.popstas.ru/tags/drupal">drupal</a>  <a class="category" href="http://blog.popstas.ru/tags/consul">consul</a>  <a class="category" href="http://blog.popstas.ru/tags/hashicorp">hashicorp</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" title="Интерактивная Zsh history с поиском и скроллом, percol">Интерактивная Zsh history с поиском и скроллом, percol</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/" title="Быстрое обновление PhpStorm EAP на Mac OS через bash">Быстрое обновление PhpStorm EAP на Mac OS через bash</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

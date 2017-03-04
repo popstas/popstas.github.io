@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Показать все окна gnome terminal в Ubuntu</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">16 Nov 2015, 23:55
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Показать все окна gnome terminal в Ubuntu 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>При работе за компом имею привычку открывать много терминалов,
+не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
+При этом терминалы расположены по всему рабочему экрану.</p>
+
+<p>Из-за этого была такая проблема: при переключении на браузер или редактор,
+которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.</p>
+
+<p>Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
+нажать хоткей и достать все окна этой же программы наверх.</p>
+
+<p></p>
+
+<h4 id="для-этого-нужно">Для этого нужно:</h4>
+
+<ul>
+<li>определить текущее окно</li>
+<li>определить его класс</li>
+<li>найти все окна с тем же классом</li>
+<li>активировать каждое из окон</li>
+</ul>
+
+<p>Для манипуляции с окнами из консоли использовал <code>xdotool</code>:</p>
+
+<pre><code>sudo aptitude install xdotool
+</code></pre>
+
+<p>Через полчаса родился страшный однострочник, в итоге из него получился такой скрипт:</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># !/bin/bash</span>
+<span style="color: #586E75"># </span>
+<span style="color: #586E75"># Activate all windows with process name of currently active window</span>
+
+<span style="color: #586E75"># Получить текущее активное окно, его pid, имя процесса</span>
+<span style="color: #268BD2">current_pid</span><span style="color: #719e07">=$(</span>xdotool getwindowpid <span style="color: #719e07">$(</span>xdotool getactivewindow<span style="color: #719e07">))</span>
+<span style="color: #268BD2">current_name</span><span style="color: #719e07">=$(</span>ps -p <span style="color: #268BD2">$current_pid</span> -o <span style="color: #268BD2">comm</span><span style="color: #719e07">=)</span>
+<span style="color: #268BD2">clean_name</span><span style="color: #719e07">=</span><span style="color: #2AA198">${</span><span style="color: #268BD2">current_name</span><span style="color: #93A1A1">%-</span><span style="color: #2AA198">}</span>
+
+<span style="color: #268BD2">name</span><span style="color: #719e07">=</span><span style="color: #2AA198">${</span><span style="color: #268BD2">1</span><span style="color: #719e07">:-</span><span style="color: #268BD2">$clean_name</span><span style="color: #2AA198">}</span>
+
+<span style="color: #586E75"># найти окна процесса (только видимые), активировать каждое из них</span>
+xdotool search --onlyvisible --class <span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$name</span><span style="color: #2AA198">&quot;</span> <span style="color: #CB4B16">\</span>
+  <span style="color: #93A1A1">|</span> xargs -L1 --no-run-if-empty xdotool windowactivate
+</pre></div>
+
+<h3 id="какие-были-проблемы">Какие были проблемы:</h3>
+
+<ul>
+<li>У каждого процесса оказалось штук по 5 &ldquo;окон&rdquo;, которые на самом деле не видны</li>
+<li>Текущий процесс <code>gnome-terminal</code> виден в процессах как <code>gnome-terminal-server</code>,
+в процессах имя не входит и отображается как <code>gnome-terminal-</code>,
+в этом месте был вбит костыль, добавлена обрезка дефиса в конце.</li>
+</ul>
+
+<p>Скрипт был сохранен в <code>/usr/local/bin/window-activate</code> и через <code>ccsm</code> (Compiz config settings manager) повешен на хоткей.</p>
+
+<p>Скрипт можно вызывать, передав параметром имя процесса, иначе возьмет его из текущего окна.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>16 Nov 2015, 23:55</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/ubuntu">ubuntu</a>  <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/" title="Простой тайм-трекер для отслеживания потраченного времени">Простой тайм-трекер для отслеживания потраченного времени</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">6 Mar 2016, 10:09
+         - 7 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>С начала января я веду свой <a href="/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик</a>, на котором обкатываю новые для меня технологии:</p>
+
+<ul>
+<li>Статический анализ кода, phpcs, phpmd, Scrutinizer</li>
+<li>Автоматическая сборка, Travis CI</li>
+<li>Unit тесты, PHPUnit</li>
+<li>Покрытие кода, Coveralls</li>
+<li>Работу через задачи для любых изменений, Github Issues, PhpStorm tasks</li>
+<li>Документирование всего: README, CHANGELOG, сайт проекта, &ndash;help</li>
+</ul>
+
+<p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.</p>
+
+<p>Tl;dr: conventional-changelog, стандартизация коммитов.</p>
+
+<p><img src="/images/2016-03/changelog.png" /></p>
+
+<p></p>
+
+<h1 id="changelog-md">CHANGELOG.md</h1>
+
+<p>Понятная для человека история изменений проекта нужна. Тут надо заметить что такими историями не являются:</p>
+
+<ul>
+<li>Issues проекта, ветка в менеджере задач, доска проекта и т.п.</li>
+<li>git log проекта</li>
+</ul>
+
+<p>Файл CHANGELOG.md в корне проекта стал стандартом де-факто для проектов, в котором ведется история изменений, Gitlab даже делает для него отдельную вкладку на странице репозитория.</p>
+
+<p>Про это, конечно, есть <a href="http://keepachangelog.com/" target="_blank">сайт</a>, <a href="https://github.com/olivierlacan/keep-a-changelog" target="_blank">репозиторий на Github</a> с тысячей звезд, проблема явно беспокоит людей.</p>
+
+<p>Про ведение CHANGELOG я задумался, когда изучал проект <a href="https://github.com/hashicorp/otto/" target="_blank">otto</a>, когда писал про него <a href="http://habrahabr.ru/post/273009/" target="_blank">статью на хабр</a>.</p>
+
+<h4 id="структура-у-changelog-более-менее-у-всех-одна-и-та-же">Структура у CHANGELOG более-менее у всех одна и та же:</h4>
+
+<ul>
+<li>Версия и дата релиза</li>
+<li>Сломанные обратные совместимости</li>
+<li>Новые фичи</li>
+<li>Прочие изменения и улучшения</li>
+<li>Исправленные баги</li>
+</ul>
+
+<p>Вести такой документ достаточно просто, я за 120 коммитов почти не забывал это делать. В файле нужно всегда держать вверху секцию Next Release с подготовленными заголовками, как-то так:</p>
+
+<pre><code>## Next Release
+
+BREAKING CHANGES:
+
+FEATURES:
+
+IMPROVEMENTS:
+
+BUG FIXES:
+</code></pre>
+
+<p>Перед коммитом я всегда просматриваю дифф, в это время я записываю в коммент к коммиту кратко изменение в первую строку и более подробно в третью, если изменений больше одного, делаю в виде списка. Если про это есть задача, нужно упомянуть ее в виде #123 ссылки, Github умный и такие ссылки делает активными.</p>
+
+<p>Так вот, нужно просто добавить в этот процесс копипасту коммента к коммиту в CHANGELOG, с раскладыванием по категориям изменений.</p>
+
+<p>Во время релиза называем секцию, ставим ей дату, копипастим заголовки.</p>
+
+<p>Процедура очень простая, настолько простая, что хочется ее поручить роботу.</p>
+
+<h2 id="github-changelog-generator">github_changelog_generator</h2>
+
+<p><a href="https://github.com/skywinder/github-changelog-generator" target="_blank">github_changelog_generator</a> - ruby утилита, которая умеет генерировать CHANGELOG.md из любого репозитория. На выходе получаем документ типа <a href="https://github.com/skywinder/github-changelog-generator/blob/master/CHANGELOG.md" target="_blank">этого</a>, наполненный ссылками на задачи и пулл-реквесты, разбитый по категориям, все круто, как в рекламе. У меня получилось совсем не так красиво.</p>
+
+<p>Что мне не понравилось в этом генераторе:</p>
+
+<ul>
+<li>Текст коммитов никак не учитывает, как и текст задач.</li>
+<li>Чтобы она нормально работала, нужно по полной использовать Github Issues и метки для них, пулл-реквесты, в общем сильно завязано на Github (кто бы мог подумать?), иначе будут генериться просто ссылки на диффы между тегами.</li>
+<li>Нельзя указывать свои секции (например, Breaking changes встроенного нет), но есть <a href="https://github.com/skywinder/github-changelog-generator/issues/316" target="_blank">issue #316</a> про это, судя по активности проекта, они скоро появятся.</li>
+</ul>
+
+<p>Что понравилось:</p>
+
+<ul>
+<li>Поведение из коробки что-то генерирует, даже если вы не думали про CHANGELOG.md до этого и не использовали Github фишки, это лучше, чем ничего. Но не намного.</li>
+<li>Можно привязывать свои метки к существующим секциям лога.</li>
+<li>Можно настраивать как параметрами к команде, так и конфигом. При запуске скрипт говорит: <code>Performing task with options</code>, так вот, каждую строку из перечисленного ниже конфига можно вставить в файл <code>.github_changelog_generator</code> и переопределить, заменив <code>_</code> на <code>-</code>.</li>
+<li>Поддерживает сосуществование заполняемой вручную версии (которая все равно лучше автоматической) и генерируемого лога, для этого нужно переложить старый CHANGELOG.md в HISTORY.md (или другой файл, указав его в конфиге).</li>
+</ul>
+
+<p>В общем, github_changelog_generator в моем случае подходит хорошо,
+если вся работа ведется на Github, это самый простой способ получить красивый CHANGELOG.md</p>
+
+<p>Но на этом я не успокоился, основная причина в том, что на рабочие проекты на Github я не делаю. Хотелось более общего решения.</p>
+
+<h2 id="git-extras-changelog">git-extras changelog</h2>
+
+<p><a href="https://github.com/tj/git-extras" target="_blank">tj/git-extras</a> - это <a href="https://github.com/tj/git-extras/blob/master/Commands.md" target="_blank">огромный</a> (около 50) пакет дополнительных команд, упрощающих работу с git. Я его раньше уже видел, но в то время подумал, что мне и встроенных в git команд слишком много. Но в поисках генератора снова набрел на него, у него есть такая команда.</p>
+
+<p>Вот таким нехитрым способом можно в одну команду сгенерировать и запушить лог для проекта, где его не было, но версии помечались тегами и комменты к коммитам были осмысленными:</p>
+
+<pre><code>git changelog -a -p -x &gt; CHANGELOG.md &amp;&amp; git add CHANGELOG.md &amp;&amp; git commit CHANGELOG.md -m &quot;add CHANGELOG.md&quot; &amp;&amp; git push origin master
+</code></pre>
+
+<p>Для пробы сделал лог для <a href="https://github.com/popstas/site-setup/blob/5cb4f52bfc5909bac8b8bc77540cf3283b94ff2a/CHANGELOG.md" target="_blank">site-setup</a>, <a href="https://github.com/popstas/server-scripts/blob/009d82420fa4623417cf437b00df36c662c759a2/CHANGELOG.md" target="_blank">server-scripts</a>, <a href="https://github.com/popstas/drupal-scripts/blob/b0b7a5907798ebde714471fbf1611c3232df5925/CHANGELOG.md" target="_blank">drupal-scripts</a>, на этом успокоился, больше в общем и тестить не на чем.</p>
+
+<p>Ниже я отказался от него в пользу <code>conventional changelog</code>.</p>
+
+<h4 id="плюсы">Плюсы:</h4>
+
+<ul>
+<li>Простой как дверь, выполняешь команду, получаешь список изменений, разделенных версиями</li>
+</ul>
+
+<h4 id="минусы">Минусы:</h4>
+
+<ul>
+<li>Нет почти никаких настроек</li>
+</ul>
+
+<h2 id="rafinskipg-git-changelog">rafinskipg/git-changelog</h2>
+
+<p><a href="https://github.com/rafinskipg/git-changelog" target="_blank">rafinskipg/git-changelog</a> - node.js cкрипт, который парсит коммиты, написанные по <a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#" target="_blank">стандартам Angular</a>. Я их прочитал, оказалось, что стандарты годные, к angular никак не привязаны.</p>
+
+<p>Конфликтует с git-extras, так как оба они хотят называться git-changelog. Этот я сделал симлинком <code>git-changelog-angular</code>.</p>
+
+<p>Параметров у скрипта немного, я с ними поигрался, но ничего хорошего у меня с этим тулом не вышло. Идем дальше.</p>
+
+<h2 id="conventional-changelog">conventional-changelog</h2>
+
+<p><a href="https://github.com/stevemao/conventional-changelog-cli" target="_blank">stevemao/conventional-changelog-cli</a> - node.js скрипт, также нацелен на стандарты Angular, но, <a href="https://github.com/stevemao/conventional-changelog-cli#why" target="_blank">по заявлениям</a> авторов это как раз то, что нужно:</p>
+
+<ul>
+<li>поддерживает свои форматы коммитов и несколько общих: &lsquo;angular&rsquo;, &lsquo;atom&rsquo;, &lsquo;codemirror&rsquo;, &lsquo;ember&rsquo;, &lsquo;eslint&rsquo;, &lsquo;express&rsquo;, &lsquo;jquery&rsquo;, &lsquo;jscs&rsquo;, &lsquo;jshint&rsquo;</li>
+<li>поддерживает шаблоны</li>
+<li>протестирован, в отличие от github_changelog_generator</li>
+<li>отвязан от Github</li>
+<li>имеет модульную структуру и несколько модулей вокруг себя</li>
+</ul>
+
+<p>Воспользовавшись <code>conventional-commits-detector</code>, узнал, что мои комменты к коммитам больше всего похожи на стандарт <code>eslint</code>.</p>
+
+<p>Сгенерированный лог дал понять, что в eslint принято указывать категорию и через двоеточие суть, так коммиты в релизе разбиваются по категориям. Но в целом, конечно, коммиты были названы неправильно и хорошего лога не получилось.</p>
+
+<p>Зато запуск без указания пресета сообщений выдал почти то же, что и <code>git-extras</code>, но вдобавок к этому задал мажорным и минорным версиям разный уровень и указал ссылку на коммит на Github для каждого коммита.</p>
+
+<p>Сгенерировать лог с нуля можно командой:</p>
+
+<pre><code>conventional-changelog -i CHANGELOG.md -s -r 0
+</code></pre>
+
+<p>После этого я конечно побежал исправлять логи у проектов, которым сделал логи час назад, вот что вышло: <a href="https://github.com/popstas/site-setup/blob/fd159ed7848aaf8695642bcb53c795922d307dd6/CHANGELOG.md" target="_blank">site-setup</a>, <a href="https://github.com/popstas/server-scripts/blob/ef6138faf0179f31929ff0d90d98466749d4f85b/CHANGELOG.md" target="_blank">server-scripts</a>, <a href="https://github.com/popstas/drupal-scripts/blob/3eb923c09e319a163f9fea9669dfa735b60044c1/CHANGELOG.md" target="_blank">drupal-scripts</a>.</p>
+
+<p>Для проектов на своем Gitlab все сложнее: чтобы правильно делались ссылки на коммиты, нужно, во-первых, указать адрес проекта через файл package.json:</p>
+
+<pre><code>{
+  &quot;name&quot;: &quot;myproject&quot;,
+  &quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;http://my.gitlab.ru/projects/myproject.git&quot;
+  }
+}
+</code></pre>
+
+<p>А во-вторых не знаю, что надо сделать, он генерит ссылки с сокращенными хэшами, которые Github понимает, а Gitlab открывает страницу списка коммитов, т.к. ему нужен полный хэш, шаблон сходу не нашел.</p>
+
+<p>Дальше искать не стал, думаю это оно самое.</p>
+
+<p>Кроме лучшего результата из коробки и полной кастомизации мне в нем понравились модули:</p>
+
+<ul>
+<li><a href="https://github.com/ajoslin/angular-precommit" target="_blank">angular-precommit</a> - готовый валидатор сообщений к коммитам</li>
+<li><a href="https://github.com/marionebl/conventional-changelog-lint" target="_blank">conventional-changelog-lint</a> - скрипт для pre-commit хука, проверяющий сообщения коммитов на соответствие стандартам, стандарты описываются в файле</li>
+<li><a href="https://github.com/stevemao/conventional-github-releaser" target="_blank">conventional-github-releaser</a> - автоматическое создание релизов на Github. У меня они уже создаются, но приходится вручную заходить туда и править сообщение к релизу</li>
+</ul>
+
+<h1 id="выводы">Выводы</h1>
+
+<p>Для того, чтобы генератор создавал по-настоящему хорошие логи, важно определиться с форматом сообщений к коммитам, научиться следовать ему и научить роботов понимать наш формат, чтобы роботы <del>поработили людей</del> помогали правильно и не напрягаясь вести историю изменеий проекта в процессе, а не после работы над проектом.</p>
+
+<p>Для себя я нашел инструмент, которым я теперь могу за 5 минут создавать историю изменений для проектов на основе коммитов.</p>
+
+<p>Генерация CHANGELOG.md - шаг в сторону хорошей и актуальной документации по проекту, которая не будет занимать часы или дни, она будет частью рабочего процесса, конечно для маленького проекта из одного программиста это избыточно, мягко говоря, но надо же с чего-то начинать.</p>
+
+<h2 id="upd-08-03-2016">UPD 08.03.2016</h2>
+
+<p>Добавил валидатор:</p>
+
+<pre><code>npm install -g conventional-changelog-lint
+echo 'conventional-changelog-lint -e' &gt; .git/hooks/commit-msg
+chmod +x .git/hooks/commit-msg
+</code></pre>
+
+<p>После этого коммиты с неправильными сообщениями перестанут проходить.</p>
+
+<p>Перед релизом генерирую CHANGELOG.md:</p>
+
+<pre><code>conventional-changelog -p angular -i CHANGELOG.md -s
+</code></pre>
+
+<p>Это допишет в лог содержимое коммитов с последнего релиза (semver тега). После этого остается поправить руками то, что не нравится, проставить версию.</p>
+
+<p>После этого я генерирую документацию специфичной для проекта командой, коммит, тег, пуш:</p>
+
+<pre><code>git add .
+git commit -m 'docs: v0.6.0'
+git push --follow-tags
+</code></pre>
+
+<p>После этого релиз. Релиз будем делать через <code>conventional-github-releaser</code>:</p>
+
+<pre><code>npm install -g conventional-github-releaser
+CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-releaser -p angular
+</code></pre>
+
+<p>Еще не разобрался с тем, как это скрестить с выкладкой PHAR архива с Travis: для <code>github-releaser</code> нужно, чтобы релиза еще не было, но он создается автоматически при пуше тега на Github. После удаления релиза (превращения в Draft), github-releaser отработал, вставил данные CHANGELOG в релиз, все как надо.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>6 Mar 2016, 10:09</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/transmission-cli">transmission-cli</a>  <a class="category" href="http://blog.popstas.ru/tags/git">git</a>  <a class="category" href="http://blog.popstas.ru/tags/changelog">changelog</a>  <a class="category" href="http://blog.popstas.ru/tags/github">github</a>  <a class="category" href="http://blog.popstas.ru/tags/docs">docs</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/" title="Интеграция Git, Gitlab и Planfix почти как на Github">Интеграция Git, Gitlab и Planfix почти как на Github</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/" title="Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем">Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

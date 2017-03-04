@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microsoft on Popstas</title>
+    <link>http://blog.popstas.ru/tags/microsoft/index.xml</link>
+    <description>Recent content in Microsoft on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bash on Ubuntu on Windows: первый блин</title>
+      <link>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
+      <description>
+
+&lt;p&gt;Итак, &lt;a href=&#34;http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34; target=&#34;_blank&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
+
+&lt;p&gt;Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png&#34; /&gt;&lt;/p&gt;
+
+&lt;!--more --&gt;
+
+&lt;p&gt;Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же!
+Шелл открылся под root, так что sudo не нужен.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ aptitude install zsh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude,
+нет проблем, ставим через &lt;code&gt;apt-get&lt;/code&gt;, но оказывается, что нет инета.&lt;/p&gt;
+
+&lt;p&gt;Про это есть &lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/14&#34; target=&#34;_blank&#34;&gt;issue#14&lt;/a&gt; (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ echo &amp;quot;nameserver 8.8.8.8&amp;quot; &amp;gt; /etc/resolv.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;При этом не заработает ifconfig, ping, nslookup, но пакеты начнут ставиться.
+apt-get при установке поругивается, но ставит.&lt;/p&gt;
+
+&lt;h1 id=&#34;zsh&#34;&gt;Zsh&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ apt-get update &amp;amp;&amp;amp; apt-get install git zsh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ок, сработало, ставлю свой &lt;a href=&#34;https://github.com/popstas/zsh-config&#34; target=&#34;_blank&#34;&gt;zsh-config&lt;/a&gt;
+Что-то пошло не так с пайпами, но в итоге он поставился. Кстати git работает как родной.&lt;/p&gt;
+
+&lt;p&gt;Открываю новый терминал, открывается bash, смотрю /etc/passwd, там написано, что
+шелл /bin/zsh. Ладно, запускаю zsh вручную, он вывалил кучу ошибок про powerline,
+что-то от zsh, никакой красоты не появилось.&lt;/p&gt;
+
+&lt;p&gt;Ок, упрощаем, удаляю свой конфиг, открываю чистый zsh - все равно облом.&lt;/p&gt;
+
+&lt;p&gt;Ладно, не в zsh счастье (или все-таки в нем?).&lt;/p&gt;
+
+&lt;p&gt;Открываю &lt;code&gt;mc&lt;/code&gt;, он как бы работает, но после первого нажатия Enter курсоры перестают бегать.
+Выходим, идем дальше.&lt;/p&gt;
+
+&lt;h1 id=&#34;python&#34;&gt;Python&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ apt-get install python-pip python-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Все поставилось.
+Смотрим pip:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;glances&lt;/code&gt; - не работает&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/&#34;&gt;percol&lt;/a&gt; - работает!&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ansible&lt;/code&gt; - ругается при запуске про &lt;code&gt;Function not implemented&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ps_mem&lt;/code&gt; - конечно нет&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;httpie&lt;/code&gt; - работает!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ssh&#34;&gt;SSH&lt;/h1&gt;
+
+&lt;p&gt;Тащим ключ с домашней машины&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rsync popstas@home:/Users/popstas/.ssh/id_dsa ~/.ssh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Работает!&lt;/p&gt;
+
+&lt;p&gt;Подключаюсь к удаленному хосту - тоже работает!
+Там зашел в &lt;code&gt;mc&lt;/code&gt;, стало понятно, что глючит терминал: на удаленке курсоры тоже бегают плохо.
+Ок, терминал будет, потом.&lt;/p&gt;
+
+&lt;h1 id=&#34;php&#34;&gt;PHP&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ apt-get install php5-cli
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;PHP работает.
+Composer ставится, но при попытке установить им что-нибудь зависает.&lt;/p&gt;
+
+&lt;h1 id=&#34;nginx&#34;&gt;Nginx&lt;/h1&gt;
+
+&lt;p&gt;Ставится, но не стартует, в error.log пишет, что не может прибиндиться к сокету.&lt;/p&gt;
+
+&lt;h1 id=&#34;вывод&#34;&gt;Вывод&lt;/h1&gt;
+
+&lt;p&gt;Пользоваться этим сейчас конечно нельзя и в ближайший месяц думаю можно не надеяться.
+Я рассчитывал на большее, ну ладно, будем надеяться, что у Microsoft получится сделать
+полноценный линукс, хотя видно, что работы тут еще немеряно.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
+      <link>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
+      <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
+
+&lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34; target=&#34;_blank&#34;&gt;issue про недоступность сборки 14316&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34; target=&#34;_blank&#34;&gt;Инструкция по обновлению на русском&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Вчера утром пришло письмо от Microsoft:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Только что закончилась ежегодная конференция разработчиков Build 2016, на которой мы представили новые функции Windows 10.
+Вы сможете в числе первых опробовать эти новые функции, выбрав &amp;ldquo;быстрый&amp;rdquo; или &amp;ldquo;медленный&amp;rdquo; круг обновлений. Подробную информацию о новых возможностях читайте в записи блога Гейба о последней сборке Windows 10 Insider Preview. Обратите внимание, что для участников программы предварительной оценки, которые хотят выполнить чистую установку этой сборки или запустить ее в виртуальной машине, доступны ISO-образы. (на английском языке.)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Я конечно пришел домой вечером, скачал ISO, поставил на Virtualbox, сегодня на обеде думал: &amp;ldquo;Приду домой, посмотрю, что там за линукс&amp;rdquo;. Удивлялся, что до сих пор не гуглятся обзоры фичи.&lt;/p&gt;
+
+&lt;p&gt;Включил виртуалку, x64, English, что дальше делать - не понятно. Нагуглил официальные страницы фичи:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blogs.windows.com/windowsexperience/2016/04/06/announcing-windows-10-insider-preview-build-14316/&#34; target=&#34;_blank&#34;&gt;Анонс билда&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://msdn.microsoft.com/en-us/commandline/wsl/about&#34; target=&#34;_blank&#34;&gt;Видео с конференции BUILD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/blob/master/commandline/WSL/install_guide.md&#34; target=&#34;_blank&#34;&gt;Инструкция по включению фичи&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Уже написана &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34; target=&#34;_blank&#34;&gt;инструкция по обновлению до Windows subsystem for Linux&lt;/a&gt; на русском, но до рабочей фичи ее автор тоже не дошел.&lt;/p&gt;
+
+&lt;p&gt;Чтобы обновление пришло, нужно в настройках центра обновлений включить режим разработчика, переключиться на Insider level: fast, обновиться минимум до build 14316&lt;/p&gt;
+
+&lt;p&gt;Все стало понятно из этого &lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34; target=&#34;_blank&#34;&gt;issue&lt;/a&gt;, кто-то, включая меня, застрял на сборке 14295.&lt;/p&gt;
+
+&lt;p&gt;Ждем.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

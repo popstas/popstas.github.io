@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Planfix on Popstas</title>
+    <link>http://blog.popstas.ru/tags/planfix/index.xml</link>
+    <description>Recent content in Planfix on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/planfix/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
+      <link>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
+      <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
+
+&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34; target=&#34;_blank&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
+
+&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Здесь надо в 2 словах рассказать о нашем workflow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Компания занимается разработкой и поддержкой около 100 сайтов.&lt;/li&gt;
+&lt;li&gt;Каждый сайт использует Git, репозиторий лежит прямо в корне сайта, bare репозитории отсутствуют.&lt;/li&gt;
+&lt;li&gt;Часто бывают мелкие правки на разных сайтах.&lt;/li&gt;
+&lt;li&gt;90% сайтов на Drupal 7, в котором половина хранится в базе данных.&lt;/li&gt;
+&lt;li&gt;Во время правки контент-менеджер или клиент могут пользоваться сайтом и менять на нем данные&lt;/li&gt;
+&lt;li&gt;Разработчик выкачивает проект в PhpStorm, настаивает сохранение по Ctrl+S изменений на боевом сайте,
+таким образом получается, что когда приходит время пушить, на удаленном сервере фактически уже есть все изменения.&lt;/li&gt;
+&lt;li&gt;Разработчик также может напрямую править код сайта на удаленном сервере по SFTP, не выкачивая проект,
+после чего зайти по SSH на удаленный сервер и сделать коммит прямо оттуда.&lt;/li&gt;
+&lt;li&gt;Git по сути используется не для доставки изменений на боевой сайт,
+а для их доставки на компы разработчиков и ведения журнала изменений сайта.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;github-issues&#34;&gt;Github issues&lt;/h2&gt;
+
+&lt;p&gt;Кто не знает про issues гитхаба, расскажу вкратце о его фишках:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;В задачах можно ссылаться на коммиты и другие задачи по номерам, они автоматически становятся ссылками.&lt;/li&gt;
+&lt;li&gt;В коммитах можно ссылаться на задачи так же: &lt;code&gt;#123&lt;/code&gt;, такой коммит автоматом упоминается в задаче.&lt;/li&gt;
+&lt;li&gt;В PhpStorm можно смотреть список открытых issues и создавать из них задачи в IDE, что позволяет автоматом создавать чейнджлист,
+ветку для выполнения задачи, в коммите сразу будет ссылка на задачу (это все по желанию).&lt;/li&gt;
+&lt;li&gt;Можно закрывать задачу прямо из коммита, для этого достаточно упомянуть его рядом с одним из ключевых слов,
+например, &lt;code&gt;closes #123&lt;/code&gt; после пуша в гитхаб закроет указанную задачу.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;А главное, что все связано и из любого места можно перейти на связанные действия.&lt;/p&gt;
+
+&lt;p&gt;Я уже краем уха слышал и видел обо всем этом и видел в чужих репозиториях, но вся картина нарисовалась только после использования.
+Да и к тому же на гитхабе до этого сталкивался только с pull-request&amp;rsquo;ами, там немного другое поведение.&lt;/p&gt;
+
+&lt;h2 id=&#34;phpstorm-tasks&#34;&gt;PhpStorm tasks&lt;/h2&gt;
+
+&lt;p&gt;В PhpStorm есть интеграция с менеджерами задач, Github там конечно есть, Планфикса там конечно нет,
+но зато если у менеджера задач есть API, можно интегрировать неподдерживаемый сервис.
+У Планфикса API есть, но из коробки он не подойдет для этой интеграции, нужно писать свои обертки.
+В общем-то это дает не много, всего лишь можно будет получать список задач по команде из шторма, и дописывать в коммит ссылку на задачу.&lt;/p&gt;
+
+&lt;p&gt;Кстати таски в шторме помогают и без интеграции с трекером: Ctrl+Shift+A - open task, автоматом чистятся все вкладки
+(создается контекст задачи), создается ветка в гите, changelist, по close task - коммит, я недавно начал пользоваться.&lt;/p&gt;
+
+&lt;p&gt;Но гораздо интереснее интеграция в другую сторону: ссылки из задач на коммиты.&lt;/p&gt;
+
+&lt;p&gt;Когда я разобрался с тем, как устроена интеграция задач в гитхабе, до меня быстро дошло:
+просто менеджер задач должен уметь парсить текст коммита, приходящий из гита и делать на основе этого какие-то действия.
+С этим тоже пока облом: в Планфиксе на данный момент нет обработки писем, прилетающих в задачи, зато
+&lt;a href=&#34;https://planfix.ru/docs/%D0%9A%D0%B0%D0%BA_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83_%D0%BF%D0%BE_e-mail%3F&#34; target=&#34;_blank&#34;&gt;есть обработка писем&lt;/a&gt;,
+приходящих на email юзера, что позволяет надеяться на появление обработки писем, приходящих на email задачи.&lt;/p&gt;
+
+&lt;h2 id=&#34;gitlab&#34;&gt;Gitlab&lt;/h2&gt;
+
+&lt;p&gt;Самые активные проекты мы дублируем на наш внутренний Gitlab. Использование довольно извращенное,
+Gitlab сейчас никак не участвует в рабочем процессе, являясь просто зеркалом и веб-интерфейсом для просмотра коммитов.&lt;/p&gt;
+
+&lt;p&gt;На машине разработчика настраивается &lt;code&gt;pre-push&lt;/code&gt; хук, который пушит также в Gitlab:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span style=&#34;color: #268BD2&#34;&gt;remote&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #719e07&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$remote&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; !&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gitlab&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;$(&lt;/span&gt;git remote show &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; grep -c &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gitlab&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;then&lt;/span&gt;
+        git push gitlab master
+&lt;span style=&#34;color: #719e07&#34;&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;git-и-planfix&#34;&gt;Git и Planfix&lt;/h2&gt;
+
+&lt;p&gt;Никакой готовой интеграции между Git и Планфиксом нет, зато обе системы гибкие и позволяют лепить уникальные решения без больших усилий.&lt;/p&gt;
+
+&lt;p&gt;Git поддерживает хуки: скрипты, запускающиеся по определенным событиям.&lt;/p&gt;
+
+&lt;p&gt;У каждой задачи в Планфиксе есть свой email адрес, если послать на него письмо, оно придет в задачу в виде комментария,
+если с email отправителя связан пользователь, то письмо придет как будто от него.&lt;/p&gt;
+
+&lt;p&gt;Значит нам нужно отправлять email из Git в Планфикс на адрес задачи.&lt;/p&gt;
+
+&lt;h1 id=&#34;связываем-все-вместе&#34;&gt;Связываем все вместе&lt;/h1&gt;
+
+&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Чтобы подключить хук, надо положить скрипт в папку &lt;code&gt;.git/hooks/post-receive&lt;/code&gt; и сделать его исполняемым,
+для этого надо выполнить в корне проекта:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -s &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&amp;quot;&lt;/span&gt; &amp;gt; .git/hooks/post-receive
+chmod +x .git/hooks/post-receive
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Так как у нас много проектов, я храню его в отдельной общей папке, а в каждом репозитории создаю символическую ссылку на него.&lt;/p&gt;
+
+&lt;p&gt;Хук получает список коммитов, пришедших с последним пушем, находит первую ссылку на задачу Планфикса и отправляет туда письмо.&lt;/p&gt;
+
+&lt;h4 id=&#34;о-письме&#34;&gt;О письме&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Отправитель&lt;/strong&gt;: email того, кто сделал коммит. По этой причине email в git config и email в профиле юзера Планфикса должны совпадать.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Получатель&lt;/strong&gt;: email задачи Планфикса&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Тема письма&lt;/strong&gt;: &lt;code&gt;@commit @nonotify&lt;/code&gt;, @nonotify для того, чтобы не уведомлять всех участников задачи о коммите,
+&lt;code&gt;@commit&lt;/code&gt; ничего не значит, может быть потом пригодится для поиска таких комментов, хотя в отчетах текст комментария все равно использовать нельзя.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Текст письма&lt;/strong&gt;: текст коммита. Если репозиторий имеет зеркало на Gitlab, то в конец текста будет добавлена ссылка на коммит.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Чтобы хук добавлял ссылку на Gitlab, не придумал ничего лучше, чем добавить remote &lt;code&gt;gitlab&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote add gitlab ssh://git@org.ru:10022/sites/test.ru.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого хук будет извлекать из этого адреса URL &lt;a href=&#34;http://org.ru/sites/test&#34; target=&#34;_blank&#34;&gt;http://org.ru/sites/test&lt;/a&gt;, который является главной страницей репозитория.
+Сайт при всем при этом не имеет доступа к Gitlab, поэтому push и pull в этот remote работать не будут.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on Popstas</title>
+    <link>http://blog.popstas.ru/tags/zsh/index.xml</link>
+    <description>Recent content in Zsh on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
+      <link>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
+      <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
+      <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
+команду, отобразится последняя команда из истории, для навигации можно использовать
+&lt;code&gt;Ctrl+R&lt;/code&gt;, &lt;code&gt;Ctrl+Shift+R&lt;/code&gt;. При этом видно одновременно видно только одну команду из истории.&lt;/p&gt;
+
+&lt;p&gt;Утилита &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34; target=&#34;_blank&#34;&gt;percol&lt;/a&gt; решает эту проблему.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2015-12/percol.gif&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Собственно по ссылке выше готовый конфиг для zsh. Я немного изменил его под себя,
+чтобы использовать percol не только для поиска по истории:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;function&lt;/span&gt; exists &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt; which &lt;span style=&#34;color: #268BD2&#34;&gt;$1&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;amp;&lt;/span&gt;&amp;gt; /dev/null &lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #719e07&#34;&gt;if&lt;/span&gt; exists percol&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #719e07&#34;&gt;function&lt;/span&gt; percol_select_history&lt;span style=&#34;color: #719e07&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #B58900&#34;&gt;local&lt;/span&gt; tac
+		exists gtac &lt;span style=&#34;color: #719e07&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;tac&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gtac&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt; exists tac &lt;span style=&#34;color: #719e07&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;tac&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;tac&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;tac&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;tail -r&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=$(&lt;/span&gt;&lt;span style=&#34;color: #B58900&#34;&gt;fc&lt;/span&gt; -l -n &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #B58900&#34;&gt;eval&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;$tac&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; percol --query &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$LBUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;
+		&lt;span style=&#34;color: #268BD2&#34;&gt;CURSOR&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$#&lt;/span&gt;BUFFER         &lt;span style=&#34;color: #586E75&#34;&gt;# move cursor&lt;/span&gt;
+		zle -R -c               &lt;span style=&#34;color: #586E75&#34;&gt;# refresh&lt;/span&gt;
+	&lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
+
+	zle -N percol_select_history
+	bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^R&amp;#39;&lt;/span&gt; percol_select_history
+
+	&lt;span style=&#34;color: #586E75&#34;&gt;# percol based grep&lt;/span&gt;
+	g&lt;span style=&#34;color: #719e07&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt; percol --match-method regex --query&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$*&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #719e07&#34;&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Код я добавил в &lt;a href=&#34;https://github.com/popstas/zsh-config&#34; target=&#34;_blank&#34;&gt;свой .zshrc&lt;/a&gt;. Если &lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh/pull/4582&#34; target=&#34;_blank&#34;&gt;этот пулл реквест&lt;/a&gt; примут, то данный код появится в составе
+&lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh&#34; target=&#34;_blank&#34;&gt;oh-my-zsh&lt;/a&gt; в виде плагина &lt;code&gt;percol&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Код полностью взят со страницы percol, от себя добавил функцию g(), она кстати конфиликтует с плагином git для oh-my-zsh,
+зато теперь я могу писать что-то вроде:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find . -type file | g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;для интерактивного выбора результатов поиска и просто для замены grep. При этом доступен мультивыбор по &lt;code&gt;Ctrl+Space&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Пример посложнее:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vim $(find -name &amp;quot;*.markdown&amp;quot; | g)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После запуска откроется список всех &lt;code&gt;.markdown&lt;/code&gt; файлов в текущей и вложенных папках, выбранный файл сразу откроется в Vim.
+Это как будто у вас появилась возможность приделывать midnight commander к результатам поиска!&lt;/p&gt;
+
+&lt;p&gt;Смотрите больше интересных примеров &lt;a href=&#34;https://github.com/mooz/percol&#34; target=&#34;_blank&#34;&gt;на странице проекта&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Надо сказать, что на github есть программы с таким же функционалом, как у percol, я об этом узнал на странице самого percol.
+Там есть peco, клон percol на Go (а значит поставляется в виде одного бинарника). Мне проще через pip установить percol, так
+что с аналогами не сравнивал.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

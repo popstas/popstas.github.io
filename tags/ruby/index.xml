@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Popstas</title>
+    <link>http://blog.popstas.ru/tags/ruby/index.xml</link>
+    <description>Recent content in Ruby on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Перенос блога с Octopress на Hugo</title>
+      <link>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid>
+      <description>&lt;p&gt;Эта статья первая на новом движке.&lt;/p&gt;
+
+&lt;h4 id=&#34;зачем&#34;&gt;Зачем:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Не зависеть от ruby&lt;/li&gt;
+&lt;li&gt;быстрее&lt;/li&gt;
+&lt;li&gt;просто интересно&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/octopress-to-hugo.png&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;подробнее-о-причинах&#34;&gt;Подробнее о причинах&lt;/h2&gt;
+
+&lt;h3 id=&#34;не-зависеть-от-ruby&#34;&gt;Не зависеть от ruby&lt;/h3&gt;
+
+&lt;p&gt;Это было главной причиной. Однажды я захотел написать статью, но &lt;code&gt;rake&lt;/code&gt; в папке проекта перестал работать.
+Оказалось, что Octopress не совместим с текущим ruby 2.4 (что намекает на то, что проект бросают).&lt;/p&gt;
+
+&lt;p&gt;Можно было сделать песочницу с ruby 2.3 для конеретного проекта, но я с руби сталкивался мало (Vagrant, Octopress)
+и большого желания познавать его не было. Поэтому я просто переключал системную версию руби:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew switch ruby 2.3.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого начинал работать Octopress, но переставал работать Vim.&lt;/p&gt;
+
+&lt;p&gt;Пробовал скачать контейнер с Octopress, но тоже за 20 минут не разобрался, как с ним жить: внутри нет git для деплоя,
+порт для &lt;code&gt;rake preview&lt;/code&gt; не открыт&amp;hellip; нафиг.&lt;/p&gt;
+
+&lt;p&gt;С Hugo такого безобразия не должно быть, т.к. он написан на Go и содержит один бинарник, ничего не требуя от системы.&lt;/p&gt;
+
+&lt;h3 id=&#34;быстрее&#34;&gt;Быстрее&lt;/h3&gt;
+
+&lt;p&gt;Так как я пишу 5 раз в год, меня это не очень волновало, но все-таки скорость впечетляет:
+мой блог на данный момент состоит примерно из 85 страниц, Hugo генерирует их за 30 мс!&lt;/p&gt;
+
+&lt;p&gt;Самое приятное в этом то, что в Hugo есть live reload: страница в браузере обновляется сама при редактировании исходника.&lt;/p&gt;
+
+&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/codebrane/octohug&#34; target=&#34;_blank&#34;&gt;Устанавливаем&lt;/a&gt; в систему, я сделал так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для подсветки кода ему нужен &lt;code&gt;pygments&lt;/code&gt;, ставим его:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install pygments
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если вы любите &lt;a href=&#34;http://ethanschoonover.com/solarized&#34; target=&#34;_blank&#34;&gt;Solarized Dark&lt;/a&gt; как люблю его я, ставим тему для pygments:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/john2x/solarized-pygment.git
+cd solarized-pygment
+./setup.py install
+cd ..
+rm -rf solarized-pygment
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Переходим в папку, где будет новый проект. У меня блог лежал в &lt;code&gt;~/projects/site/blog.popstas.ru&lt;/code&gt;,
+я заранее переименовал старый проект в &lt;code&gt;~/projects/site/blog.popstas.ru_octopress&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Создаем новый сайт:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new site blog.popstas.ru
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Получаем следующее:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ tree blog.popstas.ru
+
+blog.popstas.ru
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Переходим в папку нового блога.&lt;/p&gt;
+
+&lt;p&gt;Добавляем тему. Я искал порт своей темы Octopress на Hugo и &lt;a href=&#34;https://github.com/parsiya/Hugo-Octopress&#34; target=&#34;_blank&#34;&gt;нашел&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir themes
+git clone https://github.com/parsiya/Hugo-Octopress octopress
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Вносим первые правки в &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;baseURL = &amp;quot;http://blog.popstas.ru/&amp;quot;
+languageCode = &amp;quot;ru-ru&amp;quot;
+title = &amp;quot;Popstas&amp;quot;
+theme = &amp;quot;octopress&amp;quot;
+
+[params]
+    # Keep it as false please, the css file contains the code for highlighting
+    pygmentsuseclasses = false
+    
+    # If nothing is set, then solarized_light is used
+    # Other styles can be viewed in [http://pygments.org/](http://pygments.org/)
+    pygmentsstyle = &amp;quot;solarized_dark&amp;quot;
+    
+    # Highlight shortcode and code fences (```) will be treated similarly
+    pygmentscodefences = true
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;перенос-контента&#34;&gt;Перенос контента&lt;/h2&gt;
+
+&lt;p&gt;Определим список задач:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Перенести md файлы&lt;/li&gt;
+&lt;li&gt;Сохранить урлы статей&lt;/li&gt;
+&lt;li&gt;Перенести тему, чтобы внешне были минимальные изменения&lt;/li&gt;
+&lt;li&gt;Перенести правки css темы&lt;/li&gt;
+&lt;li&gt;Сохранить форматирование статей&lt;/li&gt;
+&lt;li&gt;Перенести картинки&lt;/li&gt;
+&lt;li&gt;Перенести фавиконку и CNAME (для привязки домена к github pages)&lt;/li&gt;
+&lt;li&gt;Сохранить Disqus комменты и Google Analytics&lt;/li&gt;
+&lt;li&gt;Сохранить RSS ленту&lt;/li&gt;
+&lt;li&gt;Перенести содержимое боковой колонки (последние статьи, лента твиттера, проекты на github)&lt;/li&gt;
+&lt;li&gt;Перенести соц. панель AddToAny&lt;/li&gt;
+&lt;li&gt;Русифицировать&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;перенос-md-файлов&#34;&gt;Перенос md файлов&lt;/h3&gt;
+
+&lt;p&gt;В hugo есть только миграция с Jekyl, поэтому идем на github, ищем &amp;ldquo;octopress hugo&amp;rdquo; и находим &lt;a href=&#34;https://github.com/codebrane/octohug&#34; target=&#34;_blank&#34;&gt;octohug&lt;/a&gt;.
+Его нужно скачать, скомпилировать, скопировать в папку старого блога и запустить.&lt;/p&gt;
+
+&lt;p&gt;После этого в корне старого блога появится папка &lt;code&gt;content&lt;/code&gt;, ее нужно перенести в новый блог:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get github.com/codebrane/octohug
+cd &amp;quot;$GOPATH/src/github.com/codebrane/octohug&amp;quot;
+go build
+cp octohug ~/projects/site/blog.popstas.ru_octopress
+
+cd ~/projects/site/blog.popstas.ru_octopress
+./octohug
+
+mv content ../blog.popstas.ru
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Пора посмотреть, что получается. Переходим в папку нового блога и запускаем генератор:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/projects/site/blog.popstas.ru
+hugo serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Лично мне результат не понравился :) Статьи перенеслись, но с кривыми датами, заголовками и форматированием.
+Открываем оба блога в вашем редакторе и на следующие пару часов превращаемся в контентщика. Вот что правил я:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;!-- more --&amp;gt;&lt;/code&gt; заменить на &lt;code&gt;HUGOMORE42&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;перекопировать титлы (обратите внимание, из &lt;code&gt;title: &amp;quot;title&amp;quot;&lt;/code&gt; надо делать &lt;code&gt;title = &amp;quot;title&amp;quot;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;убрать из &lt;code&gt;slug&lt;/code&gt; даты&lt;/li&gt;
+&lt;li&gt;поправить все даты&lt;/li&gt;
+&lt;li&gt;заменить все &lt;code&gt;{[процентик]img&lt;/code&gt; на &lt;code&gt;&amp;lt;img src&lt;/code&gt; (заменил &lt;code&gt;%&lt;/code&gt; на &lt;code&gt;[процентик]&lt;/code&gt;, Github ругался)&lt;/li&gt;
+&lt;li&gt;перекопировать теги, где они не перенеслись. Также я заменил &lt;code&gt;Categories =&lt;/code&gt; на &lt;code&gt;Tags =&lt;/code&gt;, это сломало старые урлы категорий,
+но зато сделало теги тегами&lt;/li&gt;
+&lt;li&gt;пройтись по каждой статье и глазами найти остальные несоответствия&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Вносим правки в &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;disablePathToLower = false
+paginate = 10
+
+# Make tags and categories work
+[indexes]
+    tag = &amp;quot;tags&amp;quot;
+    category = &amp;quot;categories&amp;quot;
+
+[params]
+    # If false, all of the post will appear on front page (and in pagination)
+    truncate = true
+    
+    # Author&#39;s name (this will appear in metadata and under posts)
+    author = &amp;quot;Stanislav Popov&amp;quot;
+    
+    # This text appears in the site header under website title
+    subtitle = &amp;quot;Записки о Linux&amp;quot;
+    
+    # Website&#39;s default description
+    defaultDescription = &amp;quot;&amp;quot;
+
+    # Used in the search engine
+    searchEngineURL = &amp;quot;https://www.google.com/search&amp;quot;
+
+[blackfriday]
+    hrefTargetBlank = true # open the external links in a new window
+    fractions = false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;урлы&#34;&gt;Урлы&lt;/h3&gt;
+
+&lt;p&gt;Урлы зависят не от имени файла (оно может быть любым), а от шаблона урлов, в моем случае от даты и алиаса (slug).&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[permalinks]
+    post = &amp;quot;/blog/:year/:month/:day/:slug/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;правки-css-темы&#34;&gt;Правки CSS темы&lt;/h3&gt;
+
+&lt;p&gt;К сожалению препроцессора не будет.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[params]
+    customCSS = [&amp;quot;css/custom.css&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;картинки-и-прочая-статика&#34;&gt;Картинки и прочая статика&lt;/h3&gt;
+
+&lt;p&gt;Копируем все, что должно быть в корне сайта из &lt;code&gt;sources&lt;/code&gt; в &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;discus&#34;&gt;Discus&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[params]
+    # Disqus shortcode
+    # Disable comments for a specific post by adding &amp;quot;comments: false&amp;quot; in its frontmatter
+    disqusShortname = &amp;quot;popstas&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Комменты появятся только при деплое, на localhost они отключены по каким-то причинам.&lt;/p&gt;
+
+&lt;h3 id=&#34;google-analytics&#34;&gt;Google Analytics&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[params]
+    # Google analytics account id
+    googleAnalytics = &amp;quot;UA-70438594-1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rss&#34;&gt;RSS&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[params]
+    rss = true  # switch to true to enable RSS icon link
+
+    # Set to true to use a text label for RSS instead of an icon
+    # This is overwritten by the `rss` setting
+    textrss = false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;боковая-колонка-последние-посты&#34;&gt;Боковая колонка: последние посты&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[params]
+	# Number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
+	sidebarRecentLimit = 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;боковая-колонка-twitter-лента-проекты-на-github&#34;&gt;Боковая колонка: Twitter лента, проекты на Github&lt;/h3&gt;
+
+&lt;p&gt;Кастомные виджеты sidebar не предусматривает, поэтому правим шаблон, дописываем в конец, перед &lt;code&gt;&amp;lt;/aside&amp;gt;&lt;/code&gt;:
+&lt;code&gt;/themes/octopress/layouts/partials/sidebar.html&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;    {{ partial &amp;quot;custom/twitterfeed.html&amp;quot; . }}
+    
+    {{ partial &amp;quot;custom/github.html&amp;quot; . }}
+&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;aside&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;После чего создаем в &lt;code&gt;themes/octopress/layouts/partials/custom&lt;/code&gt; соответствующие файлы и копируем туда шаблоны из Octopress.
+При этом нужно заменить переменные с &lt;code&gt;{{ site.var_name }}&lt;/code&gt; на &lt;code&gt;{{ .Site.Params.varName }}&lt;/code&gt; и добавить в &lt;code&gt;config.toml&lt;/code&gt; нужные переменные:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[params]
+    # Twitter feed
+    twitterUsername = &amp;quot;popstas&amp;quot;
+    # http://raisedadead.com/octopress-twitter-aside/
+    twitterWidgetId = 691684611357806592
+
+    # Github repos
+    githubUser = &amp;quot;popstas&amp;quot;
+    githubRepoCount = 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Код виджетов здесь:
+&lt;a href=&#34;https://github.com/popstas/popstas.github.io/tree/master/themes/octopress/partials/custom/twitterfeed.html&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;
+и
+&lt;a href=&#34;https://github.com/popstas/popstas.github.io/tree/master/themes/octopress/partials/custom/github.html&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;соц-панель-addtoany&#34;&gt;Соц. панель AddToAny&lt;/h3&gt;
+
+&lt;p&gt;С соц. панелью поступил так же, как и с виджетами боковой колонки: шаблон в &lt;code&gt;partials/custom&lt;/code&gt;, вставил в &lt;code&gt;/themes/octopress/layouts/partials/post_footer.html:18&lt;/code&gt;,
+там есть специальное место для соц. панели.&lt;/p&gt;
+
+&lt;h2 id=&#34;русификация&#34;&gt;Русификация&lt;/h2&gt;
+
+&lt;p&gt;Поменял формат дат в &lt;code&gt;themes/octopress/layouts/partials/post_header.html&lt;/code&gt; и &lt;code&gt;themes/octopress/layouts/partials/post_footer.html&lt;/code&gt;,
+было: &lt;code&gt;{{ .Date.Format &amp;quot;Jan 2, 2006&amp;quot; }}&lt;/code&gt;, стало: &lt;code&gt;{{ .Date.Format &amp;quot;2 Jan 2006, 15:04&amp;quot; }}&lt;/code&gt;,
+подробности &lt;a href=&#34;https://golang.org/pkg/time/#Time.Format&#34; target=&#34;_blank&#34;&gt;тут&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

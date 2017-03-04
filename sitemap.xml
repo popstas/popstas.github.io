@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</loc>
+    <lastmod>2017-02-24T17:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</loc>
+    <lastmod>2017-02-22T01:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</loc>
+    <lastmod>2016-04-11T05:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</loc>
+    <lastmod>2016-04-07T00:26:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</loc>
+    <lastmod>2016-03-06T10:09:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</loc>
+    <lastmod>2016-03-02T00:49:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</loc>
+    <lastmod>2016-02-29T03:46:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</loc>
+    <lastmod>2016-02-27T14:48:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/02/26/docker-in-images/</loc>
+    <lastmod>2016-02-26T21:29:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</loc>
+    <lastmod>2016-02-25T23:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</loc>
+    <lastmod>2016-01-31T02:00:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</loc>
+    <lastmod>2016-01-31T01:43:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</loc>
+    <lastmod>2016-01-17T07:50:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</loc>
+    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</loc>
+    <lastmod>2015-12-10T19:55:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</loc>
+    <lastmod>2015-11-22T09:40:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</loc>
+    <lastmod>2015-11-16T23:55:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/alerting/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/ansible/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/apt/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/apt-cacher/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/apt-cacher-ng/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/apt-mirror/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/artifactory/</loc>
+    <lastmod>2017-02-24T17:39:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/bash/</loc>
+    <lastmod>2017-02-22T01:19:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/blog/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/box/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/changelog/</loc>
+    <lastmod>2016-03-06T10:09:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/ci/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/composer/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/consul/</loc>
+    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/coveralls/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/docker/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/docs/</loc>
+    <lastmod>2016-03-06T10:09:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/drupal/</loc>
+    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/fast/</loc>
+    <lastmod>2016-01-31T01:43:24+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/gadgets/</loc>
+    <lastmod>2016-02-25T23:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/git/</loc>
+    <lastmod>2017-02-22T01:19:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/github/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/gitlab/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/go/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/grafana/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/gtd/</loc>
+    <lastmod>2015-11-22T09:40:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/hashicorp/</loc>
+    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/hugo/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/influxdata/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/influxdb/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/insider/</loc>
+    <lastmod>2016-04-07T00:26:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/javascript/</loc>
+    <lastmod>2015-11-22T09:40:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/kapacitor/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/macos/</loc>
+    <lastmod>2016-02-25T23:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/microsoft/</loc>
+    <lastmod>2016-04-11T05:01:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/molecule/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/monit/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/monitoring/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/octopress/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/otto/</loc>
+    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/phar/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/php/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/phpcs/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/phpmd/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/phpstorm/</loc>
+    <lastmod>2016-01-17T07:50:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/planfix/</loc>
+    <lastmod>2016-03-02T00:49:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/pocket/</loc>
+    <lastmod>2016-02-27T14:48:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/podcasts/</loc>
+    <lastmod>2016-02-27T14:48:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/post/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/rss/</loc>
+    <lastmod>2016-02-27T14:48:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/ruby/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/server-scripts/</loc>
+    <lastmod>2017-02-22T01:19:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/symfony/</loc>
+    <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/transmission-cli/</loc>
+    <lastmod>2016-03-06T10:09:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/travis/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/twitter/</loc>
+    <lastmod>2016-02-27T14:48:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/ubuntu/</loc>
+    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/update/</loc>
+    <lastmod>2016-04-07T00:26:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/vagrant/</loc>
+    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/windows/</loc>
+    <lastmod>2016-04-11T05:01:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/zsh/</loc>
+    <lastmod>2015-12-10T19:55:20+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

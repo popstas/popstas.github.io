@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>average: измерение среднего времени выполнения команды в bash</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">29 Feb 2016, 03:46
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         average: измерение среднего времени выполнения команды в bash 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Периодически хочется посчитать среднее время, у меня были такие сценарии:</p>
+
+<ul>
+<li>простая проверка скорости загрузки страницы</li>
+<li>подбор оптимальных параметров к команде</li>
+<li>сравнение разных команд</li>
+</ul>
+
+<p>Раньше я просто запускал несколько раз с <code>time</code>, смотрел результат, у уме делил.
+Но мне это надоело, поэтому написал скрипт <code>average</code>.</p>
+
+<p></p>
+
+<p>Код лежит здесь - <a href="https://github.com/popstas/server-scripts/blob/master/bin/average" target="_blank">https://github.com/popstas/server-scripts/blob/master/bin/average</a></p>
+
+<p>Поставить можно так:</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>curl -s <span style="color: #2AA198">&quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&quot;</span> &gt; /usr/local/bin/average
+chmod +x /usr/local/bin/average
+</pre></div>
+
+<p>Использовать можно так:</p>
+
+<p>Запуск команды по умолчанию, 5 циклов:</p>
+
+<pre><code>average 'command'
+</code></pre>
+
+<p>Запуск команды с указанным кол-вом циклов:</p>
+
+<pre><code>average 10 'command'
+</code></pre>
+
+<p>Запуск команды с передачей кол-ва циклов через переменную окружения:</p>
+
+<pre><code>export CYCLES=5
+average 'command'
+</code></pre>
+
+<p>Чтобы не показывать вывод команды, можно обрезать его через tail:</p>
+
+<pre><code>average 'command' | tail -n1
+</code></pre>
+
+<h3 id="узнать-среднее-время-загрузки-страницы">Узнать среднее время загрузки страницы:</h3>
+
+<p>С учетом кэша:</p>
+
+<pre><code>average 'curl -s &quot;http://example.com/&quot; &gt; /dev/null'
+</code></pre>
+
+<p>В обход кэша:</p>
+
+<pre><code>average 'curl -s &quot;http://example.com/?t=$RANDOM&quot; &gt; /dev/null'
+</code></pre>
+
+<h2 id="продвинутое-использование">Продвинутое использование</h2>
+
+<p>Мне надо было узнать оптимальное количество параллельных процессов для запуска тестов,
+теперь я могу узнать это запуском одной команды:</p>
+
+<pre><code>for p in {1..10}; do echo &quot;$p&quot; - $(average &quot;vendor/bin/paratest -p $p&quot; | tail -n1); done
+</code></pre>
+
+<p>Команда переберет кол-во процессов от 1 до 10, по каждой итерации выведет среднее время.</p>
+
+<p>После запуска получил такие результаты:</p>
+
+<pre><code>$ for p in {1..10}; do echo &quot;$p&quot; - $(average &quot;vendor/bin/paratest -p $p&quot; | tail -n1); done
+
+1 - 1 loops, best of 5: 13.9 sec per loop
+2 - 1 loops, best of 5: 7.51 sec per loop
+3 - 1 loops, best of 5: 5.51 sec per loop
+4 - 1 loops, best of 5: 4.51 sec per loop
+5 - 1 loops, best of 5: 4.42 sec per loop
+6 - 1 loops, best of 5: 4.71 sec per loop
+7 - 1 loops, best of 5: 4.21 sec per loop
+8 - 1 loops, best of 5: 4.23 sec per loop
+9 - 1 loops, best of 5: 4.13 sec per loop
+10 - 1 loops, best of 5: 4.33 sec per loop
+</code></pre>
+
+<p>Видно, что после 4 потоков разницы почти нет, а вот комп от запуска кучи параллельных процессов тормозит
+очень даже заметно.</p>
+
+<p>Конечно, в этом случае много ума не надо, чтобы понять, что кол-во процессов должно быть по кол-ву ядер, но я что-то засомневался :)</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>29 Feb 2016, 03:46</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="http://blog.popstas.ru/tags/server-scripts">server-scripts</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/" title="Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей">Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/" title="Интеграция Git, Gitlab и Planfix почти как на Github">Интеграция Git, Gitlab и Planfix почти как на Github</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

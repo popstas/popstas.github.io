@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Bash on Ubuntu on Windows: первый блин</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">11 Apr 2016, 05:01
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Bash on Ubuntu on Windows: первый блин 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<p>Итак, <a href="/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления</a> Windows, поставил в нее Ubuntu <a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/" target="_blank">по инструкции</a>, вот что было дальше:</p>
+
+<p>Tl;dr: оно очень сырое, не работает почти ничего.</p>
+
+<p><img src="/images/2016-04/windows-ubuntu-bash.png" /></p>
+
+<!--more -->
+
+<p>Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же!
+Шелл открылся под root, так что sudo не нужен.</p>
+
+<pre><code>$ aptitude install zsh
+</code></pre>
+
+<p>Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude,
+нет проблем, ставим через <code>apt-get</code>, но оказывается, что нет инета.</p>
+
+<p>Про это есть <a href="https://github.com/Microsoft/CommandLine-Documentation/issues/14" target="_blank">issue#14</a> (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</p>
+
+<pre><code>$ echo &quot;nameserver 8.8.8.8&quot; &gt; /etc/resolv.conf
+</code></pre>
+
+<p>При этом не заработает ifconfig, ping, nslookup, но пакеты начнут ставиться.
+apt-get при установке поругивается, но ставит.</p>
+
+<h1 id="zsh">Zsh</h1>
+
+<pre><code>$ apt-get update &amp;&amp; apt-get install git zsh
+</code></pre>
+
+<p>Ок, сработало, ставлю свой <a href="https://github.com/popstas/zsh-config" target="_blank">zsh-config</a>
+Что-то пошло не так с пайпами, но в итоге он поставился. Кстати git работает как родной.</p>
+
+<p>Открываю новый терминал, открывается bash, смотрю /etc/passwd, там написано, что
+шелл /bin/zsh. Ладно, запускаю zsh вручную, он вывалил кучу ошибок про powerline,
+что-то от zsh, никакой красоты не появилось.</p>
+
+<p>Ок, упрощаем, удаляю свой конфиг, открываю чистый zsh - все равно облом.</p>
+
+<p>Ладно, не в zsh счастье (или все-таки в нем?).</p>
+
+<p>Открываю <code>mc</code>, он как бы работает, но после первого нажатия Enter курсоры перестают бегать.
+Выходим, идем дальше.</p>
+
+<h1 id="python">Python</h1>
+
+<pre><code>$ apt-get install python-pip python-dev
+</code></pre>
+
+<p>Все поставилось.
+Смотрим pip:</p>
+
+<ul>
+<li><code>glances</code> - не работает</li>
+<li><a href="/blog/2015/12/10/interactive-bash-history-with-search/">percol</a> - работает!</li>
+<li><code>ansible</code> - ругается при запуске про <code>Function not implemented</code></li>
+<li><code>ps_mem</code> - конечно нет</li>
+<li><code>httpie</code> - работает!</li>
+</ul>
+
+<h1 id="ssh">SSH</h1>
+
+<p>Тащим ключ с домашней машины</p>
+
+<pre><code>$ rsync popstas@home:/Users/popstas/.ssh/id_dsa ~/.ssh
+</code></pre>
+
+<p>Работает!</p>
+
+<p>Подключаюсь к удаленному хосту - тоже работает!
+Там зашел в <code>mc</code>, стало понятно, что глючит терминал: на удаленке курсоры тоже бегают плохо.
+Ок, терминал будет, потом.</p>
+
+<h1 id="php">PHP</h1>
+
+<pre><code>$ apt-get install php5-cli
+</code></pre>
+
+<p>PHP работает.
+Composer ставится, но при попытке установить им что-нибудь зависает.</p>
+
+<h1 id="nginx">Nginx</h1>
+
+<p>Ставится, но не стартует, в error.log пишет, что не может прибиндиться к сокету.</p>
+
+<h1 id="вывод">Вывод</h1>
+
+<p>Пользоваться этим сейчас конечно нельзя и в ближайший месяц думаю можно не надеяться.
+Я рассчитывал на большее, ну ладно, будем надеяться, что у Microsoft получится сделать
+полноценный линукс, хотя видно, что работы тут еще немеряно.</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>11 Apr 2016, 05:01</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="http://blog.popstas.ru/tags/windows">windows</a>  <a class="category" href="http://blog.popstas.ru/tags/ubuntu">ubuntu</a>  <a class="category" href="http://blog.popstas.ru/tags/microsoft">microsoft</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/" title="Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем">Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/" title="Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

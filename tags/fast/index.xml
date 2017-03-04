@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fast on Popstas</title>
+    <link>http://blog.popstas.ru/tags/fast/index.xml</link>
+    <description>Recent content in Fast on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/fast/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
+      <link>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
+      <pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
+      <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
+бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
+возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера&lt;/li&gt;
+&lt;li&gt;Пользоваться легко&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-01/eggtimer.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://e.ggtimer.com&#34; target=&#34;_blank&#34;&gt;http://e.ggtimer.com&lt;/a&gt; - с виду ничего особенного (так и есть), мне понравилась простота и задание времени через URL.
+Какое-то время я пользовался им так: создал 2 таймера, на 5 и на 10 минут, сделал на них закладки на панель закладок.
+Это не очень удобно по 2 причинам: на chrome мне жалко места на панели, а на firefox у меня панели закладок нет.&lt;/p&gt;
+
+&lt;p&gt;Выход такой: оба браузера поддерживают пользовательские поисковые системы, сделаем такие.&lt;/p&gt;
+
+&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Добавить в закладки &lt;a href=&#34;http://e.ggtimer.com/%smin&#34; target=&#34;_blank&#34;&gt;http://e.ggtimer.com/%smin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Находим эту закладку в списке и делаем ей Keyword: t&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;chrome&#34;&gt;Chrome&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Настройки - Настроить поисковые системы&lt;/li&gt;
+&lt;li&gt;Добавить систему &lt;code&gt;e.ggtimer&lt;/code&gt; - &lt;code&gt;t&lt;/code&gt; - &lt;code&gt;http://e.ggtimer.com/%smin&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;После этого таймер на 5 минут ставится так:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Выбираем любой браузер&lt;/li&gt;
+&lt;li&gt;Ставим фокус на поисковую строку (&lt;code&gt;F6&lt;/code&gt; / &lt;code&gt;Ctrl+L&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Пишем &lt;code&gt;t 5&lt;/code&gt;, &lt;code&gt;Enter&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;На самом деле в Firefox не синхронизируется Keyword закладок, придется прописывать на каждой системе.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
+      <link>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
+      <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
+Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
+
+&lt;p&gt;UPD: 06.06.2016
+Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Что он делает:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;идет на страницу EAP, находит там версию&lt;/li&gt;
+&lt;li&gt;проверяет, что на компе стоит другая версия EAP&lt;/li&gt;
+&lt;li&gt;качает dmg в папку Загрузки&lt;/li&gt;
+&lt;li&gt;монтирует образ&lt;/li&gt;
+&lt;li&gt;завершает PhpStorm, если он открыт&lt;/li&gt;
+&lt;li&gt;удаляет текущую версию и копирует новую в папку /Applications&lt;/li&gt;
+&lt;li&gt;запускает новую версию&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Поставить можно так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -s &amp;quot;https://gist.githubusercontent.com/popstas/613a72a34576b85caec4/raw/644f457ed0187ab0d1207576e925c06260451131/phpstorm-eap-update.sh&amp;quot; &amp;gt; /usr/local/bin/phpstorm-eap-update
+chmod +x /usr/local/bin/phpstorm-eap-update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После чего можно обновлять просто запуском &lt;code&gt;phpstorm-eap-update&lt;/code&gt;.
+По идее можно даже в cron его засунуть, чтобы совсем автомат, но я и так узнаю о новой версии из rss.&lt;/p&gt;
+
+&lt;p&gt;Код лежит здесь - &lt;a href=&#34;https://gist.github.com/popstas/613a72a34576b85caec4&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/popstas/613a72a34576b85caec4&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;В PhpStorm 11 из фич ничего особенного не нашел, зато с этой версии он перешел на использование Java 8,
+не знаю, в этом ли дело, но у меня он вроде перестал тормозить.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

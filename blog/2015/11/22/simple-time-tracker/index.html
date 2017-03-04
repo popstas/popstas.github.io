@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Простой тайм-трекер для отслеживания потраченного времени</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">22 Nov 2015, 09:40
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Простой тайм-трекер для отслеживания потраченного времени 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
+Поэтому написал для себя небольшое приложение, тайм-трекер - <a href="http://time.popstas.ru/" target="_blank">http://time.popstas.ru/</a>
+Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
+глюки, которые раздражали последние годы :)</p>
+
+<p>Tl; dr: выбросил свою поделку, теперь пользуюсь <a href="https://www.toggl.com/" target="_blank">https://www.toggl.com/</a></p>
+
+<p><img src="https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true" /></p>
+
+<p></p>
+
+<p>Конечно, перед тем, как написать свое, долго искал что-то похожее.
+Самое близкое, что нашел - <a href="https://www.toggl.com/" target="_blank">https://www.toggl.com/</a></p>
+
+<p>Так как я собирался использовать ее постоянно и переключать задачу,
+пока человек, прибежавший со срочной задачей ждет, важна была каждая секунда.</p>
+
+<p>time-tracker - простая задачница, решающая большую задачу слежения за собой.</p>
+
+<h3 id="фичи">Фичи:</h3>
+
+<ul>
+<li>быстрое добавление задач</li>
+<li>подзадачи</li>
+<li>быстрое переключение между задачами</li>
+<li>исправление времени задним числом</li>
+<li>быстрое копирование сводки за день</li>
+<li>отслеживание времени по каждой задаче</li>
+<li>сводка по задачам</li>
+<li>навигация с клавиатуры</li>
+</ul>
+
+<h3 id="неочевидные-моменты">Неочевидные моменты</h3>
+
+<ul>
+<li>При отслеживании активна всегда только одна задача.</li>
+<li>Если включить Desktop notifications, каждые 10 минут будет всплывать сообщение
+о том, сколько активна задача с последнего ее запуска и сколько активна всего.</li>
+<li>Единственный способ создать второй список задач - открыть другой браузер.</li>
+</ul>
+
+<h3 id="сценарии-применения">Сценарии применения</h3>
+
+<ul>
+<li>постоянное переключение между задачами в течение дня</li>
+<li>многодневный проект, когда надо отследить общее потраченное время</li>
+<li>быстрый чеклист</li>
+</ul>
+
+<p>Для многодневного проекта кстати хочу попробовать связку
+<a href="https://trello.com/" target="_blank">Trello</a> + <a href="https://toggl.com/tools" target="_blank">Toggl</a>,
+пока писал этот пост, узнал, что у них есть интеграция.</p>
+
+<h3 id="как-я-использую-задачницу">Как я использую задачницу:</h3>
+
+<p>Прихожу в офис, включаю задачу &ldquo;текучка&rdquo;
+После этого ставлю фильтр, чтобы показались задачи с ненулевым временем,
+выделяю все, вставляю в блокнот (потом можно вспомнить, чем занимался в
+такой-то день, бывает полезно), сбрасываю таймеры (справа от строки ввода),
+удаляю ненужное, добавляю то, что сегодня собираюсь делать (1-2 задачи) и
+начинаю работать.</p>
+
+<p>Когда ко мне кто-то приходит, и начинает задавать вопросы, я тут же запускаю
+в задачах соответствующий проект или &ldquo;прочие консультации&rdquo;, если быстро определить
+не удалось.</p>
+
+<p>Чаще всего текущие проекты поделены на несколько подзадач, а внезапно возникающие
+просто обозначены проектами.</p>
+
+<h3 id="мои-постоянные-задачи">Мои постоянные задачи:</h3>
+
+<ul>
+<li><code>текучка</code> - вся не классифицируемая мелочь
+разбор почты, разбор задач в корпоративной системе.</li>
+<li><code>-------</code> - перекуры, наливание чая, прочее ничегонеделание</li>
+<li><code>обед</code> - ничегонеделание в обед</li>
+<li><code>прочие консультации</code> - разговоры на рабочие темы</li>
+<li><code>сисадминство</code> - работы по серверу</li>
+<li>несколько задач с проектами, которые постоянно всплывают</li>
+</ul>
+
+<h2 id="техническая-часть">Техническая часть</h2>
+
+<ul>
+<li>Backbone (использовал в первый и последний раз)</li>
+<li>LESS, шрифтовые иконки</li>
+<li>Хранилище данных в LocalStorage браузера</li>
+</ul>
+
+<p>Одной из причин написать было желание потрогать backbone.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>22 Nov 2015, 09:40</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/gtd">gtd</a>  <a class="category" href="http://blog.popstas.ru/tags/javascript">javascript</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/" title="Показать все окна gnome terminal в Ubuntu">Показать все окна gnome terminal в Ubuntu</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" title="Интерактивная Zsh history с поиском и скроллом, percol">Интерактивная Zsh history с поиском и скроллом, percol</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

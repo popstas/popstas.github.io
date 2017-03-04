@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.popstas.ru/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">27 Feb 2016, 14:48
+         - 7 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.</p>
+
+<p>Tl;dr: RSS + Twitter + Email &rarr; Pocket &rarr; Firefox &rarr; Twitter + закладки.</p>
+
+<p><img src="/images/2016-02/content_pyramid.png" /></p>
+
+<p></p>
+
+<h2 id="источники">Источники</h2>
+
+<h3 id="rss">RSS</h3>
+
+<p>RSS - мой основной источник информации. Кто не пользовался RSS, не представляет, сколько всего можно получать через ленты:</p>
+
+<ul>
+<li>топ статей</li>
+<li>статьи по конкретным категориям/тегам</li>
+<li>комменты к редко обновляемым постам</li>
+<li>вопросы/ответы по интересующим темам</li>
+<li>личные блоги (вообще не представляю, как можно еще читать личные блоги)</li>
+<li>подкасты</li>
+<li>новые альбомы музыкальных групп</li>
+</ul>
+
+<p>Для сбора всех RSS в одном месте я использую Feedly, требований к нему у меня почти нет, когда умер Google Reader,
+перешел по первому результату, с тех пор пользуюсь.</p>
+
+<p>99% RSS я читаю с телефона в дороге и на обедах.</p>
+
+<p>Если по анонсу понятно, что статья полезная, я сразу пересылаю ее в Pocket и разгребаю RSS дальше.</p>
+
+<p>На Android использую gReader, он глючный, кто знает нормальный RSS клиент - скажите.</p>
+
+<h3 id="email">Email</h3>
+
+<p>Email рассылки не умерли, как наверное многие думают. Лично я считаю, что их легко могла бы заменить RSS лента с тем же контентом,
+но она почему-то есть не у всех, видимо потому, что email проще.</p>
+
+<p>Написав это, я подумал: &ldquo;А ведь должен быть шлюз Email-RSS!&rdquo; Так и оказалось, первый результат привел меня на бесплатный сервис
+<a href="https://emails2rss.appspot.com" target="_blank">emails2rss.appspot.com</a>, собранный на коленке,
+который по авторизации через Google дает вам виртуальный email, на который надо оформлять подписки и настоящую RSS ленту.
+Так вот при написании статьи я немного изменил свои источники контента :)
+Тут есть небольшой риск потерять часть своих лент из-за смерти сервиса, но рассылки еженедельные, так что думаю я это замечу.</p>
+
+<p>Чтобы не валить все в одну кучу, можно создать несколько виртуальных email и RSS.</p>
+
+<p>Шлюз это конечно хорошо, но есть также источники email рассылок, которые завернуть будет сложнее: те, где вы регаетесь под своим email.
+Это тоже решаемо: создаем фильтр в почтовом клиенте, который будет пересылать письма.
+Думаю, что через пару недель я перестану получать новостные рассылки в почту.</p>
+
+<h3 id="подкасты">Подкасты</h3>
+
+<p>Подкасты я открыл для себя чуть больше года назад и быстро пожалел&hellip; что так долго ими не пользовался!
+У подкастов своя ниша: их можно читать, когда ты занят чем-то физически, а голова свободна:</p>
+
+<ul>
+<li>на улице пешком, на велике или лыжах</li>
+<li>во время ремонта, копания в огороде</li>
+<li>во время уборки, мытья посуды, домашних дел</li>
+<li>во время бездумных действий за компом (тренировка слепой печати, чистка мусора на диске)</li>
+</ul>
+
+<p>Подкасты у меня в голове делятся на 2 типа: развлекательные и полезные. Конечно, в каждом есть и то, и другое,
+но в целом разграничение достаточно четкое.</p>
+
+<p>У любого нормального подкаста (да у всех) есть RSS. Тут есть один момент: формат RSS подкаста отличается от обычного,
+там должна быть специально размеченная ссылка на mp3, я долго не придавал этому значения,
+из-за чего подписывался на RSS <strong>сайта</strong> подкаста, а не сам подкаст.
+Это лишает вас возможности автоматически скачивать их (об этом ниже, в части про плеер).
+Так что вам нужно искать именно ссылку на подкаст, она часто называется ссылка на iTunes,
+я ее боялся и не переходил туда, оказалось, что по ссылке лежит RSS.</p>
+
+<p>У подкастов обычно есть &ldquo;шоуноты&rdquo;, текстовое краткое содержание и список ссылок, которые обсуждали,
+их тоже бывает полезно смотреть, но я забываю.</p>
+
+<p>На подкасты я подсел через <a href="https://radio-t.com/" target="_blank">Радио Т</a>, какое-то время слушал только их, пока не переслушал все, что было интересного.
+А потом как началось&hellip; Я примерно 2 месяца тренировал слепую печать по часу в день, и чтобы совместить полезное с полезным,
+параллельно слушал подкасты. В таком темпе они очень быстро кончились и пришлось искать новые.</p>
+
+<p>Подкастов, в отличие от RSS, сравнительно немного и выбор небольшой, поэтому их еще надо найти.
+<a href="https://gpodder.net/user/popstas/subscriptions" target="_blank">Здесь</a> лежит мой список, а на
+<a href="https://github.com/AveVlad/russia-it-podcast" target="_blank">AveVlad/russia-it-podcast</a> самый большой список русских подкастов,
+его можно дополнять, я туда заношу новое, что нахожу.</p>
+
+<h3 id="видеоматериалы">Видеоматериалы</h3>
+
+<p>Видеоматериалы попадаются единичные и в виде курсов. Разницы в общем нет, а рассказать надо о том, что сразу не приходит в голову:
+большую часть выступлений можно не смотреть, а только слушать! И да, для этого есть
+<a href="http://www.onlinevideoconverter.com/video-converter" target="_blank">сервис</a>, за полминуты получаем mp3 с видео, дальше все как с подкастами.</p>
+
+<p>Просто так втыкать в видео мне редко хочется, у таких видяшек два сценария:</p>
+
+<ul>
+<li>во время бездумных действий за компом</li>
+<li>во время ужина, вместо сериалов</li>
+</ul>
+
+<h3 id="twitter">Twitter</h3>
+
+<p>Чтобы нормально использовать твиттер в режиме чтения, вам нужно отписаться ото всех, кто генерирует спам
+и оставить только тех, кто твиттит интересное вам. Казалось бы, очевидная вещь, но я это сразу не понял,
+начал подписываться на все подряд, дублируя функционал RSS, быстро засорил ленту и на несколько лет забыл о твиттере.</p>
+
+<p>Сейчас я тоже не скажу, чтобы я много инфы оттуда доставал, но случается.
+Проблема в том, что найти интересных вам генераторов сложно, я этим специально не занимался,
+поэтому у меня интересный генератор один, и я и так подписан на его блог.</p>
+
+<h2 id="посредники">Посредники</h2>
+
+<h3 id="pocket">Pocket</h3>
+
+<p>Главный агрегатор нефильтрованного контента, ставится на телефон и в браузеры, позволяет в один клик добавить статью в список на прочтение.
+На телефоне статьи доступны оффлайн.</p>
+
+<p>Сюда попадает все:</p>
+
+<ul>
+<li>RSS</li>
+<li>любые интересные найденные материалы</li>
+</ul>
+
+<p>Это помогает найти статью, даже если она не пойдет дальше, а также точнее следить за количиеством прочитанных статей
+(люблю я все считать, да :)</p>
+
+<p>В Pocket прочитывается большинство статей, но некоторые уходят на прочтение в мобильный браузер
+(Pocket иногда портит оформление статьи), в Reedy или на домашний комп.</p>
+
+<h3 id="браузер">Браузер</h3>
+
+<p>В Firefox есть удобная штука: пересылка вкладки с одного устройства на другое, объединенных одним аккаунтом синхронизации.
+Поэтому все, что на телефоне читать неудобно, сразу улетает на домашний комп. Для хрома тоже вроде есть что-то подобное.</p>
+
+<h3 id="плеер">Плеер</h3>
+
+<p>В плеере лежат подкасты и записи с конференций. Под плеером я имею в виду телефон, и тут надо рассказать о том,
+как подкасты попадают туда. В двух словах: качалка подкастов + синхронизация файлов.</p>
+
+<p>Я использую gPodder для скачивания подкастов. Раньше, когда сидел на Ubuntu, пользовался местным плеером Rhytmbox для этого,
+у gPodder плюсы в том, что он есть под все операционки и он дает аккаунт, где собраны все ваши подкасты.</p>
+
+<p>Пользоваться так: создаем аккаунт (не обязательно), задаем папку для сохранения или iPod, добавляем RSS подкастов
+(в части про подкасты написано, чем они отличаются от обычных RSS) после этого подкасты будут прилетать сами,
+вам остается по Ctrl+S переслать их в плеер.</p>
+
+<p>Если у вас не iPod, то тут есть 2 варианта: использовать синхронизацию файлов (я раньше использовал BTSync, потом перешел на Syncthing)
+или, если у вас Android, поставить gPodder прямо на него. Мне больше нравится синхронизация через комп,
+так как я бывает не успеваю слушать все подкасты, а они все прибывают, в итоге место на телефоне кончается.</p>
+
+<p>Для прослушивания использую
+<a href="https://play.google.com/store/apps/details?id=ak.alizandro.smartaudiobookplayer&amp;hl=ru" target="_blank">Smart AudioBook Player</a>.</p>
+
+<h3 id="reedy">Reedy</h3>
+
+<p>Из Pocket некоторые статьи читаются через <a href="https://habrahabr.ru/post/220775/" target="_blank">Reedy</a>, использую редко, но он мне нравится,
+это такая программа для скорочтения: слова бегут по экрану, наподобие бегущей строки, так и читаете.
+Звучит неубедительно, это надо попробовать, у меня таким способам статьи читаются в 1.5-2 раза быстрее.</p>
+
+<p>Минус в том, что мало что можно так прочитать:
+статья должна быть без картинок, кода, формул, таблиц - только текст, иначе ничего не понятно будет.</p>
+
+<h2 id="хранители">Хранители</h2>
+
+<p>Судьба лучших материалов - попасть на долгое хранение.</p>
+
+<h3 id="twitter-1">Twitter</h3>
+
+<p>Каждую прочитанную статью, которая понравилась, я в последнее время отправляю в твиттер,
+таким образом я создал для себя самую узкую часть моей воронки контентопотребления.
+Не знаю зачем, но думаю, пригодится может кто-то будет меня читать, а если нет, может мне понадобятся все эти статьи,
+тогда я смогу их оттуда достать.</p>
+
+<h3 id="закладки">Закладки</h3>
+
+<p>Статьи, которые пригодятся потом, я отправляю в браузер, а приходя домой, добавляю их в закладки, проставляю теги.
+Это очень помогает находить контент, который уже прочитал, но был еще не в теме.
+Например, вникаю в тестирование и все, что может быть полезным, скидываю в закладки, потом проще искать, когда понадобится.</p>
+
+<p>Самое главное не забыть сначала поискать в закладках нужную тему перед тем как гуглить.</p>
+
+<h2 id="источники-для-отдыха">Источники для отдыха</h2>
+
+<h3 id="вконтакте">Вконтакте</h3>
+
+<p>Ленту вконтакте за день можно читать за 1-2 минуты, рецепт тот же, что и для твиттера:
+отпишитесь от спамогенераторов и от пабликов (1-2 пишущих по 3 раза в день можно и оставить).
+Удалять из друзей не обязательно, можно просто не показывать записи в ленте. Тут вроде работает правило 20/80,
+так что много отписывать не надо будет.</p>
+
+<h3 id="музыка">Музыка</h3>
+
+<p>Давно хотел сразу узнавать, если у групп, которые я слушаю, появляются новые альбомы. Так вот, теперь это возможно!
+Я использую комбинацию RSS для групп, которые не спамят + подписка на исполнителя в яндекс музыке для всех групп.
+Это работает уже пару лет, стоит один раз потратить вечер на добавление исполнителей из вашего плейлиста в подписки
+и вы будете получать обновления по ним.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>27 Feb 2016, 14:48</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/pocket">pocket</a>  <a class="category" href="http://blog.popstas.ru/tags/twitter">twitter</a>  <a class="category" href="http://blog.popstas.ru/tags/rss">rss</a>  <a class="category" href="http://blog.popstas.ru/tags/podcasts">podcasts</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/02/26/docker-in-images/" title="Docker в картинках">Docker в картинках</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/" title="average: измерение среднего времени выполнения команды в bash">average: измерение среднего времени выполнения команды в bash</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Stanislav Popov - <a href="http://blog.popstas.ru/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

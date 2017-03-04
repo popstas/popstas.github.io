@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gtd on Popstas</title>
+    <link>http://blog.popstas.ru/tags/gtd/index.xml</link>
+    <description>Recent content in Gtd on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/gtd/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Простой тайм-трекер для отслеживания потраченного времени</title>
+      <link>http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid>
+      <description>&lt;p&gt;На работе у меня часто бывает такое, что не понятно, куда ушло время.
+Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href=&#34;http://time.popstas.ru/&#34; target=&#34;_blank&#34;&gt;http://time.popstas.ru/&lt;/a&gt;
+Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
+глюки, которые раздражали последние годы :)&lt;/p&gt;
+
+&lt;p&gt;Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href=&#34;https://www.toggl.com/&#34; target=&#34;_blank&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Конечно, перед тем, как написать свое, долго искал что-то похожее.
+Самое близкое, что нашел - &lt;a href=&#34;https://www.toggl.com/&#34; target=&#34;_blank&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Так как я собирался использовать ее постоянно и переключать задачу,
+пока человек, прибежавший со срочной задачей ждет, важна была каждая секунда.&lt;/p&gt;
+
+&lt;p&gt;time-tracker - простая задачница, решающая большую задачу слежения за собой.&lt;/p&gt;
+
+&lt;h3 id=&#34;фичи&#34;&gt;Фичи:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;быстрое добавление задач&lt;/li&gt;
+&lt;li&gt;подзадачи&lt;/li&gt;
+&lt;li&gt;быстрое переключение между задачами&lt;/li&gt;
+&lt;li&gt;исправление времени задним числом&lt;/li&gt;
+&lt;li&gt;быстрое копирование сводки за день&lt;/li&gt;
+&lt;li&gt;отслеживание времени по каждой задаче&lt;/li&gt;
+&lt;li&gt;сводка по задачам&lt;/li&gt;
+&lt;li&gt;навигация с клавиатуры&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;неочевидные-моменты&#34;&gt;Неочевидные моменты&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;При отслеживании активна всегда только одна задача.&lt;/li&gt;
+&lt;li&gt;Если включить Desktop notifications, каждые 10 минут будет всплывать сообщение
+о том, сколько активна задача с последнего ее запуска и сколько активна всего.&lt;/li&gt;
+&lt;li&gt;Единственный способ создать второй список задач - открыть другой браузер.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;сценарии-применения&#34;&gt;Сценарии применения&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;постоянное переключение между задачами в течение дня&lt;/li&gt;
+&lt;li&gt;многодневный проект, когда надо отследить общее потраченное время&lt;/li&gt;
+&lt;li&gt;быстрый чеклист&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Для многодневного проекта кстати хочу попробовать связку
+&lt;a href=&#34;https://trello.com/&#34; target=&#34;_blank&#34;&gt;Trello&lt;/a&gt; + &lt;a href=&#34;https://toggl.com/tools&#34; target=&#34;_blank&#34;&gt;Toggl&lt;/a&gt;,
+пока писал этот пост, узнал, что у них есть интеграция.&lt;/p&gt;
+
+&lt;h3 id=&#34;как-я-использую-задачницу&#34;&gt;Как я использую задачницу:&lt;/h3&gt;
+
+&lt;p&gt;Прихожу в офис, включаю задачу &amp;ldquo;текучка&amp;rdquo;
+После этого ставлю фильтр, чтобы показались задачи с ненулевым временем,
+выделяю все, вставляю в блокнот (потом можно вспомнить, чем занимался в
+такой-то день, бывает полезно), сбрасываю таймеры (справа от строки ввода),
+удаляю ненужное, добавляю то, что сегодня собираюсь делать (1-2 задачи) и
+начинаю работать.&lt;/p&gt;
+
+&lt;p&gt;Когда ко мне кто-то приходит, и начинает задавать вопросы, я тут же запускаю
+в задачах соответствующий проект или &amp;ldquo;прочие консультации&amp;rdquo;, если быстро определить
+не удалось.&lt;/p&gt;
+
+&lt;p&gt;Чаще всего текущие проекты поделены на несколько подзадач, а внезапно возникающие
+просто обозначены проектами.&lt;/p&gt;
+
+&lt;h3 id=&#34;мои-постоянные-задачи&#34;&gt;Мои постоянные задачи:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;текучка&lt;/code&gt; - вся не классифицируемая мелочь
+разбор почты, разбор задач в корпоративной системе.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-------&lt;/code&gt; - перекуры, наливание чая, прочее ничегонеделание&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;обед&lt;/code&gt; - ничегонеделание в обед&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;прочие консультации&lt;/code&gt; - разговоры на рабочие темы&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;сисадминство&lt;/code&gt; - работы по серверу&lt;/li&gt;
+&lt;li&gt;несколько задач с проектами, которые постоянно всплывают&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;техническая-часть&#34;&gt;Техническая часть&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Backbone (использовал в первый и последний раз)&lt;/li&gt;
+&lt;li&gt;LESS, шрифтовые иконки&lt;/li&gt;
+&lt;li&gt;Хранилище данных в LocalStorage браузера&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Одной из причин написать было желание потрогать backbone.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

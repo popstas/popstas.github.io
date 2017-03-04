@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Popstas</title>
+    <link>http://blog.popstas.ru/tags/github/index.xml</link>
+    <description>Recent content in Github on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
+      <link>http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
+      <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
+
+&lt;p&gt;Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href=&#34;https://influxdata.com/get-started/what-is-the-tick-stack/&#34; target=&#34;_blank&#34;&gt;TICK&lt;/a&gt; от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p&gt;
+
+&lt;p&gt;Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p&gt;
+
+&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&amp;rsquo;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&#34;background:#1F242D&#34; src=&#34;http://blog.popstas.ru/images/2016-05/kapacitor.svg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Я уже настроил три слоя из стека: на серверах стоят агенты Telegraf, передают метрики в InfluxDB, их можно смотреть в виде графиков через Grafana (InfluxData предлагает свой Chronograf, но он сильно отстает от Grafana по функционалу на январь 2016 и вряд ли это изменится).&lt;/p&gt;
+
+&lt;p&gt;У этой схемы есть недостаток: чтобы узнать, что что-то идет не так, нужно зайти в Grafana и глазами найти это что-то. Это меня устраивает, когда я уже знаю, что сервер плохо себя чувствует.&lt;/p&gt;
+
+&lt;p&gt;Kapacitor нужен для уведомлений, алертинга. В 2 словах: это демон, который умеет пропускать через себя данные, приходящие в InfluxDB, обрабатывать их и пересылать по разным каналам связи / на HTTP / в базу данных.&lt;/p&gt;
+
+&lt;p&gt;Для меня Kapacitor - прямой конкурент Monit, поэтому сравниваю с ним, больше ни с чем подобным дел не имел, но слышал, что для мониторинга серверов правильные пацаны используют Zabbix, Nagios/Icinga, Sensu, Riemann. Я решил пока не добавлять софта на сервера, да и уведомлять на основе уже собранных данных мне кажется правильным, этим объясняется мой выбор в пользу Kapacitor.&lt;/p&gt;
+
+&lt;h3 id=&#34;плюсы-kapacitor&#34;&gt;Плюсы Kapacitor&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Убирание лишнего. Kapacitor не надо ставить агентом, роль агента выполняет Telegraf. Monit, которым я пользуюсь сейчас для алертинга, дублирует функционал, собирая метрики самостоятельно.&lt;/li&gt;
+&lt;li&gt;Надежный алертинг. У monit тут есть проблема: когда умирает сервер, monit, установленный там, тоже умирает и не успевает отправить алерт на email. Надежный, кроме случаев, когда падает Kapacitor или InfluxDB, что случается.&lt;/li&gt;
+&lt;li&gt;Продвинутый алертинг. Monit умеет мало (ладно, много, но я умею на нем мало). Kapacitor имеет в распоряжении данные всех моих серверов, что позволяет ему смотреть на них как на систему. У меня в этом месте фантазия начинает играть, не буду расписывать, что по моему мнению можно отслеживать через Kapacitor, так как может такого и нельзя :)&lt;/li&gt;
+&lt;li&gt;Каналы алертинга. Заявлена поддержка HipChat, OpsGenie, Alerta, Sensu, PagerDuty, Slack, VictorOps, кроме этого есть запись в лог, email, POST-запрос. Для разных событий можно указывать разные каналы. Monit умеет только email, а мне нужен был Slack.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;плюсы-monit&#34;&gt;Плюсы Monit:&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Monit проверенный, а Kapacitor - нет, как и весь TICK.&lt;/li&gt;
+&lt;li&gt;Monit имеет прямой доступ к серверу, что позволяет ему реагировать самостоятельно, например, перезагружать сервис, если он не отвечает. Kapacitor умеет только уведомлять.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
+
+&lt;p&gt;Ставить можно &lt;a href=&#34;https://influxdata.com/downloads/#kapacitor&#34; target=&#34;_blank&#34;&gt;по-разному&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Для тех, кто не дружит с Ansible, установка из репозитория, &lt;a href=&#34;https://docs.influxdata.com/influxdb/v0.13/introduction/installation/&#34; target=&#34;_blank&#34;&gt;взятая из мануала&lt;/a&gt; по InfluxDB (репозиторий один на весь стек InfluxData):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -sL https://repos.influxdata.com/influxdb.key &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sudo apt-key add -
+&lt;span style=&#34;color: #B58900&#34;&gt;source&lt;/span&gt; /etc/lsb-release
+&lt;span style=&#34;color: #B58900&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;deb https://repos.influxdata.com/${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;DISTRIB_ID&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,,&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;} ${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;DISTRIB_CODENAME&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;} stable&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/influxdb.list
+aptitude update
+aptitude install kapacitor
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Я буду ставить через Ansible &lt;a href=&#34;https://github.com/rossmcdonald/kapacitor&#34; target=&#34;_blank&#34;&gt;rossmcdonald/kapacitor&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;ansible-galaxy install rossmcdonald.kapacitor
+ansible-playbook -c &lt;span style=&#34;color: #B58900&#34;&gt;local&lt;/span&gt; kapacitor.yml
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;a-name-github-pull-request-a-как-просто-делать-pull-request&#34;&gt;&lt;a name=&#34;github-pull-request&#34;&gt;&lt;/a&gt;Как просто делать Pull request&lt;/h4&gt;
+
+&lt;p&gt;В плейбуке была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто &lt;a href=&#34;https://github.com/rossmcdonald/kapacitor/pull/1&#34; target=&#34;_blank&#34;&gt;делать pull request&lt;/a&gt; прямо в браузере. Это заняло минуты две: жмем &amp;ldquo;редактировать&amp;rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &amp;ldquo;Create pull request&amp;rdquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;настройка&#34;&gt;Настройка&lt;/h2&gt;
+
+&lt;p&gt;Так как я уже использовал готовую ansible-роль, настройка уже включена в установку. Я взял &lt;a href=&#34;https://github.com/rossmcdonald/kapacitor/blob/master/test.yml&#34; target=&#34;_blank&#34;&gt;тестовый плейбук&lt;/a&gt; роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция &lt;code&gt;global&lt;/code&gt; в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно.&lt;/p&gt;
+
+&lt;p&gt;Для установки сделал такой плейбук:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;hosts:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;all&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;roles:&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;role:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;rossmcdonald.kapacitor&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;vars:&lt;/span&gt;
+    &lt;span style=&#34;color: #586E75&#34;&gt;# [influxdb]&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_enabled:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_urls:&lt;/span&gt;
+      &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;http://localhost:8086&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_username:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;user&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_password:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;pass&lt;/span&gt;
+
+    &lt;span style=&#34;color: #586E75&#34;&gt;# [smtp]&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_enabled:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_host:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;smtp.yandex.ru&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_port:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;587&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_username:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;example@yandex.ru&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_password:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;pass&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_from:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;example@yandex.ru&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_to:&lt;/span&gt;
+      &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;admin@example.com&amp;quot;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #586E75&#34;&gt;# [slack]&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_enabled:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_url:&lt;/span&gt;  &lt;span style=&#34;color: #93A1A1&#34;&gt;https://hooks.slack.com/services/G2JFW7VFQ/B13UHEN5X/9J6IVIcUw9FGCeF7hfjFNGBn&lt;/span&gt; &lt;span style=&#34;color: #586E75&#34;&gt;# url ненастоящий&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_channel:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;#servers&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_global:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_tasks_to_enable:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;проверка&#34;&gt;Проверка&lt;/h2&gt;
+
+&lt;p&gt;Лучший способ проверить, что Kapacitor видит данные из InfluxDB - записать фрагмент:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;kapacitor record stream -name la_alert -duration 5s
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Если запись пошла, можно приступать к самому интересному: созданию алертов.&lt;/p&gt;
+
+&lt;p&gt;Если через 5 секунд команда не завершилась, значит что-то пошло не так.
+Смотрим логи:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kapacitor может говорить об ошибках к подключению к InfluxDB&lt;/li&gt;
+&lt;li&gt;InfluxDB может сыпать &lt;code&gt;connection refused&lt;/code&gt; ошибками&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В моем случае домен, который я прописал в конфиге Kapacitor, был прописан в /etc/hosts на 127.0.1.1, Kapacitor слушал этот порт, соответственно, InfluxDB не мог достучаться из Docker-контейнера.&lt;/p&gt;
+
+&lt;h4 id=&#34;проблема-из-за-docker&#34;&gt;Проблема из-за Docker&lt;/h4&gt;
+
+&lt;p&gt;У меня в логах была ошибка:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;open server: open service *influxdb.Service: subscription already exists
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Я указал другой локальный хост, localhost, т.к. я не предполагаю, что к kapacitor будет обращаться кто-то, кроме InfluxDB, который стоит на той же машине. Это не помогло. Я не понял, в чем ошибка, nmap показывает свободный порт. Оставил стандартный, поддомен машины, это почему-то сработало.&lt;/p&gt;
+
+&lt;p&gt;Оказалось, проблема была в том, что InfluxDB при первом запуске Kapacitor&amp;rsquo;а создал на него подписки (subscriptions), которые означают то, что InfluxDB будет пересылать в Kapacitor все, что приходит в него.&lt;/p&gt;
+
+&lt;p&gt;InfluxDB у меня крутится в Docker&amp;rsquo;е с проброшенными портами, а Kapacitor - нет, то есть они технически были не на одной машине. Точнее, для Kapacitor&amp;rsquo;а казалось, что InfluxDB на этой же машине, но для Influx&amp;rsquo;a он на другой машине! Оказалось, что изнутри докера внутренний адрес, на который создались подписки, вел не туда, поэтому данные не доходили до Kapacitor, чтобы исправить это, понадобилось удалить подписки, узнав их имена:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;SHOW&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;SUBSCRIPTIONS&lt;/span&gt;
+&lt;span style=&#34;color: #719e07&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;SUBSCRIPTION&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;telegraf&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;default&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #719e07&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;SUBSCRIPTION&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;_internal&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;monitor&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;выводы&#34;&gt;Выводы&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Использование Docker для InfluxDB сильно усложнило мне процесс установки при том, что ничего мне не дало: InfluxDB - это один бинарник, если у вас вся инфраструктура живет не в контейнерах, используйте установку из репозиториев, это проще. С другой стороны откатиться на предыдущую версию будет сложнее&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Kapacitor сильно превосходит Monit по возможностям алертинга, но уступает ему в контроле над ситуацией. Хотя можно себе представить сценарий, что Kapacitor отправляет POST-запрос с инструкциями к действиям сервису, который делает что-то, но меня такой самопальный RPC пугает.&lt;/li&gt;
+&lt;li&gt;Все это достаточно сырое в том смысле, что нет достаточной обвязки (оф. &lt;a href=&#34;https://hub.docker.com/r/library/influxdb/&#34; target=&#34;_blank&#34;&gt;контейнер для InfluxDB&lt;/a&gt; появился только 16 мая, самый популярный плейбук для Kapacitor понадобилось править, чтобы установить), информации очень мало, кроме GitHub issues и документации на данный момент нет ничего. Поэтому появляющиеся проблемы решать будет сложнее.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;ссылки&#34;&gt;Ссылки&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://influxdata.com/time-series-platform/kapacitor/&#34; target=&#34;_blank&#34;&gt;страница Kapacitor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://influxdata.com/get-started/configuring-alerts-with-kapacitor/&#34; target=&#34;_blank&#34;&gt;оф. туториал&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.influxdata.com/kapacitor/v0.12/&#34; target=&#34;_blank&#34;&gt;docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/influxdata/kapacitor&#34; target=&#34;_blank&#34;&gt;influxdata/kapacitor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/influxdata/kapacitor-docker&#34; target=&#34;_blank&#34;&gt;influxdata/kapacitor-docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rossmcdonald/kapacitor&#34; target=&#34;_blank&#34;&gt;ansible-role-kapacitor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
+      <link>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
+      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
+&lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
+&lt;li&gt;Unit тесты, PHPUnit&lt;/li&gt;
+&lt;li&gt;Покрытие кода, Coveralls&lt;/li&gt;
+&lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
+&lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
+
+&lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;changelog-md&#34;&gt;CHANGELOG.md&lt;/h1&gt;
+
+&lt;p&gt;Понятная для человека история изменений проекта нужна. Тут надо заметить что такими историями не являются:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Issues проекта, ветка в менеджере задач, доска проекта и т.п.&lt;/li&gt;
+&lt;li&gt;git log проекта&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Файл CHANGELOG.md в корне проекта стал стандартом де-факто для проектов, в котором ведется история изменений, Gitlab даже делает для него отдельную вкладку на странице репозитория.&lt;/p&gt;
+
+&lt;p&gt;Про это, конечно, есть &lt;a href=&#34;http://keepachangelog.com/&#34; target=&#34;_blank&#34;&gt;сайт&lt;/a&gt;, &lt;a href=&#34;https://github.com/olivierlacan/keep-a-changelog&#34; target=&#34;_blank&#34;&gt;репозиторий на Github&lt;/a&gt; с тысячей звезд, проблема явно беспокоит людей.&lt;/p&gt;
+
+&lt;p&gt;Про ведение CHANGELOG я задумался, когда изучал проект &lt;a href=&#34;https://github.com/hashicorp/otto/&#34; target=&#34;_blank&#34;&gt;otto&lt;/a&gt;, когда писал про него &lt;a href=&#34;http://habrahabr.ru/post/273009/&#34; target=&#34;_blank&#34;&gt;статью на хабр&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;структура-у-changelog-более-менее-у-всех-одна-и-та-же&#34;&gt;Структура у CHANGELOG более-менее у всех одна и та же:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Версия и дата релиза&lt;/li&gt;
+&lt;li&gt;Сломанные обратные совместимости&lt;/li&gt;
+&lt;li&gt;Новые фичи&lt;/li&gt;
+&lt;li&gt;Прочие изменения и улучшения&lt;/li&gt;
+&lt;li&gt;Исправленные баги&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Вести такой документ достаточно просто, я за 120 коммитов почти не забывал это делать. В файле нужно всегда держать вверху секцию Next Release с подготовленными заголовками, как-то так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Next Release
+
+BREAKING CHANGES:
+
+FEATURES:
+
+IMPROVEMENTS:
+
+BUG FIXES:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Перед коммитом я всегда просматриваю дифф, в это время я записываю в коммент к коммиту кратко изменение в первую строку и более подробно в третью, если изменений больше одного, делаю в виде списка. Если про это есть задача, нужно упомянуть ее в виде #123 ссылки, Github умный и такие ссылки делает активными.&lt;/p&gt;
+
+&lt;p&gt;Так вот, нужно просто добавить в этот процесс копипасту коммента к коммиту в CHANGELOG, с раскладыванием по категориям изменений.&lt;/p&gt;
+
+&lt;p&gt;Во время релиза называем секцию, ставим ей дату, копипастим заголовки.&lt;/p&gt;
+
+&lt;p&gt;Процедура очень простая, настолько простая, что хочется ее поручить роботу.&lt;/p&gt;
+
+&lt;h2 id=&#34;github-changelog-generator&#34;&gt;github_changelog_generator&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/skywinder/github-changelog-generator&#34; target=&#34;_blank&#34;&gt;github_changelog_generator&lt;/a&gt; - ruby утилита, которая умеет генерировать CHANGELOG.md из любого репозитория. На выходе получаем документ типа &lt;a href=&#34;https://github.com/skywinder/github-changelog-generator/blob/master/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;этого&lt;/a&gt;, наполненный ссылками на задачи и пулл-реквесты, разбитый по категориям, все круто, как в рекламе. У меня получилось совсем не так красиво.&lt;/p&gt;
+
+&lt;p&gt;Что мне не понравилось в этом генераторе:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Текст коммитов никак не учитывает, как и текст задач.&lt;/li&gt;
+&lt;li&gt;Чтобы она нормально работала, нужно по полной использовать Github Issues и метки для них, пулл-реквесты, в общем сильно завязано на Github (кто бы мог подумать?), иначе будут генериться просто ссылки на диффы между тегами.&lt;/li&gt;
+&lt;li&gt;Нельзя указывать свои секции (например, Breaking changes встроенного нет), но есть &lt;a href=&#34;https://github.com/skywinder/github-changelog-generator/issues/316&#34; target=&#34;_blank&#34;&gt;issue #316&lt;/a&gt; про это, судя по активности проекта, они скоро появятся.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Что понравилось:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Поведение из коробки что-то генерирует, даже если вы не думали про CHANGELOG.md до этого и не использовали Github фишки, это лучше, чем ничего. Но не намного.&lt;/li&gt;
+&lt;li&gt;Можно привязывать свои метки к существующим секциям лога.&lt;/li&gt;
+&lt;li&gt;Можно настраивать как параметрами к команде, так и конфигом. При запуске скрипт говорит: &lt;code&gt;Performing task with options&lt;/code&gt;, так вот, каждую строку из перечисленного ниже конфига можно вставить в файл &lt;code&gt;.github_changelog_generator&lt;/code&gt; и переопределить, заменив &lt;code&gt;_&lt;/code&gt; на &lt;code&gt;-&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Поддерживает сосуществование заполняемой вручную версии (которая все равно лучше автоматической) и генерируемого лога, для этого нужно переложить старый CHANGELOG.md в HISTORY.md (или другой файл, указав его в конфиге).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В общем, github_changelog_generator в моем случае подходит хорошо,
+если вся работа ведется на Github, это самый простой способ получить красивый CHANGELOG.md&lt;/p&gt;
+
+&lt;p&gt;Но на этом я не успокоился, основная причина в том, что на рабочие проекты на Github я не делаю. Хотелось более общего решения.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-extras-changelog&#34;&gt;git-extras changelog&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/tj/git-extras&#34; target=&#34;_blank&#34;&gt;tj/git-extras&lt;/a&gt; - это &lt;a href=&#34;https://github.com/tj/git-extras/blob/master/Commands.md&#34; target=&#34;_blank&#34;&gt;огромный&lt;/a&gt; (около 50) пакет дополнительных команд, упрощающих работу с git. Я его раньше уже видел, но в то время подумал, что мне и встроенных в git команд слишком много. Но в поисках генератора снова набрел на него, у него есть такая команда.&lt;/p&gt;
+
+&lt;p&gt;Вот таким нехитрым способом можно в одну команду сгенерировать и запушить лог для проекта, где его не было, но версии помечались тегами и комменты к коммитам были осмысленными:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git changelog -a -p -x &amp;gt; CHANGELOG.md &amp;amp;&amp;amp; git add CHANGELOG.md &amp;amp;&amp;amp; git commit CHANGELOG.md -m &amp;quot;add CHANGELOG.md&amp;quot; &amp;amp;&amp;amp; git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для пробы сделал лог для &lt;a href=&#34;https://github.com/popstas/site-setup/blob/5cb4f52bfc5909bac8b8bc77540cf3283b94ff2a/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;site-setup&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/009d82420fa4623417cf437b00df36c662c759a2/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;server-scripts&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/drupal-scripts/blob/b0b7a5907798ebde714471fbf1611c3232df5925/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;, на этом успокоился, больше в общем и тестить не на чем.&lt;/p&gt;
+
+&lt;p&gt;Ниже я отказался от него в пользу &lt;code&gt;conventional changelog&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;плюсы&#34;&gt;Плюсы:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Простой как дверь, выполняешь команду, получаешь список изменений, разделенных версиями&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;минусы&#34;&gt;Минусы:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Нет почти никаких настроек&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;rafinskipg-git-changelog&#34;&gt;rafinskipg/git-changelog&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rafinskipg/git-changelog&#34; target=&#34;_blank&#34;&gt;rafinskipg/git-changelog&lt;/a&gt; - node.js cкрипт, который парсит коммиты, написанные по &lt;a href=&#34;https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#&#34; target=&#34;_blank&#34;&gt;стандартам Angular&lt;/a&gt;. Я их прочитал, оказалось, что стандарты годные, к angular никак не привязаны.&lt;/p&gt;
+
+&lt;p&gt;Конфликтует с git-extras, так как оба они хотят называться git-changelog. Этот я сделал симлинком &lt;code&gt;git-changelog-angular&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Параметров у скрипта немного, я с ними поигрался, но ничего хорошего у меня с этим тулом не вышло. Идем дальше.&lt;/p&gt;
+
+&lt;h2 id=&#34;conventional-changelog&#34;&gt;conventional-changelog&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/stevemao/conventional-changelog-cli&#34; target=&#34;_blank&#34;&gt;stevemao/conventional-changelog-cli&lt;/a&gt; - node.js скрипт, также нацелен на стандарты Angular, но, &lt;a href=&#34;https://github.com/stevemao/conventional-changelog-cli#why&#34; target=&#34;_blank&#34;&gt;по заявлениям&lt;/a&gt; авторов это как раз то, что нужно:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;поддерживает свои форматы коммитов и несколько общих: &amp;lsquo;angular&amp;rsquo;, &amp;lsquo;atom&amp;rsquo;, &amp;lsquo;codemirror&amp;rsquo;, &amp;lsquo;ember&amp;rsquo;, &amp;lsquo;eslint&amp;rsquo;, &amp;lsquo;express&amp;rsquo;, &amp;lsquo;jquery&amp;rsquo;, &amp;lsquo;jscs&amp;rsquo;, &amp;lsquo;jshint&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;поддерживает шаблоны&lt;/li&gt;
+&lt;li&gt;протестирован, в отличие от github_changelog_generator&lt;/li&gt;
+&lt;li&gt;отвязан от Github&lt;/li&gt;
+&lt;li&gt;имеет модульную структуру и несколько модулей вокруг себя&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Воспользовавшись &lt;code&gt;conventional-commits-detector&lt;/code&gt;, узнал, что мои комменты к коммитам больше всего похожи на стандарт &lt;code&gt;eslint&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Сгенерированный лог дал понять, что в eslint принято указывать категорию и через двоеточие суть, так коммиты в релизе разбиваются по категориям. Но в целом, конечно, коммиты были названы неправильно и хорошего лога не получилось.&lt;/p&gt;
+
+&lt;p&gt;Зато запуск без указания пресета сообщений выдал почти то же, что и &lt;code&gt;git-extras&lt;/code&gt;, но вдобавок к этому задал мажорным и минорным версиям разный уровень и указал ссылку на коммит на Github для каждого коммита.&lt;/p&gt;
+
+&lt;p&gt;Сгенерировать лог с нуля можно командой:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conventional-changelog -i CHANGELOG.md -s -r 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого я конечно побежал исправлять логи у проектов, которым сделал логи час назад, вот что вышло: &lt;a href=&#34;https://github.com/popstas/site-setup/blob/fd159ed7848aaf8695642bcb53c795922d307dd6/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;site-setup&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/ef6138faf0179f31929ff0d90d98466749d4f85b/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;server-scripts&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/drupal-scripts/blob/3eb923c09e319a163f9fea9669dfa735b60044c1/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Для проектов на своем Gitlab все сложнее: чтобы правильно делались ссылки на коммиты, нужно, во-первых, указать адрес проекта через файл package.json:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;myproject&amp;quot;,
+  &amp;quot;repository&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;,
+    &amp;quot;url&amp;quot;: &amp;quot;http://my.gitlab.ru/projects/myproject.git&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;А во-вторых не знаю, что надо сделать, он генерит ссылки с сокращенными хэшами, которые Github понимает, а Gitlab открывает страницу списка коммитов, т.к. ему нужен полный хэш, шаблон сходу не нашел.&lt;/p&gt;
+
+&lt;p&gt;Дальше искать не стал, думаю это оно самое.&lt;/p&gt;
+
+&lt;p&gt;Кроме лучшего результата из коробки и полной кастомизации мне в нем понравились модули:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajoslin/angular-precommit&#34; target=&#34;_blank&#34;&gt;angular-precommit&lt;/a&gt; - готовый валидатор сообщений к коммитам&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marionebl/conventional-changelog-lint&#34; target=&#34;_blank&#34;&gt;conventional-changelog-lint&lt;/a&gt; - скрипт для pre-commit хука, проверяющий сообщения коммитов на соответствие стандартам, стандарты описываются в файле&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stevemao/conventional-github-releaser&#34; target=&#34;_blank&#34;&gt;conventional-github-releaser&lt;/a&gt; - автоматическое создание релизов на Github. У меня они уже создаются, но приходится вручную заходить туда и править сообщение к релизу&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;выводы&#34;&gt;Выводы&lt;/h1&gt;
+
+&lt;p&gt;Для того, чтобы генератор создавал по-настоящему хорошие логи, важно определиться с форматом сообщений к коммитам, научиться следовать ему и научить роботов понимать наш формат, чтобы роботы &lt;del&gt;поработили людей&lt;/del&gt; помогали правильно и не напрягаясь вести историю изменеий проекта в процессе, а не после работы над проектом.&lt;/p&gt;
+
+&lt;p&gt;Для себя я нашел инструмент, которым я теперь могу за 5 минут создавать историю изменений для проектов на основе коммитов.&lt;/p&gt;
+
+&lt;p&gt;Генерация CHANGELOG.md - шаг в сторону хорошей и актуальной документации по проекту, которая не будет занимать часы или дни, она будет частью рабочего процесса, конечно для маленького проекта из одного программиста это избыточно, мягко говоря, но надо же с чего-то начинать.&lt;/p&gt;
+
+&lt;h2 id=&#34;upd-08-03-2016&#34;&gt;UPD 08.03.2016&lt;/h2&gt;
+
+&lt;p&gt;Добавил валидатор:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g conventional-changelog-lint
+echo &#39;conventional-changelog-lint -e&#39; &amp;gt; .git/hooks/commit-msg
+chmod +x .git/hooks/commit-msg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого коммиты с неправильными сообщениями перестанут проходить.&lt;/p&gt;
+
+&lt;p&gt;Перед релизом генерирую CHANGELOG.md:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conventional-changelog -p angular -i CHANGELOG.md -s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это допишет в лог содержимое коммитов с последнего релиза (semver тега). После этого остается поправить руками то, что не нравится, проставить версию.&lt;/p&gt;
+
+&lt;p&gt;После этого я генерирую документацию специфичной для проекта командой, коммит, тег, пуш:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &#39;docs: v0.6.0&#39;
+git push --follow-tags
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого релиз. Релиз будем делать через &lt;code&gt;conventional-github-releaser&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g conventional-github-releaser
+CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-releaser -p angular
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Еще не разобрался с тем, как это скрестить с выкладкой PHAR архива с Travis: для &lt;code&gt;github-releaser&lt;/code&gt; нужно, чтобы релиза еще не было, но он создается автоматически при пуше тега на Github. После удаления релиза (превращения в Draft), github-releaser отработал, вставил данные CHANGELOG в релиз, все как надо.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
+      <link>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
+      <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
+
+&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34; target=&#34;_blank&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
+
+&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Здесь надо в 2 словах рассказать о нашем workflow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Компания занимается разработкой и поддержкой около 100 сайтов.&lt;/li&gt;
+&lt;li&gt;Каждый сайт использует Git, репозиторий лежит прямо в корне сайта, bare репозитории отсутствуют.&lt;/li&gt;
+&lt;li&gt;Часто бывают мелкие правки на разных сайтах.&lt;/li&gt;
+&lt;li&gt;90% сайтов на Drupal 7, в котором половина хранится в базе данных.&lt;/li&gt;
+&lt;li&gt;Во время правки контент-менеджер или клиент могут пользоваться сайтом и менять на нем данные&lt;/li&gt;
+&lt;li&gt;Разработчик выкачивает проект в PhpStorm, настаивает сохранение по Ctrl+S изменений на боевом сайте,
+таким образом получается, что когда приходит время пушить, на удаленном сервере фактически уже есть все изменения.&lt;/li&gt;
+&lt;li&gt;Разработчик также может напрямую править код сайта на удаленном сервере по SFTP, не выкачивая проект,
+после чего зайти по SSH на удаленный сервер и сделать коммит прямо оттуда.&lt;/li&gt;
+&lt;li&gt;Git по сути используется не для доставки изменений на боевой сайт,
+а для их доставки на компы разработчиков и ведения журнала изменений сайта.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;github-issues&#34;&gt;Github issues&lt;/h2&gt;
+
+&lt;p&gt;Кто не знает про issues гитхаба, расскажу вкратце о его фишках:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;В задачах можно ссылаться на коммиты и другие задачи по номерам, они автоматически становятся ссылками.&lt;/li&gt;
+&lt;li&gt;В коммитах можно ссылаться на задачи так же: &lt;code&gt;#123&lt;/code&gt;, такой коммит автоматом упоминается в задаче.&lt;/li&gt;
+&lt;li&gt;В PhpStorm можно смотреть список открытых issues и создавать из них задачи в IDE, что позволяет автоматом создавать чейнджлист,
+ветку для выполнения задачи, в коммите сразу будет ссылка на задачу (это все по желанию).&lt;/li&gt;
+&lt;li&gt;Можно закрывать задачу прямо из коммита, для этого достаточно упомянуть его рядом с одним из ключевых слов,
+например, &lt;code&gt;closes #123&lt;/code&gt; после пуша в гитхаб закроет указанную задачу.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;А главное, что все связано и из любого места можно перейти на связанные действия.&lt;/p&gt;
+
+&lt;p&gt;Я уже краем уха слышал и видел обо всем этом и видел в чужих репозиториях, но вся картина нарисовалась только после использования.
+Да и к тому же на гитхабе до этого сталкивался только с pull-request&amp;rsquo;ами, там немного другое поведение.&lt;/p&gt;
+
+&lt;h2 id=&#34;phpstorm-tasks&#34;&gt;PhpStorm tasks&lt;/h2&gt;
+
+&lt;p&gt;В PhpStorm есть интеграция с менеджерами задач, Github там конечно есть, Планфикса там конечно нет,
+но зато если у менеджера задач есть API, можно интегрировать неподдерживаемый сервис.
+У Планфикса API есть, но из коробки он не подойдет для этой интеграции, нужно писать свои обертки.
+В общем-то это дает не много, всего лишь можно будет получать список задач по команде из шторма, и дописывать в коммит ссылку на задачу.&lt;/p&gt;
+
+&lt;p&gt;Кстати таски в шторме помогают и без интеграции с трекером: Ctrl+Shift+A - open task, автоматом чистятся все вкладки
+(создается контекст задачи), создается ветка в гите, changelist, по close task - коммит, я недавно начал пользоваться.&lt;/p&gt;
+
+&lt;p&gt;Но гораздо интереснее интеграция в другую сторону: ссылки из задач на коммиты.&lt;/p&gt;
+
+&lt;p&gt;Когда я разобрался с тем, как устроена интеграция задач в гитхабе, до меня быстро дошло:
+просто менеджер задач должен уметь парсить текст коммита, приходящий из гита и делать на основе этого какие-то действия.
+С этим тоже пока облом: в Планфиксе на данный момент нет обработки писем, прилетающих в задачи, зато
+&lt;a href=&#34;https://planfix.ru/docs/%D0%9A%D0%B0%D0%BA_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83_%D0%BF%D0%BE_e-mail%3F&#34; target=&#34;_blank&#34;&gt;есть обработка писем&lt;/a&gt;,
+приходящих на email юзера, что позволяет надеяться на появление обработки писем, приходящих на email задачи.&lt;/p&gt;
+
+&lt;h2 id=&#34;gitlab&#34;&gt;Gitlab&lt;/h2&gt;
+
+&lt;p&gt;Самые активные проекты мы дублируем на наш внутренний Gitlab. Использование довольно извращенное,
+Gitlab сейчас никак не участвует в рабочем процессе, являясь просто зеркалом и веб-интерфейсом для просмотра коммитов.&lt;/p&gt;
+
+&lt;p&gt;На машине разработчика настраивается &lt;code&gt;pre-push&lt;/code&gt; хук, который пушит также в Gitlab:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span style=&#34;color: #268BD2&#34;&gt;remote&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #719e07&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$remote&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; !&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gitlab&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;$(&lt;/span&gt;git remote show &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; grep -c &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gitlab&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;then&lt;/span&gt;
+        git push gitlab master
+&lt;span style=&#34;color: #719e07&#34;&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;git-и-planfix&#34;&gt;Git и Planfix&lt;/h2&gt;
+
+&lt;p&gt;Никакой готовой интеграции между Git и Планфиксом нет, зато обе системы гибкие и позволяют лепить уникальные решения без больших усилий.&lt;/p&gt;
+
+&lt;p&gt;Git поддерживает хуки: скрипты, запускающиеся по определенным событиям.&lt;/p&gt;
+
+&lt;p&gt;У каждой задачи в Планфиксе есть свой email адрес, если послать на него письмо, оно придет в задачу в виде комментария,
+если с email отправителя связан пользователь, то письмо придет как будто от него.&lt;/p&gt;
+
+&lt;p&gt;Значит нам нужно отправлять email из Git в Планфикс на адрес задачи.&lt;/p&gt;
+
+&lt;h1 id=&#34;связываем-все-вместе&#34;&gt;Связываем все вместе&lt;/h1&gt;
+
+&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Чтобы подключить хук, надо положить скрипт в папку &lt;code&gt;.git/hooks/post-receive&lt;/code&gt; и сделать его исполняемым,
+для этого надо выполнить в корне проекта:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -s &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&amp;quot;&lt;/span&gt; &amp;gt; .git/hooks/post-receive
+chmod +x .git/hooks/post-receive
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Так как у нас много проектов, я храню его в отдельной общей папке, а в каждом репозитории создаю символическую ссылку на него.&lt;/p&gt;
+
+&lt;p&gt;Хук получает список коммитов, пришедших с последним пушем, находит первую ссылку на задачу Планфикса и отправляет туда письмо.&lt;/p&gt;
+
+&lt;h4 id=&#34;о-письме&#34;&gt;О письме&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Отправитель&lt;/strong&gt;: email того, кто сделал коммит. По этой причине email в git config и email в профиле юзера Планфикса должны совпадать.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Получатель&lt;/strong&gt;: email задачи Планфикса&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Тема письма&lt;/strong&gt;: &lt;code&gt;@commit @nonotify&lt;/code&gt;, @nonotify для того, чтобы не уведомлять всех участников задачи о коммите,
+&lt;code&gt;@commit&lt;/code&gt; ничего не значит, может быть потом пригодится для поиска таких комментов, хотя в отчетах текст комментария все равно использовать нельзя.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Текст письма&lt;/strong&gt;: текст коммита. Если репозиторий имеет зеркало на Gitlab, то в конец текста будет добавлена ссылка на коммит.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Чтобы хук добавлял ссылку на Gitlab, не придумал ничего лучше, чем добавить remote &lt;code&gt;gitlab&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote add gitlab ssh://git@org.ru:10022/sites/test.ru.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого хук будет извлекать из этого адреса URL &lt;a href=&#34;http://org.ru/sites/test&#34; target=&#34;_blank&#34;&gt;http://org.ru/sites/test&lt;/a&gt;, который является главной страницей репозитория.
+Сайт при всем при этом не имеет доступа к Gitlab, поэтому push и pull в этот remote работать не будут.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

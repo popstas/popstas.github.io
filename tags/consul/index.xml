@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Consul on Popstas</title>
+    <link>http://blog.popstas.ru/tags/consul/index.xml</link>
+    <description>Recent content in Consul on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/consul/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Разворачиваем Drupal 8 с помощью Otto</title>
+      <link>http://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid>
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/273009/&#34; target=&#34;_blank&#34;&gt;моей статьи&lt;/a&gt; с хабра.&lt;/p&gt;
+
+&lt;p&gt;Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
+о котором уже была &lt;a href=&#34;http://habrahabr.ru/post/268497/&#34;&gt;обзорная статья&lt;/a&gt; на хабре.&lt;/p&gt;
+
+&lt;p&gt;Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
+чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png&#34; alt=&#34;image&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
+
+&lt;p&gt;Последняя версия, отмеченная тегом - 0.1.2 от 20.10.2015. Забегая вперед, скажу, что у меня не получилось сходу настроить MySQL на ней,
+а еще, заглянув в CHANGELOG, решил попробовать master ветку из-за Layered Dev Environments.&lt;/p&gt;
+
+&lt;p&gt;Otto 0.1.3-dev требует Vagrant 1.7.99+, &lt;del&gt;так как стабильная версия 1.7.4, это значит, что Vagrant тоже нужен из master ветки&lt;/del&gt;.
+UPD: вышел Vagrant 1.8, собирать Vagrant больше не надо.&lt;/p&gt;
+
+&lt;p&gt;Компиляция обоих проектов хорошо описана на страницах &lt;a href=&#34;https://github.com/hashicorp/otto&#34; target=&#34;_blank&#34;&gt;otto&lt;/a&gt; и &lt;a href=&#34;https://github.com/mitchellh/vagrant&#34; target=&#34;_blank&#34;&gt;vagrant&lt;/a&gt;,
+мне хватило полчаса, чтобы поставить golang, настроить gopath и скомпилировать оба проекта без знания Go и Ruby.
+Главное не забыть добавить&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=&amp;quot;$GOPATH/bin:$PATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Перезапускаем терминал, проверяем, что у нас запускаются dev-версии: &lt;code&gt;vagrant version&lt;/code&gt;, &lt;code&gt;otto version&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;настройка-nfs&#34;&gt;Настройка NFS&lt;/h3&gt;
+
+&lt;p&gt;Напрямую к otto не относится, но, узнав об &lt;a href=&#34;http://mitchellh.com/comparing-filesystem-performance-in-virtual-machines&#34; target=&#34;_blank&#34;&gt;ужасной тормознутости&lt;/a&gt;
+стандартных virualbox shared folders, осознал необходимость настроить NFS.&lt;/p&gt;
+
+&lt;p&gt;На Ubuntu достаточно установить пакеты nfs-common nfs-kernel-server и добавить в /etc/sudoers несколько строк,
+чтобы Vagrant не спрашивал пароль при каждом запуске, подробнее &lt;a href=&#34;https://docs.vagrantup.com/v2/synced-folders/nfs.html&#34; target=&#34;_blank&#34;&gt;в документации&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;подготовка-проекта&#34;&gt;Подготовка проекта&lt;/h2&gt;
+
+&lt;p&gt;Скачаем Drupal 8:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/drupal/drupal.git drupal8
+cd drupal8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;appfile&#34;&gt;Appfile&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ottoproject.io/docs/concepts/appfile.html&#34; target=&#34;_blank&#34;&gt;Appfile&lt;/a&gt; - основной файл конфигурации otto для проекта, должен быть в корне проекта.&lt;/p&gt;
+
+&lt;p&gt;Вообще его может вообще не быть, тогда otto сам определит требования к окружению, в котором может запуститься приложение.
+Логика определения типа приложения проще некуда, например, проект будет определен как php, если в корне есть файлы *.php&lt;/p&gt;
+
+&lt;h3 id=&#34;otto-compile&#34;&gt;otto compile&lt;/h3&gt;
+
+&lt;p&gt;Первая команда, которая нужна в otto - &lt;a href=&#34;https://www.ottoproject.io/docs/concepts/compile.html&#34; target=&#34;_blank&#34;&gt;otto compile&lt;/a&gt;.
+Она анализирует проект и его Appfile, после чего генерирует дерево в папке .otto, содержащее всю информацию о конфигурации dev и deploy окружений.&lt;/p&gt;
+
+&lt;p&gt;Документация советует не править руками содержимое этой папки. Но смотреть можно и нужно.&lt;/p&gt;
+
+&lt;p&gt;Также будет сгенерирован &lt;code&gt;.ottoid&lt;/code&gt; - уникальный идентификатор вашего приложения, по которому otto будет отслеживать его деплой, хранить историю, использовать его как зависимость и т.д.&lt;/p&gt;
+
+&lt;p&gt;К этому моменту наше окружение описано и готово к развертыванию.&lt;/p&gt;
+
+&lt;h3 id=&#34;otto-dev&#34;&gt;otto dev&lt;/h3&gt;
+
+&lt;p&gt;Следующее, что нужно - развернуть локальное dev окружение на локальной машине.
+По сути, otto dev - то же самое, что vagrant up.&lt;/p&gt;
+
+&lt;h4 id=&#34;layered-dev-environments&#34;&gt;Layered Dev Environments&lt;/h4&gt;
+
+&lt;p&gt;Интересна концепция слоев, они очень похожи на слои Docker: при первом запуске &lt;code&gt;otto dev&lt;/code&gt; виртуальное окружение Vagrant будет настраиваться последовательно,
+делая снимок после каждого шага. Слои описаны в типе приложения. Всё это позволяет сильно сократить время пересоздания dev окружения.
+Таким образом, мы получаем мгновенный запуск готового окружения даже при полном пересоздании виртуальной машины.
+Разница между перезапуском и пересозданием машины (&lt;code&gt;otto dev halt &amp;amp;&amp;amp; time otto dev&lt;/code&gt; и &lt;code&gt;otto dev destroy &amp;amp;&amp;amp; time otto dev&lt;/code&gt;) составляет около 5 секунд.&lt;/p&gt;
+
+&lt;p&gt;Судя по changelog, vagrant этот функционал не получит, по крайней мере в следующей версии, зато в Vagrant появится функционал для создания snapshots.&lt;/p&gt;
+
+&lt;p&gt;Посмотреть слои можно командой &lt;code&gt;otto dev layers&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ otto dev layers
+consul
+php5.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В результате, в случае PHP приложения, otto должен выдать дальнейшие инструкции:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ otto dev
+IP address: 100.66.143.21
+
+A development environment has been created for writing a PHP app.
+
+You can access the environment from this machine using the IP address above.
+For example, if you start your app with &#39;php -S 0.0.0.0:5000&#39;, then you can
+access it using the above IP at port 5000.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Что мы получили с автоматической настройкой?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 12.04 (на данный момент нельзя выбирать базовый образ системы)&lt;/li&gt;
+&lt;li&gt;Consul&lt;/li&gt;
+&lt;li&gt;PHP 5.6 (otto устанавливает PHP не из стандартного репозитория, а из PPA)&lt;/li&gt;
+&lt;li&gt;Composer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Для работы Drupal критически не хватает MySQL.&lt;/p&gt;
+
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+
+&lt;p&gt;Простейший способ добавить MySQL: указать зависимость. Создадим Appfile в корне проекта:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application {
+    name = &amp;quot;drupal8&amp;quot;
+    type = &amp;quot;php&amp;quot;
+
+    dependency {
+        source = &amp;quot;github.com/hashicorp/otto/examples/mysql&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Этот конфиг явно указывает тип приложения (php) и добавляет MySQL как зависимость.
+Несмотря на то, что ссылка в source невалидная, otto ее поймет, есть и &lt;a href=&#34;https://www.ottoproject.io/docs/appfile/dep-sources.html&#34; target=&#34;_blank&#34;&gt;другие форматы source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Есть способ добавить mysql еще проще, но он неправильный, я скажу о нем в недостатках.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/hashicorp/otto/blob/master/examples/mysql/Appfile&#34; target=&#34;_blank&#34;&gt;Appfile mysql&lt;/a&gt; описывает зависимое приложение как Docker-контейнер,
+путь к образу контейнера и параметры запуска. В результате мы получим запущенный контейнер внутри Vagrant,
+благодаря Consul он будет доступен по адресу mysql.service.consul (внутри виртуалки) с юзером и паролем root:root.
+Настроенный по умолчанию Consul существенно облегчает использование Docker, можно не разбираться в тонкостях настройки service discovery, а просто пользоваться.&lt;/p&gt;
+
+&lt;p&gt;Зависимостью может быть любое другое приложение, но настоятельно рекомендуется, чтобы оно имело .ottoid файл,
+который позволит otto понять, что он запускает, даже если приложение будет переименовано.&lt;/p&gt;
+
+&lt;p&gt;Зависимости в данный момент не поддерживают версионность (в будущем обещают добавить),
+это значит, что при каждом &amp;lsquo;otto compile&amp;rsquo; у вас есть шанс получить не то, что вы ожидали,
+поэтому стоит форкнуть зависимости себе или положить на локальной машине.&lt;/p&gt;
+
+&lt;p&gt;Делаем &lt;code&gt;otto compile&lt;/code&gt;, &lt;code&gt;otto dev destroy&lt;/code&gt;, &lt;code&gt;otto dev&lt;/code&gt; - получаем машину, готовую к запуску Drupal. Осталось запустить в ней сервер.&lt;/p&gt;
+
+&lt;h3 id=&#34;otto-dev-ssh&#34;&gt;otto dev ssh&lt;/h3&gt;
+
+&lt;p&gt;Заходим в виртуалку по SSH. Выполняем указанную выше команду запуска встроенного в PHP web-сервера, я не вижу ничего плохого в запуске под root на 80 порту на dev:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo php -S 0.0.0.0:80
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого можно заходить открывать в браузере IP адрес, который выдал &amp;lsquo;otto dev&amp;rsquo;, можно его получить явно, выполнив &amp;lsquo;otto dev address&amp;rsquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;недостатки&#34;&gt;Недостатки&lt;/h2&gt;
+
+&lt;h3 id=&#34;сырой-код&#34;&gt;Сырой код&lt;/h3&gt;
+
+&lt;p&gt;Видно, что код местами довольно прототипный. Например, в Vagrantfile используется bash для разворачивания окружения, а не ansible или что-то подобное.&lt;/p&gt;
+
+&lt;p&gt;Я заглянул в код App type php, нашел там определение того, что запускаемое приложение - wordpress (по наличию файла wp-config.php),
+единственное отличие от стандартного php приложения - автоматическое добавление mysql в зависимости.
+То есть сейчас можно указать в Appfile &lt;code&gt;type = &amp;quot;wordpress&amp;quot;&lt;/code&gt; или сделать &lt;code&gt;touch wp-config.php&lt;/code&gt;, чтобы получить mysql, но, конечно, так делать не стоит.&lt;/p&gt;
+
+&lt;h3 id=&#34;окружения-не-проработаны&#34;&gt;Окружения не проработаны&lt;/h3&gt;
+
+&lt;p&gt;Судя по issue tracker проекта, best practices еще не готовы и не совсем понятно, как будут готовиться.
+Например, в случае PHP, есть Hashicorp, которые не знают особенностей окружения PHP проектов и программисты PHP, которые не знают Go и не могут отправить pull request.&lt;/p&gt;
+
+&lt;p&gt;Митчелл Хашимото, автор Otto, предлагает всем заинтересованным писать на Github предложения с улучшениями,
+ссылки на статьи с настройкой правильного окружения, а Hashicorp позаботится об их интеграции в продукт.
+Мне кажется, что позже появятся абстракции, которые дадут возможность широкому кругу не-go программистов помогать в развитии продукта.&lt;/p&gt;
+
+&lt;h3 id=&#34;dev-отличается-от-prod&#34;&gt;Dev отличается от prod&lt;/h3&gt;
+
+&lt;p&gt;До команд &lt;code&gt;otto infra&lt;/code&gt; и &lt;code&gt;otto deploy&lt;/code&gt; я не добрался, но узнал, что сейчас они поддерживают только AWS
+и что для php проектов dev-окружение отличается от deploy-окружения, в первом случае предлагается запускать встроенный в PHP сервер,
+во втором поднимается apache2 с mod-php.&lt;/p&gt;
+
+&lt;h3 id=&#34;dev-плохо-кастомизируется&#34;&gt;Dev плохо кастомизируется&lt;/h3&gt;
+
+&lt;p&gt;Otto в данный момент не дает возможность кастомизировать Vagrantfile dev-окружения через Appfile.
+Смотрим &lt;code&gt;.otto/compiled/app/dev/Vagrantfile&lt;/code&gt;, оказывается, в нем прописаны параметры монтирования /vagrant, несовместимые с NFS. Исправляем строку на что-то вроде:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.vm.synced_folder &#39;/home/popstas/projects/site/drupal8&#39;, &amp;quot;/vagrant&amp;quot;, type: &amp;quot;nfs&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Следующий &lt;code&gt;otto compile&lt;/code&gt; затрет эти изменения.&lt;/p&gt;
+
+&lt;p&gt;Единственный способ сделать правильно: полностью переопределить Vagrantfile, используя application type = &amp;ldquo;custom&amp;rdquo;,
+но в таком случае вся магия автонастройки окружения пропадает.&lt;/p&gt;
+
+&lt;h2 id=&#34;выводы&#34;&gt;Выводы&lt;/h2&gt;
+
+&lt;p&gt;Я сделал для себя вывод, что Otto еще не готов для полноценного использования, на что в общем-то намекает версия продукта 0.1.
+Тем не менее продукт очень интересный и уже сейчас имеет преимущества по сравнению с Vagrant, а все недостатки объясняются новизной Otto,
+разработчики о них знают и имеют планы по устранению.&lt;/p&gt;
+
+&lt;p&gt;Сейчас непонятно, как создавать свои слои, когда слои появятся в Otto полноценно, для меня это будет достаточной причиной, чтобы перейти на него с Vagrant&amp;rsquo;а.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

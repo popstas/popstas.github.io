@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transmission Cli on Popstas</title>
+    <link>http://blog.popstas.ru/tags/transmission-cli/index.xml</link>
+    <description>Recent content in Transmission Cli on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/transmission-cli/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
+      <link>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
+      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
+&lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
+&lt;li&gt;Unit тесты, PHPUnit&lt;/li&gt;
+&lt;li&gt;Покрытие кода, Coveralls&lt;/li&gt;
+&lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
+&lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
+
+&lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;changelog-md&#34;&gt;CHANGELOG.md&lt;/h1&gt;
+
+&lt;p&gt;Понятная для человека история изменений проекта нужна. Тут надо заметить что такими историями не являются:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Issues проекта, ветка в менеджере задач, доска проекта и т.п.&lt;/li&gt;
+&lt;li&gt;git log проекта&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Файл CHANGELOG.md в корне проекта стал стандартом де-факто для проектов, в котором ведется история изменений, Gitlab даже делает для него отдельную вкладку на странице репозитория.&lt;/p&gt;
+
+&lt;p&gt;Про это, конечно, есть &lt;a href=&#34;http://keepachangelog.com/&#34; target=&#34;_blank&#34;&gt;сайт&lt;/a&gt;, &lt;a href=&#34;https://github.com/olivierlacan/keep-a-changelog&#34; target=&#34;_blank&#34;&gt;репозиторий на Github&lt;/a&gt; с тысячей звезд, проблема явно беспокоит людей.&lt;/p&gt;
+
+&lt;p&gt;Про ведение CHANGELOG я задумался, когда изучал проект &lt;a href=&#34;https://github.com/hashicorp/otto/&#34; target=&#34;_blank&#34;&gt;otto&lt;/a&gt;, когда писал про него &lt;a href=&#34;http://habrahabr.ru/post/273009/&#34; target=&#34;_blank&#34;&gt;статью на хабр&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;структура-у-changelog-более-менее-у-всех-одна-и-та-же&#34;&gt;Структура у CHANGELOG более-менее у всех одна и та же:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Версия и дата релиза&lt;/li&gt;
+&lt;li&gt;Сломанные обратные совместимости&lt;/li&gt;
+&lt;li&gt;Новые фичи&lt;/li&gt;
+&lt;li&gt;Прочие изменения и улучшения&lt;/li&gt;
+&lt;li&gt;Исправленные баги&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Вести такой документ достаточно просто, я за 120 коммитов почти не забывал это делать. В файле нужно всегда держать вверху секцию Next Release с подготовленными заголовками, как-то так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Next Release
+
+BREAKING CHANGES:
+
+FEATURES:
+
+IMPROVEMENTS:
+
+BUG FIXES:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Перед коммитом я всегда просматриваю дифф, в это время я записываю в коммент к коммиту кратко изменение в первую строку и более подробно в третью, если изменений больше одного, делаю в виде списка. Если про это есть задача, нужно упомянуть ее в виде #123 ссылки, Github умный и такие ссылки делает активными.&lt;/p&gt;
+
+&lt;p&gt;Так вот, нужно просто добавить в этот процесс копипасту коммента к коммиту в CHANGELOG, с раскладыванием по категориям изменений.&lt;/p&gt;
+
+&lt;p&gt;Во время релиза называем секцию, ставим ей дату, копипастим заголовки.&lt;/p&gt;
+
+&lt;p&gt;Процедура очень простая, настолько простая, что хочется ее поручить роботу.&lt;/p&gt;
+
+&lt;h2 id=&#34;github-changelog-generator&#34;&gt;github_changelog_generator&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/skywinder/github-changelog-generator&#34; target=&#34;_blank&#34;&gt;github_changelog_generator&lt;/a&gt; - ruby утилита, которая умеет генерировать CHANGELOG.md из любого репозитория. На выходе получаем документ типа &lt;a href=&#34;https://github.com/skywinder/github-changelog-generator/blob/master/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;этого&lt;/a&gt;, наполненный ссылками на задачи и пулл-реквесты, разбитый по категориям, все круто, как в рекламе. У меня получилось совсем не так красиво.&lt;/p&gt;
+
+&lt;p&gt;Что мне не понравилось в этом генераторе:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Текст коммитов никак не учитывает, как и текст задач.&lt;/li&gt;
+&lt;li&gt;Чтобы она нормально работала, нужно по полной использовать Github Issues и метки для них, пулл-реквесты, в общем сильно завязано на Github (кто бы мог подумать?), иначе будут генериться просто ссылки на диффы между тегами.&lt;/li&gt;
+&lt;li&gt;Нельзя указывать свои секции (например, Breaking changes встроенного нет), но есть &lt;a href=&#34;https://github.com/skywinder/github-changelog-generator/issues/316&#34; target=&#34;_blank&#34;&gt;issue #316&lt;/a&gt; про это, судя по активности проекта, они скоро появятся.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Что понравилось:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Поведение из коробки что-то генерирует, даже если вы не думали про CHANGELOG.md до этого и не использовали Github фишки, это лучше, чем ничего. Но не намного.&lt;/li&gt;
+&lt;li&gt;Можно привязывать свои метки к существующим секциям лога.&lt;/li&gt;
+&lt;li&gt;Можно настраивать как параметрами к команде, так и конфигом. При запуске скрипт говорит: &lt;code&gt;Performing task with options&lt;/code&gt;, так вот, каждую строку из перечисленного ниже конфига можно вставить в файл &lt;code&gt;.github_changelog_generator&lt;/code&gt; и переопределить, заменив &lt;code&gt;_&lt;/code&gt; на &lt;code&gt;-&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Поддерживает сосуществование заполняемой вручную версии (которая все равно лучше автоматической) и генерируемого лога, для этого нужно переложить старый CHANGELOG.md в HISTORY.md (или другой файл, указав его в конфиге).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В общем, github_changelog_generator в моем случае подходит хорошо,
+если вся работа ведется на Github, это самый простой способ получить красивый CHANGELOG.md&lt;/p&gt;
+
+&lt;p&gt;Но на этом я не успокоился, основная причина в том, что на рабочие проекты на Github я не делаю. Хотелось более общего решения.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-extras-changelog&#34;&gt;git-extras changelog&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/tj/git-extras&#34; target=&#34;_blank&#34;&gt;tj/git-extras&lt;/a&gt; - это &lt;a href=&#34;https://github.com/tj/git-extras/blob/master/Commands.md&#34; target=&#34;_blank&#34;&gt;огромный&lt;/a&gt; (около 50) пакет дополнительных команд, упрощающих работу с git. Я его раньше уже видел, но в то время подумал, что мне и встроенных в git команд слишком много. Но в поисках генератора снова набрел на него, у него есть такая команда.&lt;/p&gt;
+
+&lt;p&gt;Вот таким нехитрым способом можно в одну команду сгенерировать и запушить лог для проекта, где его не было, но версии помечались тегами и комменты к коммитам были осмысленными:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git changelog -a -p -x &amp;gt; CHANGELOG.md &amp;amp;&amp;amp; git add CHANGELOG.md &amp;amp;&amp;amp; git commit CHANGELOG.md -m &amp;quot;add CHANGELOG.md&amp;quot; &amp;amp;&amp;amp; git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Для пробы сделал лог для &lt;a href=&#34;https://github.com/popstas/site-setup/blob/5cb4f52bfc5909bac8b8bc77540cf3283b94ff2a/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;site-setup&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/009d82420fa4623417cf437b00df36c662c759a2/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;server-scripts&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/drupal-scripts/blob/b0b7a5907798ebde714471fbf1611c3232df5925/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;, на этом успокоился, больше в общем и тестить не на чем.&lt;/p&gt;
+
+&lt;p&gt;Ниже я отказался от него в пользу &lt;code&gt;conventional changelog&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;плюсы&#34;&gt;Плюсы:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Простой как дверь, выполняешь команду, получаешь список изменений, разделенных версиями&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;минусы&#34;&gt;Минусы:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Нет почти никаких настроек&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;rafinskipg-git-changelog&#34;&gt;rafinskipg/git-changelog&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rafinskipg/git-changelog&#34; target=&#34;_blank&#34;&gt;rafinskipg/git-changelog&lt;/a&gt; - node.js cкрипт, который парсит коммиты, написанные по &lt;a href=&#34;https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#&#34; target=&#34;_blank&#34;&gt;стандартам Angular&lt;/a&gt;. Я их прочитал, оказалось, что стандарты годные, к angular никак не привязаны.&lt;/p&gt;
+
+&lt;p&gt;Конфликтует с git-extras, так как оба они хотят называться git-changelog. Этот я сделал симлинком &lt;code&gt;git-changelog-angular&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Параметров у скрипта немного, я с ними поигрался, но ничего хорошего у меня с этим тулом не вышло. Идем дальше.&lt;/p&gt;
+
+&lt;h2 id=&#34;conventional-changelog&#34;&gt;conventional-changelog&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/stevemao/conventional-changelog-cli&#34; target=&#34;_blank&#34;&gt;stevemao/conventional-changelog-cli&lt;/a&gt; - node.js скрипт, также нацелен на стандарты Angular, но, &lt;a href=&#34;https://github.com/stevemao/conventional-changelog-cli#why&#34; target=&#34;_blank&#34;&gt;по заявлениям&lt;/a&gt; авторов это как раз то, что нужно:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;поддерживает свои форматы коммитов и несколько общих: &amp;lsquo;angular&amp;rsquo;, &amp;lsquo;atom&amp;rsquo;, &amp;lsquo;codemirror&amp;rsquo;, &amp;lsquo;ember&amp;rsquo;, &amp;lsquo;eslint&amp;rsquo;, &amp;lsquo;express&amp;rsquo;, &amp;lsquo;jquery&amp;rsquo;, &amp;lsquo;jscs&amp;rsquo;, &amp;lsquo;jshint&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;поддерживает шаблоны&lt;/li&gt;
+&lt;li&gt;протестирован, в отличие от github_changelog_generator&lt;/li&gt;
+&lt;li&gt;отвязан от Github&lt;/li&gt;
+&lt;li&gt;имеет модульную структуру и несколько модулей вокруг себя&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Воспользовавшись &lt;code&gt;conventional-commits-detector&lt;/code&gt;, узнал, что мои комменты к коммитам больше всего похожи на стандарт &lt;code&gt;eslint&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Сгенерированный лог дал понять, что в eslint принято указывать категорию и через двоеточие суть, так коммиты в релизе разбиваются по категориям. Но в целом, конечно, коммиты были названы неправильно и хорошего лога не получилось.&lt;/p&gt;
+
+&lt;p&gt;Зато запуск без указания пресета сообщений выдал почти то же, что и &lt;code&gt;git-extras&lt;/code&gt;, но вдобавок к этому задал мажорным и минорным версиям разный уровень и указал ссылку на коммит на Github для каждого коммита.&lt;/p&gt;
+
+&lt;p&gt;Сгенерировать лог с нуля можно командой:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conventional-changelog -i CHANGELOG.md -s -r 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого я конечно побежал исправлять логи у проектов, которым сделал логи час назад, вот что вышло: &lt;a href=&#34;https://github.com/popstas/site-setup/blob/fd159ed7848aaf8695642bcb53c795922d307dd6/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;site-setup&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/ef6138faf0179f31929ff0d90d98466749d4f85b/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;server-scripts&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/drupal-scripts/blob/3eb923c09e319a163f9fea9669dfa735b60044c1/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Для проектов на своем Gitlab все сложнее: чтобы правильно делались ссылки на коммиты, нужно, во-первых, указать адрес проекта через файл package.json:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;myproject&amp;quot;,
+  &amp;quot;repository&amp;quot;: {
+    &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;,
+    &amp;quot;url&amp;quot;: &amp;quot;http://my.gitlab.ru/projects/myproject.git&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;А во-вторых не знаю, что надо сделать, он генерит ссылки с сокращенными хэшами, которые Github понимает, а Gitlab открывает страницу списка коммитов, т.к. ему нужен полный хэш, шаблон сходу не нашел.&lt;/p&gt;
+
+&lt;p&gt;Дальше искать не стал, думаю это оно самое.&lt;/p&gt;
+
+&lt;p&gt;Кроме лучшего результата из коробки и полной кастомизации мне в нем понравились модули:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ajoslin/angular-precommit&#34; target=&#34;_blank&#34;&gt;angular-precommit&lt;/a&gt; - готовый валидатор сообщений к коммитам&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marionebl/conventional-changelog-lint&#34; target=&#34;_blank&#34;&gt;conventional-changelog-lint&lt;/a&gt; - скрипт для pre-commit хука, проверяющий сообщения коммитов на соответствие стандартам, стандарты описываются в файле&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stevemao/conventional-github-releaser&#34; target=&#34;_blank&#34;&gt;conventional-github-releaser&lt;/a&gt; - автоматическое создание релизов на Github. У меня они уже создаются, но приходится вручную заходить туда и править сообщение к релизу&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;выводы&#34;&gt;Выводы&lt;/h1&gt;
+
+&lt;p&gt;Для того, чтобы генератор создавал по-настоящему хорошие логи, важно определиться с форматом сообщений к коммитам, научиться следовать ему и научить роботов понимать наш формат, чтобы роботы &lt;del&gt;поработили людей&lt;/del&gt; помогали правильно и не напрягаясь вести историю изменеий проекта в процессе, а не после работы над проектом.&lt;/p&gt;
+
+&lt;p&gt;Для себя я нашел инструмент, которым я теперь могу за 5 минут создавать историю изменений для проектов на основе коммитов.&lt;/p&gt;
+
+&lt;p&gt;Генерация CHANGELOG.md - шаг в сторону хорошей и актуальной документации по проекту, которая не будет занимать часы или дни, она будет частью рабочего процесса, конечно для маленького проекта из одного программиста это избыточно, мягко говоря, но надо же с чего-то начинать.&lt;/p&gt;
+
+&lt;h2 id=&#34;upd-08-03-2016&#34;&gt;UPD 08.03.2016&lt;/h2&gt;
+
+&lt;p&gt;Добавил валидатор:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g conventional-changelog-lint
+echo &#39;conventional-changelog-lint -e&#39; &amp;gt; .git/hooks/commit-msg
+chmod +x .git/hooks/commit-msg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого коммиты с неправильными сообщениями перестанут проходить.&lt;/p&gt;
+
+&lt;p&gt;Перед релизом генерирую CHANGELOG.md:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conventional-changelog -p angular -i CHANGELOG.md -s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Это допишет в лог содержимое коммитов с последнего релиза (semver тега). После этого остается поправить руками то, что не нравится, проставить версию.&lt;/p&gt;
+
+&lt;p&gt;После этого я генерирую документацию специфичной для проекта командой, коммит, тег, пуш:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &#39;docs: v0.6.0&#39;
+git push --follow-tags
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;После этого релиз. Релиз будем делать через &lt;code&gt;conventional-github-releaser&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g conventional-github-releaser
+CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-releaser -p angular
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Еще не разобрался с тем, как это скрестить с выкладкой PHAR архива с Travis: для &lt;code&gt;github-releaser&lt;/code&gt; нужно, чтобы релиза еще не было, но он создается автоматически при пуше тега на Github. После удаления релиза (превращения в Draft), github-releaser отработал, вставил данные CHANGELOG в релиз, все как надо.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
+      <link>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <description>&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34; target=&#34;_blank&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
+их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
+
+&lt;p&gt;Поддержку раздач можно разбить на несколько задач:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;периодически скачивать новинки фильмов&lt;/li&gt;
+&lt;li&gt;скачивать новые серии популярных сериалов&lt;/li&gt;
+&lt;li&gt;удалять то, что плохо раздается&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
+&lt;a href=&#34;https://github.com/popstas/transmission-cli&#34; target=&#34;_blank&#34;&gt;transmission-cli&lt;/a&gt; - консольная утилита, решающая часть этих задач.&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;https://ghbtns.com/github-btn.html?user=popstas&amp;repo=transmission-cli&amp;type=star&amp;count=true&amp;size=large&#34; frameborder=&#34;0&#34; scrolling=&#34;0&#34; width=&#34;160px&#34; height=&#34;30px&#34;&gt;&lt;/iframe&gt;
+&lt;a href=&#34;https://travis-ci.org/popstas/transmission-cli&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://travis-ci.org/popstas/transmission-cli.svg?branch=master&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://coveralls.io/github/popstas/transmission-cli?branch=master&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://coveralls.io/repos/popstas/transmission-cli/badge.svg?branch=master&amp;amp;service=github&#34; alt=&#34;Coverage Status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;возможности&#34;&gt;Возможности&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;скачивание популярных торрентов с &lt;a href=&#34;http://weburg.net&#34; target=&#34;_blank&#34;&gt;http://weburg.net&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;удаление дублирующихся раздач (для сериалов)&lt;/li&gt;
+&lt;li&gt;отправка метрик в InfluxDB (для слежения за популярностью)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;установка&#34;&gt;Установка&lt;/h1&gt;
+
+&lt;p&gt;Установить клиент можно так:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;latest_phar&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=$(&lt;/span&gt;curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; grep &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;browser_&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; cut -d&lt;span style=&#34;color: #CB4B16&#34;&gt;\&amp;quot;&lt;/span&gt; -f4&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;
+wget -O /usr/local/bin/transmission-cli &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$latest_phar&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;
+chmod +x /usr/local/bin/transmission-cli
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Пользоваться графиками можно с трудом, потому что InfluxDB и Grafana вам придется устанавливать самостоятельно.
+Я ставил то и другое в docker на свою виртуалку и пробрасывал порты на localhost,
+сейчас localhost вшит в &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/src/Config.php&#34; target=&#34;_blank&#34;&gt;конфиг&lt;/a&gt;,
+который по сути сейчас находится в коде.&lt;/p&gt;
+
+&lt;p&gt;Поставить можно так, заменив папки &lt;code&gt;/Users/popstas/lib/grafana&lt;/code&gt; и &lt;code&gt;/var/lib/influxdb&lt;/code&gt; на ваши,
+это укажет, где будут храниться данные InfluxDB и Grafana:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d \ -p 3000:3000 \
+           -v /Users/popstas/lib/grafana:/var/lib/grafana \
+            --name grafana grafana/grafana
+
+docker run -d -p 8083:8083 -p 8086:8086 \
+           -v /var/lib/influxdb:/data \
+           --name influxdb tutum/influxdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Папку от InfluxDB я оставил в виртуалке, т.к. оказалось, что InfluxDB не может работать с папкой, смонтированной в
+VirtualBox из Mac OS (какой-то старый глюк docker).&lt;/p&gt;
+
+&lt;p&gt;Чтобы собиралась статистика, нужно добавить в cron задания, я собираю с 2 компов, поэтому добавляю 2 раза.&lt;/p&gt;
+
+&lt;p&gt;Также, чтобы не было конфликтов, статистика не будет отсылаться, если найдет раздачи с одинаковыми названиями,
+которые обычно остаются от сериалов. Поэтому их нужно чистить перед отпправкой статистики.&lt;/p&gt;
+
+&lt;p&gt;Раздачи у меня скачиваются в папку, за которой следят оба Transmission, как только туда попадает торрент, раздача
+сразу начинается (можно сделать, чтобы спрашивала разрешение, настраивается в Transmission).&lt;/p&gt;
+
+&lt;p&gt;В итоге у меня получился такой cron:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PATH=&amp;quot;$PATH:/usr/local/bin&amp;quot;
+59 * * * * transmission-cli remove-duplicates --host=localhost
+59 * * * * transmission-cli remove-duplicates --host=wrtnsq
+0  * * * * transmission-cli send-metrics --host=localhost
+0  * * * * transmission-cli send-metrics --host=wrtnsq
+1  2 * * * transmission-cli download-weburg --dest=/Volumes/media/_planeta/_torrents
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;результаты-статистики&#34;&gt;Результаты статистики&lt;/h2&gt;
+
+&lt;p&gt;Никогда не знал о своих раздачах ничего, кроме рейтинга и объема розданного за все время.
+Графики показали интересные вещи (о которых можно было и так догадаться):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;с 18 до 22 пик раздач, с 22 до 2 спад, с 2 до 9 все спят&lt;/li&gt;
+&lt;li&gt;в праздники и выходные больше качают днем и до ночи, но после 2 все равно все спят&lt;/li&gt;
+&lt;li&gt;популярные фильмы популярны обычно не больше недели&lt;/li&gt;
+&lt;li&gt;есть популярные фильмы, которые популярны и через несколько месяцев, например &amp;ldquo;Интерстеллар&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Сейчас я могу выбрать в Grafana период в 7 дней, отсортировать раздачи по розданным Гб и получить список
+раздач-кандидатов на удаление.&lt;/p&gt;
+
+&lt;p&gt;Со статистикой еще надо работать, что еще хочется сделать:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;нормальную группировку по периодам, сейчас группируется только за час или за весь выбранный период,
+нельзя выбрать последнюю неделю и посмотреть посуточные метрики. Я скидываю метрики и сначала не понимал,
+почему так, но тут как раз вышла статья
+&lt;a href=&#34;http://habrahabr.ru/post/274303/&#34; target=&#34;_blank&#34;&gt;Почему расчет перцентилей работает не так как вы ожидаете?&lt;/a&gt; и многое мне объяснила.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;добавить в метрики инфу о весе раздач и вывести эффективность раздач: например, фильм в 1080p весом в 10 Гб
+скачали на 50 Гб за неделю, а 2 Гб фильм низкого качества скачали на 10 Гб, если не учитывать вес раздач, то выходит,
+что первая раздача в 5 раз эффективнее, но если учитвать, то оказвается, что они равны.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;техническая-часть&#34;&gt;Техническая часть:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Symfony console - каркас консольной утилиты&lt;/li&gt;
+&lt;li&gt;InfluxDB - хранилище метрик&lt;/li&gt;
+&lt;li&gt;Grafana - рисование графиков&lt;/li&gt;
+&lt;li&gt;Composer - управление зависимостями&lt;/li&gt;
+&lt;li&gt;Box - &lt;a href=&#34;http://habrahabr.ru/post/274745/&#34; target=&#34;_blank&#34;&gt;сборка PHAR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PHPCS, PHPMD - линтеры PHP&lt;/li&gt;
+&lt;li&gt;Travis CI - публицация PHAR на Github&lt;/li&gt;
+&lt;li&gt;Coveralls - сервис слежения за покрытием кода тестами&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Половину из этого я ни разу не использовал, вторую половину - немного. Поэтому граблей хватает.&lt;/p&gt;
+
+&lt;h3 id=&#34;symfony-console&#34;&gt;Symfony console&lt;/h3&gt;
+
+&lt;p&gt;Тут мне сказать особо нечего, фреймворки я только начинаю осваивать, пока ничего не понятно с Dependency Injection,
+чувствую, что у меня переменные в функции местами прокидываются криво, а местами не прокидываются, где стоило бы.&lt;/p&gt;
+
+&lt;p&gt;Не понятно, как тестить через PHPUnit, как мокать объекты.&lt;/p&gt;
+
+&lt;p&gt;Пока радуюсь, что освоился с namespaces и использовал на практике PSR-2 и PSR-4.&lt;/p&gt;
+
+&lt;p&gt;Почти все идеи взяты из исходников
+&lt;a href=&#34;https://github.com/composer/composer&#34; target=&#34;_blank&#34;&gt;composer&lt;/a&gt; и
+&lt;a href=&#34;https://github.com/MartialGeek/transmission-api&#34; target=&#34;_blank&#34;&gt;transmission-api&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;influxdb&#34;&gt;InfluxDB&lt;/h3&gt;
+
+&lt;p&gt;InfluxDB не может работать с папкой, смонтированной в VirtualBox из Mac OS (какой-то старый глюк docker).&lt;/p&gt;
+
+&lt;p&gt;InfluxDB я раньше не видел, хотел посмотреть ее как замену для хранилища Whisper из стека
+Diamond -&amp;gt; Carbon -&amp;gt; Whisper -&amp;gt; Graphite -&amp;gt; Grafana для рисования графиков сервера.&lt;/p&gt;
+
+&lt;p&gt;Компания, стоящая за InfluxDB с недавнего времени назвается InfluxData и предлагает свой стек
+&lt;a href=&#34;https://influxdata.com/time-series-platform/&#34; target=&#34;_blank&#34;&gt;TICK&lt;/a&gt;, в который
+входит еще и алертинг по отклонениям метрик. Могу сказать о нем то, что Telegraf работает, InfluxDB работает без тормозов,
+собирая с моего компа метрики раз в 10 секунд, Chronograf какой-то неполноценный, по сравнению с Grafana,
+а Kapacitor я еще не смотрел (UPD 19.05.2016: &lt;a href=&#34;http://blog.popstas.ru/blog/categories/kapacitor/&#34;&gt;уже смотрел&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&#34;grafana&#34;&gt;Grafana&lt;/h3&gt;
+
+&lt;p&gt;В Grafana 2.6 появилось много нового, по сравнению с 2.0, которую я видел в августе. А вообще, если кто использовал
+Cacti или Graphite и не видел Grafana, посмотрите, красота неописуемая.&lt;/p&gt;
+
+&lt;h3 id=&#34;composer&#34;&gt;Composer&lt;/h3&gt;
+
+&lt;p&gt;Некоторые dev-пакеты (phpunit) потребовали php 5.6 для запуска, поэтому поставил 5.6 минимальной необходимой версией,
+хотя по факту клиент может работать и на 5.5, а на 5.4 уже не может.&lt;/p&gt;
+
+&lt;h3 id=&#34;box&#34;&gt;Box&lt;/h3&gt;
+
+&lt;p&gt;Если собирать PHAR, используя box, установленный через composer, в архив попадает много ненужных dev-пакетов.
+Сначала я пытался бороться с этим исключением пакетов через box.json, потом понял, что это бесполезно
+(все пакеты не исключишь, а однажды исключишь нужный), в итоге пришел к такой схеме:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ставим пакеты через &lt;code&gt;composer install --no-dev&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;качаем box.phar&lt;/li&gt;
+&lt;li&gt;собираем transmission-cli.phar&lt;/li&gt;
+&lt;li&gt;доставляем пакеты через composer update&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Это в 3 раза уменьшило вес собранного архива.&lt;/p&gt;
+
+&lt;h3 id=&#34;phpcs-phpmd&#34;&gt;PHPCS, PHPMD&lt;/h3&gt;
+
+&lt;p&gt;PHP Code Sniffer умеет анализировать ваш код на соответствие определенным стандартам, в моем случае PSR-2,
+ставится через Composer, используется так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./vendor/bin/phpcs --standard=psr2 ./src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;А PHP Mess Detector у меня не запустился.&lt;/p&gt;
+
+&lt;h3 id=&#34;travis-ci&#34;&gt;Travis CI&lt;/h3&gt;
+
+&lt;p&gt;Впервые удалось использовать его по назначению. Как-то пробовал использовать его для тестов пакета bash скриптов
+&lt;a href=&#34;https://github.com/popstas/drupal-scripts&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;, но быстро сдался, т.к. в окружении travis они вели себя не так,
+как на локалке (в итоге перекинул тесты на TeamCity).&lt;/p&gt;
+
+&lt;p&gt;На этом проекте travis прогоняет тесты phpunit
+(тестов по сути еще нет, но без phpunit в каком-либо виде travis по умолчанию фейлит сборку)
+и если к коммиту был проставлен git tag,
+публикует PHAR как приложение к релизу на Github, чуть подробнее я написал
+в &lt;a href=&#34;http://habrahabr.ru/post/274745/#comment_8736379&#34; target=&#34;_blank&#34;&gt;этом комменте&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;coveralls&#34;&gt;Coveralls&lt;/h3&gt;
+
+&lt;p&gt;До покрытия тестами я еще не добирался, я тесты-то еще только начинаю использовать, решил попробовать на этом проекте.&lt;/p&gt;
+
+&lt;p&gt;Чтобы добавить coveralls в самом простом случае (в доках есть и сложные), достаточно сделать так, чтобы PHPUnit
+генерил файл &lt;code&gt;build/logs/clover.xml&lt;/code&gt;, для этого надо добавить строчку в phpunit.xml, в секцию logging:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;&amp;lt;logging&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;lt;log&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;coverage-clover&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;target=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;build/logs/clover.xml&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #268BD2&#34;&gt;&amp;lt;/logging&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ну и конечно зарегаться на &lt;a href=&#34;https://coveralls.io/&#34; target=&#34;_blank&#34;&gt;https://coveralls.io/&lt;/a&gt; и активировать там проект.
+Если путь будет другой, придется читать доки и создавать файл настройки .coveralls.yml&lt;/p&gt;
+
+&lt;p&gt;В результате я имею красивую красную ачивку на странице проекта
+и &lt;a href=&#34;https://coveralls.io/github/popstas/transmission-cli&#34; target=&#34;_blank&#34;&gt;историю деградации покрытия&lt;/a&gt; :)&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
