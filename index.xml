@@ -317,7 +317,9 @@ paginate = 10
 
 &lt;p&gt;Поменял формат дат в &lt;code&gt;themes/octopress/layouts/partials/post_header.html&lt;/code&gt; и &lt;code&gt;themes/octopress/layouts/partials/post_footer.html&lt;/code&gt;,
 было: &lt;code&gt;{{ .Date.Format &amp;quot;Jan 2, 2006&amp;quot; }}&lt;/code&gt;, стало: &lt;code&gt;{{ .Date.Format &amp;quot;2 Jan 2006, 15:04&amp;quot; }}&lt;/code&gt;,
-подробности &lt;a href=&#34;https://golang.org/pkg/time/#Time.Format&#34; target=&#34;_blank&#34;&gt;тут&lt;/a&gt;.&lt;/p&gt;</description>
+подробности &lt;a href=&#34;https://golang.org/pkg/time/#Time.Format&#34; target=&#34;_blank&#34;&gt;тут&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Насчет остального не стал париться и тупо нашел и заменил строчки в шаблонах.&lt;/p&gt;</description>
     </item>
     
     <item>
