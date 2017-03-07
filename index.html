@@ -100,6 +100,47 @@ ga('send', 'pageview');
         
 
 <header>
+    <p class="meta">8 Mar 2017, 01:00
+         - 3 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Опишу процесс, к которому я пришел на данный момент.</p>
+
+<h4 id="особенности">Особенности</h4>
+
+<ul>
+<li>Стремление не писать роли</li>
+<li>Постепенное ужесточение требований при написании, от &ldquo;Лишь бы прошло с 10 раза&rdquo; к &ldquo;Скорее всего Travis пройдет с первого раза&rdquo;</li>
+<li>Тестирование на разных машинах</li>
+</ul>
+
+<p><img src="/images/2017-03/iterations.png" />
+</p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">5 Mar 2017, 20:45
          - 5 мин читать 
 
@@ -125,6 +166,37 @@ ga('send', 'pageview');
 <p><img src="/images/2017-03/octopress-to-hugo.png" />
 </p></p>
 
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">5 Mar 2017, 20:45
+         - 3 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+    </h1>
+</header>
+
+
+        
+          <p><p><img src="/images/2017-03/octopress-to-hugo.png" />
+</p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/" rel="full-article">Читать &rarr;</a>
+              </footer>
           
 
         
@@ -414,95 +486,6 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">2 Mar 2016, 00:49
-         - 5 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Интеграция Git, Gitlab и Planfix почти как на Github</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.</p>
-
-<p>Ниже будет написано, как настроить в <a href="https://planfix.ru/" target="_blank">Планфиксе</a> такое поведение:</p>
-
-<ul>
-<li>В коммите упоминаем задачу, например, <code>Правки футера шаблона, https://test.planfix.ru/task/123456</code></li>
-<li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
-на Gitlab, если проект подключен к репозиторию.</li>
-</ul>
-
-<p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
-после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.</p>
-
-<p>Вся интеграция делается в одном файле, код хука лежит здесь -
-<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive" target="_blank">git-hook-post-receive</a></p>
-
-<p><img src="/images/2016-03/planfix_logo.png" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">29 Feb 2016, 03:46
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/">average: измерение среднего времени выполнения команды в bash</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Периодически хочется посчитать среднее время, у меня были такие сценарии:</p>
-
-<ul>
-<li>простая проверка скорости загрузки страницы</li>
-<li>подбор оптимальных параметров к команде</li>
-<li>сравнение разных команд</li>
-</ul>
-
-<p>Раньше я просто запускал несколько раз с <code>time</code>, смотрел результат, у уме делил.
-Но мне это надоело, поэтому написал скрипт <code>average</code>.</p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -591,6 +574,14 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
             </li>
           
@@ -600,14 +591,6 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
           
             <li class="post">
               <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
             </li>
           
         </ul>

@@ -9,6 +9,197 @@
     <atom:link href="http://blog.popstas.ru/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
+      <link>http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
+      <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
+
+&lt;h4 id=&#34;особенности&#34;&gt;Особенности&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Стремление не писать роли&lt;/li&gt;
+&lt;li&gt;Постепенное ужесточение требований при написании, от &amp;ldquo;Лишь бы прошло с 10 раза&amp;rdquo; к &amp;ldquo;Скорее всего Travis пройдет с первого раза&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Тестирование на разных машинах&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/iterations.png&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;поиск-роли&#34;&gt;Поиск роли&lt;/h2&gt;
+
+&lt;p&gt;Во-первых, я ищу готовую роль. Писать свою роль с нуля я считаю неправильным.
+При поиске я во-первых иду смотреть, если ли такая роль
+у &lt;a href=&#34;https://github.com/geerlingguy&#34; target=&#34;_blank&#34;&gt;geerlingguy&lt;/a&gt; или &lt;a href=&#34;https://github.com/debops&#34; target=&#34;_blank&#34;&gt;debops&lt;/a&gt;.
+Но роли debops я еще не форкал, слишком они навороченные и зависимые от других debops-ролей.&lt;/p&gt;
+
+&lt;h4 id=&#34;критерии-выбора-роли&#34;&gt;Критерии выбора роли&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;авторитет разработчика роли, какой у него опыт&lt;/li&gt;
+&lt;li&gt;количество звездочек&lt;/li&gt;
+&lt;li&gt;наличие тестов&lt;/li&gt;
+&lt;li&gt;уровень шаблонизации роли (сколько переменных есть в &lt;code&gt;defaults/main.yml&lt;/code&gt;, а сколько вшито в шаблоны)&lt;/li&gt;
+&lt;li&gt;обновляемость (пульс проекта), особенно важно для обновляемого и сложного софта, менее важно для базовых ролей&lt;/li&gt;
+&lt;li&gt;количество кода, универсальность: если роль популярная и ставится на все системы, есть опасность, что в ней будет много лишнего&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Итак, роль найдена и форкнута.&lt;/p&gt;
+
+&lt;h2 id=&#34;отладка-роли&#34;&gt;Отладка роли&lt;/h2&gt;
+
+&lt;h3 id=&#34;converge&#34;&gt;Converge&lt;/h3&gt;
+
+&lt;p&gt;При написании роли я пользуюсь в основном &lt;code&gt;molecule converge&lt;/code&gt; - команда создает машину, если ее еще нет,
+прогоняет плейбук, больше ничего не делает.&lt;/p&gt;
+
+&lt;p&gt;Конечно, в начале роль всегда сломана. Если непонятна причина, я иду внутрь контейнера через &lt;code&gt;molecule login&lt;/code&gt; -
+так можно залезть внуть машины и посмотреть, что там пошло не так.
+Можно не запуская роль сначала научиться делать правильные действия в контейнере, после чего записать это в виде тасков,
+уничтожить контейнер и прогнать заново (&lt;code&gt;molecule test&lt;/code&gt; на этом этапе подходит, хоть он и убьет контейнер, как перед прохождением,
+так и после успешного прохождения тестов, можно не волноваться: успешного прохождения скорее всего пока не будет).&lt;/p&gt;
+
+&lt;p&gt;Если форкнута нормальная роль, &lt;code&gt;converge&lt;/code&gt; проходится быстро.&lt;/p&gt;
+
+&lt;h3 id=&#34;validate&#34;&gt;Validate&lt;/h3&gt;
+
+&lt;p&gt;Когда основной сценарий проходит, я запускаю &lt;code&gt;molecule validate&lt;/code&gt;, исправляю ошибки, которые нашел &lt;code&gt;ansible-lint&lt;/code&gt; и помечаю таски,
+которые не хочу править, тегом &lt;code&gt;skip_ansible_lint&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;После этого пишу тесты &lt;code&gt;testinfra&lt;/code&gt; (хотя такое у меня бывает редко), проверяю тем же &lt;code&gt;molecule validate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;test&#34;&gt;Test&lt;/h3&gt;
+
+&lt;p&gt;В конце перепроверяю все через &lt;code&gt;molecule test&lt;/code&gt;, правлю сломанную идемпотентность, при необходимости вношу правки в &lt;code&gt;.gitlab-ci.yml&lt;/code&gt;
+и &lt;code&gt;molecule.yml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;После этого можно проверить сборку, запустив одноразовый раннер локально, это очень удобно, позволяет исключить ошибки на стороне Gitlab CI.
+Параметры раннера те же, что и при регистрации на сервере, последним аргументом идет секция из &lt;code&gt;.gitlab-ci.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gitlab-runner exec docker \
+    --docker-image popstas/ubuntu-molecule:latest \
+    --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
+    test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;На самом деле у меня еще пробрасывается файл 00aptproxy, у меня во всех тестовых сетях стоит &lt;code&gt;apt-cacher-ng&lt;/code&gt;, который позволяет
+ускорять прогон ролей и не гонять трафик зря. Об этом подробнее
+&lt;a href=&#34;http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;я писал недавно&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Эта команда создаст раннер с указанным образом и запустит в нем секцию test.&lt;br /&gt;
+Чтобы в системе появился &lt;code&gt;gitlab-runner&lt;/code&gt;, нужно поставить &lt;code&gt;gitlab-ci-multi-runner&lt;/code&gt; и Docker, больше кажется ничего не надо.&lt;/p&gt;
+
+&lt;p&gt;Когда и это сработало, я пушу на внутренний сервер и на Github и жду, что мне ответят два CI.
+Если после всего это тесты не проходят, матерюсь и ищу косяки на стороне раннера.&lt;/p&gt;
+
+&lt;p&gt;Чтобы упростить себе этот процесс, я написал скрипт, который делает следующее:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ставит тег на последний коммит (bump version), если тег был, удаляет его и ставит на последний коммит&lt;/li&gt;
+&lt;li&gt;логинится на dev-сервер, делает оттуда rsync роли с моего компа, прогоняет тесты на gitlab-runner&lt;/li&gt;
+&lt;li&gt;если все прошло успешно, делает push на gitlab и github&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Выглядит это так: я делаю коммит, вызываю команду вроде &lt;code&gt;role-deploy v1.1.0&lt;/code&gt; и занимаюсь своими делами.
+А тем временем роль проходит 3 прогона тестов с разных серверов и попадает во все апстримы, в том числе в &lt;code&gt;galaxy.ansible.com&lt;/code&gt;.
+А если не попадает, то все равно избавляет от коммитов типа &lt;code&gt;test: please work!&lt;/code&gt;. Можно повесить это на &lt;code&gt;prepush&lt;/code&gt; хук git,
+но мне вручную удобнее запускать.&lt;/p&gt;
+
+&lt;h3 id=&#34;dev&#34;&gt;Dev&lt;/h3&gt;
+
+&lt;p&gt;Если все прошло успешно, я пишу плейбук для деплоя, накатываю роль на локальную машину, dev-сервера, продакшен сервера
+(если косяки в роли не могут повлиять на их работу), всего набирается 2-5 машин.
+После этого в течение 1-2 дней чаще всего находятся недоработки, которые чинятся, после чего роль передеплоится.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Перенос блога с Octopress на Hugo</title>
+      <link>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/octopress-to-hugo.png&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h1 id=&#34;что-я-узнал-пока-писал-роли-для-ansible&#34;&gt;Что я узнал, пока писал роли для ansible&lt;/h1&gt;
+
+&lt;h2 id=&#34;debops-во-всем-прав&#34;&gt;DebOps во всем прав&lt;/h2&gt;
+
+&lt;p&gt;Единственный полноценный проект, который я нашел - debops. Там все очень энтерпрайзно, &lt;a href=&#34;https://camo.githubusercontent.com/bf2e1de3308fcd8df32ab21666c211a95ffa16f8/68747470733a2f2f6465626f70732e6f72672f696d616765732f646570656e64656e63792d67726170682e706e67&#34; target=&#34;_blank&#34;&gt;страшное дерево зависимостей&lt;/a&gt;, поэтому я побоялся использовать его как есть, но многие вещи я подсматриваю там.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/debops/debops-playbooks/blob/master/README.rst&#34; target=&#34;_blank&#34;&gt;https://github.com/debops/debops-playbooks/blob/master/README.rst&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;нужны-стандарты-написания&#34;&gt;Нужны стандарты написания&lt;/h2&gt;
+
+&lt;p&gt;Сначала я смотрел стиль написания у тех, у кого брал готовые роли. Потом были конфликты переменных, непонимание того, откуда пришла переменная, плохая подсветка кода. Опять выручил DebOps с готовыми &lt;a href=&#34;https://docs.debops.org/en/latest/debops-policy/docs/code-standards-policy.html&#34; target=&#34;_blank&#34;&gt;стандартами написания&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;роли-должны-быть-независимые&#34;&gt;Роли должны быть независимые&lt;/h2&gt;
+
+&lt;p&gt;Ничего хорошего нет в том, что роли могут выполниться только в определенной последовательности.&lt;/p&gt;
+
+&lt;p&gt;Самый главный недостаток этого: тестировать такие роли дольше, т.к. надо запустить всю последовательность.&lt;/p&gt;
+
+&lt;p&gt;Вместо этого лучше лишний раз прописать какой-нибудь &lt;code&gt;apt: name=python-dev state=present&lt;/code&gt;, это будет немного дольше запускаться, но как показала практика, боевой запуск ролей по времени не критичен (если у вас всего несколько серверов, как у меня), а вот тестирование, когда ошибка проявляется только при запуске всего дерева ролей, проходит очень долго.&lt;/p&gt;
+
+&lt;p&gt;Во-вторых, если у вас роли не работают независимо, можете забыть о continous integration&lt;/p&gt;
+
+&lt;p&gt;В-третьих, при тестировании каждой роли с нуля на чистой машине, выясняются все их зависимости, оказыавется, что до этого одни роли зависели от других, причем это было незаметно, т.к. они выполнялись всегда в одной последовательности.&lt;/p&gt;
+
+&lt;h2 id=&#34;не-надо-писать-свою-обвязку-для-тестирования&#34;&gt;Не надо писать свою обвязку для тестирования&lt;/h2&gt;
+
+&lt;p&gt;Я наступил и на эти грабли. С одной стороны из-за того, что я подумал, что мне мозгов не хватит сразу освоить какой-нибудь test kitchen. С другой, я решил, что мне столько возможностей не надо, сколько они дают. В итоге получился кривой велосипед.&lt;/p&gt;
+
+&lt;p&gt;Сначала я создавал виртуалки вручную (через vagrant), запускал там тесты, убивал.&lt;/p&gt;
+
+&lt;p&gt;Потом я попробовал тестировать в docker.&lt;/p&gt;
+
+&lt;p&gt;Потом я написал пару bash-скриптов. Один подготавливал виртуалку или контейнер, настраивал подключение к ним по ssh, прописывал в тестовый inventory файл. Второй прогонял на них тесты, ansible-lint, идемпотентность. Естественно, никакого конфига не было, все настраивалось через env, ломалось.&lt;/p&gt;
+
+&lt;p&gt;Тогда я поискал готовый тестовый фреймворк и нашел molecule. Все оказалось очень просто, уже через час я научился пользоваться им на уровне своего велосипеда.&lt;/p&gt;
+
+&lt;h2 id=&#34;частичный-запуск-ролей-нужно-делать-через-отдельные-плейбуки&#34;&gt;Частичный запуск ролей нужно делать через отдельные плейбуки&lt;/h2&gt;
+
+&lt;p&gt;Опять же, я проигнорировал точку зрения, что теги неконтролируемы.&lt;/p&gt;
+
+&lt;p&gt;Теги нужно проставлять к КАЖДОМУ таску, как результат мы имеем кучу копипасты и часть тасков без тегов.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.debops.org/en/latest/debops-playbooks/docs/playbook-layout.html&#34; target=&#34;_blank&#34;&gt;https://docs.debops.org/en/latest/debops-playbooks/docs/playbook-layout.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Здесь все не так просто: вы можете захотеть запустить часть роли, даже если она достаточно мелкая. Например, в роли viasite-ansible.server-scripts я захотел сделать безболезненное обновление на всех серверах, при этом не перезаписывая конфиг. Поэтому я добавил нужным таскам тег &lt;code&gt;upgrade&lt;/code&gt; и запускаю роль с этим тегом:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook playbooks/roles/server-scripts.yml --limit prod --tags upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Было бы удобнее, если бы можно было сделать отдельный плейбук, в котором ограничить теги из запускаемой роли, но так сделать нельзя, если в &lt;code&gt;roles&lt;/code&gt; прописать &lt;code&gt;- { name: server-scripts, tags: upgrade }&lt;/code&gt;, то это будет значить, что вы назначили этот тег всем входящим в роль таскам.&lt;/p&gt;
+
+&lt;h2 id=&#34;настройка-подключения&#34;&gt;Настройка подключения&lt;/h2&gt;
+
+&lt;h3 id=&#34;используйте-pipeling-true-в-ansible-cfg&#34;&gt;Используйте pipeling = true в ansible.cfg&lt;/h3&gt;
+
+&lt;p&gt;Ansible при выполнении задач сначала формирует файл с командами, потом копирует его на удаленный хост, потом выполняет его. Эта настройка убирает копирование файла и передает команды прямо через ssh, что по сути в 2 раза сокращает количество операций по задачам.&lt;/p&gt;
+
+&lt;p&gt;У этой настройки есть ограничение: в файле &lt;code&gt;/etc/sudoers&lt;/code&gt; должен быть отключен &lt;code&gt;requiretty&lt;/code&gt;, у меня на Ubuntu 16.04 такого нет. Подробности в &lt;a href=&#34;http://docs.ansible.com/ansible/intro_configuration.html#pipelining&#34; target=&#34;_blank&#34;&gt;документации&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Чтобы это заработало, нужно добавить в файл &lt;code&gt;ansible.cfg&lt;/code&gt; строчку в секцию &lt;code&gt;[ssh_connection]&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[ssh_connection]
+pipeling = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;проверяйте-то-что-вы-собираетесь-запустить&#34;&gt;Проверяйте то, что вы собираетесь запустить&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;--list-hosts&lt;/code&gt; - выведет список хостов с учетом всех лимитов&lt;br /&gt;
+&lt;code&gt;--check&lt;/code&gt; - dry run, прогонит роли как будто по-настоящему, но по факту ничего менять не будет&lt;/p&gt;
+
+&lt;h2 id=&#34;итог&#34;&gt;Итог&lt;/h2&gt;
+
+&lt;p&gt;Я вижу, куда все идет: debops оказываются во всем правы, в итоге я пишу большой велосипед, который будет его жалким подобием.&lt;/p&gt;
+
+&lt;p&gt;Надеюсь, что я все-таки выбрал правильный путь.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
       <link>http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
       <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>

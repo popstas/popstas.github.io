@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</loc>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</loc>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</loc>
     <lastmod>2017-03-05T20:45:00+00:00</lastmod>
   </url>
@@ -114,7 +124,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/ansible/</loc>
-    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -198,7 +208,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/docker/</loc>
-    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -241,6 +251,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/gitlab/</loc>
     <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/gitlab-ci/</loc>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -318,7 +334,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/molecule/</loc>
-    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -396,13 +412,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -443,7 +459,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/travis/</loc>
-    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -467,13 +483,19 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/vagrant/</loc>
-    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/tags/windows/</loc>
     <lastmod>2016-04-11T05:01:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/workflow/</loc>
+    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
