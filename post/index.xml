@@ -11,10 +11,10 @@
     
     <item>
       <title>Подсветка Python синтаксиса в PhpStorm</title>
-      <link>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm.md/</link>
+      <link>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
       <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm.md/</guid>
+      <guid>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
       <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
 
 &lt;p&gt;Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p&gt;

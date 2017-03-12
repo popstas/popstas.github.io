@@ -16,7 +16,7 @@
   
 
   
-  <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
+  <title>Подсветка Python синтаксиса в PhpStorm</title>
 
   
   
@@ -98,13 +98,13 @@ ga('send', 'pageview');
         
 
 <header>
-    <p class="meta">31 Jan 2016, 01:43
+    <p class="meta">13 Mar 2017, 00:30
          - 2 мин читать 
 
         
     </p>
     <h1 class="entry-title">
-         E.ggtimer: таймер в пару кликов в любом браузере 
+         Подсветка Python синтаксиса в PhpStorm 
     </h1>
 </header>
 
@@ -113,62 +113,57 @@ ga('send', 'pageview');
           
           
           
-          <p>Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
-бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
-возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:</p>
+          <p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.</p>
 
-<ul>
-<li>Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера</li>
-<li>Пользоваться легко</li>
-</ul>
+<p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.</p>
 
-<p>UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &ldquo;Окей, гугл, таймер на пять минут&rdquo;.</p>
+<p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
+<a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm" target="_blank">Официальная документация</a></p>
 
-<p><img src="/images/2016-01/eggtimer.png" /></p>
+<p><img src="/images/2017-03/phpstorm-python.gif" />
+</p>
 
-<p></p>
+<h2 id="wat">Wat?!</h2>
 
-<p><a href="http://e.ggtimer.com" target="_blank">http://e.ggtimer.com</a> - с виду ничего особенного (так и есть), мне понравилась простота и задание времени через URL.
-Какое-то время я пользовался им так: создал 2 таймера, на 5 и на 10 минут, сделал на них закладки на панель закладок.
-Это не очень удобно по 2 причинам: на chrome мне жалко места на панели, а на firefox у меня панели закладок нет.</p>
+<p>Пару слов о том, почему я я хочу странного.</p>
 
-<p>Выход такой: оба браузера поддерживают пользовательские поисковые системы, сделаем такие.</p>
+<p>Я пишу на PHP и использую все, что может дать PhpStorm. В ресурсах рабочей машины я особо не ограничен, поэтому все проекты
+(все, что больше одного файла) я открываю в нем.</p>
 
-<h3 id="firefox">Firefox</h3>
+<p>У меня есть обвешенные плагинами Sublime Text и Atom, но JetBrains все-таки их делает: большая часть идет из коробки,
+остальное настроено лучше, чем в редакторах, т.к. в PhpStorm я провожу больше всего времени.</p>
 
-<ol>
-<li>Добавить в закладки <a href="http://e.ggtimer.com/%smin" target="_blank">http://e.ggtimer.com/%smin</a></li>
-<li>Находим эту закладку в списке и делаем ей Keyword: t</li>
-</ol>
+<p>На JetBrains IDEA пересаживаться не очень хочется, тем более из-за одного Python, т.к. остальные языки, на которых я пишу
+(bash, ansible, markdown, go, lua) в разной степени поддерживаются штормом.</p>
 
-<h3 id="chrome">Chrome</h3>
+<p>С Python я соприкасаюсь мало, по большей части читаю чужие проекты, поэтому я долго просто открывал python-проекты в шторме
+и читал их в черно-белом варианте.</p>
 
-<ol>
-<li>Настройки - Настроить поисковые системы</li>
-<li>Добавить систему <code>e.ggtimer</code> - <code>t</code> - <code>http://e.ggtimer.com/%smin</code></li>
-</ol>
+<h2 id="настройка">Настройка</h2>
 
-<p>После этого таймер на 5 минут ставится так:</p>
+<p>Итак, решение: можно добавить в PhpStorm TextMate bundle с синтаксисом языка, который поддерживает TextMate.</p>
 
 <ol>
-<li>Выбираем любой браузер</li>
-<li>Ставим фокус на поисковую строку (<code>F6</code> / <code>Ctrl+L</code>)</li>
-<li>Пишем <code>t 5</code>, <code>Enter</code></li>
+<li>Гуглим <code>TextMate Python</code>, находим <a href="https://github.com/textmate/python.tmbundle" target="_blank">бандл</a>, качаем.</li>
+<li>Идем в Settings - Editor - TextMate Bundles в шторме, там добавляем скачанную папку.</li>
+<li>Идем в Settings - Editor - File Types, находим там <code>Files supported viaTextMate bundles</code>, добавляем маску <code>*.py</code>.</li>
+<li>Там же мапим используемые штормовские цветовые схемы на схемы TextMate.</li>
 </ol>
 
-<p>На самом деле в Firefox не синхронизируется Keyword закладок, придется прописывать на каждой системе.</p>
+<p>Вот в общем-то и все, после этого PhpStorm начинает подсвечивать Python, кроме этого он ничего не даст, если нужен
+список функций, переходы к определениям и прочее, то в PhpStorm это настроить нельзя.</p>
         </div>
         
 
 <footer>
   <p class="meta">
     
-    <time>31 Jan 2016, 01:43</time>
+    <time>13 Mar 2017, 00:30</time>
     
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/fast">fast</a>  
+          <a class="category" href="http://blog.popstas.ru/tags/phpstorm">phpstorm</a>  <a class="category" href="http://blog.popstas.ru/tags/python">python</a>  <a class="category" href="http://blog.popstas.ru/tags/textmate">textmate</a>  
     
     </span>
   </p>
@@ -202,11 +197,9 @@ ga('send', 'pageview');
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/" title="Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana">Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</a>
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/" title="Мой процесс написания ansible роли с Molecule и Gitlab CI">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
     
 
-    
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/" title="Проверяем изменения на странице через cron">Проверяем изменения на странице через cron</a>
     
   </p>
       <div id="disqus_thread"></div>
