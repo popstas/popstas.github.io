@@ -16,6 +16,9 @@
       <guid>http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
       <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
 
+&lt;p&gt;TODO: concurrent
+TODO: несколько дистрибов&lt;/p&gt;
+
 &lt;h4 id=&#34;особенности&#34;&gt;Особенности&lt;/h4&gt;
 
 &lt;ul&gt;

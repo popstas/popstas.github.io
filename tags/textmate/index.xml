@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Textmate on Popstas</title>
+    <link>http://blog.popstas.ru/tags/textmate/index.xml</link>
+    <description>Recent content in Textmate on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <atom:link href="http://blog.popstas.ru/tags/textmate/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Подсветка Python синтаксиса в PhpStorm</title>
+      <link>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm.md/</link>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm.md/</guid>
+      <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
+
+&lt;p&gt;Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p&gt;
+
+&lt;p&gt;Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
+&lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34; target=&#34;_blank&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/phpstorm-python.gif&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;wat&#34;&gt;Wat?!&lt;/h2&gt;
+
+&lt;p&gt;Пару слов о том, почему я я хочу странного.&lt;/p&gt;
+
+&lt;p&gt;Я пишу на PHP и использую все, что может дать PhpStorm. В ресурсах рабочей машины я особо не ограничен, поэтому все проекты
+(все, что больше одного файла) я открываю в нем.&lt;/p&gt;
+
+&lt;p&gt;У меня есть обвешенные плагинами Sublime Text и Atom, но JetBrains все-таки их делает: большая часть идет из коробки,
+остальное настроено лучше, чем в редакторах, т.к. в PhpStorm я провожу больше всего времени.&lt;/p&gt;
+
+&lt;p&gt;На JetBrains IDEA пересаживаться не очень хочется, тем более из-за одного Python, т.к. остальные языки, на которых я пишу
+(bash, ansible, markdown, go, lua) в разной степени поддерживаются штормом.&lt;/p&gt;
+
+&lt;p&gt;С Python я соприкасаюсь мало, по большей части читаю чужие проекты, поэтому я долго просто открывал python-проекты в шторме
+и читал их в черно-белом варианте.&lt;/p&gt;
+
+&lt;h2 id=&#34;настройка&#34;&gt;Настройка&lt;/h2&gt;
+
+&lt;p&gt;Итак, решение: можно добавить в PhpStorm TextMate bundle с синтаксисом языка, который поддерживает TextMate.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Гуглим &lt;code&gt;TextMate Python&lt;/code&gt;, находим &lt;a href=&#34;https://github.com/textmate/python.tmbundle&#34; target=&#34;_blank&#34;&gt;бандл&lt;/a&gt;, качаем.&lt;/li&gt;
+&lt;li&gt;Идем в Settings - Editor - TextMate Bundles в шторме, там добавляем скачанную папку.&lt;/li&gt;
+&lt;li&gt;Идем в Settings - Editor - File Types, находим там &lt;code&gt;Files supported viaTextMate bundles&lt;/code&gt;, добавляем маску &lt;code&gt;*.py&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Там же мапим используемые штормовские цветовые схемы на схемы TextMate.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Вот в общем-то и все, после этого PhpStorm начинает подсвечивать Python, кроме этого он ничего не даст, если нужен
+список функций, переходы к определениям и прочее, то в PhpStorm это настроить нельзя.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

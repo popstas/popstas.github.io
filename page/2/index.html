@@ -100,6 +100,54 @@ ga('send', 'pageview');
         
 
 <header>
+    <p class="meta">2 Mar 2016, 00:49
+         - 5 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Интеграция Git, Gitlab и Planfix почти как на Github</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.</p>
+
+<p>Ниже будет написано, как настроить в <a href="https://planfix.ru/" target="_blank">Планфиксе</a> такое поведение:</p>
+
+<ul>
+<li>В коммите упоминаем задачу, например, <code>Правки футера шаблона, https://test.planfix.ru/task/123456</code></li>
+<li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.</li>
+</ul>
+
+<p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.</p>
+
+<p>Вся интеграция делается в одном файле, код хука лежит здесь -
+<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive" target="_blank">git-hook-post-receive</a></p>
+
+<p><img src="/images/2016-03/planfix_logo.png" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">29 Feb 2016, 03:46
          - 2 мин читать 
 
@@ -460,44 +508,6 @@ ga('send', 'pageview');
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">10 Dec 2015, 19:55
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/">Интерактивная Zsh history с поиском и скроллом, percol</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать <code>Ctrl+R</code> и начать набирать
-команду, отобразится последняя команда из истории, для навигации можно использовать
-<code>Ctrl+R</code>, <code>Ctrl+Shift+R</code>. При этом видно одновременно видно только одну команду из истории.</p>
-
-<p>Утилита <a href="https://github.com/mooz/percol#zsh-history-search" target="_blank">percol</a> решает эту проблему.</p>
-
-<p><img src="/images/2015-12/percol.gif" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -589,6 +599,10 @@ ga('send', 'pageview');
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm.md/">Подсветка Python синтаксиса в PhpStorm</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
             </li>
           
@@ -602,10 +616,6 @@ ga('send', 'pageview');
           
             <li class="post">
               <a href="/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
             </li>
           
         </ul>
