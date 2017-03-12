@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.19" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">9 Mar 2017, 08:00
+         - 7 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Репост <a href="https://habrahabr.ru/post/323496/" target="_blank">моей статьи с хабра</a>.</p>
+
+<p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
+Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
+Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
+Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.</p>
+
+<p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
+и обновление. В итоге появилась роль <a href="https://github.com/viasite-ansible/ansible-role-zsh" target="_blank">ansible-role-zsh</a>,
+которая полностью настраивает терминалы на локалке и на моих серверах.</p>
+
+<h3 id="особенности">Особенности:</h3>
+
+<ul>
+<li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)</li>
+<li>быстро загружается, быстро работает</li>
+<li>полностью настраивается через ansible, <code>~/.zshrc</code></li>
+<li>полностью локальная (в систему ничего не ставится, все хранится в <code>~/.oh-my-zsh</code>)</li>
+<li>оставляет возможность юзеру вносить свои настройки через <code>~/.zshrc.local</code></li>
+<li><del>одинаково</del> работает на macOS, старом Debian, Ubuntu, CentOS</li>
+<li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)</li>
+<li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)</li>
+<li>автодополнение по истории команд (помогает реже нажимать <code>Ctrl+R</code>)</li>
+<li>отображение времени для долго выполняемых команд (помогает реже использовать <code>time</code>)</li>
+</ul>
+
+<p>Демонстрация фич за 1 минуту:
+<img src="/images/2017-03/ansible-role-zsh-demo.gif" /></p>
+
+<p></p>
+
+<p>Раньше я пользовался <a href="https://github.com/powerline/powerline" target="_blank">powerline</a>, который отвечал за command prompt (строку состояния)
+и <a href="https://github.com/mooz/percol#zsh-history-search" target="_blank">percol</a> для интерактивного поиска. Обе утилиты написаны на python.
+Они хороши, когда я нашел percol, скорость работы в терминале сразу выросла,
+я радовался этому <a href="http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" target="_blank">в блоге</a>,
+но ставилось это все не очень красиво (bash инсталлером), имело некоторые проблемы при работе нескольких юзеров
+с красивыми терминалами на одном сервере.</p>
+
+<p>Также в некоторых случаях проявлялись недостатки утилит:
+терминал грузился с небольшой задержкой (около 1 секунды), percol тупил на больших объемах текста.</p>
+
+<p>Питоновские утилиты хотели, чтобы я их настраивал через отдельные конфиги. Мне отдельные конфиги поддерживать не хотелось,
+поэтому я пользовался ими с настройками по умолчанию, не скажу, что они были плохие, но можно было и получше.</p>
+
+<p>По этим причинам я поискал, чем их можно заменить и нашел.</p>
+
+<h2 id="fzf-замена-percol">fzf, замена Percol</h2>
+
+<p><a href="https://github.com/junegunn/fzf" target="_blank">Fuzzy finder</a> написан на Go, имеет кучу звездочек, судя по описанию, заточен на работу в Vim,
+но и в других местах работает.</p>
+
+<p>При выборе смотрел еще на <a href="https://github.com/peco/peco" target="_blank">peco</a>, они похожи, оба написаны какими-то японцами на Go,
+я выбрал fzf по следующим критериям:</p>
+
+<ul>
+<li>больше контрибьюторов, вообще пульс проекта бьется примерно в 2 раза чаще</li>
+<li>заточен под vim и tmux, при этом хорошо работает и в обычном терминале</li>
+<li>настраивается через параметры командной строки и переменные окружения, а не через отдельный конфиг</li>
+<li>короче на одну букву :)</li>
+</ul>
+
+<p>У fzf есть некая <a href="https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh" target="_blank">крутая фича</a> автодополнения разного через <code>**&lt;Tab&gt;</code>,
+я не проверял, но автор плагина <a href="https://github.com/Treri/fzf-zsh" target="_blank">fzf-zsh</a> пишет, что он конфликтует с <code>zsh-autosuggestions</code>,
+я ему верю.</p>
+
+<h2 id="powerlevel9k-замена-powerline">Powerlevel9k, замена Powerline</h2>
+
+<p>Тему <a href="https://github.com/bhilburn/powerlevel9k" target="_blank">powerlevel9k</a> я нашел случайно, потом проверил, по запросу на Github <code>powerline zsh</code>
+он второй (после самого powerline).</p>
+
+<p>Тема навороченная, позволяет много всего, я воспользовался некоторыми из фич:</p>
+
+<ul>
+<li>настройка всего через переменные окружения (сегменты, их расположение, цвета)</li>
+<li>добавление кастомных сегментов через те же переменные</li>
+</ul>
+
+<p>Как и powerline, тема требует установки патченных шрифтов <a href="https://github.com/powerline/fonts" target="_blank">powerline fonts</a>,
+я использую шрифт Droid Sans Mono, 12pt. Шрифт и цветовая схема - две вещи, которые нужно установить вручную.</p>
+
+<h2 id="zsh-autosuggestions">zsh-autosuggestions</h2>
+
+<p>Открытие <a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank">этого плагина</a> для меня сравнимо с открытием percol: скорость набора команд увеличилась.
+Часто бывает нужно набрать команду с теми же параметрами, что и в прошлый раз, или немного с другими параметрами.
+Плагин выручает в обоих случаях.</p>
+
+<p>Работает это так: при вводе команды плагин читает историю и дописывает серым последнюю команду из истории, начинающуюся так же.
+Если нажать Enter, выполнится ваша команда, а не из автодополнения (это хорошо, случайно вызвать не ту команду будет сложно,
+хотя у некоторых автодополнений бывают такие проблемы). Чтобы подставить дополненную команду, нужно нажать кнопку, забинденную
+на действие <code>autosuggest-accept</code>, по умолчанию это &rarr;.</p>
+
+<p>Но до стрелочки вправо постоянно тянуться неудобно, поэтому я сначала забиндил автодополнение на <code>backtick</code> (обратную кавычку,
+которая слева от единицы). Это было очень удобно: прямо рядом с <code>Tab</code> и работает похоже на <code>Tab</code>. Но позже выяснилось,
+что это ломает работу Midnight Commander: на одних системах он перестал переключать путь во внутреннем шелле (что полезно:
+через mc переходим в нужную папку, нажимаем <code>Ctrl+O</code>, вводим команду, выходим из внутреннего шелла, или наоборот бывает
+удобнее перейти в папку через шелл, а потом произвести действия в mc), на других системах mc вообще зависал через пару
+переходов по папкам. Я погуглил проблему, в трекере mc есть такой глюк, в последней версии <code>4.8.18</code> зависания убрались,
+но путь так и не стал меняться, поэтому я стал пробовать другие хоткеи: <code>Ctrl+Space</code>, <code>Ctrl+I</code>, все они так или иначе глючили.</p>
+
+<p>В итоге пришел к такому: я сам mc пользуюсь редко, поэтому на всех системах, где бываю не только я, я забиндился на <code>Ctrl+U</code>,
+а на личных - еще и на кавычку. В плейбуке забиндено только на стрелочку.</p>
+
+<p>Еще в ansible-role-zsh работа плагина ограничена 15 символами, то есть через 15 символов он перестает предлагать команды.
+Это сделано для того, чтобы убрать задержки при копипасте команд в терминал (при вводе самостоятельно я задержек не ощущаю,
+но при вставке из буфера больших команд это заметно, похоже на то, как будто вставка не сработала).</p>
+
+<h2 id="zsh-syntax-highlighting">zsh-syntax-highlighting</h2>
+
+<p>Про <a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank">этот плагин</a> можно сказать не особо много:
+подсвечивает текущую введенную команду, раскрашивая на лету.
+Главный плюс в том, что вы видите, что опечатались по красному цвету слова. Не скажу, что это must have, но удобнее становится.</p>
+
+<p>В то же время у плагина есть сразу несколько косяков.</p>
+
+<p>На системах, где <code>zsh &lt; 4.3.17</code>, вызывает крах терминальной сессии,
+поэтому в плейбуке есть защита от активации плагина на таких системах . Случай редкий, я сделал это ради Debian Squeeze.</p>
+
+<p>Плагин должен подключаться последним, а не то не знаю что будет и знать не хочу.</p>
+
+<p>Конфликтует с zsh-autosuggestions, проявляется в вылетании сессии при попытке повторно применить конфиг <code>.zshrc</code>.
+Про это есть соответствующий <a href="https://github.com/zsh-users/zsh-autosuggestions/issues/126#issuecomment-280826224" target="_blank">issue</a>
+и автор zsh-autosuggestions
+<a href="https://github.com/zsh-users/zsh-autosuggestions/issues/126#issuecomment-280826224" target="_blank">говорит</a>,
+что исправление уже в <code>devel</code> ветке, я не проверял, но если это так, после релиза <code>v0.3.4</code> должно все исправиться.
+В плейбуке для этого есть фикс, так что конфликт устранен.</p>
+
+<h2 id="zsh-command-time">zsh-command-time</h2>
+
+<p>Пока наводил порядок в этом проекте, <a href="https://github.com/popstas/zsh-command-time" target="_blank">реализовал</a> одну из своих давних хотелок: вывод времени выполнения для команд,
+которые выполняются долго. До этого я либо смотрел на часы в правом углу терминала и сравнивал с часами в предыдущей команде,
+либо сразу запускал команду с <code>time</code>. Теперь этого делать не надо.</p>
+
+<h2 id="внешний-вид-темы-в-разных-цветовых-схемах">Внешний вид темы в разных цветовых схемах</h2>
+
+<p>Я использую цветовую схему Solarized Dark, но чтобы не огорчать коллег, которые заходят на настроенные мной сервера,
+я проверил, как выглядит терминал на стандартной палитре Putty, на стандартной палитре Ubuntu, на встроенных темах iTerm:</p>
+
+<p><img src="/images/2017-03/ansible-role-zsh-colors.gif" /></p>
+
+<h2 id="установка">Установка</h2>
+
+<p>Итак, если вам понравилось, предлагаю сначала посмотреть работу вживую, в Vagrant:</p>
+
+<pre><code>git clone https://github.com/viasite-ansible/ansible-role-zsh.git
+vagrant up
+</code></pre>
+
+<p>Перед установкой на рабочую систему внимательно прочитайте это:</p>
+
+<ul>
+<li>Роль не установится, если у вас уже есть директория <code>~/.oh-my-zsh</code>, переименуйте ее, если она у вас есть.</li>
+<li>Роль затрет ваш <code>~/.zshrc</code>, сделайте бекап!</li>
+<li>После применения роли, если хотите и дальше управлять терминалом через ansible, нужно писать свои настройки либо в переменные плейбука,
+либо в <code>~/.zshrc.local</code>, этот файл инклюдится в конце <code>~/.zshrc</code> и ansible его не трогает.</li>
+</ul>
+
+<p>Если все устраивает, можно установить роль через <code>ansible-galaxy</code>:</p>
+
+<pre><code>ansible-galaxy install viasite-ansible.zsh
+</code></pre>
+
+<p>Потом создать плейбук вроде такого:</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #93A1A1">hosts:</span> <span style="color: #93A1A1">all</span>
+<span style="color: #93A1A1">vars:</span>
+  <span style="color: #93A1A1">zsh_autosuggestions_bind_key:</span> <span style="color: #2AA198">&quot;^U&quot;</span>
+<span style="color: #93A1A1">roles:</span>
+  <span style="color: #93A1A1">-</span> <span style="color: #93A1A1">viasite-ansible.zsh</span>
+</pre></div>
+
+<p>Сохранить, например, в <code>zsh.yml</code>. После этого роль можно применить к локальному юзеру:</p>
+
+<pre><code>ansible-playbook -i &quot;localhost,&quot; -c local zsh.yml
+</code></pre>
+
+<p>Как применить к другим юзерам и серверам пользователи ansible думаю разберутся.</p>
+
+<p>Проверено на Debian 6, Ubuntu 14.04, Ubuntu 16.04, macOS 10.12, CentOS 7.</p>
+
+<p>Все доступные переменные не стал выносить в README.md, их можно посмотреть
+в <a href="https://github.com/viasite-ansible/ansible-role-zsh/blob/master/defaults/main.yml" target="_blank">defaults/main.yml</a></p>
+
+<h2 id="выводы">Выводы</h2>
+
+<p>Я понимаю, что конфиг терминала - очень личная вещь, не уверен, что будет много желающих воспользоваться именно моей ansible
+ролью, поэтому я постарался сделать ее максимально настраиваемой. Если будут желающие использовать, пожалуйста,
+оставляйте issues.</p>
+
+<p>Конечно, это не последний конфиг, например, пока я писал эту статью, я нашел <a href="https://github.com/zsh-users/antigen" target="_blank">antigen</a>,
+менеджер плагинов для zsh, который написан по аналогии с Vundle для Vim, заточен на работу в паре с oh-my-zsh
+и избавляет от ручной установки плагинов. Это как раз одна из проблем, которую я решал написанием роли. Поделитесь, кто пользовался.</p>
+
+<p>В комментах хотелось бы найти новых вкусных плагинов, пожалуйста, напишите, какие плагины вызвали у вас чувство &ldquo;как я жил без этого раньше?&rdquo;</p>
+
+<p>UPD: добавилась поддержка CentOS, спасибо, <a href="https://habrahabr.ru/users/beevee/" target="_blank">BeeVee</a>!</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>9 Mar 2017, 08:00</time>
+    
+      <span class="categories">
+        Теги:
+        
+          <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="http://blog.popstas.ru/tags/oh-my-zsh">oh-my-zsh</a>  <a class="category" href="http://blog.popstas.ru/tags/powerlevel9k">powerlevel9k</a>  <a class="category" href="http://blog.popstas.ru/tags/ansible-role">ansible-role</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh-autosuggestions">zsh-autosuggestions</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh-syntax-highlighting">zsh-syntax-highlighting</a>  <a class="category" href="http://blog.popstas.ru/tags/fzf">fzf</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh-command-time">zsh-command-time</a>  <a class="category" href="http://blog.popstas.ru/tags/percol">percol</a>  <a class="category" href="http://blog.popstas.ru/tags/powerline">powerline</a>  
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/" title="Мой процесс написания ansible роли с Molecule и Gitlab CI">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" title="Подсветка Python синтаксиса в PhpStorm">Подсветка Python синтаксиса в PhpStorm</a>
+    
+  </p>
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'popstas';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h4>Последние посты:</h4>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/05/migrate-from-octopress-to-hugo/">Перенос блога с Octopress на Hugo</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2015-2017 Stanislav Popov -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

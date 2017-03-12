@@ -9,6 +9,208 @@
     <atom:link href="http://blog.popstas.ru/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
+      <link>http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34; target=&#34;_blank&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
+Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
+Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
+Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p&gt;
+
+&lt;p&gt;Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
+и обновление. В итоге появилась роль &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-zsh&#34; target=&#34;_blank&#34;&gt;ansible-role-zsh&lt;/a&gt;,
+которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p&gt;
+
+&lt;h3 id=&#34;особенности&#34;&gt;Особенности:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li&gt;
+&lt;li&gt;быстро загружается, быстро работает&lt;/li&gt;
+&lt;li&gt;полностью настраивается через ansible, &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;полностью локальная (в систему ничего не ставится, все хранится в &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;оставляет возможность юзеру вносить свои настройки через &lt;code&gt;~/.zshrc.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;одинаково&lt;/del&gt; работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li&gt;
+&lt;li&gt;нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li&gt;
+&lt;li&gt;встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li&gt;
+&lt;li&gt;автодополнение по истории команд (помогает реже нажимать &lt;code&gt;Ctrl+R&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;отображение времени для долго выполняемых команд (помогает реже использовать &lt;code&gt;time&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Демонстрация фич за 1 минуту:
+&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Раньше я пользовался &lt;a href=&#34;https://github.com/powerline/powerline&#34; target=&#34;_blank&#34;&gt;powerline&lt;/a&gt;, который отвечал за command prompt (строку состояния)
+и &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34; target=&#34;_blank&#34;&gt;percol&lt;/a&gt; для интерактивного поиска. Обе утилиты написаны на python.
+Они хороши, когда я нашел percol, скорость работы в терминале сразу выросла,
+я радовался этому &lt;a href=&#34;http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/&#34; target=&#34;_blank&#34;&gt;в блоге&lt;/a&gt;,
+но ставилось это все не очень красиво (bash инсталлером), имело некоторые проблемы при работе нескольких юзеров
+с красивыми терминалами на одном сервере.&lt;/p&gt;
+
+&lt;p&gt;Также в некоторых случаях проявлялись недостатки утилит:
+терминал грузился с небольшой задержкой (около 1 секунды), percol тупил на больших объемах текста.&lt;/p&gt;
+
+&lt;p&gt;Питоновские утилиты хотели, чтобы я их настраивал через отдельные конфиги. Мне отдельные конфиги поддерживать не хотелось,
+поэтому я пользовался ими с настройками по умолчанию, не скажу, что они были плохие, но можно было и получше.&lt;/p&gt;
+
+&lt;p&gt;По этим причинам я поискал, чем их можно заменить и нашел.&lt;/p&gt;
+
+&lt;h2 id=&#34;fzf-замена-percol&#34;&gt;fzf, замена Percol&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/junegunn/fzf&#34; target=&#34;_blank&#34;&gt;Fuzzy finder&lt;/a&gt; написан на Go, имеет кучу звездочек, судя по описанию, заточен на работу в Vim,
+но и в других местах работает.&lt;/p&gt;
+
+&lt;p&gt;При выборе смотрел еще на &lt;a href=&#34;https://github.com/peco/peco&#34; target=&#34;_blank&#34;&gt;peco&lt;/a&gt;, они похожи, оба написаны какими-то японцами на Go,
+я выбрал fzf по следующим критериям:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;больше контрибьюторов, вообще пульс проекта бьется примерно в 2 раза чаще&lt;/li&gt;
+&lt;li&gt;заточен под vim и tmux, при этом хорошо работает и в обычном терминале&lt;/li&gt;
+&lt;li&gt;настраивается через параметры командной строки и переменные окружения, а не через отдельный конфиг&lt;/li&gt;
+&lt;li&gt;короче на одну букву :)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;У fzf есть некая &lt;a href=&#34;https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh&#34; target=&#34;_blank&#34;&gt;крутая фича&lt;/a&gt; автодополнения разного через &lt;code&gt;**&amp;lt;Tab&amp;gt;&lt;/code&gt;,
+я не проверял, но автор плагина &lt;a href=&#34;https://github.com/Treri/fzf-zsh&#34; target=&#34;_blank&#34;&gt;fzf-zsh&lt;/a&gt; пишет, что он конфликтует с &lt;code&gt;zsh-autosuggestions&lt;/code&gt;,
+я ему верю.&lt;/p&gt;
+
+&lt;h2 id=&#34;powerlevel9k-замена-powerline&#34;&gt;Powerlevel9k, замена Powerline&lt;/h2&gt;
+
+&lt;p&gt;Тему &lt;a href=&#34;https://github.com/bhilburn/powerlevel9k&#34; target=&#34;_blank&#34;&gt;powerlevel9k&lt;/a&gt; я нашел случайно, потом проверил, по запросу на Github &lt;code&gt;powerline zsh&lt;/code&gt;
+он второй (после самого powerline).&lt;/p&gt;
+
+&lt;p&gt;Тема навороченная, позволяет много всего, я воспользовался некоторыми из фич:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;настройка всего через переменные окружения (сегменты, их расположение, цвета)&lt;/li&gt;
+&lt;li&gt;добавление кастомных сегментов через те же переменные&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Как и powerline, тема требует установки патченных шрифтов &lt;a href=&#34;https://github.com/powerline/fonts&#34; target=&#34;_blank&#34;&gt;powerline fonts&lt;/a&gt;,
+я использую шрифт Droid Sans Mono, 12pt. Шрифт и цветовая схема - две вещи, которые нужно установить вручную.&lt;/p&gt;
+
+&lt;h2 id=&#34;zsh-autosuggestions&#34;&gt;zsh-autosuggestions&lt;/h2&gt;
+
+&lt;p&gt;Открытие &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions&#34; target=&#34;_blank&#34;&gt;этого плагина&lt;/a&gt; для меня сравнимо с открытием percol: скорость набора команд увеличилась.
+Часто бывает нужно набрать команду с теми же параметрами, что и в прошлый раз, или немного с другими параметрами.
+Плагин выручает в обоих случаях.&lt;/p&gt;
+
+&lt;p&gt;Работает это так: при вводе команды плагин читает историю и дописывает серым последнюю команду из истории, начинающуюся так же.
+Если нажать Enter, выполнится ваша команда, а не из автодополнения (это хорошо, случайно вызвать не ту команду будет сложно,
+хотя у некоторых автодополнений бывают такие проблемы). Чтобы подставить дополненную команду, нужно нажать кнопку, забинденную
+на действие &lt;code&gt;autosuggest-accept&lt;/code&gt;, по умолчанию это &amp;rarr;.&lt;/p&gt;
+
+&lt;p&gt;Но до стрелочки вправо постоянно тянуться неудобно, поэтому я сначала забиндил автодополнение на &lt;code&gt;backtick&lt;/code&gt; (обратную кавычку,
+которая слева от единицы). Это было очень удобно: прямо рядом с &lt;code&gt;Tab&lt;/code&gt; и работает похоже на &lt;code&gt;Tab&lt;/code&gt;. Но позже выяснилось,
+что это ломает работу Midnight Commander: на одних системах он перестал переключать путь во внутреннем шелле (что полезно:
+через mc переходим в нужную папку, нажимаем &lt;code&gt;Ctrl+O&lt;/code&gt;, вводим команду, выходим из внутреннего шелла, или наоборот бывает
+удобнее перейти в папку через шелл, а потом произвести действия в mc), на других системах mc вообще зависал через пару
+переходов по папкам. Я погуглил проблему, в трекере mc есть такой глюк, в последней версии &lt;code&gt;4.8.18&lt;/code&gt; зависания убрались,
+но путь так и не стал меняться, поэтому я стал пробовать другие хоткеи: &lt;code&gt;Ctrl+Space&lt;/code&gt;, &lt;code&gt;Ctrl+I&lt;/code&gt;, все они так или иначе глючили.&lt;/p&gt;
+
+&lt;p&gt;В итоге пришел к такому: я сам mc пользуюсь редко, поэтому на всех системах, где бываю не только я, я забиндился на &lt;code&gt;Ctrl+U&lt;/code&gt;,
+а на личных - еще и на кавычку. В плейбуке забиндено только на стрелочку.&lt;/p&gt;
+
+&lt;p&gt;Еще в ansible-role-zsh работа плагина ограничена 15 символами, то есть через 15 символов он перестает предлагать команды.
+Это сделано для того, чтобы убрать задержки при копипасте команд в терминал (при вводе самостоятельно я задержек не ощущаю,
+но при вставке из буфера больших команд это заметно, похоже на то, как будто вставка не сработала).&lt;/p&gt;
+
+&lt;h2 id=&#34;zsh-syntax-highlighting&#34;&gt;zsh-syntax-highlighting&lt;/h2&gt;
+
+&lt;p&gt;Про &lt;a href=&#34;https://github.com/zsh-users/zsh-syntax-highlighting&#34; target=&#34;_blank&#34;&gt;этот плагин&lt;/a&gt; можно сказать не особо много:
+подсвечивает текущую введенную команду, раскрашивая на лету.
+Главный плюс в том, что вы видите, что опечатались по красному цвету слова. Не скажу, что это must have, но удобнее становится.&lt;/p&gt;
+
+&lt;p&gt;В то же время у плагина есть сразу несколько косяков.&lt;/p&gt;
+
+&lt;p&gt;На системах, где &lt;code&gt;zsh &amp;lt; 4.3.17&lt;/code&gt;, вызывает крах терминальной сессии,
+поэтому в плейбуке есть защита от активации плагина на таких системах . Случай редкий, я сделал это ради Debian Squeeze.&lt;/p&gt;
+
+&lt;p&gt;Плагин должен подключаться последним, а не то не знаю что будет и знать не хочу.&lt;/p&gt;
+
+&lt;p&gt;Конфликтует с zsh-autosuggestions, проявляется в вылетании сессии при попытке повторно применить конфиг &lt;code&gt;.zshrc&lt;/code&gt;.
+Про это есть соответствующий &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions/issues/126#issuecomment-280826224&#34; target=&#34;_blank&#34;&gt;issue&lt;/a&gt;
+и автор zsh-autosuggestions
+&lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions/issues/126#issuecomment-280826224&#34; target=&#34;_blank&#34;&gt;говорит&lt;/a&gt;,
+что исправление уже в &lt;code&gt;devel&lt;/code&gt; ветке, я не проверял, но если это так, после релиза &lt;code&gt;v0.3.4&lt;/code&gt; должно все исправиться.
+В плейбуке для этого есть фикс, так что конфликт устранен.&lt;/p&gt;
+
+&lt;h2 id=&#34;zsh-command-time&#34;&gt;zsh-command-time&lt;/h2&gt;
+
+&lt;p&gt;Пока наводил порядок в этом проекте, &lt;a href=&#34;https://github.com/popstas/zsh-command-time&#34; target=&#34;_blank&#34;&gt;реализовал&lt;/a&gt; одну из своих давних хотелок: вывод времени выполнения для команд,
+которые выполняются долго. До этого я либо смотрел на часы в правом углу терминала и сравнивал с часами в предыдущей команде,
+либо сразу запускал команду с &lt;code&gt;time&lt;/code&gt;. Теперь этого делать не надо.&lt;/p&gt;
+
+&lt;h2 id=&#34;внешний-вид-темы-в-разных-цветовых-схемах&#34;&gt;Внешний вид темы в разных цветовых схемах&lt;/h2&gt;
+
+&lt;p&gt;Я использую цветовую схему Solarized Dark, но чтобы не огорчать коллег, которые заходят на настроенные мной сервера,
+я проверил, как выглядит терминал на стандартной палитре Putty, на стандартной палитре Ubuntu, на встроенных темах iTerm:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-role-zsh-colors.gif&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
+
+&lt;p&gt;Итак, если вам понравилось, предлагаю сначала посмотреть работу вживую, в Vagrant:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/viasite-ansible/ansible-role-zsh.git
+vagrant up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Перед установкой на рабочую систему внимательно прочитайте это:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Роль не установится, если у вас уже есть директория &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;, переименуйте ее, если она у вас есть.&lt;/li&gt;
+&lt;li&gt;Роль затрет ваш &lt;code&gt;~/.zshrc&lt;/code&gt;, сделайте бекап!&lt;/li&gt;
+&lt;li&gt;После применения роли, если хотите и дальше управлять терминалом через ansible, нужно писать свои настройки либо в переменные плейбука,
+либо в &lt;code&gt;~/.zshrc.local&lt;/code&gt;, этот файл инклюдится в конце &lt;code&gt;~/.zshrc&lt;/code&gt; и ansible его не трогает.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Если все устраивает, можно установить роль через &lt;code&gt;ansible-galaxy&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-galaxy install viasite-ansible.zsh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Потом создать плейбук вроде такого:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;hosts:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;all&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;vars:&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;zsh_autosuggestions_bind_key:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;^U&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;roles:&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;viasite-ansible.zsh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Сохранить, например, в &lt;code&gt;zsh.yml&lt;/code&gt;. После этого роль можно применить к локальному юзеру:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i &amp;quot;localhost,&amp;quot; -c local zsh.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Как применить к другим юзерам и серверам пользователи ansible думаю разберутся.&lt;/p&gt;
+
+&lt;p&gt;Проверено на Debian 6, Ubuntu 14.04, Ubuntu 16.04, macOS 10.12, CentOS 7.&lt;/p&gt;
+
+&lt;p&gt;Все доступные переменные не стал выносить в README.md, их можно посмотреть
+в &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-zsh/blob/master/defaults/main.yml&#34; target=&#34;_blank&#34;&gt;defaults/main.yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;выводы&#34;&gt;Выводы&lt;/h2&gt;
+
+&lt;p&gt;Я понимаю, что конфиг терминала - очень личная вещь, не уверен, что будет много желающих воспользоваться именно моей ansible
+ролью, поэтому я постарался сделать ее максимально настраиваемой. Если будут желающие использовать, пожалуйста,
+оставляйте issues.&lt;/p&gt;
+
+&lt;p&gt;Конечно, это не последний конфиг, например, пока я писал эту статью, я нашел &lt;a href=&#34;https://github.com/zsh-users/antigen&#34; target=&#34;_blank&#34;&gt;antigen&lt;/a&gt;,
+менеджер плагинов для zsh, который написан по аналогии с Vundle для Vim, заточен на работу в паре с oh-my-zsh
+и избавляет от ручной установки плагинов. Это как раз одна из проблем, которую я решал написанием роли. Поделитесь, кто пользовался.&lt;/p&gt;
+
+&lt;p&gt;В комментах хотелось бы найти новых вкусных плагинов, пожалуйста, напишите, какие плагины вызвали у вас чувство &amp;ldquo;как я жил без этого раньше?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;UPD: добавилась поддержка CentOS, спасибо, &lt;a href=&#34;https://habrahabr.ru/users/beevee/&#34; target=&#34;_blank&#34;&gt;BeeVee&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
       <link>http://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
       <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
