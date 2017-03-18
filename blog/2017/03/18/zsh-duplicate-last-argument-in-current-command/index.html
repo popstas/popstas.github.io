@@ -16,7 +16,7 @@
   
 
   
-  <title>Простой тайм-трекер для отслеживания потраченного времени</title>
+  <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
 
   
   
@@ -98,13 +98,13 @@ ga('send', 'pageview');
         
 
 <header>
-    <p class="meta">22 Nov 2015, 09:40
+    <p class="meta">18 Mar 2017, 22:20
          - 2 мин читать 
 
         
     </p>
     <h1 class="entry-title">
-         Простой тайм-трекер для отслеживания потраченного времени 
+         Продублировать последний аргумент текущей команды в zsh, zle widget 
     </h1>
 </header>
 
@@ -113,108 +113,94 @@ ga('send', 'pageview');
           
           
           
-          <p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
-Поэтому написал для себя небольшое приложение, тайм-трекер - <a href="http://time.popstas.ru/" target="_blank">http://time.popstas.ru/</a>
-Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
-глюки, которые раздражали последние годы :)</p>
+          <p>В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
+поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.</p>
 
-<p>Tl; dr: выбросил свою поделку, теперь пользуюсь <a href="https://www.toggl.com/" target="_blank">https://www.toggl.com/</a></p>
+<p>Так вот, у меня в терминале бывает частая задача: скопировать файл и положить рядом с немного другим именем.
+Раньше я пользовался такой схемой:</p>
 
-<p><img src="https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true" /></p>
+<pre><code>ls filename.ext
+cp &lt;Alt+.&gt; &lt;Alt+.&gt;
+</code></pre>
 
-<p></p>
+<p>То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
+Потом через <code>Alt+.</code> вставлял 2 раза последний аргумент предыдущей команды.</p>
 
-<p>Конечно, перед тем, как написать свое, долго искал что-то похожее.
-Самое близкое, что нашел - <a href="https://www.toggl.com/" target="_blank">https://www.toggl.com/</a></p>
-
-<p>Так как я собирался использовать ее постоянно и переключать задачу,
-пока человек, прибежавший со срочной задачей ждет, важна была каждая секунда.</p>
-
-<p>time-tracker - простая задачница, решающая большую задачу слежения за собой.</p>
-
-<h3 id="фичи">Фичи:</h3>
+<p>Другие примеры использования:</p>
 
 <ul>
-<li>быстрое добавление задач</li>
-<li>подзадачи</li>
-<li>быстрое переключение между задачами</li>
-<li>исправление времени задним числом</li>
-<li>быстрое копирование сводки за день</li>
-<li>отслеживание времени по каждой задаче</li>
-<li>сводка по задачам</li>
-<li>навигация с клавиатуры</li>
+<li><code>mv path/file1 path/file2</code></li>
+<li><code>cp config.example config</code></li>
+<li><code>mc /home/user /home/user</code></li>
 </ul>
 
-<h3 id="неочевидные-моменты">Неочевидные моменты</h3>
+<p>Теперь я могу делать так:</p>
+
+<pre><code>cp filename.ext &lt;Alt+,&gt;
+</code></pre>
+
+<p>В действии:</p>
+
+<p><img src="/images/2017-03/zsh-duplicate-last-arg.gif" />
+</p>
+
+<p>Когда я правил чужие виджеты (виджетом в zsh называется функция, повешенная на хоткей), я понял,
+что у zsh большие возможности по редактированию текущей строки комманд. Оставалось узнать, как это нагуглить.</p>
+
+<p>Ключевик я нашел в тех же скриптах: <code>ZLE</code> или Zsh Line Editor. ОК, гуглим <code>zsh zle</code>,
+попадаем <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html" target="_blank">на доку</a>. Через 10 минут чтения и правок родилась эта функция.</p>
+
+<p>После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
+Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd</span>
+<span style="color: #586E75"># http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html</span>
+autoload -Uz copy-earlier-word
+zle -N copy-earlier-word
+bindkey <span style="color: #2AA198">&quot;^[,&quot;</span> copy-earlier-word
+</pre></div>
+
+<p>Код надо вставить в <code>.zshrc</code> или <code>.zshrc.local</code> если вы пользуетесь
+<a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" target="_blank">ansible-role-zsh</a></p>
+
+<p>Виджет вставляет последний аргумент текущей команды, но если нажать еще дважды - вставит предпоследний.
+Например, вы ввели команду <code>some-command arg1 arg2</code>, чтобы вставить предпоследний аргумент, нажмите <code>&lt;Alt+.&gt;&lt;Alt+,&gt;&lt;Alt+,&gt;</code>.</p>
+
+<h3 id="как-работают-виджеты-zsh">Как работают виджеты zsh:</h3>
+
+<p>Функция, вызванная через механизм виджетов, имеет доступ к куче внутренних переменных zsh, некоторые можно только читать,
+другие можно изменять на лету.</p>
+
+<p>Я воспользовался двумя переменными:</p>
 
 <ul>
-<li>При отслеживании активна всегда только одна задача.</li>
-<li>Если включить Desktop notifications, каждые 10 минут будет всплывать сообщение
-о том, сколько активна задача с последнего ее запуска и сколько активна всего.</li>
-<li>Единственный способ создать второй список задач - открыть другой браузер.</li>
+<li><code>BUFFER</code> - содержит текущую введенную команду. Переменную можно менять, но курсор при этом остается на месте.</li>
+<li><code>CURSOR</code> - позиция курсора</li>
 </ul>
 
-<h3 id="сценарии-применения">Сценарии применения</h3>
+<p>Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.</p>
 
-<ul>
-<li>постоянное переключение между задачами в течение дня</li>
-<li>многодневный проект, когда надо отследить общее потраченное время</li>
-<li>быстрый чеклист</li>
-</ul>
-
-<p>Для многодневного проекта кстати хочу попробовать связку
-<a href="https://trello.com/" target="_blank">Trello</a> + <a href="https://toggl.com/tools" target="_blank">Toggl</a>,
-пока писал этот пост, узнал, что у них есть интеграция.</p>
-
-<h3 id="как-я-использую-задачницу">Как я использую задачницу:</h3>
-
-<p>Прихожу в офис, включаю задачу &ldquo;текучка&rdquo;
-После этого ставлю фильтр, чтобы показались задачи с ненулевым временем,
-выделяю все, вставляю в блокнот (потом можно вспомнить, чем занимался в
-такой-то день, бывает полезно), сбрасываю таймеры (справа от строки ввода),
-удаляю ненужное, добавляю то, что сегодня собираюсь делать (1-2 задачи) и
-начинаю работать.</p>
-
-<p>Когда ко мне кто-то приходит, и начинает задавать вопросы, я тут же запускаю
-в задачах соответствующий проект или &ldquo;прочие консультации&rdquo;, если быстро определить
-не удалось.</p>
-
-<p>Чаще всего текущие проекты поделены на несколько подзадач, а внезапно возникающие
-просто обозначены проектами.</p>
-
-<h3 id="мои-постоянные-задачи">Мои постоянные задачи:</h3>
-
-<ul>
-<li><code>текучка</code> - вся не классифицируемая мелочь
-разбор почты, разбор задач в корпоративной системе.</li>
-<li><code>-------</code> - перекуры, наливание чая, прочее ничегонеделание</li>
-<li><code>обед</code> - ничегонеделание в обед</li>
-<li><code>прочие консультации</code> - разговоры на рабочие темы</li>
-<li><code>сисадминство</code> - работы по серверу</li>
-<li>несколько задач с проектами, которые постоянно всплывают</li>
-</ul>
-
-<h2 id="техническая-часть">Техническая часть</h2>
-
-<ul>
-<li>Backbone (использовал в первый и последний раз)</li>
-<li>LESS, шрифтовые иконки</li>
-<li>Хранилище данных в LocalStorage браузера</li>
-</ul>
-
-<p>Одной из причин написать было желание потрогать backbone.</p>
+<p>Сам скрипт:</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># Ctrl+, - duplicate last word in current command</span>
+zsh-duplicate-last-arg<span style="color: #719e07">()</span> <span style="color: #719e07">{</span>
+	<span style="color: #268BD2">BUFFER</span><span style="color: #719e07">=$(</span><span style="color: #B58900">echo</span> <span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$BUFFER</span><span style="color: #2AA198">&quot;</span> <span style="color: #93A1A1">|</span> sed -e <span style="color: #2AA198">&#39;s/[[:space:]]*$//&#39;</span><span style="color: #719e07">)</span>
+	<span style="color: #268BD2">BUFFER</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$BUFFER</span><span style="color: #2AA198"> ${</span><span style="color: #268BD2">BUFFER</span><span style="color: #93A1A1">##* </span><span style="color: #2AA198">}&quot;</span>
+	<span style="color: #268BD2">CURSOR</span><span style="color: #719e07">=</span><span style="color: #268BD2">$#</span>BUFFER
+<span style="color: #719e07">}</span>
+zle -N zsh-duplicate-last-arg
+bindkey <span style="color: #2AA198">&#39;^[,&#39;</span> zsh-duplicate-last-arg
+</pre></div>
         </div>
         
 
 <footer>
   <p class="meta">
     
-    <time>22 Nov 2015, 09:40</time>
+    <time>18 Mar 2017, 22:20</time>
     
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/gtd">gtd</a>  <a class="category" href="http://blog.popstas.ru/tags/javascript">javascript</a>  
+          <a class="category" href="http://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="http://blog.popstas.ru/tags/zle">zle</a>  <a class="category" href="http://blog.popstas.ru/tags/fast">fast</a>  
     
     </span>
   </p>
@@ -248,11 +234,9 @@ ga('send', 'pageview');
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/" title="Показать все окна gnome terminal в Ubuntu">Показать все окна gnome terminal в Ubuntu</a>
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" title="Подсветка Python синтаксиса в PhpStorm">Подсветка Python синтаксиса в PhpStorm</a>
     
 
-    
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" title="Интерактивная Zsh history с поиском и скроллом, percol">Интерактивная Zsh history с поиском и скроллом, percol</a>
     
   </p>
       <div id="disqus_thread"></div>

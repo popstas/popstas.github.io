@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</loc>
+    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</loc>
     <lastmod>2017-03-13T00:30:00+00:00</lastmod>
   </url>
@@ -237,7 +242,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/fast/</loc>
-    <lastmod>2016-01-31T01:43:24+00:00</lastmod>
+    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -441,13 +446,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2017-03-13T00:30:00+00:00</lastmod>
+    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2017-03-13T00:30:00+00:00</lastmod>
+    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -553,8 +558,14 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/zle/</loc>
+    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/zsh/</loc>
-    <lastmod>2017-03-09T08:00:00+00:00</lastmod>
+    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   

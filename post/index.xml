@@ -6,8 +6,92 @@
     <description>Recent content in Posts on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 13 Mar 2017 00:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
     <atom:link href="http://blog.popstas.ru/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
+      <link>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
+      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
+      <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
+поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.&lt;/p&gt;
+
+&lt;p&gt;Так вот, у меня в терминале бывает частая задача: скопировать файл и положить рядом с немного другим именем.
+Раньше я пользовался такой схемой:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls filename.ext
+cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
+Потом через &lt;code&gt;Alt+.&lt;/code&gt; вставлял 2 раза последний аргумент предыдущей команды.&lt;/p&gt;
+
+&lt;p&gt;Другие примеры использования:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mv path/file1 path/file2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cp config.example config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mc /home/user /home/user&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Теперь я могу делать так:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp filename.ext &amp;lt;Alt+,&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;В действии:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Когда я правил чужие виджеты (виджетом в zsh называется функция, повешенная на хоткей), я понял,
+что у zsh большие возможности по редактированию текущей строки комманд. Оставалось узнать, как это нагуглить.&lt;/p&gt;
+
+&lt;p&gt;Ключевик я нашел в тех же скриптах: &lt;code&gt;ZLE&lt;/code&gt; или Zsh Line Editor. ОК, гуглим &lt;code&gt;zsh zle&lt;/code&gt;,
+попадаем &lt;a href=&#34;http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html&#34; target=&#34;_blank&#34;&gt;на доку&lt;/a&gt;. Через 10 минут чтения и правок родилась эта функция.&lt;/p&gt;
+
+&lt;p&gt;После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
+Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# Example &amp;lt;Ctrl+.&amp;gt;&amp;lt;Ctrl+,&amp;gt; inserts 2nd argument from end of prev. cmd&lt;/span&gt;
+&lt;span style=&#34;color: #586E75&#34;&gt;# http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html&lt;/span&gt;
+autoload -Uz copy-earlier-word
+zle -N copy-earlier-word
+bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;^[,&amp;quot;&lt;/span&gt; copy-earlier-word
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Код надо вставить в &lt;code&gt;.zshrc&lt;/code&gt; или &lt;code&gt;.zshrc.local&lt;/code&gt; если вы пользуетесь
+&lt;a href=&#34;http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/&#34; target=&#34;_blank&#34;&gt;ansible-role-zsh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Виджет вставляет последний аргумент текущей команды, но если нажать еще дважды - вставит предпоследний.
+Например, вы ввели команду &lt;code&gt;some-command arg1 arg2&lt;/code&gt;, чтобы вставить предпоследний аргумент, нажмите &lt;code&gt;&amp;lt;Alt+.&amp;gt;&amp;lt;Alt+,&amp;gt;&amp;lt;Alt+,&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;как-работают-виджеты-zsh&#34;&gt;Как работают виджеты zsh:&lt;/h3&gt;
+
+&lt;p&gt;Функция, вызванная через механизм виджетов, имеет доступ к куче внутренних переменных zsh, некоторые можно только читать,
+другие можно изменять на лету.&lt;/p&gt;
+
+&lt;p&gt;Я воспользовался двумя переменными:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;BUFFER&lt;/code&gt; - содержит текущую введенную команду. Переменную можно менять, но курсор при этом остается на месте.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CURSOR&lt;/code&gt; - позиция курсора&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.&lt;/p&gt;
+
+&lt;p&gt;Сам скрипт:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# Ctrl+, - duplicate last word in current command&lt;/span&gt;
+zsh-duplicate-last-arg&lt;span style=&#34;color: #719e07&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=$(&lt;/span&gt;&lt;span style=&#34;color: #B58900&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$BUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/[[:space:]]*$//&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;
+	&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$BUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt; ${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;##* &lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;}&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #268BD2&#34;&gt;CURSOR&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$#&lt;/span&gt;BUFFER
+&lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
+zle -N zsh-duplicate-last-arg
+bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/span&gt; zsh-duplicate-last-arg
+&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Подсветка Python синтаксиса в PhpStorm</title>
@@ -2159,341 +2243,6 @@ average &#39;command&#39;
 Я использую комбинацию RSS для групп, которые не спамят + подписка на исполнителя в яндекс музыке для всех групп.
 Это работает уже пару лет, стоит один раз потратить вечер на добавление исполнителей из вашего плейлиста в подписки
 и вы будете получать обновления по ним.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Docker в картинках</title>
-      <link>http://blog.popstas.ru/blog/2016/02/26/docker-in-images/</link>
-      <pubDate>Fri, 26 Feb 2016 21:29:45 +0000</pubDate>
-      
-      <guid>http://blog.popstas.ru/blog/2016/02/26/docker-in-images/</guid>
-      <description>&lt;p&gt;Оставлю здесь &lt;a href=&#34;http://habrahabr.ru/post/272145/&#34; target=&#34;_blank&#34;&gt;свой пост&lt;/a&gt; с хабра.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Перевод поста &lt;a href=&#34;http://merrigrove.blogspot.co.uk/2015/10/visualizing-docker-containers-and-images.html&#34; target=&#34;_blank&#34;&gt;Visualizing Docker Containers and Images&lt;/a&gt;, от новичка к новичкам, автор на простых примерах объясняет базовые сущности и процессы в использовании docker.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Если вы не знаете, что такое Docker или не понимаете, как он соотносится с виртуальными машинами или с инструментами configuration management, то этот пост может показаться немного сложным.&lt;/p&gt;
-
-&lt;p&gt;Пост предназначен для тех, кто пытается освоить docker cli, понять, чем отличается контейнер и образ. В частности, будет объяснена разница между просто контейнером и запущенным контейнером.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/8ff/349/fb2/8ff349fb23f840589c479d029964b8dc.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;В процессе освоения нужно представить себе некоторые лежащие в основе детали, например, слои файловой системы UnionFS. В течение последней пары недель я изучал технологию, я новичок в мире docker, и командная строка docker показалась мне довольно сложной для освоения.&lt;/p&gt;
-
-&lt;p&gt;По-моему, понимание того, как технология работает изнутри - лучший способ быстро освоить новый инструмент и правильно его использовать. Часто новая технология разрабатывает новые модели абстракций и привносит новые термины и метафоры, которые могут быть как будто бы понятны в начале, но без четкого понимания затрудняют последующее использование инструмента.&lt;/p&gt;
-
-&lt;p&gt;Хорошим примером является Git. Я не мог понять Git, пока не понял его базовую модель, включая trees, blobs, commits, tags, tree-ish и прочее. Я думаю, что люди, не понимающие внутренности Git, не могут мастерски использовать этот инструмент.&lt;/p&gt;
-
-&lt;h2 id=&#34;определение-образа-image&#34;&gt;Определение образа (Image)&lt;/h2&gt;
-
-&lt;p&gt;Визуализация образа представлена ниже в двух видах. Образ можно определить как &amp;ldquo;сущность&amp;rdquo; или &amp;ldquo;общий вид&amp;rdquo; (union view) стека слоев только для чтения.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/243/a01/1ed/243a011ed04f455099a4ba64a87736f6.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Слева мы видим стек слоев для чтения. Они показаны только для понимания внутреннего устройства, они доступны вне запущенного контейнера на хост-системе. Важно то, что они доступны только для чтения (иммутабельны), а все изменения происходят в верхнем слое стека. Каждый слой может иметь одного родителя, родитель тоже имеет родителя и т.д. Слой верхнего уровня может быть использован как UnionFS (AUFS в моем случае с docker) и представлен в виде единой read-only файловой системы, в которой отражены все слои. Мы видим эту &amp;ldquo;сущность&amp;rdquo; образа на рисунке справа.&lt;/p&gt;
-
-&lt;p&gt;Если вы захотите посмотреть на эти слои в первозданном виде, вы можете найти их в файловой системе на хост-машине. Они не видны напрямую из запущенного контейнера. На моей хост-машине я могу найти образы в /var/lib/docker/aufs.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# sudo tree -L 1 /var/lib/docker/
-/var/lib/docker/
-├── aufs
-├── containers
-├── graph
-├── init
-├── linkgraph.db
-├── repositories-aufs
-├── tmp
-├── trust
-└── volumes
-
-7 directories, 2 files
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;определение-контейнера-container&#34;&gt;Определение контейнера (Container)&lt;/h2&gt;
-
-&lt;p&gt;Контейнер можно назвать &amp;ldquo;сущностью&amp;rdquo; стека слоев с верхним слоем для записи.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/8d3/d29/494/8d3d29494dbf46f79b1be15cea7516c4.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;На изображении выше показано примерно то же самое, что на изображении про образ, кроме того, что верхний слой доступен для записи. Вы могли заметить, что это определение ничего не говорит о том, запущен контейнер или нет и это неспроста. Разделение контейнеров на запущенные и не запущенные устранило путаницу в моем понимании.&lt;/p&gt;
-
-&lt;p&gt;Контейнер определяет лишь слой для записи наверху образа (стека слоев для чтения). Он не запущен.&lt;/p&gt;
-
-&lt;h2 id=&#34;определение-запущенного-контейнера&#34;&gt;Определение запущенного контейнера&lt;/h2&gt;
-
-&lt;p&gt;Запущенный контейнер - это &amp;ldquo;общий вид&amp;rdquo; контейнера для чтения-записи и его изолированного пространства процессов. Ниже изображен контейнер в своем пространстве процессов.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/c72/5d3/b0b/c725d3b0be5742aca5f50310d640d0b1.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Изоляция файловой системы обеспечивается технологиями уровня ядра, cgroups, namespaces и другие, позволяют докеру быть такой перспективной технологией. Процессы в пространстве контейнера могут изменять, удалять или создавать файлы, которые сохраняются в верхнем слое для записи. Смотрите изображение:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/f8e/bbf/e3b/f8ebbfe3b59346ee9cdb017b89fcb169.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Чтобы проверить это, выполните команду на хост-машине:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker run ubuntu touch happiness.txt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Вы можете найти новый файл в слое для записи на хост-машине, даже если контейнер не запущен.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# find / -name happiness.txt
-/var/lib/docker/aufs/diff/860a7b...889/happiness.txt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;определение-слоя-образа-image-layer&#34;&gt;Определение слоя образа (Image layer)&lt;/h2&gt;
-
-&lt;p&gt;Наконец, мы определим слой образа. Изображение ниже представляет слой образа и дает нам понять, что слой - это не просто изменения в файловой системе.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/928/23a/1a0/92823a1a03ad487586293f37e78cf74f.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Метаданные - дополнительная информация о слое, которая позволяет докеру сохранять информацию во время выполнения и во время сборки. Оба вида слоев (для чтения и для записи) содержат метаданные.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/b7e/d04/252/b7ed042525f647b986009b82d18b3fee.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Кроме того, как мы уже упоминали раньше, каждый слой содержит указатель на родителя, используя id (на изображении родительские слои внизу). Если слой не указывает на родительский слой, значит он наверху стека.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/7e9/de2/c4f/7e9de2c4f537438c8f5357d09c398289.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;расположение-метаданных&#34;&gt;Расположение метаданных&lt;/h3&gt;
-
-&lt;p&gt;На данный момент (я понимаю, что разработчики docker могут позже сменить реализацию), метаданные слоев образов (для чтения) находятся в файле с именем &amp;ldquo;json&amp;rdquo; в папке /var/lib/docker/graph/id_слоя:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/var/lib/docker/graph/e809f156dc985.../json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;где &amp;ldquo;e809f156dc985&amp;hellip;&amp;rdquo; - урезанный id слоя.&lt;/p&gt;
-
-&lt;h2 id=&#34;свяжем-все-вместе&#34;&gt;Свяжем все вместе&lt;/h2&gt;
-
-&lt;p&gt;Теперь, давайте посмотрим на команды, иллюстрированные понятными картинками.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-create-image-id&#34;&gt;docker create &lt;image-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/71a/d30/a1e/71ad30a1e0b04cb09db3e25c741ef7a8.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/bdc/1cc/f14/bdc1ccf14b1c4702afe71cbd27a1574b.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker create&lt;/code&gt; добавляет слой для записи наверх стека слоев, найденного по &lt;image-id&gt;. Команда не запускает контейнер.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/12c/8d5/606/12c8d56068c5416e8ca003b532ef3cdb.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-start-container-id&#34;&gt;docker start &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/bdc/1cc/f14/bdc1ccf14b1c4702afe71cbd27a1574b.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/730/6c4/4cd/7306c44cdfdd4ead9f1f073d91dd312c.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker start&lt;/code&gt; создает пространство процессов вокруг слоев контейнера. Может быть только одно пространство процессов на один контейнер.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-run-image-id&#34;&gt;docker run &lt;image-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/71a/d30/a1e/71ad30a1e0b04cb09db3e25c741ef7a8.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/730/6c4/4cd/7306c44cdfdd4ead9f1f073d91dd312c.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Один из первых вопросов, который задают люди (я тоже задавал): &amp;ldquo;В чем разница между &lt;code&gt;docker start&lt;/code&gt; и &lt;code&gt;docker run&lt;/code&gt;?&amp;rdquo; Одна из первоначальных целей этого поста - объяснить эту тонкость.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/429/f39/fc6/429f39fc67d44579a40365018dc6839e.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Как мы видим, команда &lt;code&gt;docker run&lt;/code&gt; находит образ, создает контейнер поверх него и запускает контейнер. Это сделано для удобства и скрывает детали двух команд.&lt;/p&gt;
-
-&lt;p&gt;Продолжая сравнение с освоением Git, я скажу, что &lt;code&gt;docker run&lt;/code&gt; очень похожа на &lt;code&gt;git pull&lt;/code&gt;. Так же, как и &lt;code&gt;git pull&lt;/code&gt; (который объединяет &lt;code&gt;git fetch&lt;/code&gt; и &lt;code&gt;git merge&lt;/code&gt;), команда &lt;code&gt;docker run&lt;/code&gt; объединяет две команды, которые могут использоваться и независимо. Это удобно, но поначалу может ввести в заблуждение.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-ps&#34;&gt;docker ps&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/441/0ed/8b7/4410ed8b7bb94de68dfae60a79a08aca.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker ps&lt;/code&gt; выводит список запущенных контейнеров на вашей хост-машине. Важно понимать, что в этот список входят только запущенные контейнеры, не запущенные контейнеры скрыты. Чтобы посмотреть список всех контейнеров, нужно использовать следующую команду.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-ps-a&#34;&gt;docker ps -a&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/633/55a/c1a/63355ac1a27d4cf6a1f10142cc89d7b0.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker ps -a&lt;/code&gt;, где &lt;code&gt;a&lt;/code&gt; - сокращение от &lt;code&gt;all&lt;/code&gt; выводит список всех контейнеров, независимо от их состояния.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-images&#34;&gt;docker images&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/2d2/29e/bc6/2d229ebc667244b3b478298aa3162c7e.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker images&lt;/code&gt; выводит список образов верхнего уровня (top-level images). Фактически, ничего особенного не отличает образ от слоя для чтения. Только те образы, которые имеют присоединенные контейнеры или те, что были получены с помощью pull, считаются образами верхнего уровня. Это различие нужно для удобства, так как за каждым образом верхнего уровня может быть множество слоев.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-images-a&#34;&gt;docker images -a&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/5b6/6a9/fd9/5b66a9fd93ce4157b3cfa48984a5ca0d.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker images -a&lt;/code&gt; выводит все образы на хост-машине. Это фактически список всех слоев для чтения в системе. Если вы хотите увидеть все слои одного образа, воспользуйтесь командой &lt;code&gt;docker history&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-stop-container-id&#34;&gt;docker stop &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/f34/430/e32/f34430e3231842e3b748d337993e9338.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/bdc/1cc/f14/bdc1ccf14b1c4702afe71cbd27a1574b.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker stop&lt;/code&gt; посылает сигнал SIGTERM запущенному контейнеру, что мягко останавливает все процессы в пространстве процессов контейнера. В результате мы получаем не запущенный контейнер.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-kill-container-id&#34;&gt;docker kill &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/ef8/c77/3c3/ef8c773c34454292b76f798482e15463.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/bdc/1cc/f14/bdc1ccf14b1c4702afe71cbd27a1574b.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker kill&lt;/code&gt; посылает сигнал SIGKILL, что немедленно завершает все процессы в текущем контейнере. Это почти то же самое, что нажать Ctrl+\ в терминале.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-pause-container-id&#34;&gt;docker pause &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/63d/de7/ed4/63dde7ed482544e0afcc2925eabc1e3d.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/70d/208/439/70d208439a1944739c5e06e716ab1975.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;В отличие от &lt;code&gt;docker stop&lt;/code&gt; и &lt;code&gt;docker kill&lt;/code&gt;, которые посылают настоящие UNIX сигналы процессам контейнера, команда &lt;code&gt;docker pause&lt;/code&gt; используют специальную возможность cgroups для заморозки запущенного пространства процессов. Подробности можно прочитать &lt;a href=&#34;https://www.kernel.org/doc/Documentation/cgroups/freezer-subsystem.txt&#34; target=&#34;_blank&#34;&gt;здесь&lt;/a&gt;, если вкратце, отправки сигнала Ctrl+Z (SIGTSTP) не достаточно, чтобы заморозить все процессы в пространстве контейнера.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-rm-container-id&#34;&gt;docker rm &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/92d/14d/d92/92d14dd9224043079a90ab80c4dbc6a6.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/a36/292/8c4/a362928c4661422797d267560ff38182.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker rm&lt;/code&gt; удаляет слой для записи, который определяет контейнер на хост-системе. Должна быть запущена на остановленном контейнерах. Удаляет файлы.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-rmi-image-id&#34;&gt;docker rmi &lt;image-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/4c2/eb5/26a/4c2eb526a35e4751a5302c954370a0fa.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/3a2/145/38a/3a214538a6e54e009f704825109393a1.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker rmi&lt;/code&gt; удаляет слой для чтения, который определяет &amp;ldquo;сущность&amp;rdquo; образа. Она удаляет образ с хост-системы, но образ все еще может быть получен из репозитория через &lt;code&gt;docker pull&lt;/code&gt;. Вы можете использовать &lt;code&gt;docker rmi&lt;/code&gt; только для слоев верхнего уровня (или образов), для удаления промежуточных слоев нужно использовать &lt;code&gt;docker rmi -f&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-commit-container-id&#34;&gt;docker commit &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/7d0/ec4/104/7d0ec41049b34238bb785e28897e28f0.png&#34; /&gt; или &lt;img src=&#34;https://habrastorage.org/files/325/e8e/270/325e8e27098e4cdeb956634361879388.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/daa/69c/50f/daa69c50fbc3479ba9d6497983b73a02.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker commit&lt;/code&gt; берет верхний уровень контейнера, тот, что для записи и превращает его в слой для чтения. Это фактически превращает контейнер (вне зависимости от того, запущен ли он) в неизменяемый образ.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/e3d/7d7/766/e3d7d7766165425a9148ac61369ffe9c.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-build&#34;&gt;docker build&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;Dockerfile &lt;img src=&#34;https://habrastorage.org/files/847/71b/87a/84771b87a8cd4d77b63d39a3ae9dae13.png&#34; /&gt; и &lt;img src=&#34;https://habrastorage.org/files/71a/d30/a1e/71ad30a1e0b04cb09db3e25c741ef7a8.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/71a/d30/a1e/71ad30a1e0b04cb09db3e25c741ef7a8.png&#34; /&gt;
-Со многими другими слоями.&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker build&lt;/code&gt; интересна тем, что запускает целый ряд команд:
-&lt;img src=&#34;https://habrastorage.org/files/b25/36e/cac/b2536ecac84148ba9a043bb00fe3ce5a.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;На изображении выше мы видим, как команда build использует значение инструкции FROM из файла Dockerfile как базовый образ после чего:&lt;/p&gt;
-
-&lt;p&gt;1) запускает контейнер (create и start)
-2) изменяет слой для записи
-3) делает commit
-На каждой итерации создается новый слой. При исполнении &lt;code&gt;docker build&lt;/code&gt; может создаваться множество слоев.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-exec-running-container-id&#34;&gt;docker exec &lt;running-container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/7d0/ec4/104/7d0ec41049b34238bb785e28897e28f0.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/4d6/cd5/21e/4d6cd521ee4d47e68d89e9ce77c8a6ca.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker exec&lt;/code&gt; применяется к запущенному контейнеру, запускает новый процесс внутри пространства процессов контейнера.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-inspect-container-id-image-id&#34;&gt;docker inspect &lt;container-id&gt; | &lt;image-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/74c/7ee/e53/74c7eee53b8f4ed8a2a606e87571fe3a.png&#34; /&gt; или &lt;img src=&#34;https://habrastorage.org/files/242/b58/b68/242b58b68acd4580b226569d81d613e5.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/898/5e8/e54/8985e8e5467a42769988a4351d0c0828.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker inspect&lt;/code&gt; получает метаданные верхнего слоя контейнера или образа.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-save-image-id&#34;&gt;docker save &lt;image-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/f2a/b8d/70d/f2ab8d70de7a4ca4959f6a7bf1fb11e3.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/d5d/bf7/3f0/d5dbf73f0f2d4d72b0ed38309e2c6a6b.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker save&lt;/code&gt; создает один файл, который может быть использован для импорта образа на другую хост-систему. В отличие от команды &lt;code&gt;export&lt;/code&gt;, она сохраняет все слои и их метаданные. Может быть применена только к образам.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-export-container-id&#34;&gt;docker export &lt;container-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/a7f/3f4/717/a7f3f47170084dc2b75dd73e8d6a5cbb.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/36d/807/ed6/36d807ed6b304333b31f658dfb5c4326.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker export&lt;/code&gt; создает tar архив с содержимым файлов контейнера, в результате получается папка, пригодная для использования вне docker. Команда убирает слои и их метаданные. Может быть применена только для контейнеров.&lt;/p&gt;
-
-&lt;h3 id=&#34;docker-history-image-id&#34;&gt;docker history &lt;image-id&gt;&lt;/h3&gt;
-
-&lt;p&gt;До:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/428/150/afc/428150afc2574fd2bf32f1202c908f77.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;После:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/e82/45f/511/e8245f51120340b19e07c6009f2d4ce8.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Команда &lt;code&gt;docker history&lt;/code&gt; принимает &lt;image-id&gt; и рекурсивно выводит список всех слоев-родителей образа (которые тоже могут быть образами)&lt;/p&gt;
-
-&lt;h2 id=&#34;итог&#34;&gt;Итог&lt;/h2&gt;
-
-&lt;p&gt;Я надеюсь, вам понравилась эта визуализация контейнеров и образов. Есть много других команд (pull, search, restart, attach и другие), которые могут или не могут быть объяснены моими сравнениями.&lt;/p&gt;</description>
     </item>
     
   </channel>
