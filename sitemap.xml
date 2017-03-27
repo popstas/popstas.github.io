@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</loc>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</loc>
     <lastmod>2017-03-18T22:20:28+00:00</lastmod>
   </url>
@@ -134,7 +139,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/ansible/</loc>
-    <lastmod>2017-03-08T01:00:00+00:00</lastmod>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -391,6 +396,12 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/packer/</loc>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/percol/</loc>
     <lastmod>2017-03-09T08:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -446,13 +457,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2017-03-18T22:20:28+00:00</lastmod>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -529,7 +540,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/ubuntu/</loc>
-    <lastmod>2017-02-26T04:14:00+00:00</lastmod>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -541,7 +552,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/vagrant/</loc>
-    <lastmod>2015-12-14T08:16:00+00:00</lastmod>
+    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
