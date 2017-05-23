@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Server Scripts on Popstas</title>
-    <link>http://blog.popstas.ru/tags/server-scripts/index.xml</link>
+    <link>http://blog.popstas.ru/tags/server-scripts/</link>
     <description>Recent content in Server Scripts on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <atom:link href="http://blog.popstas.ru/tags/server-scripts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Feb 2017 01:19:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.popstas.ru/tags/server-scripts/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
@@ -28,36 +31,7 @@
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;В общем все оказалось просто, за минуту находится статья об этом - &lt;a href=&#34;http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/&#34; target=&#34;_blank&#34;&gt;
-Moving Files from one Git Repository to Another, Preserving History&lt;/a&gt;, за 10 минут становится понятно, что как работает.&lt;/p&gt;
-
-&lt;p&gt;Мне нужно было проделать эту операцию 10+ раз, поэтому написал скрипт, извлекающий репозиторий одной командой.&lt;/p&gt;
-
-&lt;h2 id=&#34;алгоритм-извлечения&#34;&gt;Алгоритм извлечения:&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Клонировать большой проект во временный репозиторий&lt;/li&gt;
-&lt;li&gt;Удалить из него все, кроме папки модуля через git-фильтр. При этом переписывается история&lt;/li&gt;
-&lt;li&gt;Создать чистый репозиторий для нового модуля&lt;/li&gt;
-&lt;li&gt;Добавить в чистый репозиторий временный, как remote source&lt;/li&gt;
-&lt;li&gt;Сделать pull из remote source в master&lt;/li&gt;
-&lt;li&gt;Подчистить следы&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;По идее уже после п.2 временный репозиторий выглядит как готовый модуль, пп.3-6 нужны для того, чтобы не тащить следы истории и настроек родительского проекта в дочерний.&lt;/p&gt;
-
-&lt;p&gt;Например, у меня есть репозиторий &lt;code&gt;ansible-server&lt;/code&gt;, в нем лежит роль &lt;code&gt;roles/server-scripts&lt;/code&gt;. Тогда нужно перейти в папку ansible-server и запустить:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git-extract-subproject roles/server-scripts ansible-role-server-scripts
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого рядом с &lt;code&gt;ansible-server&lt;/code&gt; создастся готовый проект &lt;code&gt;ansible-role-server-scripts&lt;/code&gt;. Остается добавить в него remote origin куда следует и запушить.&lt;/p&gt;
-
-&lt;p&gt;В итоге получился репозиторий с историей - &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-server-scripts/commits/master&#34; target=&#34;_blank&#34;&gt;viasite-ansible/ansible-role-server-scripts&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Код скрипта здесь - &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-extract-subproject&#34; target=&#34;_blank&#34;&gt;popstas/server-scripts&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -77,80 +51,7 @@ Moving Files from one Git Repository to Another, Preserving History&lt;/a&gt;, �
 &lt;p&gt;Раньше я просто запускал несколько раз с &lt;code&gt;time&lt;/code&gt;, смотрел результат, у уме делил.
 Но мне это надоело, поэтому написал скрипт &lt;code&gt;average&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Код лежит здесь - &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/average&#34; target=&#34;_blank&#34;&gt;https://github.com/popstas/server-scripts/blob/master/bin/average&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Поставить можно так:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -s &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&amp;quot;&lt;/span&gt; &amp;gt; /usr/local/bin/average
-chmod +x /usr/local/bin/average
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Использовать можно так:&lt;/p&gt;
-
-&lt;p&gt;Запуск команды по умолчанию, 5 циклов:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;average &#39;command&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Запуск команды с указанным кол-вом циклов:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;average 10 &#39;command&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Запуск команды с передачей кол-ва циклов через переменную окружения:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export CYCLES=5
-average &#39;command&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Чтобы не показывать вывод команды, можно обрезать его через tail:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;average &#39;command&#39; | tail -n1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;узнать-среднее-время-загрузки-страницы&#34;&gt;Узнать среднее время загрузки страницы:&lt;/h3&gt;
-
-&lt;p&gt;С учетом кэша:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;average &#39;curl -s &amp;quot;http://example.com/&amp;quot; &amp;gt; /dev/null&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;В обход кэша:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;average &#39;curl -s &amp;quot;http://example.com/?t=$RANDOM&amp;quot; &amp;gt; /dev/null&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;продвинутое-использование&#34;&gt;Продвинутое использование&lt;/h2&gt;
-
-&lt;p&gt;Мне надо было узнать оптимальное количество параллельных процессов для запуска тестов,
-теперь я могу узнать это запуском одной команды:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for p in {1..10}; do echo &amp;quot;$p&amp;quot; - $(average &amp;quot;vendor/bin/paratest -p $p&amp;quot; | tail -n1); done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Команда переберет кол-во процессов от 1 до 10, по каждой итерации выведет среднее время.&lt;/p&gt;
-
-&lt;p&gt;После запуска получил такие результаты:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ for p in {1..10}; do echo &amp;quot;$p&amp;quot; - $(average &amp;quot;vendor/bin/paratest -p $p&amp;quot; | tail -n1); done
-
-1 - 1 loops, best of 5: 13.9 sec per loop
-2 - 1 loops, best of 5: 7.51 sec per loop
-3 - 1 loops, best of 5: 5.51 sec per loop
-4 - 1 loops, best of 5: 4.51 sec per loop
-5 - 1 loops, best of 5: 4.42 sec per loop
-6 - 1 loops, best of 5: 4.71 sec per loop
-7 - 1 loops, best of 5: 4.21 sec per loop
-8 - 1 loops, best of 5: 4.23 sec per loop
-9 - 1 loops, best of 5: 4.13 sec per loop
-10 - 1 loops, best of 5: 4.33 sec per loop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Видно, что после 4 потоков разницы почти нет, а вот комп от запуска кучи параллельных процессов тормозит
-очень даже заметно.&lt;/p&gt;
-
-&lt;p&gt;Конечно, в этом случае много ума не надо, чтобы понять, что кол-во процессов должно быть по кол-ву ядер, но я что-то засомневался :)&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

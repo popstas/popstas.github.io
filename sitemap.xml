@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>http://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</loc>
@@ -180,6 +186,12 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/atom/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/bash/</loc>
     <lastmod>2017-03-09T08:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -194,6 +206,11 @@
   <url>
     <loc>http://blog.popstas.ru/tags/box/</loc>
     <lastmod>2016-01-17T08:22:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/categories/</loc>
     <priority>0</priority>
   </url>
   
@@ -318,6 +335,12 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/idea/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/influxdata/</loc>
     <lastmod>2016-05-19T00:47:52+00:00</lastmod>
     <priority>0</priority>
@@ -342,8 +365,20 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/jetbrains/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/kapacitor/</loc>
     <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/lua/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -374,6 +409,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/monitoring/</loc>
     <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/nodemcu/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -433,7 +474,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/phpstorm/</loc>
-    <lastmod>2017-03-13T00:30:00+00:00</lastmod>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -457,13 +498,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -481,7 +522,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/python/</loc>
-    <lastmod>2017-03-13T00:30:00+00:00</lastmod>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -511,6 +552,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/</loc>
+    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -553,6 +595,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/vagrant/</loc>
     <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/vscode/</loc>
+    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

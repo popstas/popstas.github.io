@@ -2,12 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Popstas</title>
-    <link>http://blog.popstas.ru/post/index.xml</link>
+    <link>http://blog.popstas.ru/post/</link>
     <description>Recent content in Posts on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sun, 26 Mar 2017 21:30:00 +0000</lastBuildDate>
-    <atom:link href="http://blog.popstas.ru/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.popstas.ru/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
+      <link>http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
+      <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
+
+&lt;p&gt;Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li&gt;
+&lt;li&gt;простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li&gt;
+&lt;li&gt;нельзя загружать файл по хоткею&lt;/li&gt;
+&lt;li&gt;нет git&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; /&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
@@ -38,169 +63,7 @@
 Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f&#34; target=&#34;_blank&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;За основу я взял &lt;a href=&#34;https://github.com/geerlingguy/packer-ubuntu-1604&#34; target=&#34;_blank&#34;&gt;geerlingguy/packer-ubuntu-1604&lt;/a&gt;.
-Также смотрел на &lt;a href=&#34;https://github.com/chef/bento&#34; target=&#34;_blank&#34;&gt;chef/bento&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;vagrant-provision-vs-packer-build&#34;&gt;Vagrant provision vs Packer build&lt;/h2&gt;
-
-&lt;p&gt;Если брать конкретный момент времени и запустить одновременно &lt;code&gt;vagrant provision&lt;/code&gt; и &lt;code&gt;packer build&lt;/code&gt; с одним и тем же ansible плейбуком,
-скорее всего результат будет одинаковым. Но:&lt;/p&gt;
-
-&lt;h4 id=&#34;почему-не-vagrant-provision&#34;&gt;Почему не vagrant provision:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;В packer время тратится только один раз, а в ansible - при создании каждой машины из образа.&lt;/li&gt;
-&lt;li&gt;Со временем запуск ansible будет давать немного разные результаты (программы обновляются),
-рано или чуть позже это сломает образ, проблемы начнутся, когда это случится не у того, кто написал плейбук
-и кто просто хотел запустить систему.&lt;/li&gt;
-&lt;li&gt;Можно сделать образы сразу для нескольких систем, за счет того, что сборка происходит параллельно, высоки шансы,
-что содержимое образов будет одинаковым.&lt;/li&gt;
-&lt;li&gt;На Windows машинах есть проблемы с провиженингом ansible.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;из-чего-состоит-packer&#34;&gt;Из чего состоит Packer&lt;/h2&gt;
-
-&lt;p&gt;На самом деле там больше сущностей, перечислю то, с чем столкнулся я.&lt;/p&gt;
-
-&lt;h3 id=&#34;provisioners-https-www-packer-io-docs-templates-provisioners-html&#34;&gt;&lt;a href=&#34;https://www.packer.io/docs/templates/provisioners.html&#34; target=&#34;_blank&#34;&gt;Provisioners&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Тут все как в Vagrant, provisioners - это то, что ставит все, что нужно, в ваш образ.
-Я пользуюсь
-&lt;a href=&#34;https://www.packer.io/docs/provisioners/shell.html&#34; target=&#34;_blank&#34;&gt;shell&lt;/a&gt; и
-&lt;a href=&#34;https://www.packer.io/docs/provisioners/ansible-local.html&#34; target=&#34;_blank&#34;&gt;ansible-local&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;builders-https-www-packer-io-docs-templates-builders-html&#34;&gt;&lt;a href=&#34;https://www.packer.io/docs/templates/builders.html&#34; target=&#34;_blank&#34;&gt;Builders&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Builders определяют выходные форматы образов.
-OpenStack, AWS, Digital Ocean и других хостингов.&lt;/p&gt;
-
-&lt;p&gt;А еще можно &lt;del&gt;грабить корованы&lt;/del&gt; собирать Docker контейнеры. Это удобно тем,
-что можно в одном конфиге описать сборку vagrant box и docker image и использовать то и другое по необходимости.&lt;/p&gt;
-
-&lt;p&gt;Необходимость у меня такая: docker образы меньше весят (спасибо слоям) и запускаются мгновенно (2 секунды против 1.5 минут в Vagrant).
-С другой стороны, не все роли можно протестировать в Docker. А еще мне кажется, что в среднем программистам проще работать с Vagrant.&lt;/p&gt;
-
-&lt;p&gt;Я использую
-&lt;a href=&#34;https://www.packer.io/docs/builders/virtualbox.html&#34; target=&#34;_blank&#34;&gt;virtualbox&lt;/a&gt; и
-&lt;a href=&#34;https://www.packer.io/docs/builders/docker.html&#34; target=&#34;_blank&#34;&gt;docker&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;post-rocessors-https-www-packer-io-docs-templates-post-processors-html&#34;&gt;&lt;a href=&#34;https://www.packer.io/docs/templates/post-processors.html&#34; target=&#34;_blank&#34;&gt;Post-rocessors&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Пост-процессоры запаковывают получившиеся артефакты в разные форматы, публикуют их.
-Здесь можно протегировать образ, запушить образы в vagrant cloud и в docker hub.&lt;/p&gt;
-
-&lt;p&gt;Я использую
-&lt;a href=&#34;https://www.packer.io/docs/post-processors/vagrant.html&#34; target=&#34;_blank&#34;&gt;vagrant&lt;/a&gt; и
-&lt;a href=&#34;https://www.packer.io/docs/post-processors/docker-tag.html&#34; target=&#34;_blank&#34;&gt;docker tag&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;packer-build&#34;&gt;packer build&lt;/h2&gt;
-
-&lt;p&gt;Всю магию делает &lt;code&gt;packer build ubuntu1604.json&lt;/code&gt;. Полезные аргументы:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;--only=docker&lt;/code&gt;, &lt;code&gt;--only=virtualbox-iso&lt;/code&gt; - полезно для тестирования одного из builders&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--on-error=ask&lt;/code&gt; - позволяет перед убийством виртуалки залезть в нее и посмотреть, что пошло не так&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Перед запуском нужно скачать дистрибутив Ubuntu и положить его туда, куда указывает &lt;code&gt;iso_urls&lt;/code&gt; в настройках билдера.
-Итак, запускаем&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;грабли-при-packer-build&#34;&gt;Грабли при packer build&lt;/h2&gt;
-
-&lt;h3 id=&#34;warning-authentication-failure-retrying&#34;&gt;Warning: Authentication failure. Retrying&amp;hellip;&lt;/h3&gt;
-
-&lt;p&gt;После первой удачной сборки при &lt;code&gt;vagrant up&lt;/code&gt; получил такую ошибку:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;==&amp;gt; default: Waiting for machine to boot. This may take a few minutes...
-    default: SSH address: 127.0.0.1:2200
-    default: SSH username: vagrant
-    default: SSH auth method: private key
-    default: Warning: Authentication failure. Retrying...
-    default: Warning: Authentication failure. Retrying...
-    default: Warning: Authentication failure. Retrying...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;При этом через &lt;code&gt;vagrant ssh&lt;/code&gt; можно зайти с паролем &lt;code&gt;vagrant&lt;/code&gt;.
-Решение я позаимствовал у &lt;a href=&#34;https://github.com/chef/bento/blob/master/scripts/ubuntu/vagrant.sh&#34; target=&#34;_blank&#34;&gt;chef/bento&lt;/a&gt;,
-нужно добавить insecure public key в authorized_keys юзера:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir ~/.ssh
-curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;vagrant-was-unable-to-mount-virtualbox-shared-folders&#34;&gt;Vagrant was unable to mount VirtualBox shared folders&lt;/h3&gt;
-
-&lt;p&gt;После исправления прошлой проблемы появилась новая:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;==&amp;gt; default: Mounting shared folders...
-    default: /vagrant =&amp;gt; /Users/popstas/projects/ansible/viasite-ansible/temp
-Vagrant was unable to mount VirtualBox shared folders. This is usually
-because the filesystem &amp;quot;vboxsf&amp;quot; is not available. This filesystem is
-made available via the VirtualBox Guest Additions and kernel module.
-Please verify that these guest additions are properly installed in the
-guest. This is not a bug in Vagrant and is usually caused by a faulty
-Vagrant box. For context, the command attempted was:
-
-mount -t vboxsf -o uid=900,gid=900 vagrant /vagrant
-
-The error output from the command was:
-
-mount: unknown filesystem type &#39;vboxsf&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;builders&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;[&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;virtualbox-iso&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;guest_additions_path&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;VBoxGuestAdditions_{{.Version}}.iso&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #93A1A1&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #93A1A1&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;После чтения &lt;a href=&#34;https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path&#34; target=&#34;_blank&#34;&gt;доки&lt;/a&gt; стало понятно,
-что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install virtualbox-guest-utils --no-install-recommends
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Хотя чуть позже вычитал у Express 42
-&lt;a href=&#34;https://github.com/express42-cookbooks/testo/blob/master/packer/scripts/postinstall.sh#L20-L24&#34; target=&#34;_blank&#34;&gt;как поставить из iso&lt;/a&gt;,
-лично я не вижу ничего плохого в установке из пакетов.&lt;/p&gt;
-
-&lt;h3 id=&#34;can-only-tag-from-docker-builder-artifacts-unknown-artifact-type-mitchellh-virtualbox-could-not-open-lock-file-var-lib-dpkg-lock&#34;&gt;Can only tag from Docker builder artifacts, Unknown artifact type: mitchellh.virtualbox, Could not open lock file /var/lib/dpkg/lock&lt;/h3&gt;
-
-&lt;p&gt;Причиной этих ошибок было то, что по умолчанию все provisioners и post-processors применяются ко всем builders.
-Так как vagrant и docker отличаются, понадобилось внести изменения:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;внутри скриптов добавлены условия, например, &lt;code&gt;if [ -d /home/vagrant ]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;в provisioners и post-processors были вписаны &lt;code&gt;&amp;quot;only&amp;quot;: [&amp;quot;virtualbox-iso&amp;quot;]&lt;/code&gt; и &lt;code&gt;&amp;quot;only&amp;quot;: [&amp;quot;docker&amp;quot;]&lt;/code&gt; куда надо&lt;/li&gt;
-&lt;li&gt;в shell provisioners была дописана строчка с &lt;code&gt;override&lt;/code&gt;, которая запускает скрипт от имени vagrant и не влияет на docker builder:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;[&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;script&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;packer/scripts/ansible.sh&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;override&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;virtualbox-iso&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-          &lt;span style=&#34;color: #268BD2&#34;&gt;&amp;quot;execute_command&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;echo &amp;#39;vagrant&amp;#39; | {{.Vars}} sudo -S -E bash &amp;#39;{{.Path}}&amp;#39;&amp;quot;&lt;/span&gt;
-        &lt;span style=&#34;color: #93A1A1&#34;&gt;}&lt;/span&gt;
-      &lt;span style=&#34;color: #93A1A1&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;},&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&#34;сборка-docker-застывала-в-конце&#34;&gt;Сборка Docker застывала в конце&lt;/h3&gt;
-
-&lt;p&gt;Не понял, с чем это связано, но заствала она на &lt;code&gt;apt autoremove&lt;/code&gt;, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.&lt;/p&gt;
-
-&lt;h2 id=&#34;итог&#34;&gt;Итог&lt;/h2&gt;
-
-&lt;p&gt;Я получил готовый vagrant box, из которого можно поднять виртуалку за 1.5 минуты или контейнер за секунду, вместо 10 минут. Profit!&lt;/p&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -238,53 +101,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;p&gt;В действии:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Когда я правил чужие виджеты (виджетом в zsh называется функция, повешенная на хоткей), я понял,
-что у zsh большие возможности по редактированию текущей строки комманд. Оставалось узнать, как это нагуглить.&lt;/p&gt;
-
-&lt;p&gt;Ключевик я нашел в тех же скриптах: &lt;code&gt;ZLE&lt;/code&gt; или Zsh Line Editor. ОК, гуглим &lt;code&gt;zsh zle&lt;/code&gt;,
-попадаем &lt;a href=&#34;http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html&#34; target=&#34;_blank&#34;&gt;на доку&lt;/a&gt;. Через 10 минут чтения и правок родилась эта функция.&lt;/p&gt;
-
-&lt;p&gt;После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
-Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# Example &amp;lt;Ctrl+.&amp;gt;&amp;lt;Ctrl+,&amp;gt; inserts 2nd argument from end of prev. cmd&lt;/span&gt;
-&lt;span style=&#34;color: #586E75&#34;&gt;# http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html&lt;/span&gt;
-autoload -Uz copy-earlier-word
-zle -N copy-earlier-word
-bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;^[,&amp;quot;&lt;/span&gt; copy-earlier-word
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Код надо вставить в &lt;code&gt;.zshrc&lt;/code&gt; или &lt;code&gt;.zshrc.local&lt;/code&gt; если вы пользуетесь
-&lt;a href=&#34;http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/&#34; target=&#34;_blank&#34;&gt;ansible-role-zsh&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Виджет вставляет последний аргумент текущей команды, но если нажать еще дважды - вставит предпоследний.
-Например, вы ввели команду &lt;code&gt;some-command arg1 arg2&lt;/code&gt;, чтобы вставить предпоследний аргумент, нажмите &lt;code&gt;&amp;lt;Alt+.&amp;gt;&amp;lt;Alt+,&amp;gt;&amp;lt;Alt+,&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;как-работают-виджеты-zsh&#34;&gt;Как работают виджеты zsh:&lt;/h3&gt;
-
-&lt;p&gt;Функция, вызванная через механизм виджетов, имеет доступ к куче внутренних переменных zsh, некоторые можно только читать,
-другие можно изменять на лету.&lt;/p&gt;
-
-&lt;p&gt;Я воспользовался двумя переменными:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;BUFFER&lt;/code&gt; - содержит текущую введенную команду. Переменную можно менять, но курсор при этом остается на месте.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CURSOR&lt;/code&gt; - позиция курсора&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.&lt;/p&gt;
-
-&lt;p&gt;Сам скрипт:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# Ctrl+, - duplicate last word in current command&lt;/span&gt;
-zsh-duplicate-last-arg&lt;span style=&#34;color: #719e07&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=$(&lt;/span&gt;&lt;span style=&#34;color: #B58900&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$BUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/[[:space:]]*$//&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;
-	&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$BUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt; ${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;##* &lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;}&amp;quot;&lt;/span&gt;
-	&lt;span style=&#34;color: #268BD2&#34;&gt;CURSOR&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$#&lt;/span&gt;BUFFER
-&lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
-zle -N zsh-duplicate-last-arg
-bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/span&gt; zsh-duplicate-last-arg
-&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -301,37 +118,7 @@ bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/spa
 &lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34; target=&#34;_blank&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/phpstorm-python.gif&#34; /&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;wat&#34;&gt;Wat?!&lt;/h2&gt;
-
-&lt;p&gt;Пару слов о том, почему я я хочу странного.&lt;/p&gt;
-
-&lt;p&gt;Я пишу на PHP и использую все, что может дать PhpStorm. В ресурсах рабочей машины я особо не ограничен, поэтому все проекты
-(все, что больше одного файла) я открываю в нем.&lt;/p&gt;
-
-&lt;p&gt;У меня есть обвешенные плагинами Sublime Text и Atom, но JetBrains все-таки их делает: большая часть идет из коробки,
-остальное настроено лучше, чем в редакторах, т.к. в PhpStorm я провожу больше всего времени.&lt;/p&gt;
-
-&lt;p&gt;На JetBrains IDEA пересаживаться не очень хочется, тем более из-за одного Python, т.к. остальные языки, на которых я пишу
-(bash, ansible, markdown, go, lua) в разной степени поддерживаются штормом.&lt;/p&gt;
-
-&lt;p&gt;С Python я соприкасаюсь мало, по большей части читаю чужие проекты, поэтому я долго просто открывал python-проекты в шторме
-и читал их в черно-белом варианте.&lt;/p&gt;
-
-&lt;h2 id=&#34;настройка&#34;&gt;Настройка&lt;/h2&gt;
-
-&lt;p&gt;Итак, решение: можно добавить в PhpStorm TextMate bundle с синтаксисом языка, который поддерживает TextMate.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Гуглим &lt;code&gt;TextMate Python&lt;/code&gt;, находим &lt;a href=&#34;https://github.com/textmate/python.tmbundle&#34; target=&#34;_blank&#34;&gt;бандл&lt;/a&gt;, качаем.&lt;/li&gt;
-&lt;li&gt;Идем в Settings - Editor - TextMate Bundles в шторме, там добавляем скачанную папку.&lt;/li&gt;
-&lt;li&gt;Идем в Settings - Editor - File Types, находим там &lt;code&gt;Files supported viaTextMate bundles&lt;/code&gt;, добавляем маску &lt;code&gt;*.py&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Там же мапим используемые штормовские цветовые схемы на схемы TextMate.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Вот в общем-то и все, после этого PhpStorm начинает подсвечивать Python, кроме этого он ничего не даст, если нужен
-список функций, переходы к определениям и прочее, то в PhpStorm это настроить нельзя.&lt;/p&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -369,171 +156,7 @@ bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/spa
 &lt;p&gt;Демонстрация фич за 1 минуту:
 &lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Раньше я пользовался &lt;a href=&#34;https://github.com/powerline/powerline&#34; target=&#34;_blank&#34;&gt;powerline&lt;/a&gt;, который отвечал за command prompt (строку состояния)
-и &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34; target=&#34;_blank&#34;&gt;percol&lt;/a&gt; для интерактивного поиска. Обе утилиты написаны на python.
-Они хороши, когда я нашел percol, скорость работы в терминале сразу выросла,
-я радовался этому &lt;a href=&#34;http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/&#34; target=&#34;_blank&#34;&gt;в блоге&lt;/a&gt;,
-но ставилось это все не очень красиво (bash инсталлером), имело некоторые проблемы при работе нескольких юзеров
-с красивыми терминалами на одном сервере.&lt;/p&gt;
-
-&lt;p&gt;Также в некоторых случаях проявлялись недостатки утилит:
-терминал грузился с небольшой задержкой (около 1 секунды), percol тупил на больших объемах текста.&lt;/p&gt;
-
-&lt;p&gt;Питоновские утилиты хотели, чтобы я их настраивал через отдельные конфиги. Мне отдельные конфиги поддерживать не хотелось,
-поэтому я пользовался ими с настройками по умолчанию, не скажу, что они были плохие, но можно было и получше.&lt;/p&gt;
-
-&lt;p&gt;По этим причинам я поискал, чем их можно заменить и нашел.&lt;/p&gt;
-
-&lt;h2 id=&#34;fzf-замена-percol&#34;&gt;fzf, замена Percol&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/junegunn/fzf&#34; target=&#34;_blank&#34;&gt;Fuzzy finder&lt;/a&gt; написан на Go, имеет кучу звездочек, судя по описанию, заточен на работу в Vim,
-но и в других местах работает.&lt;/p&gt;
-
-&lt;p&gt;При выборе смотрел еще на &lt;a href=&#34;https://github.com/peco/peco&#34; target=&#34;_blank&#34;&gt;peco&lt;/a&gt;, они похожи, оба написаны какими-то японцами на Go,
-я выбрал fzf по следующим критериям:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;больше контрибьюторов, вообще пульс проекта бьется примерно в 2 раза чаще&lt;/li&gt;
-&lt;li&gt;заточен под vim и tmux, при этом хорошо работает и в обычном терминале&lt;/li&gt;
-&lt;li&gt;настраивается через параметры командной строки и переменные окружения, а не через отдельный конфиг&lt;/li&gt;
-&lt;li&gt;короче на одну букву :)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;У fzf есть некая &lt;a href=&#34;https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh&#34; target=&#34;_blank&#34;&gt;крутая фича&lt;/a&gt; автодополнения разного через &lt;code&gt;**&amp;lt;Tab&amp;gt;&lt;/code&gt;,
-я не проверял, но автор плагина &lt;a href=&#34;https://github.com/Treri/fzf-zsh&#34; target=&#34;_blank&#34;&gt;fzf-zsh&lt;/a&gt; пишет, что он конфликтует с &lt;code&gt;zsh-autosuggestions&lt;/code&gt;,
-я ему верю.&lt;/p&gt;
-
-&lt;h2 id=&#34;powerlevel9k-замена-powerline&#34;&gt;Powerlevel9k, замена Powerline&lt;/h2&gt;
-
-&lt;p&gt;Тему &lt;a href=&#34;https://github.com/bhilburn/powerlevel9k&#34; target=&#34;_blank&#34;&gt;powerlevel9k&lt;/a&gt; я нашел случайно, потом проверил, по запросу на Github &lt;code&gt;powerline zsh&lt;/code&gt;
-он второй (после самого powerline).&lt;/p&gt;
-
-&lt;p&gt;Тема навороченная, позволяет много всего, я воспользовался некоторыми из фич:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;настройка всего через переменные окружения (сегменты, их расположение, цвета)&lt;/li&gt;
-&lt;li&gt;добавление кастомных сегментов через те же переменные&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Как и powerline, тема требует установки патченных шрифтов &lt;a href=&#34;https://github.com/powerline/fonts&#34; target=&#34;_blank&#34;&gt;powerline fonts&lt;/a&gt;,
-я использую шрифт Droid Sans Mono, 12pt. Шрифт и цветовая схема - две вещи, которые нужно установить вручную.&lt;/p&gt;
-
-&lt;h2 id=&#34;zsh-autosuggestions&#34;&gt;zsh-autosuggestions&lt;/h2&gt;
-
-&lt;p&gt;Открытие &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions&#34; target=&#34;_blank&#34;&gt;этого плагина&lt;/a&gt; для меня сравнимо с открытием percol: скорость набора команд увеличилась.
-Часто бывает нужно набрать команду с теми же параметрами, что и в прошлый раз, или немного с другими параметрами.
-Плагин выручает в обоих случаях.&lt;/p&gt;
-
-&lt;p&gt;Работает это так: при вводе команды плагин читает историю и дописывает серым последнюю команду из истории, начинающуюся так же.
-Если нажать Enter, выполнится ваша команда, а не из автодополнения (это хорошо, случайно вызвать не ту команду будет сложно,
-хотя у некоторых автодополнений бывают такие проблемы). Чтобы подставить дополненную команду, нужно нажать кнопку, забинденную
-на действие &lt;code&gt;autosuggest-accept&lt;/code&gt;, по умолчанию это &amp;rarr;.&lt;/p&gt;
-
-&lt;p&gt;Но до стрелочки вправо постоянно тянуться неудобно, поэтому я сначала забиндил автодополнение на &lt;code&gt;backtick&lt;/code&gt; (обратную кавычку,
-которая слева от единицы). Это было очень удобно: прямо рядом с &lt;code&gt;Tab&lt;/code&gt; и работает похоже на &lt;code&gt;Tab&lt;/code&gt;. Но позже выяснилось,
-что это ломает работу Midnight Commander: на одних системах он перестал переключать путь во внутреннем шелле (что полезно:
-через mc переходим в нужную папку, нажимаем &lt;code&gt;Ctrl+O&lt;/code&gt;, вводим команду, выходим из внутреннего шелла, или наоборот бывает
-удобнее перейти в папку через шелл, а потом произвести действия в mc), на других системах mc вообще зависал через пару
-переходов по папкам. Я погуглил проблему, в трекере mc есть такой глюк, в последней версии &lt;code&gt;4.8.18&lt;/code&gt; зависания убрались,
-но путь так и не стал меняться, поэтому я стал пробовать другие хоткеи: &lt;code&gt;Ctrl+Space&lt;/code&gt;, &lt;code&gt;Ctrl+I&lt;/code&gt;, все они так или иначе глючили.&lt;/p&gt;
-
-&lt;p&gt;В итоге пришел к такому: я сам mc пользуюсь редко, поэтому на всех системах, где бываю не только я, я забиндился на &lt;code&gt;Ctrl+U&lt;/code&gt;,
-а на личных - еще и на кавычку. В плейбуке забиндено только на стрелочку.&lt;/p&gt;
-
-&lt;p&gt;Еще в ansible-role-zsh работа плагина ограничена 15 символами, то есть через 15 символов он перестает предлагать команды.
-Это сделано для того, чтобы убрать задержки при копипасте команд в терминал (при вводе самостоятельно я задержек не ощущаю,
-но при вставке из буфера больших команд это заметно, похоже на то, как будто вставка не сработала).&lt;/p&gt;
-
-&lt;h2 id=&#34;zsh-syntax-highlighting&#34;&gt;zsh-syntax-highlighting&lt;/h2&gt;
-
-&lt;p&gt;Про &lt;a href=&#34;https://github.com/zsh-users/zsh-syntax-highlighting&#34; target=&#34;_blank&#34;&gt;этот плагин&lt;/a&gt; можно сказать не особо много:
-подсвечивает текущую введенную команду, раскрашивая на лету.
-Главный плюс в том, что вы видите, что опечатались по красному цвету слова. Не скажу, что это must have, но удобнее становится.&lt;/p&gt;
-
-&lt;p&gt;В то же время у плагина есть сразу несколько косяков.&lt;/p&gt;
-
-&lt;p&gt;На системах, где &lt;code&gt;zsh &amp;lt; 4.3.17&lt;/code&gt;, вызывает крах терминальной сессии,
-поэтому в плейбуке есть защита от активации плагина на таких системах . Случай редкий, я сделал это ради Debian Squeeze.&lt;/p&gt;
-
-&lt;p&gt;Плагин должен подключаться последним, а не то не знаю что будет и знать не хочу.&lt;/p&gt;
-
-&lt;p&gt;Конфликтует с zsh-autosuggestions, проявляется в вылетании сессии при попытке повторно применить конфиг &lt;code&gt;.zshrc&lt;/code&gt;.
-Про это есть соответствующий &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions/issues/126#issuecomment-280826224&#34; target=&#34;_blank&#34;&gt;issue&lt;/a&gt;
-и автор zsh-autosuggestions
-&lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions/issues/126#issuecomment-280826224&#34; target=&#34;_blank&#34;&gt;говорит&lt;/a&gt;,
-что исправление уже в &lt;code&gt;devel&lt;/code&gt; ветке, я не проверял, но если это так, после релиза &lt;code&gt;v0.3.4&lt;/code&gt; должно все исправиться.
-В плейбуке для этого есть фикс, так что конфликт устранен.&lt;/p&gt;
-
-&lt;h2 id=&#34;zsh-command-time&#34;&gt;zsh-command-time&lt;/h2&gt;
-
-&lt;p&gt;Пока наводил порядок в этом проекте, &lt;a href=&#34;https://github.com/popstas/zsh-command-time&#34; target=&#34;_blank&#34;&gt;реализовал&lt;/a&gt; одну из своих давних хотелок: вывод времени выполнения для команд,
-которые выполняются долго. До этого я либо смотрел на часы в правом углу терминала и сравнивал с часами в предыдущей команде,
-либо сразу запускал команду с &lt;code&gt;time&lt;/code&gt;. Теперь этого делать не надо.&lt;/p&gt;
-
-&lt;h2 id=&#34;внешний-вид-темы-в-разных-цветовых-схемах&#34;&gt;Внешний вид темы в разных цветовых схемах&lt;/h2&gt;
-
-&lt;p&gt;Я использую цветовую схему Solarized Dark, но чтобы не огорчать коллег, которые заходят на настроенные мной сервера,
-я проверил, как выглядит терминал на стандартной палитре Putty, на стандартной палитре Ubuntu, на встроенных темах iTerm:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-role-zsh-colors.gif&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
-
-&lt;p&gt;Итак, если вам понравилось, предлагаю сначала посмотреть работу вживую, в Vagrant:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/viasite-ansible/ansible-role-zsh.git
-vagrant up
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Перед установкой на рабочую систему внимательно прочитайте это:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Роль не установится, если у вас уже есть директория &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;, переименуйте ее, если она у вас есть.&lt;/li&gt;
-&lt;li&gt;Роль затрет ваш &lt;code&gt;~/.zshrc&lt;/code&gt;, сделайте бекап!&lt;/li&gt;
-&lt;li&gt;После применения роли, если хотите и дальше управлять терминалом через ansible, нужно писать свои настройки либо в переменные плейбука,
-либо в &lt;code&gt;~/.zshrc.local&lt;/code&gt;, этот файл инклюдится в конце &lt;code&gt;~/.zshrc&lt;/code&gt; и ansible его не трогает.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Если все устраивает, можно установить роль через &lt;code&gt;ansible-galaxy&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ansible-galaxy install viasite-ansible.zsh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Потом создать плейбук вроде такого:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;hosts:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;all&lt;/span&gt;
-&lt;span style=&#34;color: #93A1A1&#34;&gt;vars:&lt;/span&gt;
-  &lt;span style=&#34;color: #93A1A1&#34;&gt;zsh_autosuggestions_bind_key:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;^U&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #93A1A1&#34;&gt;roles:&lt;/span&gt;
-  &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;viasite-ansible.zsh&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Сохранить, например, в &lt;code&gt;zsh.yml&lt;/code&gt;. После этого роль можно применить к локальному юзеру:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ansible-playbook -i &amp;quot;localhost,&amp;quot; -c local zsh.yml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Как применить к другим юзерам и серверам пользователи ansible думаю разберутся.&lt;/p&gt;
-
-&lt;p&gt;Проверено на Debian 6, Ubuntu 14.04, Ubuntu 16.04, macOS 10.12, CentOS 7.&lt;/p&gt;
-
-&lt;p&gt;Все доступные переменные не стал выносить в README.md, их можно посмотреть
-в &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-zsh/blob/master/defaults/main.yml&#34; target=&#34;_blank&#34;&gt;defaults/main.yml&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;выводы&#34;&gt;Выводы&lt;/h2&gt;
-
-&lt;p&gt;Я понимаю, что конфиг терминала - очень личная вещь, не уверен, что будет много желающих воспользоваться именно моей ansible
-ролью, поэтому я постарался сделать ее максимально настраиваемой. Если будут желающие использовать, пожалуйста,
-оставляйте issues.&lt;/p&gt;
-
-&lt;p&gt;Конечно, это не последний конфиг, например, пока я писал эту статью, я нашел &lt;a href=&#34;https://github.com/zsh-users/antigen&#34; target=&#34;_blank&#34;&gt;antigen&lt;/a&gt;,
-менеджер плагинов для zsh, который написан по аналогии с Vundle для Vim, заточен на работу в паре с oh-my-zsh
-и избавляет от ручной установки плагинов. Это как раз одна из проблем, которую я решал написанием роли. Поделитесь, кто пользовался.&lt;/p&gt;
-
-&lt;p&gt;В комментах хотелось бы найти новых вкусных плагинов, пожалуйста, напишите, какие плагины вызвали у вас чувство &amp;ldquo;как я жил без этого раньше?&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;UPD: добавилась поддержка CentOS, спасибо, &lt;a href=&#34;https://habrahabr.ru/users/beevee/&#34; target=&#34;_blank&#34;&gt;BeeVee&lt;/a&gt;!&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -556,92 +179,7 @@ TODO: несколько дистрибов&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/iterations.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;поиск-роли&#34;&gt;Поиск роли&lt;/h2&gt;
-
-&lt;p&gt;Во-первых, я ищу готовую роль. Писать свою роль с нуля я считаю неправильным.
-При поиске я во-первых иду смотреть, если ли такая роль
-у &lt;a href=&#34;https://github.com/geerlingguy&#34; target=&#34;_blank&#34;&gt;geerlingguy&lt;/a&gt; или &lt;a href=&#34;https://github.com/debops&#34; target=&#34;_blank&#34;&gt;debops&lt;/a&gt;.
-Но роли debops я еще не форкал, слишком они навороченные и зависимые от других debops-ролей.&lt;/p&gt;
-
-&lt;h4 id=&#34;критерии-выбора-роли&#34;&gt;Критерии выбора роли&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;авторитет разработчика роли, какой у него опыт&lt;/li&gt;
-&lt;li&gt;количество звездочек&lt;/li&gt;
-&lt;li&gt;наличие тестов&lt;/li&gt;
-&lt;li&gt;уровень шаблонизации роли (сколько переменных есть в &lt;code&gt;defaults/main.yml&lt;/code&gt;, а сколько вшито в шаблоны)&lt;/li&gt;
-&lt;li&gt;обновляемость (пульс проекта), особенно важно для обновляемого и сложного софта, менее важно для базовых ролей&lt;/li&gt;
-&lt;li&gt;количество кода, универсальность: если роль популярная и ставится на все системы, есть опасность, что в ней будет много лишнего&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Итак, роль найдена и форкнута.&lt;/p&gt;
-
-&lt;h2 id=&#34;отладка-роли&#34;&gt;Отладка роли&lt;/h2&gt;
-
-&lt;h3 id=&#34;converge&#34;&gt;Converge&lt;/h3&gt;
-
-&lt;p&gt;При написании роли я пользуюсь в основном &lt;code&gt;molecule converge&lt;/code&gt; - команда создает машину, если ее еще нет,
-прогоняет плейбук, больше ничего не делает.&lt;/p&gt;
-
-&lt;p&gt;Конечно, в начале роль всегда сломана. Если непонятна причина, я иду внутрь контейнера через &lt;code&gt;molecule login&lt;/code&gt; -
-так можно залезть внуть машины и посмотреть, что там пошло не так.
-Можно не запуская роль сначала научиться делать правильные действия в контейнере, после чего записать это в виде тасков,
-уничтожить контейнер и прогнать заново (&lt;code&gt;molecule test&lt;/code&gt; на этом этапе подходит, хоть он и убьет контейнер, как перед прохождением,
-так и после успешного прохождения тестов, можно не волноваться: успешного прохождения скорее всего пока не будет).&lt;/p&gt;
-
-&lt;p&gt;Если форкнута нормальная роль, &lt;code&gt;converge&lt;/code&gt; проходится быстро.&lt;/p&gt;
-
-&lt;h3 id=&#34;validate&#34;&gt;Validate&lt;/h3&gt;
-
-&lt;p&gt;Когда основной сценарий проходит, я запускаю &lt;code&gt;molecule validate&lt;/code&gt;, исправляю ошибки, которые нашел &lt;code&gt;ansible-lint&lt;/code&gt; и помечаю таски,
-которые не хочу править, тегом &lt;code&gt;skip_ansible_lint&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;После этого пишу тесты &lt;code&gt;testinfra&lt;/code&gt; (хотя такое у меня бывает редко), проверяю тем же &lt;code&gt;molecule validate&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;test&#34;&gt;Test&lt;/h3&gt;
-
-&lt;p&gt;В конце перепроверяю все через &lt;code&gt;molecule test&lt;/code&gt;, правлю сломанную идемпотентность, при необходимости вношу правки в &lt;code&gt;.gitlab-ci.yml&lt;/code&gt;
-и &lt;code&gt;molecule.yml&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;После этого можно проверить сборку, запустив одноразовый раннер локально, это очень удобно, позволяет исключить ошибки на стороне Gitlab CI.
-Параметры раннера те же, что и при регистрации на сервере, последним аргументом идет секция из &lt;code&gt;.gitlab-ci.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gitlab-runner exec docker \
-    --docker-image popstas/ubuntu-molecule:latest \
-    --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
-    test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;На самом деле у меня еще пробрасывается файл 00aptproxy, у меня во всех тестовых сетях стоит &lt;code&gt;apt-cacher-ng&lt;/code&gt;, который позволяет
-ускорять прогон ролей и не гонять трафик зря. Об этом подробнее
-&lt;a href=&#34;http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;я писал недавно&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Эта команда создаст раннер с указанным образом и запустит в нем секцию test.&lt;br /&gt;
-Чтобы в системе появился &lt;code&gt;gitlab-runner&lt;/code&gt;, нужно поставить &lt;code&gt;gitlab-ci-multi-runner&lt;/code&gt; и Docker, больше кажется ничего не надо.&lt;/p&gt;
-
-&lt;p&gt;Когда и это сработало, я пушу на внутренний сервер и на Github и жду, что мне ответят два CI.
-Если после всего это тесты не проходят, матерюсь и ищу косяки на стороне раннера.&lt;/p&gt;
-
-&lt;p&gt;Чтобы упростить себе этот процесс, я написал скрипт, который делает следующее:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ставит тег на последний коммит (bump version), если тег был, удаляет его и ставит на последний коммит&lt;/li&gt;
-&lt;li&gt;логинится на dev-сервер, делает оттуда rsync роли с моего компа, прогоняет тесты на gitlab-runner&lt;/li&gt;
-&lt;li&gt;если все прошло успешно, делает push на gitlab и github&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Выглядит это так: я делаю коммит, вызываю команду вроде &lt;code&gt;role-deploy v1.1.0&lt;/code&gt; и занимаюсь своими делами.
-А тем временем роль проходит 3 прогона тестов с разных серверов и попадает во все апстримы, в том числе в &lt;code&gt;galaxy.ansible.com&lt;/code&gt;.
-А если не попадает, то все равно избавляет от коммитов типа &lt;code&gt;test: please work!&lt;/code&gt;. Можно повесить это на &lt;code&gt;prepush&lt;/code&gt; хук git,
-но мне вручную удобнее запускать.&lt;/p&gt;
-
-&lt;h3 id=&#34;dev&#34;&gt;Dev&lt;/h3&gt;
-
-&lt;p&gt;Если все прошло успешно, я пишу плейбук для деплоя, накатываю роль на локальную машину, dev-сервера, продакшен сервера
-(если косяки в роли не могут повлиять на их работу), всего набирается 2-5 машин.
-После этого в течение 1-2 дней чаще всего находятся недоработки, которые чинятся, после чего роль передеплоится.&lt;/p&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -661,300 +199,7 @@ TODO: несколько дистрибов&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/octopress-to-hugo.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;подробнее-о-причинах&#34;&gt;Подробнее о причинах&lt;/h2&gt;
-
-&lt;h3 id=&#34;не-зависеть-от-ruby&#34;&gt;Не зависеть от ruby&lt;/h3&gt;
-
-&lt;p&gt;Это было главной причиной. Однажды я захотел написать статью, но &lt;code&gt;rake&lt;/code&gt; в папке проекта перестал работать.
-Оказалось, что Octopress не совместим с текущим ruby 2.4 (что намекает на то, что проект бросают).&lt;/p&gt;
-
-&lt;p&gt;Можно было сделать песочницу с ruby 2.3 для конеретного проекта, но я с руби сталкивался мало (Vagrant, Octopress)
-и большого желания познавать его не было. Поэтому я просто переключал системную версию руби:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;brew switch ruby 2.3.2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого начинал работать Octopress, но переставал работать Vim.&lt;/p&gt;
-
-&lt;p&gt;Пробовал скачать контейнер с Octopress, но тоже за 20 минут не разобрался, как с ним жить: внутри нет git для деплоя,
-порт для &lt;code&gt;rake preview&lt;/code&gt; не открыт&amp;hellip; нафиг.&lt;/p&gt;
-
-&lt;p&gt;С Hugo такого безобразия не должно быть, т.к. он написан на Go и содержит один бинарник, ничего не требуя от системы.&lt;/p&gt;
-
-&lt;h3 id=&#34;быстрее&#34;&gt;Быстрее&lt;/h3&gt;
-
-&lt;p&gt;Так как я пишу 5 раз в год, меня это не очень волновало, но все-таки скорость впечетляет:
-мой блог на данный момент состоит примерно из 85 страниц, Hugo генерирует их за 30 мс!&lt;/p&gt;
-
-&lt;p&gt;Самое приятное в этом то, что в Hugo есть live reload: страница в браузере обновляется сама при редактировании исходника.&lt;/p&gt;
-
-&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/codebrane/octohug&#34; target=&#34;_blank&#34;&gt;Устанавливаем&lt;/a&gt; в систему, я сделал так:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;brew install hugo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Для подсветки кода ему нужен &lt;code&gt;pygments&lt;/code&gt;, ставим его:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install pygments
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Если вы любите &lt;a href=&#34;http://ethanschoonover.com/solarized&#34; target=&#34;_blank&#34;&gt;Solarized Dark&lt;/a&gt; как люблю его я, ставим тему для pygments:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/john2x/solarized-pygment.git
-cd solarized-pygment
-./setup.py install
-cd ..
-rm -rf solarized-pygment
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Переходим в папку, где будет новый проект. У меня блог лежал в &lt;code&gt;~/projects/site/blog.popstas.ru&lt;/code&gt;,
-я заранее переименовал старый проект в &lt;code&gt;~/projects/site/blog.popstas.ru_octopress&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Создаем новый сайт:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;hugo new site blog.popstas.ru
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Получаем следующее:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tree blog.popstas.ru
-
-blog.popstas.ru
-├── archetypes
-├── config.toml
-├── content
-├── data
-├── layouts
-├── static
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Переходим в папку нового блога.&lt;/p&gt;
-
-&lt;p&gt;Добавляем тему. Я искал порт своей темы Octopress на Hugo и &lt;a href=&#34;https://github.com/parsiya/Hugo-Octopress&#34; target=&#34;_blank&#34;&gt;нашел&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir themes
-git clone https://github.com/parsiya/Hugo-Octopress octopress
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Вносим первые правки в &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;baseURL = &amp;quot;http://blog.popstas.ru/&amp;quot;
-languageCode = &amp;quot;ru-ru&amp;quot;
-title = &amp;quot;Popstas&amp;quot;
-theme = &amp;quot;octopress&amp;quot;
-
-[params]
-    # Keep it as false please, the css file contains the code for highlighting
-    pygmentsuseclasses = false
-    
-    # If nothing is set, then solarized_light is used
-    # Other styles can be viewed in [http://pygments.org/](http://pygments.org/)
-    pygmentsstyle = &amp;quot;solarized_dark&amp;quot;
-    
-    # Highlight shortcode and code fences (```) will be treated similarly
-    pygmentscodefences = true
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;перенос-контента&#34;&gt;Перенос контента&lt;/h2&gt;
-
-&lt;p&gt;Определим список задач:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Перенести md файлы&lt;/li&gt;
-&lt;li&gt;Сохранить урлы статей&lt;/li&gt;
-&lt;li&gt;Перенести тему, чтобы внешне были минимальные изменения&lt;/li&gt;
-&lt;li&gt;Перенести правки css темы&lt;/li&gt;
-&lt;li&gt;Сохранить форматирование статей&lt;/li&gt;
-&lt;li&gt;Перенести картинки&lt;/li&gt;
-&lt;li&gt;Перенести фавиконку и CNAME (для привязки домена к github pages)&lt;/li&gt;
-&lt;li&gt;Сохранить Disqus комменты и Google Analytics&lt;/li&gt;
-&lt;li&gt;Сохранить RSS ленту&lt;/li&gt;
-&lt;li&gt;Перенести содержимое боковой колонки (последние статьи, лента твиттера, проекты на github)&lt;/li&gt;
-&lt;li&gt;Перенести соц. панель AddToAny&lt;/li&gt;
-&lt;li&gt;Русифицировать&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;перенос-md-файлов&#34;&gt;Перенос md файлов&lt;/h3&gt;
-
-&lt;p&gt;В hugo есть только миграция с Jekyl, поэтому идем на github, ищем &amp;ldquo;octopress hugo&amp;rdquo; и находим &lt;a href=&#34;https://github.com/codebrane/octohug&#34; target=&#34;_blank&#34;&gt;octohug&lt;/a&gt;.
-Его нужно скачать, скомпилировать, скопировать в папку старого блога и запустить.&lt;/p&gt;
-
-&lt;p&gt;После этого в корне старого блога появится папка &lt;code&gt;content&lt;/code&gt;, ее нужно перенести в новый блог:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get github.com/codebrane/octohug
-cd &amp;quot;$GOPATH/src/github.com/codebrane/octohug&amp;quot;
-go build
-cp octohug ~/projects/site/blog.popstas.ru_octopress
-
-cd ~/projects/site/blog.popstas.ru_octopress
-./octohug
-
-mv content ../blog.popstas.ru
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Пора посмотреть, что получается. Переходим в папку нового блога и запускаем генератор:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd ~/projects/site/blog.popstas.ru
-hugo serve
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Лично мне результат не понравился :) Статьи перенеслись, но с кривыми датами, заголовками и форматированием.
-Открываем оба блога в вашем редакторе и на следующие пару часов превращаемся в контентщика. Вот что правил я:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;!-- more --&amp;gt;&lt;/code&gt; заменить на &lt;code&gt;HUGOMORE42&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;перекопировать титлы (обратите внимание, из &lt;code&gt;title: &amp;quot;title&amp;quot;&lt;/code&gt; надо делать &lt;code&gt;title = &amp;quot;title&amp;quot;&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;убрать из &lt;code&gt;slug&lt;/code&gt; даты&lt;/li&gt;
-&lt;li&gt;поправить все даты&lt;/li&gt;
-&lt;li&gt;заменить все &lt;code&gt;{[процентик]img&lt;/code&gt; на &lt;code&gt;&amp;lt;img src&lt;/code&gt; (заменил &lt;code&gt;%&lt;/code&gt; на &lt;code&gt;[процентик]&lt;/code&gt;, Github ругался)&lt;/li&gt;
-&lt;li&gt;перекопировать теги, где они не перенеслись. Также я заменил &lt;code&gt;Categories =&lt;/code&gt; на &lt;code&gt;Tags =&lt;/code&gt;, это сломало старые урлы категорий,
-но зато сделало теги тегами&lt;/li&gt;
-&lt;li&gt;пройтись по каждой статье и глазами найти остальные несоответствия&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Вносим правки в &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;disablePathToLower = false
-paginate = 10
-
-# Make tags and categories work
-[indexes]
-    tag = &amp;quot;tags&amp;quot;
-    category = &amp;quot;categories&amp;quot;
-
-[params]
-    # If false, all of the post will appear on front page (and in pagination)
-    truncate = true
-    
-    # Author&#39;s name (this will appear in metadata and under posts)
-    author = &amp;quot;Stanislav Popov&amp;quot;
-    
-    # This text appears in the site header under website title
-    subtitle = &amp;quot;Записки о Linux&amp;quot;
-    
-    # Website&#39;s default description
-    defaultDescription = &amp;quot;&amp;quot;
-
-    # Used in the search engine
-    searchEngineURL = &amp;quot;https://www.google.com/search&amp;quot;
-
-[blackfriday]
-    hrefTargetBlank = true # open the external links in a new window
-    fractions = false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;урлы&#34;&gt;Урлы&lt;/h3&gt;
-
-&lt;p&gt;Урлы зависят не от имени файла (оно может быть любым), а от шаблона урлов, в моем случае от даты и алиаса (slug).&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[permalinks]
-    post = &amp;quot;/blog/:year/:month/:day/:slug/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;правки-css-темы&#34;&gt;Правки CSS темы&lt;/h3&gt;
-
-&lt;p&gt;К сожалению препроцессора не будет.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[params]
-    customCSS = [&amp;quot;css/custom.css&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;картинки-и-прочая-статика&#34;&gt;Картинки и прочая статика&lt;/h3&gt;
-
-&lt;p&gt;Копируем все, что должно быть в корне сайта из &lt;code&gt;sources&lt;/code&gt; в &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;discus&#34;&gt;Discus&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[params]
-    # Disqus shortcode
-    # Disable comments for a specific post by adding &amp;quot;comments: false&amp;quot; in its frontmatter
-    disqusShortname = &amp;quot;popstas&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Комменты появятся только при деплое, на localhost они отключены по каким-то причинам.&lt;/p&gt;
-
-&lt;h3 id=&#34;google-analytics&#34;&gt;Google Analytics&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[params]
-    # Google analytics account id
-    googleAnalytics = &amp;quot;UA-70438594-1&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;rss&#34;&gt;RSS&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[params]
-    rss = true  # switch to true to enable RSS icon link
-
-    # Set to true to use a text label for RSS instead of an icon
-    # This is overwritten by the `rss` setting
-    textrss = false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;боковая-колонка-последние-посты&#34;&gt;Боковая колонка: последние посты&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[params]
-	# Number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
-	sidebarRecentLimit = 5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;боковая-колонка-twitter-лента-проекты-на-github&#34;&gt;Боковая колонка: Twitter лента, проекты на Github&lt;/h3&gt;
-
-&lt;p&gt;Кастомные виджеты sidebar не предусматривает, поэтому правим шаблон, дописываем в конец, перед &lt;code&gt;&amp;lt;/aside&amp;gt;&lt;/code&gt;:
-&lt;code&gt;/themes/octopress/layouts/partials/sidebar.html&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;    {{ partial &amp;quot;custom/twitterfeed.html&amp;quot; . }}
-    
-    {{ partial &amp;quot;custom/github.html&amp;quot; . }}
-&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;aside&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;После чего создаем в &lt;code&gt;themes/octopress/layouts/partials/custom&lt;/code&gt; соответствующие файлы и копируем туда шаблоны из Octopress.
-При этом нужно заменить переменные с &lt;code&gt;{{ site.var_name }}&lt;/code&gt; на &lt;code&gt;{{ .Site.Params.varName }}&lt;/code&gt; и добавить в &lt;code&gt;config.toml&lt;/code&gt; нужные переменные:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[params]
-    # Twitter feed
-    twitterUsername = &amp;quot;popstas&amp;quot;
-    # http://raisedadead.com/octopress-twitter-aside/
-    twitterWidgetId = 691684611357806592
-
-    # Github repos
-    githubUser = &amp;quot;popstas&amp;quot;
-    githubRepoCount = 10
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Код виджетов здесь:
-&lt;a href=&#34;https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/twitterfeed.html&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;
-и
-&lt;a href=&#34;https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/github.html&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;соц-панель-addtoany&#34;&gt;Соц. панель AddToAny&lt;/h3&gt;
-
-&lt;p&gt;С соц. панелью поступил так же, как и с виджетами боковой колонки: шаблон в &lt;code&gt;partials/custom&lt;/code&gt;, вставил в &lt;code&gt;/themes/octopress/layouts/partials/post_footer.html:18&lt;/code&gt;,
-там есть специальное место для соц. панели.&lt;/p&gt;
-
-&lt;h2 id=&#34;русификация&#34;&gt;Русификация&lt;/h2&gt;
-
-&lt;p&gt;Поменял формат дат в &lt;code&gt;themes/octopress/layouts/partials/post_header.html&lt;/code&gt; и &lt;code&gt;themes/octopress/layouts/partials/post_footer.html&lt;/code&gt;,
-было: &lt;code&gt;{{ .Date.Format &amp;quot;Jan 2, 2006&amp;quot; }}&lt;/code&gt;, стало: &lt;code&gt;{{ .Date.Format &amp;quot;2 Jan 2006, 15:04&amp;quot; }}&lt;/code&gt;,
-подробности &lt;a href=&#34;https://golang.org/pkg/time/#Time.Format&#34; target=&#34;_blank&#34;&gt;тут&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Насчет остального не стал париться и тупо нашел и заменил строчки в шаблонах.&lt;/p&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -971,226 +216,7 @@ paginate = 10
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-02/apt-cacher-ng.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;настройка-apt-cacher-ng&#34;&gt;Настройка apt-cacher-ng&lt;/h2&gt;
-
-&lt;p&gt;Здесь все довольно просто, проще, чем с &lt;code&gt;apt-mirror&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apt-get install apt-cacher-ng
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;В конфиге я задал пароль админа в &lt;code&gt;/etc/apt-cacher-ng/security.conf&lt;/code&gt;, он дает право смотреть подробную статистику по cache-hit.&lt;/p&gt;
-
-&lt;p&gt;В &lt;code&gt;/etc/apt-cacher-ng/acng.conf&lt;/code&gt; интересны следующие строчки:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ExTreshold: 4&lt;/code&gt; - устаревание кеша, в днях. Если файл ни разу не запрашивался дольше указанного времени, он будет удален. Я увеличил до 30 дней&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;PassThroughPattern: .*:443&lt;/code&gt; - нужно указать это, чтобы не было проблем с HTTPS репозиториями (об этом ниже).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;В остальном стандартный конфиг делает следующее:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;запускает веб-сервер для всего мира на &lt;code&gt;0.0.0.0:3142&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;хостит страничку и информацией о сервисе и статистикой на &lt;a href=&#34;http://myserver.ru:3142&#34; target=&#34;_blank&#34;&gt;http://myserver.ru:3142&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;хранит кеши в &lt;code&gt;/var/cache/apt-cacher-ng&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Также нужно отредактировать файл &lt;code&gt;/etc/apt-cacher-ng/backends_ubuntu&lt;/code&gt;, удалив из него лишние зеркала и поставив главное зеркало в начало, иначе рискуете однажды получить 403 ошибку при установке одного из пакетов (об этом чуть ниже). У меня файл такой:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;http://mirror.yandex.ru/ubuntu/
-http://archive.ubuntu.com/ubuntu/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Подробности ремапинга можно почитать &lt;a href=&#34;https://www.unix-ag.uni-kl.de/~bloch/acng/html/config-serv.html&#34; target=&#34;_blank&#34;&gt;в документации&lt;/a&gt;. В 2 словах: когда клиент запрашивает пакет, apt-cacher-ng скачивает его не с репозитория, который прописан на клиенте, а с первого зеркала, указанного в файле ремапинга. Второй репозиторий по факту никогда не выбирается.&lt;/p&gt;
-
-&lt;p&gt;После этого можно перезапустить сервис:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;service apt-cacher-ng restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Проверяем, что он поднялся, должен открыться урл &lt;code&gt;http://myserver.ru:3142&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;ошибка-403-при-получении-одного-из-пакетов&#34;&gt;Ошибка 403 при получении одного из пакетов&lt;/h3&gt;
-
-&lt;p&gt;Через некоторое время использования я споткнулся об ошибку:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get install php-common -y
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following additional packages will be installed:
-  psmisc
-The following NEW packages will be installed:
-  php-common psmisc
-0 upgraded, 2 newly installed, 0 to remove and 7 not upgraded.
-Need to get 10.8 kB/58.8 kB of archives.
-After this operation, 299 kB of additional disk space will be used.
-Err:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 php-common all 1:35ubuntu6
-  403  Forbidden
-E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/p/php-defaults/php-common_35ubuntu6_all.deb  403  Forbidden
-
-E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Я стал разбираться, оказалось, что дело в прокси, если его убрать, все становится нормально.&lt;/p&gt;
-
-&lt;p&gt;Оказалось, что репозиторий по умолчанию, который прописан в &lt;code&gt;/etc/apt-cacher-ng/backends_ubuntu.default&lt;/code&gt; какой-то немного битый и пакет php-common не отдавал. Чтобы этого не произошло, нужно добавить свои репозитории в &lt;code&gt;/etc/apt-cacher-ng/backends_ubuntu&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Solution:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo http://archive.ubuntu.com/ubuntu/ &amp;gt; /etc/apt-cacher-ng/backends_ubuntu
-service apt-cacher-ng restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;ошибка-403-при-доступе-к-https-репозиториям&#34;&gt;Ошибка 403 при доступе к HTTPS репозиториям&lt;/h3&gt;
-
-&lt;p&gt;В этом месте тоже появляются ошибки, проявляются в ошибках 403 при &lt;code&gt;apt-get update&lt;/code&gt;.
-Проблема здесь в том, что apt-cacher-ng не может прочитать зашифрованный трафик от https репозиториев, но все равно пытается. Этого можно избежать двумя способами:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;добавить такие репозитории в исключения&lt;/li&gt;
-&lt;li&gt;использовать http репозитории в sources, а потом ремапить их на настоящие репозитории в apt-cacher-ng&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Первый способ позволяет избежать изменения sources для системы-клиента apt-cacher-ng, второй - экономить трафик и для таких репозиториев. Я хочу, чтобы прокси работал максимально прозрачно, поэтому я использую первый способ. За то, какие репозитории обрабатывать, отвечает параметр &lt;code&gt;PassThroughPattern&lt;/code&gt;. Нам нужно исключить из регулярного выражения все HTTPS репозитории.&lt;/p&gt;
-
-&lt;p&gt;Было:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;PassThroughPattern: ^bugs.debian.org:443
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Стало:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;PassThroughPattern: .*:443
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;О втором способе можно прочитать в &lt;a href=&#34;https://blog.packagecloud.io/eng/2015/05/05/using-apt-cacher-ng-with-ssl-tls/&#34; target=&#34;_blank&#34;&gt;этой статье&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;настройка-на-клиентах&#34;&gt;Настройка на клиентах&lt;/h2&gt;
-
-&lt;p&gt;На клиентах нужно добавить один файлик с указанием адреса прокси, &lt;code&gt;sources.list&lt;/code&gt; менять не надо:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &#39;Acquire::http::Proxy &amp;quot;http://myserver.ru:3142&amp;quot;;&#39; &amp;gt; /etc/apt/apt.conf.d/00aptproxy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;На хосте я этого делать не стал, т.к. у меня там стоит старая Ubuntu 14.04, а тестирую я на Ubuntu 16.04. К слову, apt-cacher-ng это не волнует, он нормально кеширует новые пакеты, не смотря на то, что стоит на старой оси. Как я понимаю, его можно использовать и в смешанном режиме, то есть кешировать пакеты сразу от нескольких версий операционок, но я это не проверял.&lt;/p&gt;
-
-&lt;p&gt;Вместо этого я положил файлик с указанием прокси в отдельную папку, откуда я буду пробрасывать его внутрь тестовых контейнеров:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &#39;Acquire::http::Proxy &amp;quot;http://myserver.ru:3142&amp;quot;;&#39; &amp;gt; /usr/local/src/00aptproxy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;использование-с-molecule-gitlab-ci-и-travis-ci&#34;&gt;Использование с Molecule, Gitlab CI и Travis CI&lt;/h2&gt;
-
-&lt;p&gt;Не знаю зачем, но роли я тестирую сразу двумя CI: Gitlab и Travis. В связи с этим появляется проблема: нужно на Gitlab CI использовать один кеширующий сервер, при локальном тестировании другой, а для Travis CI убирать его.&lt;/p&gt;
-
-&lt;p&gt;Сложность в том, что Molecule не поддерживает разные конфиги, только умеет использовать в конфигах переменные окружения. Это я и использовал.&lt;/p&gt;
-
-&lt;p&gt;Смысл в том, что на разных CI в контейнер будут пробрасываться разные &lt;code&gt;/etc/apt/apt.conf.d/00aptproxy&lt;/code&gt;, для Travis это будет просто пустой файл.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;.travis.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;script:
-  - export MOLECULE_APTPROXY_PATH=&amp;quot;$PWD/00aptproxy&amp;quot;
-  - touch &amp;quot;$MOLECULE_APTPROXY_PATH&amp;quot;
-  - molecule --debug test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;molecule.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker:
-  containers:
-    - name: ansible-role-mysql
-      image: ubuntu
-      image_version: latest
-      volume_mounts:
-        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;.gitlab-ci.yml&lt;/code&gt; я решил не менять, вместо этого я изменил способ регистрации раннеров в Gitlab CI, используются специальные раннеры с проброшенной переменной окружения:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gitlab-ci-multi-runner register -n \
-  --executor docker \
-  --description &amp;quot;Docker at myserver.ru on popstas/ubuntu-molecule&amp;quot; \
-  --docker-image &amp;quot;popstas/ubuntu-molecule:latest&amp;quot; \
-  --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
-  --env &amp;quot;MOLECULE_APTPROXY_PATH=/usr/local/src/00aptproxy&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Это сделано потому, что я еще запускаю локальные раннеры, хотелось сделать так, чтобы &lt;code&gt;.gitlab-ci.yml&lt;/code&gt; подходил во всех случаях.&lt;/p&gt;
-
-&lt;p&gt;На локальной машине можно просто добавить переменные окружения через &lt;code&gt;export&lt;/code&gt; прямо в терминале или добавить их в ваш &lt;code&gt;~/.profile&lt;/code&gt;, тогда можно просто запускать &lt;code&gt;molecule test&lt;/code&gt; и все будет работать.&lt;/p&gt;
-
-&lt;h2 id=&#34;тестирование-скорости&#34;&gt;Тестирование скорости&lt;/h2&gt;
-
-&lt;p&gt;Дополню таблицу из &lt;a href=&#34;http://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;прошлой статьи&lt;/a&gt;. Естественно, указано время второго прогона apt-cacher-ng для роли, т.к. в первый запуск пакеты еще не скачались, и скорость будет как при использовании стандартного репозитория.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Роль&lt;/th&gt;
-&lt;th&gt;archive.ubuntu.org&lt;/th&gt;
-&lt;th&gt;apt-mirror&lt;/th&gt;
-&lt;th&gt;apt-cacher-ng&lt;/th&gt;
-&lt;th&gt;Travis CI:&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ansible-role-common&lt;/td&gt;
-&lt;td&gt;8:04&lt;/td&gt;
-&lt;td&gt;6:18&lt;/td&gt;
-&lt;td&gt;6:30&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;4:32&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ansible-role-mysql&lt;/td&gt;
-&lt;td&gt;3:41&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;3:22&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;3:26&lt;/td&gt;
-&lt;td&gt;3:46&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ansible-role-zsh&lt;/td&gt;
-&lt;td&gt;3:16&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;2:54&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;2:56&lt;/td&gt;
-&lt;td&gt;4:08&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Как видим, в скорости решение с &lt;code&gt;apt-cacher-ng&lt;/code&gt; по сравнению с &lt;code&gt;apt-mirror&lt;/code&gt; почти не теряет. Если не видно разницы, зачем тратить лишние 140 Гб?&lt;/p&gt;
-
-&lt;p&gt;Кстати, скорость тестирования увеличилась и на других способах, которые я описывал в прошлой статье: если тогда разница между способами была 20-30%, то теперь она сократилась до 10-20%. Это говорит о том, что если ничего не делать и пользоваться стандартными удаленными репозиториями, вы будете больше зависеть от внешних факторов.&lt;/p&gt;
-
-&lt;h2 id=&#34;выводы&#34;&gt;Выводы&lt;/h2&gt;
-
-&lt;h3 id=&#34;минусы&#34;&gt;Минусы:&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Подходит только для множественного запуска однотипных установок, в моем случае так и есть&lt;/li&gt;
-&lt;li&gt;Немного медленнее, чем при использовании зеркала, минусом это назвать сложно, т.к. разница всего 1-3%&lt;/li&gt;
-&lt;li&gt;Нужно пробрасывать порт через фаервол, если хотите открыть прокси всему миру, я этого делать не стал :)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;плюсы&#34;&gt;Плюсы:&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Хранит только нужные пакеты&lt;/li&gt;
-&lt;li&gt;Кеширует не только пакеты из стандартного репозитория, но и внешние пакеты, которые вы добавляете в &lt;code&gt;sources.list&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Не требует изменения sources.list&lt;/li&gt;
-&lt;li&gt;Проше настраивать&lt;/li&gt;
-&lt;li&gt;Не нужен веб-сервер (nginx)&lt;/li&gt;
-&lt;li&gt;По умолчанию фаервол закрывает вас&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Как видите, минусы надуманны, а плюсы реальны. На этом история ускорения скачивания пакетов закончена, но остается еще много интересных моментов в тестировании Ansible на Gitlab CI, продолжение следует.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1208,230 +234,7 @@ service apt-cacher-ng restart
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-02/apt-mirror.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;настройка-apt-mirror&#34;&gt;Настройка apt-mirror&lt;/h2&gt;
-
-&lt;p&gt;Для синхронизации локального репозитория с основным вариант один - &lt;code&gt;apt-mirror&lt;/code&gt;.
-&lt;a href=&#34;https://apt-mirror.github.io&#34; target=&#34;_blank&#34;&gt;Официальный сайт&lt;/a&gt; считает нас умными, поэтому все его инструкции заключаются в 3 строчках:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;apt-get install apt-mirror
-nano /etc/apt/mirror.list
-sudo apt-mirror
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Все действительно почти так просто. Почти.&lt;/p&gt;
-
-&lt;h3 id=&#34;выбор-самого-быстрого-репозитория&#34;&gt;Выбор самого быстрого репозитория&lt;/h3&gt;
-
-&lt;p&gt;Пока гуглил тему, случайно наткнулся на &lt;a href=&#34;https://hub.docker.com/r/evgeniyklemin/ubuntu-fastest-apt-mirror/&#34; target=&#34;_blank&#34;&gt;инструкцию&lt;/a&gt;, как выбрать самый быстрый репозиторий.
-Скорее всего, для нас для всех это будет &lt;a href=&#34;http://mirror.yandex.ru/ubuntu&#34; target=&#34;_blank&#34;&gt;http://mirror.yandex.ru/ubuntu&lt;/a&gt;, но можно в этом убедиться:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;wget -q -nv -O- http://ftp.ru.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-26_amd64.deb &amp;gt; /tmp/netselect_0.3.ds1-26_amd64.deb
-dpkg -i /tmp/netselect_0.3.ds1-26_amd64.deb
-netselect -s3 -t20 &lt;span style=&#34;color: #586E75&#34;&gt;`&lt;/span&gt;wget -q -nv -O- https://launchpad.net/ubuntu/+archivemirrors &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; grep -P -B8 &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;statusUP|statusSIX&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; grep -o -P &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;(f|ht)tp.*\&amp;quot;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; tr &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;&amp;quot;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;  &amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;`&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Пакета нет в репозитории Ubuntu, поэтому качаем из репозитория Debian
-В результате вы получите список из 3 самых быстрых (по пингу) репозиториев:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;54 http://mirror.yandex.ru/ubuntu/
-89 http://ubuntu.volia.net/ubuntu-archive/
-124 http://nl.archive.ubuntu.com/ubuntu/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;конфигурация&#34;&gt;Конфигурация&lt;/h3&gt;
-
-&lt;p&gt;Открываем &lt;code&gt;/etc/apt/mirror.list&lt;/code&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Меняем &lt;code&gt;archive.ubuntu.com&lt;/code&gt; на &lt;code&gt;mirror.yandex.ru&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Убираем &lt;code&gt;multiverse&lt;/code&gt; репозиторий (в стандартном Docker контейнере &lt;code&gt;ubuntu&lt;/code&gt; его нет, видимо не очень нужен, зато экономим сразу 13 Гб).&lt;/li&gt;
-&lt;li&gt;Меняем путь хранения зеркала, не забывая после этого скопировать пустой скрипт в новое место &lt;code&gt;/var/spool/apt-mirror/var/postmirror.sh&lt;/code&gt;, иначе &lt;code&gt;apt-mirror&lt;/code&gt; будет в конце падать с ошибкой. У меня зеркало будет храниться в &lt;code&gt;/var/backups/apt-mirror&lt;/code&gt; (на диске с бекапами места много)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Это же в виде команд:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sed -i /etc/apt/mirror.list &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/archive.ubuntu.com/mirror.yandex.ru/g&amp;#39;&lt;/span&gt;
-sed -i /etc/apt/mirror.list &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/ multiverse//g&amp;#39;&lt;/span&gt;
-sed -i /etc/apt/mirror.list &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/\/var\/spool\/apt-mirror/\var\/backups\/apt-mirror/g&amp;#39;&lt;/span&gt;
-mkdir -p /var/backups/apt-mirror/var
-cp /var/spool/apt-mirror/var/postmirror.sh /var/backups/apt-mirror/var
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Добавляем в cron задание по обновлению репозитория, я буду запускать в 1 ночи:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sed -i &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/#0 4/0 1/g&amp;#39;&lt;/span&gt; /etc/cron.d/apt-mirror
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Настраиваем nginx на отдачу репозитория, у меня конфиг такой:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;server &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt;
-  listen &lt;span style=&#34;color: #2AA198&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt;
-  server_name mirror.myserver.ru&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt;
-  root /var/backups/apt-mirror/mirror/mirror.yandex.ru&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt;
-  access_log off&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt;
-
-  location / &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt;
-    autoindex on&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Все готово, осталось запустить &lt;code&gt;apt-mirror&lt;/code&gt; и подождать денек: у меня выкачивалось 142 Гб.
-Причем обновления тоже будут весить ощутимо, как я понял: через день я запустил apt-mirror еще раз,
-он скачал 1.5 Гб.&lt;/p&gt;
-
-&lt;p&gt;Проверяем URL &lt;a href=&#34;http://mirror.myserver.ru/&#34; target=&#34;_blank&#34;&gt;http://mirror.myserver.ru/&lt;/a&gt;, там должен быть доступен каталог &lt;code&gt;ubuntu&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;После этого можете сменить системные репозитории в ваших локальных убунтах и наслаждаться скоростью.&lt;/p&gt;
-
-&lt;p&gt;date = &amp;ldquo;Ошибка&amp;rdquo;
-slug = &amp;ldquo;Ошибка/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker&amp;rdquo;
-Хотя нет, насладиться сразу конечно не получилось. По какой-то причине (наверное причина в месте на диске), apt-mirror выкачивает только amd64 пакеты, из-за чего &lt;code&gt;apt-get update&lt;/code&gt; ругается:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;W: The repository &#39;http://apt.myserver.ru/ubuntu xenial-backports Release&#39; does not have a Release file.
-W: Failed to fetch http://apt.myserver.ru/ubuntu/dists/xenial/main/binary-i386/Packages: 404  Not Found
-W: Failed to fetch http://apt.myserver.ru/ubuntu/dists/xenial-updates/main/binary-i386/Packages: 404  Not Found
-E: Some index files failed to download. They have been ignored, or old ones used instead.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Казалось бы ничего страшного, но уверен, что в тестах ненулевой код выхода apt-get будет все останавливать, поэтому придется чинить.&lt;/p&gt;
-
-&lt;p&gt;Ошибка есть на &lt;a href=&#34;https://askubuntu.com/questions/465303/apt-mirror-error/574141&#34; target=&#34;_blank&#34;&gt;askubuntu.com&lt;/a&gt;, спасибо человеку, который предложил решение и негодовал по поводу того, что есть только в &lt;code&gt;man sources.list&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Решение напрашивается: явно указывать в &lt;code&gt;sources.list&lt;/code&gt;, что в репозитории только amd64 пакеты, то есть вместо:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;deb [ arch=amd64 ] http://apt.myserver.ru/ubuntu/ xenial main restricted universe
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;С настройкой &lt;code&gt;apt-mirror&lt;/code&gt; закончили, перейдем к использованию в тестах.&lt;/p&gt;
-
-&lt;h2 id=&#34;переключение-docker-контейнера-на-локальный-apt-репозиторий&#34;&gt;Переключение Docker контейнера на локальный apt репозиторий&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ekino/docker-images/tree/master/apt-mirror&#34; target=&#34;_blank&#34;&gt;https://github.com/ekino/docker-images/tree/master/apt-mirror&lt;/a&gt; - здесь приведено 2 способа настройки репозитория в контейнере, не изменяя его:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;[Плохой способ] Подмена через DNS&lt;/li&gt;
-&lt;li&gt;[Хороший способ] Подмена &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Я выбрал хороший. Делается это монтированием файла на место &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;FQDN&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;apt.myserver.ru&amp;quot;&lt;/span&gt;
-cat &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;lt;&amp;lt;EOF &amp;gt; sources.list-$FQDN&lt;/span&gt;
-&lt;span style=&#34;color: #2AA198&#34;&gt;deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial main restricted universe&lt;/span&gt;
-&lt;span style=&#34;color: #2AA198&#34;&gt;deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial-updates main restricted universe&lt;/span&gt;
-&lt;span style=&#34;color: #2AA198&#34;&gt;deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial-security main restricted universe&lt;/span&gt;
-&lt;span style=&#34;color: #2AA198&#34;&gt;EOF&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Чтобы не тащить с собой артефакты, файл создается командой.&lt;/p&gt;
-
-&lt;p&gt;После этого проверяем, это должно отработать нормально:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker run --rm -it -v &lt;span style=&#34;color: #719e07&#34;&gt;$(&lt;/span&gt;readlink -f sources.list-&lt;span style=&#34;color: #268BD2&#34;&gt;$FQDN&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;:/etc/apt/sources.list ubuntu:16.04 apt-get update
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Если &lt;code&gt;readlink&lt;/code&gt; выдает ошибку &lt;code&gt;readlink: illegal option -- f&lt;/code&gt;, тогда вы скорее всего сидите на MacOS и вам нужно сделать &lt;code&gt;brew install coreutils&lt;/code&gt; и прописать в переменную &lt;code&gt;PATH&lt;/code&gt; то, что он просит.&lt;/p&gt;
-
-&lt;h2 id=&#34;сравнение-скорости&#34;&gt;Сравнение скорости&lt;/h2&gt;
-
-&lt;p&gt;Я потратил около 4 часов на то, чтобы настроить локальные репозитории, посмотрим, сколько я сэкономил времени.
-Скорость инета у меня 30 мбит.&lt;/p&gt;
-
-&lt;p&gt;Я сравнил отработку &lt;code&gt;time molecule test&lt;/code&gt; на 3 ansible ролях, вот результаты:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Роль&lt;/th&gt;
-&lt;th&gt;Стандартный репозиторий&lt;/th&gt;
-&lt;th&gt;Локальный репозиторий&lt;/th&gt;
-&lt;th&gt;Travis CI:&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ansible-role-common&lt;/td&gt;
-&lt;td&gt;8:04&lt;/td&gt;
-&lt;td&gt;6:18&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;4:32&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ansible-role-mysql&lt;/td&gt;
-&lt;td&gt;3:41&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;3:22&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;3:46&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ansible-role-zsh&lt;/td&gt;
-&lt;td&gt;3:29&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;2:54&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;4:08&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Как видно, прирост небольшой, всего 20-30%.
-UPD 26.02.2017: на при написании &lt;a href=&#34;http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;статьи про apt-cacher-ng&lt;/a&gt; я перепроверил результаты и разница сократилась до 10-20%.&lt;/p&gt;
-
-&lt;p&gt;Тут надо заметить, что в &lt;code&gt;test&lt;/code&gt; входит проверка идемпотентности, где никакие пакеты не ставятся. Тогда я сравнил время выполнения &amp;lsquo;molecule converge&amp;rsquo; для &lt;code&gt;ansible-role-mysql&lt;/code&gt; и получил немного лучшие результаты: 2:30 против 3:17, это уже почти в 2 раза быстрее.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Роль&lt;/th&gt;
-&lt;th&gt;Стандартный репозиторий&lt;/th&gt;
-&lt;th&gt;Локальный репозиторий&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ansible-role-common&lt;/td&gt;
-&lt;td&gt;8:15&lt;/td&gt;
-&lt;td&gt;6:09&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ansible-role-mysql&lt;/td&gt;
-&lt;td&gt;3:17&lt;/td&gt;
-&lt;td&gt;2:30&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ansible-role-zsh&lt;/td&gt;
-&lt;td&gt;4:05&lt;/td&gt;
-&lt;td&gt;2:43&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;выводы-по-поводу-apt-mirror&#34;&gt;Выводы по поводу apt-mirror&lt;/h2&gt;
-
-&lt;p&gt;Результаты меня немного расстроили. Оказалось, что поразительного прироста в скорости, на который я надеялся, не будет.&lt;/p&gt;
-
-&lt;h3 id=&#34;плюсы&#34;&gt;Плюсы:&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;один раз потратил время, чтобы при каждом тесте ждать меньше&lt;/li&gt;
-&lt;li&gt;уменьшает желание тестировать не на чистой машине&lt;/li&gt;
-&lt;li&gt;интернет-канал не занимается в рабочее время&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;минусы&#34;&gt;Минусы&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;эффект слабый, 20-30%&lt;/li&gt;
-&lt;li&gt;сложности с пробросом файла &lt;code&gt;sources.list&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;уход от стандартной конфигурации Gitlab CI&lt;/li&gt;
-&lt;li&gt;разные конфиги для Travis CI и Gitlab CI&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;На основе этого сделал для себя вывод: это подходит только для локального постоянного применения, в остальных случаях минусы перевешивают.&lt;/p&gt;
-
-&lt;h2 id=&#34;что-то-тут-не-так&#34;&gt;Что-то тут не так&amp;hellip;&lt;/h2&gt;
-
-&lt;p&gt;После этого я задумался: а как делают &amp;ldquo;большие&amp;rdquo;? Из серьезных решений для локальных репозиториев я знаю только Artifactory. Пошел посмотреть, как у них обстоят дела с зеркалами и &lt;a href=&#34;https://www.jfrog.com/knowledge-base/how-to-mirror-a-remote-repository/&#34; target=&#34;_blank&#34;&gt;нашел&lt;/a&gt;: они умеют быть зеркалом, но не рекоменуют их так использовать, т.к. это неэффективно. Вместо этого они предлагают пользоваться ими как кеширующим сервером. Такие дела&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;UPD 26.02.2017: перешел на использование apt-cacher-ng, в моем случае он лучше по всем параметрам, подробности читайте в продолжении&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1454,36 +257,7 @@ UPD 26.02.2017: на при написании &lt;a href=&#34;http://blog.popst
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;В общем все оказалось просто, за минуту находится статья об этом - &lt;a href=&#34;http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/&#34; target=&#34;_blank&#34;&gt;
-Moving Files from one Git Repository to Another, Preserving History&lt;/a&gt;, за 10 минут становится понятно, что как работает.&lt;/p&gt;
-
-&lt;p&gt;Мне нужно было проделать эту операцию 10+ раз, поэтому написал скрипт, извлекающий репозиторий одной командой.&lt;/p&gt;
-
-&lt;h2 id=&#34;алгоритм-извлечения&#34;&gt;Алгоритм извлечения:&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Клонировать большой проект во временный репозиторий&lt;/li&gt;
-&lt;li&gt;Удалить из него все, кроме папки модуля через git-фильтр. При этом переписывается история&lt;/li&gt;
-&lt;li&gt;Создать чистый репозиторий для нового модуля&lt;/li&gt;
-&lt;li&gt;Добавить в чистый репозиторий временный, как remote source&lt;/li&gt;
-&lt;li&gt;Сделать pull из remote source в master&lt;/li&gt;
-&lt;li&gt;Подчистить следы&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;По идее уже после п.2 временный репозиторий выглядит как готовый модуль, пп.3-6 нужны для того, чтобы не тащить следы истории и настроек родительского проекта в дочерний.&lt;/p&gt;
-
-&lt;p&gt;Например, у меня есть репозиторий &lt;code&gt;ansible-server&lt;/code&gt;, в нем лежит роль &lt;code&gt;roles/server-scripts&lt;/code&gt;. Тогда нужно перейти в папку ansible-server и запустить:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git-extract-subproject roles/server-scripts ansible-role-server-scripts
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого рядом с &lt;code&gt;ansible-server&lt;/code&gt; создастся готовый проект &lt;code&gt;ansible-role-server-scripts&lt;/code&gt;. Остается добавить в него remote origin куда следует и запушить.&lt;/p&gt;
-
-&lt;p&gt;В итоге получился репозиторий с историей - &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-server-scripts/commits/master&#34; target=&#34;_blank&#34;&gt;viasite-ansible/ansible-role-server-scripts&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Код скрипта здесь - &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-extract-subproject&#34; target=&#34;_blank&#34;&gt;popstas/server-scripts&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1502,141 +276,7 @@ Moving Files from one Git Repository to Another, Preserving History&lt;/a&gt;, �
 
 &lt;p&gt;&lt;img style=&#34;background:#1F242D&#34; src=&#34;http://blog.popstas.ru/images/2016-05/kapacitor.svg&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Я уже настроил три слоя из стека: на серверах стоят агенты Telegraf, передают метрики в InfluxDB, их можно смотреть в виде графиков через Grafana (InfluxData предлагает свой Chronograf, но он сильно отстает от Grafana по функционалу на январь 2016 и вряд ли это изменится).&lt;/p&gt;
-
-&lt;p&gt;У этой схемы есть недостаток: чтобы узнать, что что-то идет не так, нужно зайти в Grafana и глазами найти это что-то. Это меня устраивает, когда я уже знаю, что сервер плохо себя чувствует.&lt;/p&gt;
-
-&lt;p&gt;Kapacitor нужен для уведомлений, алертинга. В 2 словах: это демон, который умеет пропускать через себя данные, приходящие в InfluxDB, обрабатывать их и пересылать по разным каналам связи / на HTTP / в базу данных.&lt;/p&gt;
-
-&lt;p&gt;Для меня Kapacitor - прямой конкурент Monit, поэтому сравниваю с ним, больше ни с чем подобным дел не имел, но слышал, что для мониторинга серверов правильные пацаны используют Zabbix, Nagios/Icinga, Sensu, Riemann. Я решил пока не добавлять софта на сервера, да и уведомлять на основе уже собранных данных мне кажется правильным, этим объясняется мой выбор в пользу Kapacitor.&lt;/p&gt;
-
-&lt;h3 id=&#34;плюсы-kapacitor&#34;&gt;Плюсы Kapacitor&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Убирание лишнего. Kapacitor не надо ставить агентом, роль агента выполняет Telegraf. Monit, которым я пользуюсь сейчас для алертинга, дублирует функционал, собирая метрики самостоятельно.&lt;/li&gt;
-&lt;li&gt;Надежный алертинг. У monit тут есть проблема: когда умирает сервер, monit, установленный там, тоже умирает и не успевает отправить алерт на email. Надежный, кроме случаев, когда падает Kapacitor или InfluxDB, что случается.&lt;/li&gt;
-&lt;li&gt;Продвинутый алертинг. Monit умеет мало (ладно, много, но я умею на нем мало). Kapacitor имеет в распоряжении данные всех моих серверов, что позволяет ему смотреть на них как на систему. У меня в этом месте фантазия начинает играть, не буду расписывать, что по моему мнению можно отслеживать через Kapacitor, так как может такого и нельзя :)&lt;/li&gt;
-&lt;li&gt;Каналы алертинга. Заявлена поддержка HipChat, OpsGenie, Alerta, Sensu, PagerDuty, Slack, VictorOps, кроме этого есть запись в лог, email, POST-запрос. Для разных событий можно указывать разные каналы. Monit умеет только email, а мне нужен был Slack.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;плюсы-monit&#34;&gt;Плюсы Monit:&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Monit проверенный, а Kapacitor - нет, как и весь TICK.&lt;/li&gt;
-&lt;li&gt;Monit имеет прямой доступ к серверу, что позволяет ему реагировать самостоятельно, например, перезагружать сервис, если он не отвечает. Kapacitor умеет только уведомлять.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;установка&#34;&gt;Установка&lt;/h2&gt;
-
-&lt;p&gt;Ставить можно &lt;a href=&#34;https://influxdata.com/downloads/#kapacitor&#34; target=&#34;_blank&#34;&gt;по-разному&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Для тех, кто не дружит с Ansible, установка из репозитория, &lt;a href=&#34;https://docs.influxdata.com/influxdb/v0.13/introduction/installation/&#34; target=&#34;_blank&#34;&gt;взятая из мануала&lt;/a&gt; по InfluxDB (репозиторий один на весь стек InfluxData):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -sL https://repos.influxdata.com/influxdb.key &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sudo apt-key add -
-&lt;span style=&#34;color: #B58900&#34;&gt;source&lt;/span&gt; /etc/lsb-release
-&lt;span style=&#34;color: #B58900&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;deb https://repos.influxdata.com/${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;DISTRIB_ID&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,,&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;} ${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;DISTRIB_CODENAME&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;} stable&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/influxdb.list
-aptitude update
-aptitude install kapacitor
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Я буду ставить через Ansible &lt;a href=&#34;https://github.com/rossmcdonald/kapacitor&#34; target=&#34;_blank&#34;&gt;rossmcdonald/kapacitor&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;ansible-galaxy install rossmcdonald.kapacitor
-ansible-playbook -c &lt;span style=&#34;color: #B58900&#34;&gt;local&lt;/span&gt; kapacitor.yml
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 id=&#34;a-name-github-pull-request-a-как-просто-делать-pull-request&#34;&gt;&lt;a name=&#34;github-pull-request&#34;&gt;&lt;/a&gt;Как просто делать Pull request&lt;/h4&gt;
-
-&lt;p&gt;В плейбуке была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто &lt;a href=&#34;https://github.com/rossmcdonald/kapacitor/pull/1&#34; target=&#34;_blank&#34;&gt;делать pull request&lt;/a&gt; прямо в браузере. Это заняло минуты две: жмем &amp;ldquo;редактировать&amp;rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &amp;ldquo;Create pull request&amp;rdquo;.&lt;/p&gt;
-
-&lt;h2 id=&#34;настройка&#34;&gt;Настройка&lt;/h2&gt;
-
-&lt;p&gt;Так как я уже использовал готовую ansible-роль, настройка уже включена в установку. Я взял &lt;a href=&#34;https://github.com/rossmcdonald/kapacitor/blob/master/test.yml&#34; target=&#34;_blank&#34;&gt;тестовый плейбук&lt;/a&gt; роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция &lt;code&gt;global&lt;/code&gt; в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно.&lt;/p&gt;
-
-&lt;p&gt;Для установки сделал такой плейбук:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;hosts:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;all&lt;/span&gt;
-  &lt;span style=&#34;color: #93A1A1&#34;&gt;roles:&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;role:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;rossmcdonald.kapacitor&lt;/span&gt;
-  &lt;span style=&#34;color: #93A1A1&#34;&gt;vars:&lt;/span&gt;
-    &lt;span style=&#34;color: #586E75&#34;&gt;# [influxdb]&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_enabled:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_urls:&lt;/span&gt;
-      &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;http://localhost:8086&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_username:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;user&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_influxdb_password:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;pass&lt;/span&gt;
-
-    &lt;span style=&#34;color: #586E75&#34;&gt;# [smtp]&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_enabled:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_host:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;smtp.yandex.ru&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_port:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;587&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_username:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;example@yandex.ru&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_password:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;pass&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_from:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;example@yandex.ru&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_smtp_to:&lt;/span&gt;
-      &lt;span style=&#34;color: #93A1A1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;admin@example.com&amp;quot;&lt;/span&gt;
-
-    &lt;span style=&#34;color: #586E75&#34;&gt;# [slack]&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_enabled:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_url:&lt;/span&gt;  &lt;span style=&#34;color: #93A1A1&#34;&gt;https://hooks.slack.com/services/G2JFW7VFQ/B13UHEN5X/9J6IVIcUw9FGCeF7hfjFNGBn&lt;/span&gt; &lt;span style=&#34;color: #586E75&#34;&gt;# url ненастоящий&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_channel:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;#servers&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_slack_global:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
-
-    &lt;span style=&#34;color: #93A1A1&#34;&gt;kapacitor_tasks_to_enable:&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&#34;проверка&#34;&gt;Проверка&lt;/h2&gt;
-
-&lt;p&gt;Лучший способ проверить, что Kapacitor видит данные из InfluxDB - записать фрагмент:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;kapacitor record stream -name la_alert -duration 5s
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Если запись пошла, можно приступать к самому интересному: созданию алертов.&lt;/p&gt;
-
-&lt;p&gt;Если через 5 секунд команда не завершилась, значит что-то пошло не так.
-Смотрим логи:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Kapacitor может говорить об ошибках к подключению к InfluxDB&lt;/li&gt;
-&lt;li&gt;InfluxDB может сыпать &lt;code&gt;connection refused&lt;/code&gt; ошибками&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;В моем случае домен, который я прописал в конфиге Kapacitor, был прописан в /etc/hosts на 127.0.1.1, Kapacitor слушал этот порт, соответственно, InfluxDB не мог достучаться из Docker-контейнера.&lt;/p&gt;
-
-&lt;h4 id=&#34;проблема-из-за-docker&#34;&gt;Проблема из-за Docker&lt;/h4&gt;
-
-&lt;p&gt;У меня в логах была ошибка:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;open server: open service *influxdb.Service: subscription already exists
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Я указал другой локальный хост, localhost, т.к. я не предполагаю, что к kapacitor будет обращаться кто-то, кроме InfluxDB, который стоит на той же машине. Это не помогло. Я не понял, в чем ошибка, nmap показывает свободный порт. Оставил стандартный, поддомен машины, это почему-то сработало.&lt;/p&gt;
-
-&lt;p&gt;Оказалось, проблема была в том, что InfluxDB при первом запуске Kapacitor&amp;rsquo;а создал на него подписки (subscriptions), которые означают то, что InfluxDB будет пересылать в Kapacitor все, что приходит в него.&lt;/p&gt;
-
-&lt;p&gt;InfluxDB у меня крутится в Docker&amp;rsquo;е с проброшенными портами, а Kapacitor - нет, то есть они технически были не на одной машине. Точнее, для Kapacitor&amp;rsquo;а казалось, что InfluxDB на этой же машине, но для Influx&amp;rsquo;a он на другой машине! Оказалось, что изнутри докера внутренний адрес, на который создались подписки, вел не туда, поэтому данные не доходили до Kapacitor, чтобы исправить это, понадобилось удалить подписки, узнав их имена:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;SHOW&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;SUBSCRIPTIONS&lt;/span&gt;
-&lt;span style=&#34;color: #719e07&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;SUBSCRIPTION&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;telegraf&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;default&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #719e07&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;SUBSCRIPTION&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;_internal&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;monitor&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&#34;выводы&#34;&gt;Выводы&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Использование Docker для InfluxDB сильно усложнило мне процесс установки при том, что ничего мне не дало: InfluxDB - это один бинарник, если у вас вся инфраструктура живет не в контейнерах, используйте установку из репозиториев, это проще. С другой стороны откатиться на предыдущую версию будет сложнее&amp;hellip;&lt;/li&gt;
-&lt;li&gt;Kapacitor сильно превосходит Monit по возможностям алертинга, но уступает ему в контроле над ситуацией. Хотя можно себе представить сценарий, что Kapacitor отправляет POST-запрос с инструкциями к действиям сервису, который делает что-то, но меня такой самопальный RPC пугает.&lt;/li&gt;
-&lt;li&gt;Все это достаточно сырое в том смысле, что нет достаточной обвязки (оф. &lt;a href=&#34;https://hub.docker.com/r/library/influxdb/&#34; target=&#34;_blank&#34;&gt;контейнер для InfluxDB&lt;/a&gt; появился только 16 мая, самый популярный плейбук для Kapacitor понадобилось править, чтобы установить), информации очень мало, кроме GitHub issues и документации на данный момент нет ничего. Поэтому появляющиеся проблемы решать будет сложнее.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;ссылки&#34;&gt;Ссылки&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://influxdata.com/time-series-platform/kapacitor/&#34; target=&#34;_blank&#34;&gt;страница Kapacitor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://influxdata.com/get-started/configuring-alerts-with-kapacitor/&#34; target=&#34;_blank&#34;&gt;оф. туториал&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.influxdata.com/kapacitor/v0.12/&#34; target=&#34;_blank&#34;&gt;docs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/influxdata/kapacitor&#34; target=&#34;_blank&#34;&gt;influxdata/kapacitor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/influxdata/kapacitor-docker&#34; target=&#34;_blank&#34;&gt;influxdata/kapacitor-docker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rossmcdonald/kapacitor&#34; target=&#34;_blank&#34;&gt;ansible-role-kapacitor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1645,99 +285,11 @@ ansible-playbook -c &lt;span style=&#34;color: #B58900&#34;&gt;local&lt;/span&gt
       <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
       
       <guid>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
-      <description>
-
-&lt;p&gt;Итак, &lt;a href=&#34;http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34; target=&#34;_blank&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
-
-&lt;p&gt;Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png&#34; /&gt;&lt;/p&gt;
-
-&lt;!--more --&gt;
-
-&lt;p&gt;Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же!
-Шелл открылся под root, так что sudo не нужен.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ aptitude install zsh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude,
-нет проблем, ставим через &lt;code&gt;apt-get&lt;/code&gt;, но оказывается, что нет инета.&lt;/p&gt;
-
-&lt;p&gt;Про это есть &lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/14&#34; target=&#34;_blank&#34;&gt;issue#14&lt;/a&gt; (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ echo &amp;quot;nameserver 8.8.8.8&amp;quot; &amp;gt; /etc/resolv.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;При этом не заработает ifconfig, ping, nslookup, но пакеты начнут ставиться.
-apt-get при установке поругивается, но ставит.&lt;/p&gt;
-
-&lt;h1 id=&#34;zsh&#34;&gt;Zsh&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get update &amp;amp;&amp;amp; apt-get install git zsh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ок, сработало, ставлю свой &lt;a href=&#34;https://github.com/popstas/zsh-config&#34; target=&#34;_blank&#34;&gt;zsh-config&lt;/a&gt;
-Что-то пошло не так с пайпами, но в итоге он поставился. Кстати git работает как родной.&lt;/p&gt;
-
-&lt;p&gt;Открываю новый терминал, открывается bash, смотрю /etc/passwd, там написано, что
-шелл /bin/zsh. Ладно, запускаю zsh вручную, он вывалил кучу ошибок про powerline,
-что-то от zsh, никакой красоты не появилось.&lt;/p&gt;
-
-&lt;p&gt;Ок, упрощаем, удаляю свой конфиг, открываю чистый zsh - все равно облом.&lt;/p&gt;
-
-&lt;p&gt;Ладно, не в zsh счастье (или все-таки в нем?).&lt;/p&gt;
-
-&lt;p&gt;Открываю &lt;code&gt;mc&lt;/code&gt;, он как бы работает, но после первого нажатия Enter курсоры перестают бегать.
-Выходим, идем дальше.&lt;/p&gt;
-
-&lt;h1 id=&#34;python&#34;&gt;Python&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get install python-pip python-dev
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Все поставилось.
-Смотрим pip:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;glances&lt;/code&gt; - не работает&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/&#34;&gt;percol&lt;/a&gt; - работает!&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ansible&lt;/code&gt; - ругается при запуске про &lt;code&gt;Function not implemented&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ps_mem&lt;/code&gt; - конечно нет&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;httpie&lt;/code&gt; - работает!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;ssh&#34;&gt;SSH&lt;/h1&gt;
-
-&lt;p&gt;Тащим ключ с домашней машины&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rsync popstas@home:/Users/popstas/.ssh/id_dsa ~/.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Работает!&lt;/p&gt;
-
-&lt;p&gt;Подключаюсь к удаленному хосту - тоже работает!
-Там зашел в &lt;code&gt;mc&lt;/code&gt;, стало понятно, что глючит терминал: на удаленке курсоры тоже бегают плохо.
-Ок, терминал будет, потом.&lt;/p&gt;
-
-&lt;h1 id=&#34;php&#34;&gt;PHP&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get install php5-cli
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;PHP работает.
-Composer ставится, но при попытке установить им что-нибудь зависает.&lt;/p&gt;
-
-&lt;h1 id=&#34;nginx&#34;&gt;Nginx&lt;/h1&gt;
-
-&lt;p&gt;Ставится, но не стартует, в error.log пишет, что не может прибиндиться к сокету.&lt;/p&gt;
-
-&lt;h1 id=&#34;вывод&#34;&gt;Вывод&lt;/h1&gt;
-
-&lt;p&gt;Пользоваться этим сейчас конечно нельзя и в ближайший месяц думаю можно не надеяться.
-Я рассчитывал на большее, ну ладно, будем надеяться, что у Microsoft получится сделать
-полноценный линукс, хотя видно, что работы тут еще немеряно.&lt;/p&gt;
-</description>
+      <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
+Tl;dr: оно очень сырое, не работает почти ничего.
+Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
+$ aptitude install zsh  Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
+Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description>
     </item>
     
     <item>
@@ -1757,33 +309,7 @@ Composer ставится, но при попытке установить им 
 
 &lt;p&gt;&lt;img src=&#34;http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Вчера утром пришло письмо от Microsoft:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Только что закончилась ежегодная конференция разработчиков Build 2016, на которой мы представили новые функции Windows 10.
-Вы сможете в числе первых опробовать эти новые функции, выбрав &amp;ldquo;быстрый&amp;rdquo; или &amp;ldquo;медленный&amp;rdquo; круг обновлений. Подробную информацию о новых возможностях читайте в записи блога Гейба о последней сборке Windows 10 Insider Preview. Обратите внимание, что для участников программы предварительной оценки, которые хотят выполнить чистую установку этой сборки или запустить ее в виртуальной машине, доступны ISO-образы. (на английском языке.)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Я конечно пришел домой вечером, скачал ISO, поставил на Virtualbox, сегодня на обеде думал: &amp;ldquo;Приду домой, посмотрю, что там за линукс&amp;rdquo;. Удивлялся, что до сих пор не гуглятся обзоры фичи.&lt;/p&gt;
-
-&lt;p&gt;Включил виртуалку, x64, English, что дальше делать - не понятно. Нагуглил официальные страницы фичи:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blogs.windows.com/windowsexperience/2016/04/06/announcing-windows-10-insider-preview-build-14316/&#34; target=&#34;_blank&#34;&gt;Анонс билда&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://msdn.microsoft.com/en-us/commandline/wsl/about&#34; target=&#34;_blank&#34;&gt;Видео с конференции BUILD&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/blob/master/commandline/WSL/install_guide.md&#34; target=&#34;_blank&#34;&gt;Инструкция по включению фичи&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Уже написана &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34; target=&#34;_blank&#34;&gt;инструкция по обновлению до Windows subsystem for Linux&lt;/a&gt; на русском, но до рабочей фичи ее автор тоже не дошел.&lt;/p&gt;
-
-&lt;p&gt;Чтобы обновление пришло, нужно в настройках центра обновлений включить режим разработчика, переключиться на Insider level: fast, обновиться минимум до build 14316&lt;/p&gt;
-
-&lt;p&gt;Все стало понятно из этого &lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34; target=&#34;_blank&#34;&gt;issue&lt;/a&gt;, кто-то, включая меня, застрял на сборке 14295.&lt;/p&gt;
-
-&lt;p&gt;Ждем.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1809,201 +335,7 @@ Composer ставится, но при попытке установить им 
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;changelog-md&#34;&gt;CHANGELOG.md&lt;/h1&gt;
-
-&lt;p&gt;Понятная для человека история изменений проекта нужна. Тут надо заметить что такими историями не являются:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Issues проекта, ветка в менеджере задач, доска проекта и т.п.&lt;/li&gt;
-&lt;li&gt;git log проекта&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Файл CHANGELOG.md в корне проекта стал стандартом де-факто для проектов, в котором ведется история изменений, Gitlab даже делает для него отдельную вкладку на странице репозитория.&lt;/p&gt;
-
-&lt;p&gt;Про это, конечно, есть &lt;a href=&#34;http://keepachangelog.com/&#34; target=&#34;_blank&#34;&gt;сайт&lt;/a&gt;, &lt;a href=&#34;https://github.com/olivierlacan/keep-a-changelog&#34; target=&#34;_blank&#34;&gt;репозиторий на Github&lt;/a&gt; с тысячей звезд, проблема явно беспокоит людей.&lt;/p&gt;
-
-&lt;p&gt;Про ведение CHANGELOG я задумался, когда изучал проект &lt;a href=&#34;https://github.com/hashicorp/otto/&#34; target=&#34;_blank&#34;&gt;otto&lt;/a&gt;, когда писал про него &lt;a href=&#34;http://habrahabr.ru/post/273009/&#34; target=&#34;_blank&#34;&gt;статью на хабр&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&#34;структура-у-changelog-более-менее-у-всех-одна-и-та-же&#34;&gt;Структура у CHANGELOG более-менее у всех одна и та же:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Версия и дата релиза&lt;/li&gt;
-&lt;li&gt;Сломанные обратные совместимости&lt;/li&gt;
-&lt;li&gt;Новые фичи&lt;/li&gt;
-&lt;li&gt;Прочие изменения и улучшения&lt;/li&gt;
-&lt;li&gt;Исправленные баги&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Вести такой документ достаточно просто, я за 120 коммитов почти не забывал это делать. В файле нужно всегда держать вверху секцию Next Release с подготовленными заголовками, как-то так:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;## Next Release
-
-BREAKING CHANGES:
-
-FEATURES:
-
-IMPROVEMENTS:
-
-BUG FIXES:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Перед коммитом я всегда просматриваю дифф, в это время я записываю в коммент к коммиту кратко изменение в первую строку и более подробно в третью, если изменений больше одного, делаю в виде списка. Если про это есть задача, нужно упомянуть ее в виде #123 ссылки, Github умный и такие ссылки делает активными.&lt;/p&gt;
-
-&lt;p&gt;Так вот, нужно просто добавить в этот процесс копипасту коммента к коммиту в CHANGELOG, с раскладыванием по категориям изменений.&lt;/p&gt;
-
-&lt;p&gt;Во время релиза называем секцию, ставим ей дату, копипастим заголовки.&lt;/p&gt;
-
-&lt;p&gt;Процедура очень простая, настолько простая, что хочется ее поручить роботу.&lt;/p&gt;
-
-&lt;h2 id=&#34;github-changelog-generator&#34;&gt;github_changelog_generator&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/skywinder/github-changelog-generator&#34; target=&#34;_blank&#34;&gt;github_changelog_generator&lt;/a&gt; - ruby утилита, которая умеет генерировать CHANGELOG.md из любого репозитория. На выходе получаем документ типа &lt;a href=&#34;https://github.com/skywinder/github-changelog-generator/blob/master/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;этого&lt;/a&gt;, наполненный ссылками на задачи и пулл-реквесты, разбитый по категориям, все круто, как в рекламе. У меня получилось совсем не так красиво.&lt;/p&gt;
-
-&lt;p&gt;Что мне не понравилось в этом генераторе:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Текст коммитов никак не учитывает, как и текст задач.&lt;/li&gt;
-&lt;li&gt;Чтобы она нормально работала, нужно по полной использовать Github Issues и метки для них, пулл-реквесты, в общем сильно завязано на Github (кто бы мог подумать?), иначе будут генериться просто ссылки на диффы между тегами.&lt;/li&gt;
-&lt;li&gt;Нельзя указывать свои секции (например, Breaking changes встроенного нет), но есть &lt;a href=&#34;https://github.com/skywinder/github-changelog-generator/issues/316&#34; target=&#34;_blank&#34;&gt;issue #316&lt;/a&gt; про это, судя по активности проекта, они скоро появятся.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Что понравилось:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Поведение из коробки что-то генерирует, даже если вы не думали про CHANGELOG.md до этого и не использовали Github фишки, это лучше, чем ничего. Но не намного.&lt;/li&gt;
-&lt;li&gt;Можно привязывать свои метки к существующим секциям лога.&lt;/li&gt;
-&lt;li&gt;Можно настраивать как параметрами к команде, так и конфигом. При запуске скрипт говорит: &lt;code&gt;Performing task with options&lt;/code&gt;, так вот, каждую строку из перечисленного ниже конфига можно вставить в файл &lt;code&gt;.github_changelog_generator&lt;/code&gt; и переопределить, заменив &lt;code&gt;_&lt;/code&gt; на &lt;code&gt;-&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Поддерживает сосуществование заполняемой вручную версии (которая все равно лучше автоматической) и генерируемого лога, для этого нужно переложить старый CHANGELOG.md в HISTORY.md (или другой файл, указав его в конфиге).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;В общем, github_changelog_generator в моем случае подходит хорошо,
-если вся работа ведется на Github, это самый простой способ получить красивый CHANGELOG.md&lt;/p&gt;
-
-&lt;p&gt;Но на этом я не успокоился, основная причина в том, что на рабочие проекты на Github я не делаю. Хотелось более общего решения.&lt;/p&gt;
-
-&lt;h2 id=&#34;git-extras-changelog&#34;&gt;git-extras changelog&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/tj/git-extras&#34; target=&#34;_blank&#34;&gt;tj/git-extras&lt;/a&gt; - это &lt;a href=&#34;https://github.com/tj/git-extras/blob/master/Commands.md&#34; target=&#34;_blank&#34;&gt;огромный&lt;/a&gt; (около 50) пакет дополнительных команд, упрощающих работу с git. Я его раньше уже видел, но в то время подумал, что мне и встроенных в git команд слишком много. Но в поисках генератора снова набрел на него, у него есть такая команда.&lt;/p&gt;
-
-&lt;p&gt;Вот таким нехитрым способом можно в одну команду сгенерировать и запушить лог для проекта, где его не было, но версии помечались тегами и комменты к коммитам были осмысленными:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git changelog -a -p -x &amp;gt; CHANGELOG.md &amp;amp;&amp;amp; git add CHANGELOG.md &amp;amp;&amp;amp; git commit CHANGELOG.md -m &amp;quot;add CHANGELOG.md&amp;quot; &amp;amp;&amp;amp; git push origin master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Для пробы сделал лог для &lt;a href=&#34;https://github.com/popstas/site-setup/blob/5cb4f52bfc5909bac8b8bc77540cf3283b94ff2a/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;site-setup&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/009d82420fa4623417cf437b00df36c662c759a2/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;server-scripts&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/drupal-scripts/blob/b0b7a5907798ebde714471fbf1611c3232df5925/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;, на этом успокоился, больше в общем и тестить не на чем.&lt;/p&gt;
-
-&lt;p&gt;Ниже я отказался от него в пользу &lt;code&gt;conventional changelog&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h4 id=&#34;плюсы&#34;&gt;Плюсы:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Простой как дверь, выполняешь команду, получаешь список изменений, разделенных версиями&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;минусы&#34;&gt;Минусы:&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Нет почти никаких настроек&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;rafinskipg-git-changelog&#34;&gt;rafinskipg/git-changelog&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/rafinskipg/git-changelog&#34; target=&#34;_blank&#34;&gt;rafinskipg/git-changelog&lt;/a&gt; - node.js cкрипт, который парсит коммиты, написанные по &lt;a href=&#34;https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#&#34; target=&#34;_blank&#34;&gt;стандартам Angular&lt;/a&gt;. Я их прочитал, оказалось, что стандарты годные, к angular никак не привязаны.&lt;/p&gt;
-
-&lt;p&gt;Конфликтует с git-extras, так как оба они хотят называться git-changelog. Этот я сделал симлинком &lt;code&gt;git-changelog-angular&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Параметров у скрипта немного, я с ними поигрался, но ничего хорошего у меня с этим тулом не вышло. Идем дальше.&lt;/p&gt;
-
-&lt;h2 id=&#34;conventional-changelog&#34;&gt;conventional-changelog&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/stevemao/conventional-changelog-cli&#34; target=&#34;_blank&#34;&gt;stevemao/conventional-changelog-cli&lt;/a&gt; - node.js скрипт, также нацелен на стандарты Angular, но, &lt;a href=&#34;https://github.com/stevemao/conventional-changelog-cli#why&#34; target=&#34;_blank&#34;&gt;по заявлениям&lt;/a&gt; авторов это как раз то, что нужно:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;поддерживает свои форматы коммитов и несколько общих: &amp;lsquo;angular&amp;rsquo;, &amp;lsquo;atom&amp;rsquo;, &amp;lsquo;codemirror&amp;rsquo;, &amp;lsquo;ember&amp;rsquo;, &amp;lsquo;eslint&amp;rsquo;, &amp;lsquo;express&amp;rsquo;, &amp;lsquo;jquery&amp;rsquo;, &amp;lsquo;jscs&amp;rsquo;, &amp;lsquo;jshint&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;поддерживает шаблоны&lt;/li&gt;
-&lt;li&gt;протестирован, в отличие от github_changelog_generator&lt;/li&gt;
-&lt;li&gt;отвязан от Github&lt;/li&gt;
-&lt;li&gt;имеет модульную структуру и несколько модулей вокруг себя&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Воспользовавшись &lt;code&gt;conventional-commits-detector&lt;/code&gt;, узнал, что мои комменты к коммитам больше всего похожи на стандарт &lt;code&gt;eslint&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Сгенерированный лог дал понять, что в eslint принято указывать категорию и через двоеточие суть, так коммиты в релизе разбиваются по категориям. Но в целом, конечно, коммиты были названы неправильно и хорошего лога не получилось.&lt;/p&gt;
-
-&lt;p&gt;Зато запуск без указания пресета сообщений выдал почти то же, что и &lt;code&gt;git-extras&lt;/code&gt;, но вдобавок к этому задал мажорным и минорным версиям разный уровень и указал ссылку на коммит на Github для каждого коммита.&lt;/p&gt;
-
-&lt;p&gt;Сгенерировать лог с нуля можно командой:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;conventional-changelog -i CHANGELOG.md -s -r 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого я конечно побежал исправлять логи у проектов, которым сделал логи час назад, вот что вышло: &lt;a href=&#34;https://github.com/popstas/site-setup/blob/fd159ed7848aaf8695642bcb53c795922d307dd6/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;site-setup&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/ef6138faf0179f31929ff0d90d98466749d4f85b/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;server-scripts&lt;/a&gt;, &lt;a href=&#34;https://github.com/popstas/drupal-scripts/blob/3eb923c09e319a163f9fea9669dfa735b60044c1/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;drupal-scripts&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Для проектов на своем Gitlab все сложнее: чтобы правильно делались ссылки на коммиты, нужно, во-первых, указать адрес проекта через файл package.json:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-  &amp;quot;name&amp;quot;: &amp;quot;myproject&amp;quot;,
-  &amp;quot;repository&amp;quot;: {
-    &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;,
-    &amp;quot;url&amp;quot;: &amp;quot;http://my.gitlab.ru/projects/myproject.git&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;А во-вторых не знаю, что надо сделать, он генерит ссылки с сокращенными хэшами, которые Github понимает, а Gitlab открывает страницу списка коммитов, т.к. ему нужен полный хэш, шаблон сходу не нашел.&lt;/p&gt;
-
-&lt;p&gt;Дальше искать не стал, думаю это оно самое.&lt;/p&gt;
-
-&lt;p&gt;Кроме лучшего результата из коробки и полной кастомизации мне в нем понравились модули:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ajoslin/angular-precommit&#34; target=&#34;_blank&#34;&gt;angular-precommit&lt;/a&gt; - готовый валидатор сообщений к коммитам&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/marionebl/conventional-changelog-lint&#34; target=&#34;_blank&#34;&gt;conventional-changelog-lint&lt;/a&gt; - скрипт для pre-commit хука, проверяющий сообщения коммитов на соответствие стандартам, стандарты описываются в файле&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/stevemao/conventional-github-releaser&#34; target=&#34;_blank&#34;&gt;conventional-github-releaser&lt;/a&gt; - автоматическое создание релизов на Github. У меня они уже создаются, но приходится вручную заходить туда и править сообщение к релизу&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;выводы&#34;&gt;Выводы&lt;/h1&gt;
-
-&lt;p&gt;Для того, чтобы генератор создавал по-настоящему хорошие логи, важно определиться с форматом сообщений к коммитам, научиться следовать ему и научить роботов понимать наш формат, чтобы роботы &lt;del&gt;поработили людей&lt;/del&gt; помогали правильно и не напрягаясь вести историю изменеий проекта в процессе, а не после работы над проектом.&lt;/p&gt;
-
-&lt;p&gt;Для себя я нашел инструмент, которым я теперь могу за 5 минут создавать историю изменений для проектов на основе коммитов.&lt;/p&gt;
-
-&lt;p&gt;Генерация CHANGELOG.md - шаг в сторону хорошей и актуальной документации по проекту, которая не будет занимать часы или дни, она будет частью рабочего процесса, конечно для маленького проекта из одного программиста это избыточно, мягко говоря, но надо же с чего-то начинать.&lt;/p&gt;
-
-&lt;h2 id=&#34;upd-08-03-2016&#34;&gt;UPD 08.03.2016&lt;/h2&gt;
-
-&lt;p&gt;Добавил валидатор:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;npm install -g conventional-changelog-lint
-echo &#39;conventional-changelog-lint -e&#39; &amp;gt; .git/hooks/commit-msg
-chmod +x .git/hooks/commit-msg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого коммиты с неправильными сообщениями перестанут проходить.&lt;/p&gt;
-
-&lt;p&gt;Перед релизом генерирую CHANGELOG.md:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;conventional-changelog -p angular -i CHANGELOG.md -s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Это допишет в лог содержимое коммитов с последнего релиза (semver тега). После этого остается поправить руками то, что не нравится, проставить версию.&lt;/p&gt;
-
-&lt;p&gt;После этого я генерирую документацию специфичной для проекта командой, коммит, тег, пуш:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &#39;docs: v0.6.0&#39;
-git push --follow-tags
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого релиз. Релиз будем делать через &lt;code&gt;conventional-github-releaser&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;npm install -g conventional-github-releaser
-CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-releaser -p angular
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Еще не разобрался с тем, как это скрестить с выкладкой PHAR архива с Travis: для &lt;code&gt;github-releaser&lt;/code&gt; нужно, чтобы релиза еще не было, но он создается автоматически при пуше тега на Github. После удаления релиза (превращения в Draft), github-releaser отработал, вставил данные CHANGELOG в релиз, все как надо.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -2030,118 +362,7 @@ CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-re
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Здесь надо в 2 словах рассказать о нашем workflow:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Компания занимается разработкой и поддержкой около 100 сайтов.&lt;/li&gt;
-&lt;li&gt;Каждый сайт использует Git, репозиторий лежит прямо в корне сайта, bare репозитории отсутствуют.&lt;/li&gt;
-&lt;li&gt;Часто бывают мелкие правки на разных сайтах.&lt;/li&gt;
-&lt;li&gt;90% сайтов на Drupal 7, в котором половина хранится в базе данных.&lt;/li&gt;
-&lt;li&gt;Во время правки контент-менеджер или клиент могут пользоваться сайтом и менять на нем данные&lt;/li&gt;
-&lt;li&gt;Разработчик выкачивает проект в PhpStorm, настаивает сохранение по Ctrl+S изменений на боевом сайте,
-таким образом получается, что когда приходит время пушить, на удаленном сервере фактически уже есть все изменения.&lt;/li&gt;
-&lt;li&gt;Разработчик также может напрямую править код сайта на удаленном сервере по SFTP, не выкачивая проект,
-после чего зайти по SSH на удаленный сервер и сделать коммит прямо оттуда.&lt;/li&gt;
-&lt;li&gt;Git по сути используется не для доставки изменений на боевой сайт,
-а для их доставки на компы разработчиков и ведения журнала изменений сайта.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;github-issues&#34;&gt;Github issues&lt;/h2&gt;
-
-&lt;p&gt;Кто не знает про issues гитхаба, расскажу вкратце о его фишках:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;В задачах можно ссылаться на коммиты и другие задачи по номерам, они автоматически становятся ссылками.&lt;/li&gt;
-&lt;li&gt;В коммитах можно ссылаться на задачи так же: &lt;code&gt;#123&lt;/code&gt;, такой коммит автоматом упоминается в задаче.&lt;/li&gt;
-&lt;li&gt;В PhpStorm можно смотреть список открытых issues и создавать из них задачи в IDE, что позволяет автоматом создавать чейнджлист,
-ветку для выполнения задачи, в коммите сразу будет ссылка на задачу (это все по желанию).&lt;/li&gt;
-&lt;li&gt;Можно закрывать задачу прямо из коммита, для этого достаточно упомянуть его рядом с одним из ключевых слов,
-например, &lt;code&gt;closes #123&lt;/code&gt; после пуша в гитхаб закроет указанную задачу.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;А главное, что все связано и из любого места можно перейти на связанные действия.&lt;/p&gt;
-
-&lt;p&gt;Я уже краем уха слышал и видел обо всем этом и видел в чужих репозиториях, но вся картина нарисовалась только после использования.
-Да и к тому же на гитхабе до этого сталкивался только с pull-request&amp;rsquo;ами, там немного другое поведение.&lt;/p&gt;
-
-&lt;h2 id=&#34;phpstorm-tasks&#34;&gt;PhpStorm tasks&lt;/h2&gt;
-
-&lt;p&gt;В PhpStorm есть интеграция с менеджерами задач, Github там конечно есть, Планфикса там конечно нет,
-но зато если у менеджера задач есть API, можно интегрировать неподдерживаемый сервис.
-У Планфикса API есть, но из коробки он не подойдет для этой интеграции, нужно писать свои обертки.
-В общем-то это дает не много, всего лишь можно будет получать список задач по команде из шторма, и дописывать в коммит ссылку на задачу.&lt;/p&gt;
-
-&lt;p&gt;Кстати таски в шторме помогают и без интеграции с трекером: Ctrl+Shift+A - open task, автоматом чистятся все вкладки
-(создается контекст задачи), создается ветка в гите, changelist, по close task - коммит, я недавно начал пользоваться.&lt;/p&gt;
-
-&lt;p&gt;Но гораздо интереснее интеграция в другую сторону: ссылки из задач на коммиты.&lt;/p&gt;
-
-&lt;p&gt;Когда я разобрался с тем, как устроена интеграция задач в гитхабе, до меня быстро дошло:
-просто менеджер задач должен уметь парсить текст коммита, приходящий из гита и делать на основе этого какие-то действия.
-С этим тоже пока облом: в Планфиксе на данный момент нет обработки писем, прилетающих в задачи, зато
-&lt;a href=&#34;https://planfix.ru/docs/%D0%9A%D0%B0%D0%BA_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83_%D0%BF%D0%BE_e-mail%3F&#34; target=&#34;_blank&#34;&gt;есть обработка писем&lt;/a&gt;,
-приходящих на email юзера, что позволяет надеяться на появление обработки писем, приходящих на email задачи.&lt;/p&gt;
-
-&lt;h2 id=&#34;gitlab&#34;&gt;Gitlab&lt;/h2&gt;
-
-&lt;p&gt;Самые активные проекты мы дублируем на наш внутренний Gitlab. Использование довольно извращенное,
-Gitlab сейчас никак не участвует в рабочем процессе, являясь просто зеркалом и веб-интерфейсом для просмотра коммитов.&lt;/p&gt;
-
-&lt;p&gt;На машине разработчика настраивается &lt;code&gt;pre-push&lt;/code&gt; хук, который пушит также в Gitlab:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;#!/bin/bash&lt;/span&gt;
-
-&lt;span style=&#34;color: #268BD2&#34;&gt;remote&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;
-
-&lt;span style=&#34;color: #719e07&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$remote&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; !&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gitlab&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;$(&lt;/span&gt;git remote show &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; grep -c &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;gitlab&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;then&lt;/span&gt;
-        git push gitlab master
-&lt;span style=&#34;color: #719e07&#34;&gt;fi&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&#34;git-и-planfix&#34;&gt;Git и Planfix&lt;/h2&gt;
-
-&lt;p&gt;Никакой готовой интеграции между Git и Планфиксом нет, зато обе системы гибкие и позволяют лепить уникальные решения без больших усилий.&lt;/p&gt;
-
-&lt;p&gt;Git поддерживает хуки: скрипты, запускающиеся по определенным событиям.&lt;/p&gt;
-
-&lt;p&gt;У каждой задачи в Планфиксе есть свой email адрес, если послать на него письмо, оно придет в задачу в виде комментария,
-если с email отправителя связан пользователь, то письмо придет как будто от него.&lt;/p&gt;
-
-&lt;p&gt;Значит нам нужно отправлять email из Git в Планфикс на адрес задачи.&lt;/p&gt;
-
-&lt;h1 id=&#34;связываем-все-вместе&#34;&gt;Связываем все вместе&lt;/h1&gt;
-
-&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Чтобы подключить хук, надо положить скрипт в папку &lt;code&gt;.git/hooks/post-receive&lt;/code&gt; и сделать его исполняемым,
-для этого надо выполнить в корне проекта:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -s &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&amp;quot;&lt;/span&gt; &amp;gt; .git/hooks/post-receive
-chmod +x .git/hooks/post-receive
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Так как у нас много проектов, я храню его в отдельной общей папке, а в каждом репозитории создаю символическую ссылку на него.&lt;/p&gt;
-
-&lt;p&gt;Хук получает список коммитов, пришедших с последним пушем, находит первую ссылку на задачу Планфикса и отправляет туда письмо.&lt;/p&gt;
-
-&lt;h4 id=&#34;о-письме&#34;&gt;О письме&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Отправитель&lt;/strong&gt;: email того, кто сделал коммит. По этой причине email в git config и email в профиле юзера Планфикса должны совпадать.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Получатель&lt;/strong&gt;: email задачи Планфикса&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Тема письма&lt;/strong&gt;: &lt;code&gt;@commit @nonotify&lt;/code&gt;, @nonotify для того, чтобы не уведомлять всех участников задачи о коммите,
-&lt;code&gt;@commit&lt;/code&gt; ничего не значит, может быть потом пригодится для поиска таких комментов, хотя в отчетах текст комментария все равно использовать нельзя.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Текст письма&lt;/strong&gt;: текст коммита. Если репозиторий имеет зеркало на Gitlab, то в конец текста будет добавлена ссылка на коммит.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Чтобы хук добавлял ссылку на Gitlab, не придумал ничего лучше, чем добавить remote &lt;code&gt;gitlab&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git remote add gitlab ssh://git@org.ru:10022/sites/test.ru.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После этого хук будет извлекать из этого адреса URL &lt;a href=&#34;http://org.ru/sites/test&#34; target=&#34;_blank&#34;&gt;http://org.ru/sites/test&lt;/a&gt;, который является главной страницей репозитория.
-Сайт при всем при этом не имеет доступа к Gitlab, поэтому push и pull в этот remote работать не будут.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -2161,80 +382,218 @@ chmod +x .git/hooks/post-receive
 &lt;p&gt;Раньше я просто запускал несколько раз с &lt;code&gt;time&lt;/code&gt;, смотрел результат, у уме делил.
 Но мне это надоело, поэтому написал скрипт &lt;code&gt;average&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</title>
+      <link>http://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</link>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid>
+      <description>&lt;p&gt;Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.&lt;/p&gt;
 
-&lt;p&gt;Код лежит здесь - &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/average&#34; target=&#34;_blank&#34;&gt;https://github.com/popstas/server-scripts/blob/master/bin/average&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tl;dr: RSS + Twitter + Email &amp;rarr; Pocket &amp;rarr; Firefox &amp;rarr; Twitter + закладки.&lt;/p&gt;
 
-&lt;p&gt;Поставить можно так:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;curl -s &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&amp;quot;&lt;/span&gt; &amp;gt; /usr/local/bin/average
-chmod +x /usr/local/bin/average
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-02/content_pyramid.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Использовать можно так:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker в картинках</title>
+      <link>http://blog.popstas.ru/blog/2016/02/26/docker-in-images/</link>
+      <pubDate>Fri, 26 Feb 2016 21:29:45 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/02/26/docker-in-images/</guid>
+      <description>&lt;p&gt;Оставлю здесь &lt;a href=&#34;http://habrahabr.ru/post/272145/&#34; target=&#34;_blank&#34;&gt;свой пост&lt;/a&gt; с хабра.&lt;/p&gt;
 
-&lt;p&gt;Запуск команды по умолчанию, 5 циклов:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Перевод поста &lt;a href=&#34;http://merrigrove.blogspot.co.uk/2015/10/visualizing-docker-containers-and-images.html&#34; target=&#34;_blank&#34;&gt;Visualizing Docker Containers and Images&lt;/a&gt;, от новичка к новичкам, автор на простых примерах объясняет базовые сущности и процессы в использовании docker.&lt;/em&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;average &#39;command&#39;
+&lt;p&gt;Если вы не знаете, что такое Docker или не понимаете, как он соотносится с виртуальными машинами или с инструментами configuration management, то этот пост может показаться немного сложным.&lt;/p&gt;
+
+&lt;p&gt;Пост предназначен для тех, кто пытается освоить docker cli, понять, чем отличается контейнер и образ. В частности, будет объяснена разница между просто контейнером и запущенным контейнером.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/8ff/349/fb2/8ff349fb23f840589c479d029964b8dc.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Большой тачпад как замена мышки</title>
+      <link>http://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
+      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
+      <description>&lt;p&gt;Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
+нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Проверяем изменения на странице через cron</title>
+      <link>http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
+      <pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
+      <description>&lt;p&gt;Сегодня хотел заказать ароматизаторов на &lt;a href=&#34;http://baker-flavors.blogspot.ru/&#34; target=&#34;_blank&#34;&gt;Baker Flavours&lt;/a&gt;, дошел до страницы заказа,
+и увидел &amp;ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.&lt;/p&gt;
+
+&lt;p&gt;Строчка для crontab:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &amp;quot;временно прекращен&amp;quot; &amp;gt; /dev/null || { echo &amp;quot;BF order started&amp;quot; | terminal-notifier &amp;amp;&amp;amp; open http://bakerflavors.ru/formbf.htm }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Запуск команды с указанным кол-вом циклов:&lt;/p&gt;
+&lt;p&gt;Подробности под катом.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;average 10 &#39;command&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
+      <link>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
+      <pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
+      <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
+бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
+возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p&gt;
 
-&lt;p&gt;Запуск команды с передачей кол-ва циклов через переменную окружения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера&lt;/li&gt;
+&lt;li&gt;Пользоваться легко&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;export CYCLES=5
-average &#39;command&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p&gt;
 
-&lt;p&gt;Чтобы не показывать вывод команды, можно обрезать его через tail:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-01/eggtimer.png&#34; /&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;average &#39;command&#39; | tail -n1
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
+      <link>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <description>&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34; target=&#34;_blank&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
+их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
 
-&lt;h3 id=&#34;узнать-среднее-время-загрузки-страницы&#34;&gt;Узнать среднее время загрузки страницы:&lt;/h3&gt;
+&lt;p&gt;Поддержку раздач можно разбить на несколько задач:&lt;/p&gt;
 
-&lt;p&gt;С учетом кэша:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;периодически скачивать новинки фильмов&lt;/li&gt;
+&lt;li&gt;скачивать новые серии популярных сериалов&lt;/li&gt;
+&lt;li&gt;удалять то, что плохо раздается&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;pre&gt;&lt;code&gt;average &#39;curl -s &amp;quot;http://example.com/&amp;quot; &amp;gt; /dev/null&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
+&lt;a href=&#34;https://github.com/popstas/transmission-cli&#34; target=&#34;_blank&#34;&gt;transmission-cli&lt;/a&gt; - консольная утилита, решающая часть этих задач.&lt;/p&gt;
 
-&lt;p&gt;В обход кэша:&lt;/p&gt;
+&lt;p&gt;&lt;iframe src=&#34;https://ghbtns.com/github-btn.html?user=popstas&amp;repo=transmission-cli&amp;type=star&amp;count=true&amp;size=large&#34; frameborder=&#34;0&#34; scrolling=&#34;0&#34; width=&#34;160px&#34; height=&#34;30px&#34;&gt;&lt;/iframe&gt;
+&lt;a href=&#34;https://travis-ci.org/popstas/transmission-cli&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://travis-ci.org/popstas/transmission-cli.svg?branch=master&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://coveralls.io/github/popstas/transmission-cli?branch=master&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://coveralls.io/repos/popstas/transmission-cli/badge.svg?branch=master&amp;amp;service=github&#34; alt=&#34;Coverage Status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;average &#39;curl -s &amp;quot;http://example.com/?t=$RANDOM&amp;quot; &amp;gt; /dev/null&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;продвинутое-использование&#34;&gt;Продвинутое использование&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
+      <link>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
+      <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
+Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
 
-&lt;p&gt;Мне надо было узнать оптимальное количество параллельных процессов для запуска тестов,
-теперь я могу узнать это запуском одной команды:&lt;/p&gt;
+&lt;p&gt;UPD: 06.06.2016
+Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;for p in {1..10}; do echo &amp;quot;$p&amp;quot; - $(average &amp;quot;vendor/bin/paratest -p $p&amp;quot; | tail -n1); done
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Команда переберет кол-во процессов от 1 до 10, по каждой итерации выведет среднее время.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Разворачиваем Drupal 8 с помощью Otto</title>
+      <link>http://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid>
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/273009/&#34; target=&#34;_blank&#34;&gt;моей статьи&lt;/a&gt; с хабра.&lt;/p&gt;
 
-&lt;p&gt;После запуска получил такие результаты:&lt;/p&gt;
+&lt;p&gt;Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
+о котором уже была &lt;a href=&#34;http://habrahabr.ru/post/268497/&#34;&gt;обзорная статья&lt;/a&gt; на хабре.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ for p in {1..10}; do echo &amp;quot;$p&amp;quot; - $(average &amp;quot;vendor/bin/paratest -p $p&amp;quot; | tail -n1); done
+&lt;p&gt;Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
+чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p&gt;
 
-1 - 1 loops, best of 5: 13.9 sec per loop
-2 - 1 loops, best of 5: 7.51 sec per loop
-3 - 1 loops, best of 5: 5.51 sec per loop
-4 - 1 loops, best of 5: 4.51 sec per loop
-5 - 1 loops, best of 5: 4.42 sec per loop
-6 - 1 loops, best of 5: 4.71 sec per loop
-7 - 1 loops, best of 5: 4.21 sec per loop
-8 - 1 loops, best of 5: 4.23 sec per loop
-9 - 1 loops, best of 5: 4.13 sec per loop
-10 - 1 loops, best of 5: 4.33 sec per loop
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png&#34; alt=&#34;image&#34;/&gt;&lt;/p&gt;
 
-&lt;p&gt;Видно, что после 4 потоков разницы почти нет, а вот комп от запуска кучи параллельных процессов тормозит
-очень даже заметно.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
+      <link>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
+      <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
+      <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
+команду, отобразится последняя команда из истории, для навигации можно использовать
+&lt;code&gt;Ctrl+R&lt;/code&gt;, &lt;code&gt;Ctrl+Shift+R&lt;/code&gt;. При этом видно одновременно видно только одну команду из истории.&lt;/p&gt;
 
-&lt;p&gt;Конечно, в этом случае много ума не надо, чтобы понять, что кол-во процессов должно быть по кол-ву ядер, но я что-то засомневался :)&lt;/p&gt;</description>
+&lt;p&gt;Утилита &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34; target=&#34;_blank&#34;&gt;percol&lt;/a&gt; решает эту проблему.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2015-12/percol.gif&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Простой тайм-трекер для отслеживания потраченного времени</title>
+      <link>http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid>
+      <description>&lt;p&gt;На работе у меня часто бывает такое, что не понятно, куда ушло время.
+Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href=&#34;http://time.popstas.ru/&#34; target=&#34;_blank&#34;&gt;http://time.popstas.ru/&lt;/a&gt;
+Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
+глюки, которые раздражали последние годы :)&lt;/p&gt;
+
+&lt;p&gt;Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href=&#34;https://www.toggl.com/&#34; target=&#34;_blank&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Показать все окна gnome terminal в Ubuntu</title>
+      <link>http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
+      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
+      <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,
+не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
+При этом терминалы расположены по всему рабочему экрану.&lt;/p&gt;
+
+&lt;p&gt;Из-за этого была такая проблема: при переключении на браузер или редактор,
+которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p&gt;
+
+&lt;p&gt;Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
+нажать хоткей и достать все окна этой же программы наверх.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

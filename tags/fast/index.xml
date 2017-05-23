@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fast on Popstas</title>
-    <link>http://blog.popstas.ru/tags/fast/index.xml</link>
+    <link>http://blog.popstas.ru/tags/fast/</link>
     <description>Recent content in Fast on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <atom:link href="http://blog.popstas.ru/tags/fast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.popstas.ru/tags/fast/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
@@ -43,53 +46,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;p&gt;В действии:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Когда я правил чужие виджеты (виджетом в zsh называется функция, повешенная на хоткей), я понял,
-что у zsh большие возможности по редактированию текущей строки комманд. Оставалось узнать, как это нагуглить.&lt;/p&gt;
-
-&lt;p&gt;Ключевик я нашел в тех же скриптах: &lt;code&gt;ZLE&lt;/code&gt; или Zsh Line Editor. ОК, гуглим &lt;code&gt;zsh zle&lt;/code&gt;,
-попадаем &lt;a href=&#34;http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html&#34; target=&#34;_blank&#34;&gt;на доку&lt;/a&gt;. Через 10 минут чтения и правок родилась эта функция.&lt;/p&gt;
-
-&lt;p&gt;После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
-Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# Example &amp;lt;Ctrl+.&amp;gt;&amp;lt;Ctrl+,&amp;gt; inserts 2nd argument from end of prev. cmd&lt;/span&gt;
-&lt;span style=&#34;color: #586E75&#34;&gt;# http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html&lt;/span&gt;
-autoload -Uz copy-earlier-word
-zle -N copy-earlier-word
-bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;^[,&amp;quot;&lt;/span&gt; copy-earlier-word
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Код надо вставить в &lt;code&gt;.zshrc&lt;/code&gt; или &lt;code&gt;.zshrc.local&lt;/code&gt; если вы пользуетесь
-&lt;a href=&#34;http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/&#34; target=&#34;_blank&#34;&gt;ansible-role-zsh&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Виджет вставляет последний аргумент текущей команды, но если нажать еще дважды - вставит предпоследний.
-Например, вы ввели команду &lt;code&gt;some-command arg1 arg2&lt;/code&gt;, чтобы вставить предпоследний аргумент, нажмите &lt;code&gt;&amp;lt;Alt+.&amp;gt;&amp;lt;Alt+,&amp;gt;&amp;lt;Alt+,&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;как-работают-виджеты-zsh&#34;&gt;Как работают виджеты zsh:&lt;/h3&gt;
-
-&lt;p&gt;Функция, вызванная через механизм виджетов, имеет доступ к куче внутренних переменных zsh, некоторые можно только читать,
-другие можно изменять на лету.&lt;/p&gt;
-
-&lt;p&gt;Я воспользовался двумя переменными:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;BUFFER&lt;/code&gt; - содержит текущую введенную команду. Переменную можно менять, но курсор при этом остается на месте.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CURSOR&lt;/code&gt; - позиция курсора&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.&lt;/p&gt;
-
-&lt;p&gt;Сам скрипт:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# Ctrl+, - duplicate last word in current command&lt;/span&gt;
-zsh-duplicate-last-arg&lt;span style=&#34;color: #719e07&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=$(&lt;/span&gt;&lt;span style=&#34;color: #B58900&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$BUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;s/[[:space:]]*$//&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;
-	&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$BUFFER&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt; ${&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;BUFFER&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;##* &lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;}&amp;quot;&lt;/span&gt;
-	&lt;span style=&#34;color: #268BD2&#34;&gt;CURSOR&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;$#&lt;/span&gt;BUFFER
-&lt;span style=&#34;color: #719e07&#34;&gt;}&lt;/span&gt;
-zle -N zsh-duplicate-last-arg
-bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/span&gt; zsh-duplicate-last-arg
-&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -111,37 +68,7 @@ bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/spa
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-01/eggtimer.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://e.ggtimer.com&#34; target=&#34;_blank&#34;&gt;http://e.ggtimer.com&lt;/a&gt; - с виду ничего особенного (так и есть), мне понравилась простота и задание времени через URL.
-Какое-то время я пользовался им так: создал 2 таймера, на 5 и на 10 минут, сделал на них закладки на панель закладок.
-Это не очень удобно по 2 причинам: на chrome мне жалко места на панели, а на firefox у меня панели закладок нет.&lt;/p&gt;
-
-&lt;p&gt;Выход такой: оба браузера поддерживают пользовательские поисковые системы, сделаем такие.&lt;/p&gt;
-
-&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Добавить в закладки &lt;a href=&#34;http://e.ggtimer.com/%smin&#34; target=&#34;_blank&#34;&gt;http://e.ggtimer.com/%smin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Находим эту закладку в списке и делаем ей Keyword: t&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;chrome&#34;&gt;Chrome&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Настройки - Настроить поисковые системы&lt;/li&gt;
-&lt;li&gt;Добавить систему &lt;code&gt;e.ggtimer&lt;/code&gt; - &lt;code&gt;t&lt;/code&gt; - &lt;code&gt;http://e.ggtimer.com/%smin&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;После этого таймер на 5 минут ставится так:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Выбираем любой браузер&lt;/li&gt;
-&lt;li&gt;Ставим фокус на поисковую строку (&lt;code&gt;F6&lt;/code&gt; / &lt;code&gt;Ctrl+L&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Пишем &lt;code&gt;t 5&lt;/code&gt;, &lt;code&gt;Enter&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;На самом деле в Firefox не синхронизируется Keyword закладок, придется прописывать на каждой системе.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -159,33 +86,7 @@ bindkey &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;^[,&amp;#39;&lt;/spa
 
 &lt;p&gt;&lt;img src=&#34;http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Что он делает:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;идет на страницу EAP, находит там версию&lt;/li&gt;
-&lt;li&gt;проверяет, что на компе стоит другая версия EAP&lt;/li&gt;
-&lt;li&gt;качает dmg в папку Загрузки&lt;/li&gt;
-&lt;li&gt;монтирует образ&lt;/li&gt;
-&lt;li&gt;завершает PhpStorm, если он открыт&lt;/li&gt;
-&lt;li&gt;удаляет текущую версию и копирует новую в папку /Applications&lt;/li&gt;
-&lt;li&gt;запускает новую версию&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Поставить можно так:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -s &amp;quot;https://gist.githubusercontent.com/popstas/613a72a34576b85caec4/raw/644f457ed0187ab0d1207576e925c06260451131/phpstorm-eap-update.sh&amp;quot; &amp;gt; /usr/local/bin/phpstorm-eap-update
-chmod +x /usr/local/bin/phpstorm-eap-update
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;После чего можно обновлять просто запуском &lt;code&gt;phpstorm-eap-update&lt;/code&gt;.
-По идее можно даже в cron его засунуть, чтобы совсем автомат, но я и так узнаю о новой версии из rss.&lt;/p&gt;
-
-&lt;p&gt;Код лежит здесь - &lt;a href=&#34;https://gist.github.com/popstas/613a72a34576b85caec4&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/popstas/613a72a34576b85caec4&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;В PhpStorm 11 из фич ничего особенного не нашел, зато с этой версии он перешел на использование Java 8,
-не знаю, в этом ли дело, но у меня он вроде перестал тормозить.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Workflow on Popstas</title>
-    <link>http://blog.popstas.ru/tags/workflow/index.xml</link>
+    <link>http://blog.popstas.ru/tags/workflow/</link>
     <description>Recent content in Workflow on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <atom:link href="http://blog.popstas.ru/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.popstas.ru/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
@@ -28,92 +31,7 @@ TODO: несколько дистрибов&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/iterations.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;поиск-роли&#34;&gt;Поиск роли&lt;/h2&gt;
-
-&lt;p&gt;Во-первых, я ищу готовую роль. Писать свою роль с нуля я считаю неправильным.
-При поиске я во-первых иду смотреть, если ли такая роль
-у &lt;a href=&#34;https://github.com/geerlingguy&#34; target=&#34;_blank&#34;&gt;geerlingguy&lt;/a&gt; или &lt;a href=&#34;https://github.com/debops&#34; target=&#34;_blank&#34;&gt;debops&lt;/a&gt;.
-Но роли debops я еще не форкал, слишком они навороченные и зависимые от других debops-ролей.&lt;/p&gt;
-
-&lt;h4 id=&#34;критерии-выбора-роли&#34;&gt;Критерии выбора роли&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;авторитет разработчика роли, какой у него опыт&lt;/li&gt;
-&lt;li&gt;количество звездочек&lt;/li&gt;
-&lt;li&gt;наличие тестов&lt;/li&gt;
-&lt;li&gt;уровень шаблонизации роли (сколько переменных есть в &lt;code&gt;defaults/main.yml&lt;/code&gt;, а сколько вшито в шаблоны)&lt;/li&gt;
-&lt;li&gt;обновляемость (пульс проекта), особенно важно для обновляемого и сложного софта, менее важно для базовых ролей&lt;/li&gt;
-&lt;li&gt;количество кода, универсальность: если роль популярная и ставится на все системы, есть опасность, что в ней будет много лишнего&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Итак, роль найдена и форкнута.&lt;/p&gt;
-
-&lt;h2 id=&#34;отладка-роли&#34;&gt;Отладка роли&lt;/h2&gt;
-
-&lt;h3 id=&#34;converge&#34;&gt;Converge&lt;/h3&gt;
-
-&lt;p&gt;При написании роли я пользуюсь в основном &lt;code&gt;molecule converge&lt;/code&gt; - команда создает машину, если ее еще нет,
-прогоняет плейбук, больше ничего не делает.&lt;/p&gt;
-
-&lt;p&gt;Конечно, в начале роль всегда сломана. Если непонятна причина, я иду внутрь контейнера через &lt;code&gt;molecule login&lt;/code&gt; -
-так можно залезть внуть машины и посмотреть, что там пошло не так.
-Можно не запуская роль сначала научиться делать правильные действия в контейнере, после чего записать это в виде тасков,
-уничтожить контейнер и прогнать заново (&lt;code&gt;molecule test&lt;/code&gt; на этом этапе подходит, хоть он и убьет контейнер, как перед прохождением,
-так и после успешного прохождения тестов, можно не волноваться: успешного прохождения скорее всего пока не будет).&lt;/p&gt;
-
-&lt;p&gt;Если форкнута нормальная роль, &lt;code&gt;converge&lt;/code&gt; проходится быстро.&lt;/p&gt;
-
-&lt;h3 id=&#34;validate&#34;&gt;Validate&lt;/h3&gt;
-
-&lt;p&gt;Когда основной сценарий проходит, я запускаю &lt;code&gt;molecule validate&lt;/code&gt;, исправляю ошибки, которые нашел &lt;code&gt;ansible-lint&lt;/code&gt; и помечаю таски,
-которые не хочу править, тегом &lt;code&gt;skip_ansible_lint&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;После этого пишу тесты &lt;code&gt;testinfra&lt;/code&gt; (хотя такое у меня бывает редко), проверяю тем же &lt;code&gt;molecule validate&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;test&#34;&gt;Test&lt;/h3&gt;
-
-&lt;p&gt;В конце перепроверяю все через &lt;code&gt;molecule test&lt;/code&gt;, правлю сломанную идемпотентность, при необходимости вношу правки в &lt;code&gt;.gitlab-ci.yml&lt;/code&gt;
-и &lt;code&gt;molecule.yml&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;После этого можно проверить сборку, запустив одноразовый раннер локально, это очень удобно, позволяет исключить ошибки на стороне Gitlab CI.
-Параметры раннера те же, что и при регистрации на сервере, последним аргументом идет секция из &lt;code&gt;.gitlab-ci.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gitlab-runner exec docker \
-    --docker-image popstas/ubuntu-molecule:latest \
-    --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
-    test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;На самом деле у меня еще пробрасывается файл 00aptproxy, у меня во всех тестовых сетях стоит &lt;code&gt;apt-cacher-ng&lt;/code&gt;, который позволяет
-ускорять прогон ролей и не гонять трафик зря. Об этом подробнее
-&lt;a href=&#34;http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;я писал недавно&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Эта команда создаст раннер с указанным образом и запустит в нем секцию test.&lt;br /&gt;
-Чтобы в системе появился &lt;code&gt;gitlab-runner&lt;/code&gt;, нужно поставить &lt;code&gt;gitlab-ci-multi-runner&lt;/code&gt; и Docker, больше кажется ничего не надо.&lt;/p&gt;
-
-&lt;p&gt;Когда и это сработало, я пушу на внутренний сервер и на Github и жду, что мне ответят два CI.
-Если после всего это тесты не проходят, матерюсь и ищу косяки на стороне раннера.&lt;/p&gt;
-
-&lt;p&gt;Чтобы упростить себе этот процесс, я написал скрипт, который делает следующее:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ставит тег на последний коммит (bump version), если тег был, удаляет его и ставит на последний коммит&lt;/li&gt;
-&lt;li&gt;логинится на dev-сервер, делает оттуда rsync роли с моего компа, прогоняет тесты на gitlab-runner&lt;/li&gt;
-&lt;li&gt;если все прошло успешно, делает push на gitlab и github&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Выглядит это так: я делаю коммит, вызываю команду вроде &lt;code&gt;role-deploy v1.1.0&lt;/code&gt; и занимаюсь своими делами.
-А тем временем роль проходит 3 прогона тестов с разных серверов и попадает во все апстримы, в том числе в &lt;code&gt;galaxy.ansible.com&lt;/code&gt;.
-А если не попадает, то все равно избавляет от коммитов типа &lt;code&gt;test: please work!&lt;/code&gt;. Можно повесить это на &lt;code&gt;prepush&lt;/code&gt; хук git,
-но мне вручную удобнее запускать.&lt;/p&gt;
-
-&lt;h3 id=&#34;dev&#34;&gt;Dev&lt;/h3&gt;
-
-&lt;p&gt;Если все прошло успешно, я пишу плейбук для деплоя, накатываю роль на локальную машину, dev-сервера, продакшен сервера
-(если косяки в роли не могут повлиять на их работу), всего набирается 2-5 машин.
-После этого в течение 1-2 дней чаще всего находятся недоработки, которые чинятся, после чего роль передеплоится.&lt;/p&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
   </channel>
