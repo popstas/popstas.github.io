@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -93,6 +93,48 @@ ga('send', 'pageview');
  <div id="content">
   <div class="blog-index">
     
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">31 Jan 2016, 02:00
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/">Проверяем изменения на странице через cron</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Сегодня хотел заказать ароматизаторов на <a href="http://baker-flavors.blogspot.ru/" target="_blank">Baker Flavours</a>, дошел до страницы заказа,
+и увидел &ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&rdquo;.</p>
+
+<p>Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.</p>
+
+<p>Строчка для crontab:</p>
+
+<pre><code>0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &quot;временно прекращен&quot; &gt; /dev/null || { echo &quot;BF order started&quot; | terminal-notifier &amp;&amp; open http://bakerflavors.ru/formbf.htm }
+</code></pre>
+
+<p>Подробности под катом.</p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
     
     <article>
 
@@ -471,6 +513,10 @@ ga('send', 'pageview');
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
@@ -484,10 +530,6 @@ ga('send', 'pageview');
           
             <li class="post">
               <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
             </li>
           
         </ul>

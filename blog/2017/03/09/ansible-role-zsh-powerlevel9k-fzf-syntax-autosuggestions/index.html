@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -275,13 +275,11 @@ vagrant up
 </code></pre>
 
 <p>Потом создать плейбук вроде такого:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #93A1A1">hosts:</span> <span style="color: #93A1A1">all</span>
-<span style="color: #93A1A1">vars:</span>
-  <span style="color: #93A1A1">zsh_autosuggestions_bind_key:</span> <span style="color: #2AA198">&quot;^U&quot;</span>
-<span style="color: #93A1A1">roles:</span>
-  <span style="color: #93A1A1">-</span> <span style="color: #93A1A1">viasite-ansible.zsh</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">hosts: all
+vars:
+  zsh_autosuggestions_bind_key: <span style="color:#e6db74">&#34;^U&#34;</span>
+roles:
+  - viasite-ansible.zsh</code></pre></div>
 <p>Сохранить, например, в <code>zsh.yml</code>. После этого роль можно применить к локальному юзеру:</p>
 
 <pre><code>ansible-playbook -i &quot;localhost,&quot; -c local zsh.yml
@@ -429,6 +427,10 @@ vagrant up
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
@@ -442,10 +444,6 @@ vagrant up
           
             <li class="post">
               <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
             </li>
           
         </ul>

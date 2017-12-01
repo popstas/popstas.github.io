@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</loc>
+    <lastmod>2017-12-01T23:25:00+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</loc>
     <lastmod>2017-05-23T21:20:00+00:00</lastmod>
   </url>
@@ -263,6 +268,12 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/ext4/</loc>
+    <lastmod>2017-12-01T23:25:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/fast/</loc>
     <lastmod>2017-03-18T22:20:28+00:00</lastmod>
     <priority>0</priority>
@@ -373,6 +384,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/kapacitor/</loc>
     <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/linux/</loc>
+    <lastmod>2017-12-01T23:25:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -498,13 +515,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+    <lastmod>2017-12-01T23:25:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+    <lastmod>2017-12-01T23:25:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -613,6 +630,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/workflow/</loc>
     <lastmod>2017-03-08T01:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/xfs/</loc>
+    <lastmod>2017-12-01T23:25:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   

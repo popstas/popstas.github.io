@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -125,24 +125,22 @@ ga('send', 'pageview');
 
 <p>Собственно по ссылке выше готовый конфиг для zsh. Я немного изменил его под себя,
 чтобы использовать percol не только для поиска по истории:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">function</span> exists <span style="color: #719e07">{</span> which <span style="color: #268BD2">$1</span> <span style="color: #93A1A1">&amp;</span>&gt; /dev/null <span style="color: #719e07">}</span>
-<span style="color: #719e07">if</span> exists percol<span style="color: #93A1A1">;</span> <span style="color: #719e07">then</span>
-	<span style="color: #719e07">function</span> percol_select_history<span style="color: #719e07">()</span> <span style="color: #719e07">{</span>
-		<span style="color: #B58900">local</span> tac
-		exists gtac <span style="color: #719e07">&amp;&amp;</span> <span style="color: #268BD2">tac</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;gtac&quot;</span> <span style="color: #719e07">||</span> <span style="color: #719e07">{</span> exists tac <span style="color: #719e07">&amp;&amp;</span> <span style="color: #268BD2">tac</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;tac&quot;</span> <span style="color: #719e07">||</span> <span style="color: #719e07">{</span> <span style="color: #268BD2">tac</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;tail -r&quot;</span> <span style="color: #719e07">}</span> <span style="color: #719e07">}</span>
-		<span style="color: #268BD2">BUFFER</span><span style="color: #719e07">=$(</span><span style="color: #B58900">fc</span> -l -n <span style="color: #2AA198">1</span> <span style="color: #93A1A1">|</span> <span style="color: #B58900">eval</span> <span style="color: #268BD2">$tac</span> <span style="color: #93A1A1">|</span> percol --query <span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$LBUFFER</span><span style="color: #2AA198">&quot;</span><span style="color: #719e07">)</span>
-		<span style="color: #268BD2">CURSOR</span><span style="color: #719e07">=</span><span style="color: #268BD2">$#</span>BUFFER         <span style="color: #586E75"># move cursor</span>
-		zle -R -c               <span style="color: #586E75"># refresh</span>
-	<span style="color: #719e07">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> exists <span style="color:#f92672">{</span> which $1 &amp;&gt; /dev/null <span style="color:#f92672">}</span>
+<span style="color:#66d9ef">if</span> exists percol; <span style="color:#66d9ef">then</span>
+	<span style="color:#66d9ef">function</span> percol_select_history<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		local tac
+		exists gtac <span style="color:#f92672">&amp;&amp;</span> tac<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gtac&#34;</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span> exists tac <span style="color:#f92672">&amp;&amp;</span> tac<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tac&#34;</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span> tac<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tail -r&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">}</span>
+		BUFFER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>fc -l -n <span style="color:#ae81ff">1</span> | eval $tac | percol --query <span style="color:#e6db74">&#34;</span>$LBUFFER<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+		CURSOR<span style="color:#f92672">=</span>$#BUFFER         <span style="color:#75715e"># move cursor
+</span><span style="color:#75715e"></span>		zle -R -c               <span style="color:#75715e"># refresh
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
 
 	zle -N percol_select_history
-	bindkey <span style="color: #2AA198">&#39;^R&#39;</span> percol_select_history
+	bindkey <span style="color:#e6db74">&#39;^R&#39;</span> percol_select_history
 
-	<span style="color: #586E75"># percol based grep</span>
-	g<span style="color: #719e07">()</span> <span style="color: #719e07">{</span> percol --match-method regex --query<span style="color: #719e07">=</span><span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$*</span><span style="color: #2AA198">&quot;</span><span style="color: #93A1A1">;</span> <span style="color: #719e07">}</span>
-<span style="color: #719e07">fi</span>
-</pre></div>
-
+	<span style="color:#75715e"># percol based grep
+</span><span style="color:#75715e"></span>	g<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> percol --match-method regex --query<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>; <span style="color:#f92672">}</span>
+<span style="color:#66d9ef">fi</span></code></pre></div>
 <p>Код я добавил в <a href="https://github.com/popstas/zsh-config" target="_blank">свой .zshrc</a>. Если <a href="https://github.com/robbyrussell/oh-my-zsh/pull/4582" target="_blank">этот пулл реквест</a> примут, то данный код появится в составе
 <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh-my-zsh</a> в виде плагина <code>percol</code>.</p>
 
@@ -289,6 +287,10 @@ ga('send', 'pageview');
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
@@ -302,10 +304,6 @@ ga('send', 'pageview');
           
             <li class="post">
               <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
             </li>
           
         </ul>

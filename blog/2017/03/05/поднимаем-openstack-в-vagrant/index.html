@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Поднимаем OpenStack в Vagrant</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.31.1" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+    <h2>Записки о Linux</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">5 Mar 2017, 20:45
+         - 1 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+         Поднимаем OpenStack в Vagrant 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Захотелось мне поиграться с Terraform: это утилита для управления инфраструктурой, умеет поднимать сервера и связывать их.
+То есть вы можете описать ваши сервера в конфиге, вызвать <code>terraform apply</code> и на вашем хостинге появятся эти сервера.</p>
+
+<p>Работает это со многими хостингами, в том числе с Digital Ocean, Amazon и OpenStack.</p>
+
+<p>Так</p>
+
+<p><img src="/images/2017-03/" />
+</p>
+
+<h1 id="ubuntu-16-04">ubuntu 16.04</h1>
+
+<h1 id="puppet">puppet</h1>
+
+<h1 id="enp0s8">enp0s8</h1>
+
+<h1 id="error-service-n-net-is-not-running">&lsquo;Error: Service n-net is not running&rsquo;</h1>
+
+<p><a href="https://blog.selectel.ru/gostevoj-post-upravlyaem-virtualnym-privatnym-oblakom-s-pomoshhyu-terraform/" target="_blank">https://blog.selectel.ru/gostevoj-post-upravlyaem-virtualnym-privatnym-oblakom-s-pomoshhyu-terraform/</a></p>
+
+<p><a href="https://ask.openstack.org/en/question/963/what-causes-error-service-n-net-is-not-running-when-running-stacksh/" target="_blank">https://ask.openstack.org/en/question/963/what-causes-error-service-n-net-is-not-running-when-running-stacksh/</a></p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    
+    <time>5 Mar 2017, 20:45</time>
+    
+      <span class="categories">
+        Теги:
+        
+          
+    
+    </span>
+  </p>
+
+  
+  <div class="sharing">
+  
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+  </div>
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ru";
+    a2a_config.color_main = "undefined";
+    a2a_config.color_border = "undefined";
+    a2a_config.color_link_text = "undefined";
+    a2a_config.color_link_text_hover = "undefined";
+    a2a_config.color_bg = "undefined";
+    a2a_config.color_arrow = "undefined";
+    a2a_config.color_arrow_hover = "undefined";
+    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  
+</div>
+
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/" title="Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/" title="Перенос блога с Octopress на Hugo">Перенос блога с Octopress на Hugo</a>
+    
+  </p>
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'popstas';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h4>Последние посты:</h4>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/">Продублировать последний аргумент текущей команды в zsh, zle widget</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2017/03/13/fzf-as-quick-terminal-interface-builder/">2017 03 xx fzf as quick terminal interface builder</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+
+  <section class="even twitter-feed">
+  <a class="twitter-timeline"
+	 data-dnt="true" href="https://twitter.com/popstas" 
+	 data-chrome="noborders transparent"
+     data-widget-id="691684611357806592">
+     
+     Tweets by @popstas
+  </a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  <section class="even">
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://github.com/popstas">@popstas</a> on GitHub
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/js/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'popstas',
+            count:  10 ,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2015-2017 Stanislav Popov -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

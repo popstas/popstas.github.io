@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -154,18 +154,14 @@ ga('send', 'pageview');
 <p>Ставить можно <a href="https://influxdata.com/downloads/#kapacitor" target="_blank">по-разному</a>.</p>
 
 <p>Для тех, кто не дружит с Ansible, установка из репозитория, <a href="https://docs.influxdata.com/influxdb/v0.13/introduction/installation/" target="_blank">взятая из мануала</a> по InfluxDB (репозиторий один на весь стек InfluxData):</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>curl -sL https://repos.influxdata.com/influxdb.key <span style="color: #93A1A1">|</span> sudo apt-key add -
-<span style="color: #B58900">source</span> /etc/lsb-release
-<span style="color: #B58900">echo</span> <span style="color: #2AA198">&quot;deb https://repos.influxdata.com/${</span><span style="color: #268BD2">DISTRIB_ID</span><span style="color: #93A1A1">,,</span><span style="color: #2AA198">} ${</span><span style="color: #268BD2">DISTRIB_CODENAME</span><span style="color: #2AA198">} stable&quot;</span> <span style="color: #93A1A1">|</span> sudo tee /etc/apt/sources.list.d/influxdb.list
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/lsb-release
+echo <span style="color:#e6db74">&#34;deb https://repos.influxdata.com/</span><span style="color:#e6db74">${</span>DISTRIB_ID,,<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>DISTRIB_CODENAME<span style="color:#e6db74">}</span><span style="color:#e6db74"> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/influxdb.list
 aptitude update
-aptitude install kapacitor
-</pre></div>
-
+aptitude install kapacitor</code></pre></div>
 <p>Я буду ставить через Ansible <a href="https://github.com/rossmcdonald/kapacitor" target="_blank">rossmcdonald/kapacitor</a></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>ansible-galaxy install rossmcdonald.kapacitor
-ansible-playbook -c <span style="color: #B58900">local</span> kapacitor.yml
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ansible-galaxy install rossmcdonald.kapacitor
+ansible-playbook -c local kapacitor.yml</code></pre></div>
 <h4 id="a-name-github-pull-request-a-как-просто-делать-pull-request"><a name="github-pull-request"></a>Как просто делать Pull request</h4>
 
 <p>В плейбуке была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто <a href="https://github.com/rossmcdonald/kapacitor/pull/1" target="_blank">делать pull request</a> прямо в браузере. Это заняло минуты две: жмем &ldquo;редактировать&rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &ldquo;Create pull request&rdquo;.</p>
@@ -175,42 +171,38 @@ ansible-playbook -c <span style="color: #B58900">local</span> kapacitor.yml
 <p>Так как я уже использовал готовую ansible-роль, настройка уже включена в установку. Я взял <a href="https://github.com/rossmcdonald/kapacitor/blob/master/test.yml" target="_blank">тестовый плейбук</a> роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция <code>global</code> в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно.</p>
 
 <p>Для установки сделал такой плейбук:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #93A1A1">-</span> <span style="color: #93A1A1">hosts:</span> <span style="color: #93A1A1">all</span>
-  <span style="color: #93A1A1">roles:</span>
-    <span style="color: #93A1A1">-</span> <span style="color: #93A1A1">role:</span> <span style="color: #93A1A1">rossmcdonald.kapacitor</span>
-  <span style="color: #93A1A1">vars:</span>
-    <span style="color: #586E75"># [influxdb]</span>
-    <span style="color: #93A1A1">kapacitor_influxdb_enabled:</span> <span style="color: #2AA198">&quot;true&quot;</span>
-    <span style="color: #93A1A1">kapacitor_influxdb_urls:</span>
-      <span style="color: #93A1A1">-</span> <span style="color: #93A1A1">http://localhost:8086</span>
-    <span style="color: #93A1A1">kapacitor_influxdb_username:</span> <span style="color: #93A1A1">user</span>
-    <span style="color: #93A1A1">kapacitor_influxdb_password:</span> <span style="color: #93A1A1">pass</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- hosts: all
+  roles:
+    - role: rossmcdonald.kapacitor
+  vars:
+    <span style="color:#75715e"># [influxdb]</span>
+    kapacitor_influxdb_enabled: <span style="color:#e6db74">&#34;true&#34;</span>
+    kapacitor_influxdb_urls:
+      - http://localhost:<span style="color:#ae81ff">8086</span>
+    kapacitor_influxdb_username: user
+    kapacitor_influxdb_password: pass
 
-    <span style="color: #586E75"># [smtp]</span>
-    <span style="color: #93A1A1">kapacitor_smtp_enabled:</span> <span style="color: #2AA198">&quot;true&quot;</span>
-    <span style="color: #93A1A1">kapacitor_smtp_host:</span> <span style="color: #93A1A1">smtp.yandex.ru</span>
-    <span style="color: #93A1A1">kapacitor_smtp_port:</span> <span style="color: #93A1A1">587</span>
-    <span style="color: #93A1A1">kapacitor_smtp_username:</span> <span style="color: #93A1A1">example@yandex.ru</span>
-    <span style="color: #93A1A1">kapacitor_smtp_password:</span> <span style="color: #93A1A1">pass</span>
-    <span style="color: #93A1A1">kapacitor_smtp_from:</span> <span style="color: #93A1A1">example@yandex.ru</span>
-    <span style="color: #93A1A1">kapacitor_smtp_to:</span>
-      <span style="color: #93A1A1">-</span> <span style="color: #2AA198">&quot;admin@example.com&quot;</span>
+    <span style="color:#75715e"># [smtp]</span>
+    kapacitor_smtp_enabled: <span style="color:#e6db74">&#34;true&#34;</span>
+    kapacitor_smtp_host: smtp.yandex.ru
+    kapacitor_smtp_port: <span style="color:#ae81ff">587</span>
+    kapacitor_smtp_username: example@yandex.ru
+    kapacitor_smtp_password: pass
+    kapacitor_smtp_from: example@yandex.ru
+    kapacitor_smtp_to:
+      - <span style="color:#e6db74">&#34;admin@example.com&#34;</span>
 
-    <span style="color: #586E75"># [slack]</span>
-    <span style="color: #93A1A1">kapacitor_slack_enabled:</span> <span style="color: #2AA198">&quot;true&quot;</span>
-    <span style="color: #93A1A1">kapacitor_slack_url:</span>  <span style="color: #93A1A1">https://hooks.slack.com/services/G2JFW7VFQ/B13UHEN5X/9J6IVIcUw9FGCeF7hfjFNGBn</span> <span style="color: #586E75"># url ненастоящий</span>
-    <span style="color: #93A1A1">kapacitor_slack_channel:</span> <span style="color: #2AA198">&quot;#servers&quot;</span>
-    <span style="color: #93A1A1">kapacitor_slack_global:</span> <span style="color: #2AA198">&quot;true&quot;</span>
+    <span style="color:#75715e"># [slack]</span>
+    kapacitor_slack_enabled: <span style="color:#e6db74">&#34;true&#34;</span>
+    kapacitor_slack_url:  https://hooks.slack.com/services/G2JFW7VFQ/B13UHEN5X/9J6IVIcUw9FGCeF7hfjFNGBn <span style="color:#75715e"># url ненастоящий</span>
+    kapacitor_slack_channel: <span style="color:#e6db74">&#34;#servers&#34;</span>
+    kapacitor_slack_global: <span style="color:#e6db74">&#34;true&#34;</span>
 
-    <span style="color: #93A1A1">kapacitor_tasks_to_enable:</span>
-</pre></div>
-
+    kapacitor_tasks_to_enable:</code></pre></div>
 <h2 id="проверка">Проверка</h2>
 
 <p>Лучший способ проверить, что Kapacitor видит данные из InfluxDB - записать фрагмент:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>kapacitor record stream -name la_alert -duration 5s
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kapacitor record stream -name la_alert -duration 5s</code></pre></div>
 <p>Если запись пошла, можно приступать к самому интересному: созданию алертов.</p>
 
 <p>Если через 5 секунд команда не завершилась, значит что-то пошло не так.
@@ -235,11 +227,9 @@ ansible-playbook -c <span style="color: #B58900">local</span> kapacitor.yml
 <p>Оказалось, проблема была в том, что InfluxDB при первом запуске Kapacitor&rsquo;а создал на него подписки (subscriptions), которые означают то, что InfluxDB будет пересылать в Kapacitor все, что приходит в него.</p>
 
 <p>InfluxDB у меня крутится в Docker&rsquo;е с проброшенными портами, а Kapacitor - нет, то есть они технически были не на одной машине. Точнее, для Kapacitor&rsquo;а казалось, что InfluxDB на этой же машине, но для Influx&rsquo;a он на другой машине! Оказалось, что изнутри докера внутренний адрес, на который создались подписки, вел не туда, поэтому данные не доходили до Kapacitor, чтобы исправить это, понадобилось удалить подписки, узнав их имена:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">SHOW</span> <span style="color: #93A1A1">SUBSCRIPTIONS</span>
-<span style="color: #719e07">DROP</span> <span style="color: #93A1A1">SUBSCRIPTION</span> <span style="color: #2AA198">&quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot;</span> <span style="color: #719e07">ON</span> <span style="color: #2AA198">&quot;telegraf&quot;</span><span style="color: #93A1A1">.</span><span style="color: #2AA198">&quot;default&quot;</span>
-<span style="color: #719e07">DROP</span> <span style="color: #93A1A1">SUBSCRIPTION</span> <span style="color: #2AA198">&quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot;</span> <span style="color: #719e07">ON</span> <span style="color: #2AA198">&quot;_internal&quot;</span><span style="color: #93A1A1">.</span><span style="color: #2AA198">&quot;monitor&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SHOW</span> SUBSCRIPTIONS
+<span style="color:#66d9ef">DROP</span> SUBSCRIPTION <span style="color:#e6db74">&#34;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&#34;</span> <span style="color:#66d9ef">ON</span> <span style="color:#e6db74">&#34;telegraf&#34;</span>.<span style="color:#e6db74">&#34;default&#34;</span>
+<span style="color:#66d9ef">DROP</span> SUBSCRIPTION <span style="color:#e6db74">&#34;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&#34;</span> <span style="color:#66d9ef">ON</span> <span style="color:#e6db74">&#34;_internal&#34;</span>.<span style="color:#e6db74">&#34;monitor&#34;</span></code></pre></div>
 <h2 id="выводы">Выводы</h2>
 
 <ol>
@@ -380,6 +370,10 @@ ansible-playbook -c <span style="color: #B58900">local</span> kapacitor.yml
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
@@ -393,10 +387,6 @@ ansible-playbook -c <span style="color: #B58900">local</span> kapacitor.yml
           
             <li class="post">
               <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
             </li>
           
         </ul>

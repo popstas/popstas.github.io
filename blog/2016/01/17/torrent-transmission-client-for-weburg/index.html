@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -146,11 +146,9 @@ ga('send', 'pageview');
 <h1 id="установка">Установка</h1>
 
 <p>Установить клиент можно так:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #268BD2">latest_phar</span><span style="color: #719e07">=$(</span>curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest <span style="color: #93A1A1">|</span> grep <span style="color: #2AA198">&#39;browser_&#39;</span> <span style="color: #93A1A1">|</span> cut -d<span style="color: #CB4B16">\&quot;</span> -f4<span style="color: #719e07">)</span>
-wget -O /usr/local/bin/transmission-cli <span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$latest_phar</span><span style="color: #2AA198">&quot;</span>
-chmod +x /usr/local/bin/transmission-cli
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">latest_phar<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep <span style="color:#e6db74">&#39;browser_&#39;</span> | cut -d<span style="color:#ae81ff">\&#34;</span> -f4<span style="color:#66d9ef">)</span>
+wget -O /usr/local/bin/transmission-cli <span style="color:#e6db74">&#34;</span>$latest_phar<span style="color:#e6db74">&#34;</span>
+chmod +x /usr/local/bin/transmission-cli</code></pre></div>
 <p>Пользоваться графиками можно с трудом, потому что InfluxDB и Grafana вам придется устанавливать самостоятельно.
 Я ставил то и другое в docker на свою виртуалку и пробрасывал порты на localhost,
 сейчас localhost вшит в <a href="https://github.com/popstas/transmission-cli/blob/master/src/Config.php" target="_blank">конфиг</a>,
@@ -311,11 +309,9 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
 
 <p>Чтобы добавить coveralls в самом простом случае (в доках есть и сложные), достаточно сделать так, чтобы PHPUnit
 генерил файл <code>build/logs/clover.xml</code>, для этого надо добавить строчку в phpunit.xml, в секцию logging:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #268BD2">&lt;logging&gt;</span>
-    <span style="color: #268BD2">&lt;log</span> <span style="color: #93A1A1">type=</span><span style="color: #2AA198">&quot;coverage-clover&quot;</span> <span style="color: #93A1A1">target=</span><span style="color: #2AA198">&quot;build/logs/clover.xml&quot;</span><span style="color: #268BD2">/&gt;</span>
-<span style="color: #268BD2">&lt;/logging&gt;</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;logging&gt;</span>
+    <span style="color:#f92672">&lt;log</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;coverage-clover&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;build/logs/clover.xml&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/logging&gt;</span></code></pre></div>
 <p>Ну и конечно зарегаться на <a href="https://coveralls.io/" target="_blank">https://coveralls.io/</a> и активировать там проект.
 Если путь будет другой, придется читать доки и создавать файл настройки .coveralls.yml</p>
 
@@ -443,6 +439,10 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
@@ -456,10 +456,6 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
           
             <li class="post">
               <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
             </li>
           
         </ul>

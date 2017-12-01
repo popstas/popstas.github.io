@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -191,15 +191,13 @@ ga('send', 'pageview');
 Gitlab сейчас никак не участвует в рабочем процессе, являясь просто зеркалом и веб-интерфейсом для просмотра коммитов.</p>
 
 <p>На машине разработчика настраивается <code>pre-push</code> хук, который пушит также в Gitlab:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75">#!/bin/bash</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+remote<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
 
-<span style="color: #268BD2">remote</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$1</span><span style="color: #2AA198">&quot;</span>
-
-<span style="color: #719e07">if</span> <span style="color: #719e07">[</span> <span style="color: #2AA198">&quot;</span><span style="color: #268BD2">$remote</span><span style="color: #2AA198">&quot;</span> !<span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;gitlab&quot;</span> <span style="color: #719e07">]</span> <span style="color: #719e07">&amp;&amp;</span> <span style="color: #719e07">[</span> <span style="color: #2AA198">&quot;</span><span style="color: #719e07">$(</span>git remote show <span style="color: #93A1A1">|</span> grep -c <span style="color: #2AA198">&quot;gitlab&quot;</span><span style="color: #719e07">)</span><span style="color: #2AA198">&quot;</span> <span style="color: #719e07">=</span> <span style="color: #2AA198">1</span> <span style="color: #719e07">]</span><span style="color: #93A1A1">;</span> <span style="color: #719e07">then</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$remote<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gitlab&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>git remote show | grep -c <span style="color:#e6db74">&#34;gitlab&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
         git push gitlab master
-<span style="color: #719e07">fi</span>
-</pre></div>
-
+<span style="color:#66d9ef">fi</span></code></pre></div>
 <h2 id="git-и-planfix">Git и Planfix</h2>
 
 <p>Никакой готовой интеграции между Git и Планфиксом нет, зато обе системы гибкие и позволяют лепить уникальные решения без больших усилий.</p>
@@ -218,10 +216,8 @@ Gitlab сейчас никак не участвует в рабочем про�
 
 <p>Чтобы подключить хук, надо положить скрипт в папку <code>.git/hooks/post-receive</code> и сделать его исполняемым,
 для этого надо выполнить в корне проекта:</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>curl -s <span style="color: #2AA198">&quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&quot;</span> &gt; .git/hooks/post-receive
-chmod +x .git/hooks/post-receive
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -s <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&#34;</span> &gt; .git/hooks/post-receive
+chmod +x .git/hooks/post-receive</code></pre></div>
 <p>Так как у нас много проектов, я храню его в отдельной общей папке, а в каждом репозитории создаю символическую ссылку на него.</p>
 
 <p>Хук получает список коммитов, пришедших с последним пушем, находит первую ссылку на задачу Планфикса и отправляет туда письмо.</p>
@@ -365,6 +361,10 @@ chmod +x .git/hooks/post-receive
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
@@ -378,10 +378,6 @@ chmod +x .git/hooks/post-receive
           
             <li class="post">
               <a href="/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
             </li>
           
         </ul>
