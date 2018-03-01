@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nodejs on Popstas</title>
+    <link>http://blog.popstas.ru/tags/nodejs/</link>
+    <description>Recent content in Nodejs on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Thu, 01 Mar 2018 20:30:00 +0600</lastBuildDate>
+    
+	<atom:link href="http://blog.popstas.ru/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Интеграция Планфикса и Toggl для учета времени</title>
+      <link>http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid>
+      <description>&lt;p&gt;Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href=&#34;http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/&#34;&gt;Планфикса с Git&lt;/a&gt;, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p&gt;
+
+&lt;p&gt;Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/viasite/planfix-toggl-server&#34; target=&#34;_blank&#34;&gt;Описание&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/viasite/planfix-toggl-server/releases&#34; target=&#34;_blank&#34;&gt;Ссылки на загрузки&lt;/a&gt; (проверялось только под Windows)&lt;/li&gt;
+&lt;li&gt;Расширения для &lt;a href=&#34;https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl&#34; target=&#34;_blank&#34;&gt;Chrome&lt;/a&gt; и &lt;a href=&#34;https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/&#34; target=&#34;_blank&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2018-03/planfix-toggl.png&#34; /&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

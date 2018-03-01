@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</loc>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2017/12/31/new-year-2018/</loc>
     <lastmod>2017-12-31T01:30:00+06:00</lastmod>
   </url>
@@ -322,7 +327,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/go/</loc>
-    <lastmod>2017-03-05T20:45:00+00:00</lastmod>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -435,6 +440,12 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/nodejs/</loc>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/nodemcu/</loc>
     <lastmod>2017-05-23T21:20:00+00:00</lastmod>
     <priority>0</priority>
@@ -455,6 +466,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/oh-my-zsh/</loc>
     <lastmod>2017-03-09T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/onsenui/</loc>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -508,7 +525,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/planfix/</loc>
-    <lastmod>2016-03-02T00:49:29+00:00</lastmod>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -526,13 +543,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2017-12-31T01:30:00+06:00</lastmod>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2017-12-31T01:30:00+06:00</lastmod>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -591,6 +608,12 @@
   </url>
   
   <url>
+    <loc>http://blog.popstas.ru/tags/toggl/</loc>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/tags/transmission-cli/</loc>
     <lastmod>2016-03-06T10:09:13+00:00</lastmod>
     <priority>0</priority>
@@ -629,6 +652,12 @@
   <url>
     <loc>http://blog.popstas.ru/tags/vscode/</loc>
     <lastmod>2017-05-23T21:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/vue/</loc>
+    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
