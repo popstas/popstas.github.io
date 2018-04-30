@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2018/05/01/time-zone-ubuntu-windows-reboot/</loc>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/2018/05/01/seahorse-password-on-ubuntu-boot/</loc>
+    <lastmod>2018-05-01T03:28:00+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</loc>
     <lastmod>2018-04-30T19:53:00+06:00</lastmod>
   </url>
@@ -178,7 +188,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/18.04/</loc>
-    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -591,13 +601,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -645,7 +655,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/</loc>
-    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -687,7 +697,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/ubuntu-desktop/</loc>
-    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   

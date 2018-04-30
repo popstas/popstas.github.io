@@ -92,7 +92,7 @@
 
 <header>
     <p class="meta">30 Apr 2018, 18:40
-         - 2 мин читать 
+         - 3 мин читать 
 
         
     </p>
@@ -124,6 +124,8 @@
 <li><a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a></li>
 <li><a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a></li>
 <li><a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a></li>
+<li><a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a></li>
+<li><a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a></li>
 </ul>
 
 <h2 id="зачем-мне-это-надо">Зачем мне это надо</h2>
@@ -140,6 +142,8 @@
 <h2 id="список-нерешенных-проблем">Список нерешенных проблем:</h2>
 
 <ul>
+<li><del><a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени так, чтобы при перезагрузке в Windows часы не слетали</a></del></li>
+<li><del><a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Не спрашивать пароль от связки ключей при каждой загрузке</a></del></li>
 <li>RDP, доступ с машины и к ней</li>
 <li>Punto Switcher, без него жизни нет</li>
 <li>Скриншоты, с рисованием на них и аплоадом</li>
@@ -178,6 +182,16 @@
 <h4 id="m-audio-fast-track-mk-2">M-Audio Fast Track MK-2</h4>
 
 <p>Еще не смотрел толком, но вывод звука работает.</p>
+
+<h2 id="настройка-системы">Настройка системы</h2>
+
+<h3 id="дата-и-время">Дата и время</h3>
+
+<p>Если коротко, то <code>timedatectl set-local-rtc 1</code>. <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Подробнее</a></p>
+
+<h3 id="пароль-от-связки-ключей-при-каждой-загрузке">Пароль от связки ключей при каждой загрузке</h3>
+
+<p>Смените пароль на папку &ldquo;Вход&rdquo; в связке на пустой. <a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Подробнее</a></p>
         </div>
         
 
@@ -300,6 +314,14 @@
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a>
             </li>
           
@@ -309,14 +331,6 @@
           
             <li class="post">
               <a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Переезд с Windows на Ubuntu 18.04, попытка номер 5</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
         </ul>
