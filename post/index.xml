@@ -6,10 +6,51 @@
     <description>Recent content in Posts on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 30 Apr 2018 18:45:00 +0600</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 19:53:00 +0600</lastBuildDate>
     
 	<atom:link href="http://blog.popstas.ru/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</title>
+      <link>http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</guid>
+      <description>&lt;p&gt;Драйвера поставились сами. Звук определился, но не играл. Помог &lt;a href=&#34;https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound&#34; target=&#34;_blank&#34;&gt;этот пост&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;alsa-utils у меня уже были установлены, запустил alsamixer, переключил выход с Headphones на Multichannel, заработало.&lt;/p&gt;
+
+&lt;p&gt;Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</title>
+      <link>http://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</link>
+      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</guid>
+      <description>&lt;p&gt;Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href=&#34;https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux&#34; target=&#34;_blank&#34;&gt;эта статья&lt;/a&gt;, вот краткое содержание:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt install ubuntu-drivers-common
+ubuntu-drivers devices
+ubuntu-drivers autoinstall
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Звук по HDMI работал нормально на обоих драйверах.&lt;/p&gt;
+
+&lt;h4 id=&#34;другие-проблемы-с-видео&#34;&gt;Другие проблемы с видео:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/&#34;&gt;Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</title>
@@ -36,6 +77,23 @@
 &lt;p&gt;Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.&lt;/p&gt;
 
 &lt;p&gt;Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title>
+      <link>http://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</link>
+      <pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</guid>
+      <description>&lt;p&gt;26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.&lt;/p&gt;
+
+&lt;p&gt;Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - &lt;a href=&#34;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93&lt;/a&gt;), несколько других похожих постов вообще остались лежать на локалке.&lt;/p&gt;
+
+&lt;p&gt;Так что буду писать по мере наступания на грабли и пополнять статью.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

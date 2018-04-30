@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 30 Apr 2018 18:45:00 +0600</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 19:53:00 +0600</lastBuildDate>
     
 	<atom:link href="http://blog.popstas.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>18.04</title>
       <link>http://blog.popstas.ru/tags/18.04/</link>
-      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
       
       <guid>http://blog.popstas.ru/tags/18.04/</guid>
       <description></description>
@@ -89,6 +89,15 @@
       <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
       
       <guid>http://blog.popstas.ru/tags/artifactory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Asus Dgx</title>
+      <link>http://blog.popstas.ru/tags/asus-dgx/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/tags/asus-dgx/</guid>
       <description></description>
     </item>
     
@@ -188,6 +197,15 @@
       <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
       
       <guid>http://blog.popstas.ru/tags/docs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Drivers</title>
+      <link>http://blog.popstas.ru/tags/drivers/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/tags/drivers/</guid>
       <description></description>
     </item>
     
@@ -462,6 +480,15 @@
     </item>
     
     <item>
+      <title>Nvidia</title>
+      <link>http://blog.popstas.ru/tags/nvidia/</link>
+      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Octopress</title>
       <link>http://blog.popstas.ru/tags/octopress/</link>
       <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
@@ -707,7 +734,7 @@
     <item>
       <title>Ubuntu</title>
       <link>http://blog.popstas.ru/tags/ubuntu/</link>
-      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
       
       <guid>http://blog.popstas.ru/tags/ubuntu/</guid>
       <description></description>
@@ -716,7 +743,7 @@
     <item>
       <title>Ubuntu Desktop</title>
       <link>http://blog.popstas.ru/tags/ubuntu-desktop/</link>
-      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
       
       <guid>http://blog.popstas.ru/tags/ubuntu-desktop/</guid>
       <description></description>

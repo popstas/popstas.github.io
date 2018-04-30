@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asus Dgx on Popstas</title>
+    <link>http://blog.popstas.ru/tags/asus-dgx/</link>
+    <description>Recent content in Asus Dgx on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 30 Apr 2018 19:53:00 +0600</lastBuildDate>
+    
+	<atom:link href="http://blog.popstas.ru/tags/asus-dgx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</title>
+      <link>http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</guid>
+      <description>&lt;p&gt;Драйвера поставились сами. Звук определился, но не играл. Помог &lt;a href=&#34;https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound&#34; target=&#34;_blank&#34;&gt;этот пост&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;alsa-utils у меня уже были установлены, запустил alsamixer, переключил выход с Headphones на Multichannel, заработало.&lt;/p&gt;
+
+&lt;p&gt;Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

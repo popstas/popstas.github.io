@@ -93,6 +93,89 @@
         
 
 <header>
+    <p class="meta">30 Apr 2018, 19:53
+         - 1 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Драйвера поставились сами. Звук определился, но не играл. Помог <a href="https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound" target="_blank">этот пост</a>:</p>
+
+<p>alsa-utils у меня уже были установлены, запустил alsamixer, переключил выход с Headphones на Multichannel, заработало.</p>
+
+<p>Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.</p>
+
+<p><img src="/images/2018-04/asus-dgx-alsamixer.jpg" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">30 Apr 2018, 19:46
+         - 1 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла <a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux" target="_blank">эта статья</a>, вот краткое содержание:</p>
+
+<pre><code>apt install ubuntu-drivers-common
+ubuntu-drivers devices
+ubuntu-drivers autoinstall
+</code></pre>
+
+<p>Звук по HDMI работал нормально на обоих драйверах.</p>
+
+<h4 id="другие-проблемы-с-видео">Другие проблемы с видео:</h4>
+
+<ul>
+<li><a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a></li>
+</ul>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">30 Apr 2018, 18:45
          - 1 мин читать 
 
@@ -127,6 +210,48 @@
 
 <p></p></p>
 
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">30 Apr 2018, 18:40
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Переезд с Windows на Ubuntu 18.04, попытка номер 5</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.</p>
+
+<p>Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - <a href="https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93" target="_blank">https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93</a>), несколько других похожих постов вообще остались лежать на локалке.</p>
+
+<p>Так что буду писать по мере наступания на грабли и пополнять статью.</p>
+
+<p><img src="/images/2018-04/windows-ubuntu.jpg" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/" rel="full-article">Читать &rarr;</a>
+              </footer>
           
 
         
@@ -396,147 +521,6 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">13 Mar 2017, 00:30
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/">Подсветка Python синтаксиса в PhpStorm</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.</p>
-
-<p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.</p>
-
-<p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
-<a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm" target="_blank">Официальная документация</a></p>
-
-<p><img src="/images/2017-03/phpstorm-python.gif" />
-</p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">9 Mar 2017, 08:00
-         - 7 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Репост <a href="https://habrahabr.ru/post/323496/" target="_blank">моей статьи с хабра</a>.</p>
-
-<p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
-Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
-Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
-Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.</p>
-
-<p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
-и обновление. В итоге появилась роль <a href="https://github.com/viasite-ansible/ansible-role-zsh" target="_blank">ansible-role-zsh</a>,
-которая полностью настраивает терминалы на локалке и на моих серверах.</p>
-
-<h3 id="особенности">Особенности:</h3>
-
-<ul>
-<li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)</li>
-<li>быстро загружается, быстро работает</li>
-<li>полностью настраивается через ansible, <code>~/.zshrc</code></li>
-<li>полностью локальная (в систему ничего не ставится, все хранится в <code>~/.oh-my-zsh</code>)</li>
-<li>оставляет возможность юзеру вносить свои настройки через <code>~/.zshrc.local</code></li>
-<li><del>одинаково</del> работает на macOS, старом Debian, Ubuntu, CentOS</li>
-<li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)</li>
-<li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)</li>
-<li>автодополнение по истории команд (помогает реже нажимать <code>Ctrl+R</code>)</li>
-<li>отображение времени для долго выполняемых команд (помогает реже использовать <code>time</code>)</li>
-</ul>
-
-<p>Демонстрация фич за 1 минуту:
-<img src="/images/2017-03/ansible-role-zsh-demo.gif" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">8 Mar 2017, 01:00
-         - 3 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Опишу процесс, к которому я пришел на данный момент.</p>
-
-<p>TODO: concurrent
-TODO: несколько дистрибов</p>
-
-<h4 id="особенности">Особенности</h4>
-
-<ul>
-<li>Стремление не писать роли</li>
-<li>Постепенное ужесточение требований при написании, от &ldquo;Лишь бы прошло с 10 раза&rdquo; к &ldquo;Скорее всего Travis пройдет с первого раза&rdquo;</li>
-<li>Тестирование на разных машинах</li>
-</ul>
-
-<p><img src="/images/2017-03/iterations.png" />
-</p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -627,23 +611,23 @@ TODO: несколько дистрибов</p>
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a>
             </li>
           
             <li class="post">
+              <a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Переезд с Windows на Ubuntu 18.04, попытка номер 5</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
         </ul>

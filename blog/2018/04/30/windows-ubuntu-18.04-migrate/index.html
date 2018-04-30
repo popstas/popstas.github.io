@@ -16,7 +16,7 @@
   
 
   
-  <title>Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</title>
+  <title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title>
 
   
   
@@ -91,13 +91,13 @@
         
 
 <header>
-    <p class="meta">30 Apr 2018, 18:45
-         - 1 мин читать 
+    <p class="meta">30 Apr 2018, 18:40
+         - 2 мин читать 
 
         
     </p>
     <h1 class="entry-title">
-         Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение 
+         Переезд с Windows на Ubuntu 18.04, попытка номер 5 
     </h1>
 </header>
 
@@ -106,36 +106,85 @@
           
           
           
-          <p><img src="/images/2018-04/yandex-browser-black-line.jpg" /></p>
+          <p>26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.</p>
 
-<p>На решение натолкнуло видео - <a href="https://www.youtube.com/watch?v=qUIsn5-B2XY" target="_blank">https://www.youtube.com/watch?v=qUIsn5-B2XY</a></p>
+<p>Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - <a href="https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93" target="_blank">https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93</a>), несколько других похожих постов вообще остались лежать на локалке.</p>
 
-<p>Предлагалось в настройках убрать галочку &ldquo;Использовать аппаратное ускорение, если возможно&rdquo;.</p>
+<p>Так что буду писать по мере наступания на грабли и пополнять статью.</p>
 
-<p>С галочкой или без у меня была полоса и тормозило (конечно, я перезапускал браузер после изменения настройки). На Chrome нормально было, без галочки тормозило без полосы.</p>
-
-<p>Мне помог обратный вариант: включить принудительное ускорение.</p>
-
-<ul>
-<li>Зайти в about:flags</li>
-<li>В поиске вбить gpu, найти пункт &ldquo;Override software rendering list&rdquo;, включить</li>
-<li>Перезапустить браузер</li>
-</ul>
-
-<p>Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.</p>
-
-<p>Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.</p>
+<p><img src="/images/2018-04/windows-ubuntu.jpg" /></p>
 
 <p></p>
 
-<p>Статья из <a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">цикла &ldquo;Переезд на Ubuntu 18.04&rdquo;</a>.</p>
+<p>Статьи цикла можно было бы найти по тегу 18.04, но hugo что-то сломался и выдает RSS ленту вместо HTML страницы, так что придется вручную.</p>
+
+<h4 id="статьи-цикла-переезд-на-ubuntu-18-04">Статьи цикла &ldquo;Переезд на Ubuntu 18.04&rdquo;:</h4>
+
+<ul>
+<li><a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a></li>
+<li><a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a></li>
+<li><a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a></li>
+</ul>
+
+<h2 id="зачем-мне-это-надо">Зачем мне это надо</h2>
+
+<ol>
+<li>Всегда мечтал о терминале на десктопной системе, остальное в общем вытекает из этого пункта.</li>
+<li>Ставить программы без костылей. Например, надо мне pylint, php, npm, shellcheck для нормальной работы IDE, хочу ставить их без костылей</li>
+<li>Docker, ansible, vagrant без костылей на локалке</li>
+<li>Прозрачная работа vim на удаленке, с буфером обмена</li>
+<li>Настраивать систему по возможности через ansible</li>
+<li>Больше пересечений десктопной и серверной оси, это в теории позволяет переносить какие-то решения между системами</li>
+</ol>
+
+<h2 id="список-нерешенных-проблем">Список нерешенных проблем:</h2>
+
+<ul>
+<li>RDP, доступ с машины и к ней</li>
+<li>Punto Switcher, без него жизни нет</li>
+<li>Скриншоты, с рисованием на них и аплоадом</li>
+<li>Удобный DM, допиливание Gnome 3 до рабочего варианта</li>
+<li>Alt+Shift+Tab (да, он не работает!)</li>
+<li>Нормальный launcher, замена Alfred и Hain</li>
+<li>Работа виртуальных рабочих столов не хуже, чем в Windows (года 2 назад я бы не поверил, что скажу такое)</li>
+<li>Настройка терминала, быстрый доступ к серверам, Solarized Dark</li>
+<li>Монтирование сетевых дисков с медиа и проектами</li>
+<li>Нормальная работа спящего режима (сейчас он не просыпается)</li>
+<li>Удобное переключение на OpenVPN и обратно (не думал, что будет хуже, чем на винде, но сходу не нашел GUI)</li>
+</ul>
+
+<h2 id="настройка-железа">Настройка железа</h2>
+
+<h3 id="моя-машина">Моя машина:</h3>
+
+<ul>
+<li>Intel 6700K, 32 Gb DDR4, SSD 240 Gb</li>
+<li>Nvidia Geforce 1050Ti 4 Gb (Gigabyte)</li>
+<li>2 монитора, 27&rdquo; 2560x1440, 43&rdquo; 3840x2160</li>
+<li>Внешний звук M-Audio Fast Track MK-2</li>
+<li>Внутренний звук Asus DGX Xonar 5.1</li>
+</ul>
+
+<h3 id="видео">Видео</h3>
+
+<p><a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a></p>
+
+<h3 id="звук">Звук</h3>
+
+<h4 id="asus-dgx">Asus DGX</h4>
+
+<p><a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a></p>
+
+<h4 id="m-audio-fast-track-mk-2">M-Audio Fast Track MK-2</h4>
+
+<p>Еще не смотрел толком, но вывод звука работает.</p>
         </div>
         
 
 <footer>
   <p class="meta">
     
-    <time>30 Apr 2018, 18:45</time>
+    <time>30 Apr 2018, 18:40</time>
     
       <span class="categories">
         Теги:
@@ -174,11 +223,11 @@
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/" title="Переезд с Windows на Ubuntu 18.04, попытка номер 5">Переезд с Windows на Ubuntu 18.04, попытка номер 5</a>
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/" title="Интеграция Планфикса и Toggl для учета времени">Интеграция Планфикса и Toggl для учета времени</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/" title="Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a>
+      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/" title="Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a>
     
   </p>
       <div id="disqus_thread"></div>
