@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Thu, 19 May 2016 00:47:52 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 18:45:00 +0600</lastBuildDate>
     
 	<atom:link href="http://blog.popstas.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>18.04</title>
+      <link>http://blog.popstas.ru/tags/18.04/</link>
+      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/tags/18.04/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Alerting</title>
@@ -698,9 +707,18 @@
     <item>
       <title>Ubuntu</title>
       <link>http://blog.popstas.ru/tags/ubuntu/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
       
       <guid>http://blog.popstas.ru/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Desktop</title>
+      <link>http://blog.popstas.ru/tags/ubuntu-desktop/</link>
+      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/tags/ubuntu-desktop/</guid>
       <description></description>
     </item>
     

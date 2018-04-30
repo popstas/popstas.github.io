@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.40.2" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -381,10 +374,13 @@ paginate = 10
 
 <p>Кастомные виджеты sidebar не предусматривает, поэтому правим шаблон, дописываем в конец, перед <code>&lt;/aside&gt;</code>:
 <code>/themes/octopress/layouts/partials/sidebar.html</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    {{ partial &#34;custom/twitterfeed.html&#34; . }}
+
+<pre><code class="language-html">    {{ partial &quot;custom/twitterfeed.html&quot; . }}
     
-    {{ partial &#34;custom/github.html&#34; . }}
-&lt;/<span style="color:#f92672">aside</span>&gt;</code></pre></div>
+    {{ partial &quot;custom/github.html&quot; . }}
+&lt;/aside&gt;
+</code></pre>
+
 <p>После чего создаем в <code>themes/octopress/layouts/partials/custom</code> соответствующие файлы и копируем туда шаблоны из Octopress.
 При этом нужно заменить переменные с <code>{{ site.var_name }}</code> на <code>{{ .Site.Params.varName }}</code> и добавить в <code>config.toml</code> нужные переменные:</p>
 
@@ -538,6 +534,10 @@ paginate = 10
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
@@ -551,10 +551,6 @@ paginate = 10
           
             <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

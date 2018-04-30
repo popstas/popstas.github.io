@@ -16,7 +16,7 @@
   
 
   
-  <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
+  <title>Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</title>
 
   
   
@@ -91,13 +91,13 @@
         
 
 <header>
-    <p class="meta">7 Apr 2016, 00:26
-         - 2 мин читать 
+    <p class="meta">30 Apr 2018, 18:45
+         - 1 мин читать 
 
         
     </p>
     <h1 class="entry-title">
-         Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем 
+         Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение 
     </h1>
 </header>
 
@@ -106,56 +106,39 @@
           
           
           
-          <p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.</p>
+          <p><img src="/images/2018-04/yandex-browser-black-line.jpg" /></p>
 
-<p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.</p>
+<p>На решение натолкнуло видео - <a href="https://www.youtube.com/watch?v=qUIsn5-B2XY" target="_blank">https://www.youtube.com/watch?v=qUIsn5-B2XY</a></p>
+
+<p>Предлагалось в настройках убрать галочку &ldquo;Использовать аппаратное ускорение, если возможно&rdquo;.</p>
+
+<p>С галочкой или без у меня была полоса и тормозило (конечно, я перезапускал браузер после изменения настройки). На Chrome нормально было, без галочки тормозило без полосы.</p>
+
+<p>Мне помог обратный вариант: включить принудительное ускорение.</p>
 
 <ul>
-<li><a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5" target="_blank">issue про недоступность сборки 14316</a></li>
-<li><a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/" target="_blank">Инструкция по обновлению на русском</a></li>
+<li>Зайти в about:flags</li>
+<li>В поиске вбить gpu, найти пункт &ldquo;Override software rendering list&rdquo;, включить</li>
+<li>Перезапустить браузер</li>
 </ul>
 
-<p><img src="http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png" /></p>
+<p>Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.</p>
+
+<p>Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.</p>
 
 <p></p>
-
-<p>Вчера утром пришло письмо от Microsoft:</p>
-
-<blockquote>
-<p>Только что закончилась ежегодная конференция разработчиков Build 2016, на которой мы представили новые функции Windows 10.
-Вы сможете в числе первых опробовать эти новые функции, выбрав &ldquo;быстрый&rdquo; или &ldquo;медленный&rdquo; круг обновлений. Подробную информацию о новых возможностях читайте в записи блога Гейба о последней сборке Windows 10 Insider Preview. Обратите внимание, что для участников программы предварительной оценки, которые хотят выполнить чистую установку этой сборки или запустить ее в виртуальной машине, доступны ISO-образы. (на английском языке.)</p>
-</blockquote>
-
-<p>Я конечно пришел домой вечером, скачал ISO, поставил на Virtualbox, сегодня на обеде думал: &ldquo;Приду домой, посмотрю, что там за линукс&rdquo;. Удивлялся, что до сих пор не гуглятся обзоры фичи.</p>
-
-<p>Включил виртуалку, x64, English, что дальше делать - не понятно. Нагуглил официальные страницы фичи:</p>
-
-<ul>
-<li><a href="https://blogs.windows.com/windowsexperience/2016/04/06/announcing-windows-10-insider-preview-build-14316/" target="_blank">Анонс билда</a></li>
-<li><a href="https://msdn.microsoft.com/en-us/commandline/wsl/about" target="_blank">Видео с конференции BUILD</a></li>
-<li><a href="https://github.com/Microsoft/CommandLine-Documentation" target="_blank">Github</a></li>
-<li><a href="https://github.com/Microsoft/CommandLine-Documentation/blob/master/commandline/WSL/install_guide.md" target="_blank">Инструкция по включению фичи</a></li>
-</ul>
-
-<p>Уже написана <a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/" target="_blank">инструкция по обновлению до Windows subsystem for Linux</a> на русском, но до рабочей фичи ее автор тоже не дошел.</p>
-
-<p>Чтобы обновление пришло, нужно в настройках центра обновлений включить режим разработчика, переключиться на Insider level: fast, обновиться минимум до build 14316</p>
-
-<p>Все стало понятно из этого <a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5" target="_blank">issue</a>, кто-то, включая меня, застрял на сборке 14295.</p>
-
-<p>Ждем.</p>
         </div>
         
 
 <footer>
   <p class="meta">
     
-    <time>7 Apr 2016, 00:26</time>
+    <time>30 Apr 2018, 18:45</time>
     
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/microsoft">microsoft</a>  <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="http://blog.popstas.ru/tags/ubuntu">ubuntu</a>  <a class="category" href="http://blog.popstas.ru/tags/update">update</a>  <a class="category" href="http://blog.popstas.ru/tags/insider">insider</a>  
+          <a class="category" href="http://blog.popstas.ru/tags/ubuntu">ubuntu</a>  <a class="category" href="http://blog.popstas.ru/tags/ubuntu-desktop">ubuntu desktop</a>  <a class="category" href="http://blog.popstas.ru/tags/18.04">18.04</a>  
     
     </span>
   </p>
@@ -189,11 +172,9 @@
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/" title="CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git">CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</a>
+        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/" title="Интеграция Планфикса и Toggl для учета времени">Интеграция Планфикса и Toggl для учета времени</a>
     
 
-    
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/" title="Bash on Ubuntu on Windows: первый блин">Bash on Ubuntu on Windows: первый блин</a>
     
   </p>
       <div id="disqus_thread"></div>

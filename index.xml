@@ -6,10 +6,39 @@
     <description>Recent content on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Thu, 01 Mar 2018 20:30:00 +0600</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 18:45:00 +0600</lastBuildDate>
     
 	<atom:link href="http://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</title>
+      <link>http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</link>
+      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2018-04/yandex-browser-black-line.jpg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;На решение натолкнуло видео - &lt;a href=&#34;https://www.youtube.com/watch?v=qUIsn5-B2XY&#34; target=&#34;_blank&#34;&gt;https://www.youtube.com/watch?v=qUIsn5-B2XY&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Предлагалось в настройках убрать галочку &amp;ldquo;Использовать аппаратное ускорение, если возможно&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;С галочкой или без у меня была полоса и тормозило (конечно, я перезапускал браузер после изменения настройки). На Chrome нормально было, без галочки тормозило без полосы.&lt;/p&gt;
+
+&lt;p&gt;Мне помог обратный вариант: включить принудительное ускорение.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Зайти в about:flags&lt;/li&gt;
+&lt;li&gt;В поиске вбить gpu, найти пункт &amp;ldquo;Override software rendering list&amp;rdquo;, включить&lt;/li&gt;
+&lt;li&gt;Перезапустить браузер&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.&lt;/p&gt;
+
+&lt;p&gt;Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Интеграция Планфикса и Toggl для учета времени</title>
@@ -638,6 +667,17 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
 нажать хоткей и достать все окна этой же программы наверх.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://blog.popstas.ru/blog/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/1/01/01/</guid>
+      <description>капо 2 лад
+1 Am И за каждым поворотом, Am И за каждым перекрестком F Выбирать пути мы будем Dm(Dm7) E Несмотря на шины в стеклах
+Припев: F Мой кумир, Am Asus4 он не оставит нас в пыли, F проведет, Am Asus4 он через &amp;hellip; невзгод,</description>
     </item>
     
   </channel>

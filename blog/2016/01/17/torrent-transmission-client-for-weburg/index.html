@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.40.2" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -146,9 +139,12 @@ ga('send', 'pageview');
 <h1 id="установка">Установка</h1>
 
 <p>Установить клиент можно так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">latest_phar<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep <span style="color:#e6db74">&#39;browser_&#39;</span> | cut -d<span style="color:#ae81ff">\&#34;</span> -f4<span style="color:#66d9ef">)</span>
-wget -O /usr/local/bin/transmission-cli <span style="color:#e6db74">&#34;</span>$latest_phar<span style="color:#e6db74">&#34;</span>
-chmod +x /usr/local/bin/transmission-cli</code></pre></div>
+
+<pre><code class="language-bash">latest_phar=$(curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep 'browser_' | cut -d\&quot; -f4)
+wget -O /usr/local/bin/transmission-cli &quot;$latest_phar&quot;
+chmod +x /usr/local/bin/transmission-cli
+</code></pre>
+
 <p>Пользоваться графиками можно с трудом, потому что InfluxDB и Grafana вам придется устанавливать самостоятельно.
 Я ставил то и другое в docker на свою виртуалку и пробрасывал порты на localhost,
 сейчас localhost вшит в <a href="https://github.com/popstas/transmission-cli/blob/master/src/Config.php" target="_blank">конфиг</a>,
@@ -309,9 +305,12 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
 
 <p>Чтобы добавить coveralls в самом простом случае (в доках есть и сложные), достаточно сделать так, чтобы PHPUnit
 генерил файл <code>build/logs/clover.xml</code>, для этого надо добавить строчку в phpunit.xml, в секцию logging:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;logging&gt;</span>
-    <span style="color:#f92672">&lt;log</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;coverage-clover&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;build/logs/clover.xml&#34;</span><span style="color:#f92672">/&gt;</span>
-<span style="color:#f92672">&lt;/logging&gt;</span></code></pre></div>
+
+<pre><code class="language-xml">&lt;logging&gt;
+    &lt;log type=&quot;coverage-clover&quot; target=&quot;build/logs/clover.xml&quot;/&gt;
+&lt;/logging&gt;
+</code></pre>
+
 <p>Ну и конечно зарегаться на <a href="https://coveralls.io/" target="_blank">https://coveralls.io/</a> и активировать там проект.
 Если путь будет другой, придется читать доки и создавать файл настройки .coveralls.yml</p>
 
@@ -439,6 +438,10 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
@@ -452,10 +455,6 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
           
             <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

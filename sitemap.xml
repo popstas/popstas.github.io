@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</loc>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</loc>
     <lastmod>2018-03-01T20:30:00+06:00</lastmod>
   </url>
@@ -150,6 +155,16 @@
   <url>
     <loc>http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</loc>
     <lastmod>2015-11-16T23:55:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/blog/1/01/01/</loc>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/18.04/</loc>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -543,13 +558,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/</loc>
-    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.popstas.ru/post/</loc>
-    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -597,7 +612,7 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/</loc>
-    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -633,7 +648,13 @@
   
   <url>
     <loc>http://blog.popstas.ru/tags/ubuntu/</loc>
-    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.popstas.ru/tags/ubuntu-desktop/</loc>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   

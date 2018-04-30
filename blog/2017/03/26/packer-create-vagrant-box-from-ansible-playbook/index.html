@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.40.2" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -249,14 +242,17 @@ mount: unknown filesystem type 'vboxsf'
 </code></pre>
 
 <p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;builders&#34;</span>: [
+
+<pre><code class="language-json">{
+  &quot;builders&quot;: [
     {
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
-      <span style="color:#f92672">&#34;guest_additions_path&#34;</span>: <span style="color:#e6db74">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>
+      &quot;type&quot;: &quot;virtualbox-iso&quot;,
+      &quot;guest_additions_path&quot;: &quot;VBoxGuestAdditions_{{.Version}}.iso&quot;
     }
   ]
-}</code></pre></div>
+}
+</code></pre>
+
 <p>После чтения <a href="https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path" target="_blank">доки</a> стало понятно,
 что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:</p>
 
@@ -277,17 +273,21 @@ mount: unknown filesystem type 'vboxsf'
 <li>в provisioners и post-processors были вписаны <code>&quot;only&quot;: [&quot;virtualbox-iso&quot;]</code> и <code>&quot;only&quot;: [&quot;docker&quot;]</code> куда надо</li>
 <li>в shell provisioners была дописана строчка с <code>override</code>, которая запускает скрипт от имени vagrant и не влияет на docker builder:</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;provisioners&#34;</span>: [
+
+<pre><code class="language-json">{
+  &quot;provisioners&quot;: [
     {
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
-      <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#e6db74">&#34;packer/scripts/ansible.sh&#34;</span>,
-      <span style="color:#f92672">&#34;override&#34;</span>: {
-        <span style="color:#f92672">&#34;virtualbox-iso&#34;</span>: {
-          <span style="color:#f92672">&#34;execute_command&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -S -E bash &#39;{{.Path}}&#39;&#34;</span>
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;script&quot;: &quot;packer/scripts/ansible.sh&quot;,
+      &quot;override&quot;: {
+        &quot;virtualbox-iso&quot;: {
+          &quot;execute_command&quot;: &quot;echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'&quot;
         }
       }
-    },</code></pre></div>
+    },
+
+</code></pre>
+
 <h3 id="сборка-docker-застывала-в-конце">Сборка Docker застывала в конце</h3>
 
 <p>Не понял, с чем это связано, но заствала она на <code>apt autoremove</code>, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.</p>
@@ -417,6 +417,10 @@ mount: unknown filesystem type 'vboxsf'
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
@@ -430,10 +434,6 @@ mount: unknown filesystem type 'vboxsf'
           
             <li class="post">
               <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>
