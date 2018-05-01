@@ -92,7 +92,7 @@
 
 <header>
     <p class="meta">19 May 2016, 00:47
-         - 5 мин читать 
+         - 6 мин читать 
 
         
     </p>
@@ -155,25 +155,26 @@ aptitude update
 aptitude install kapacitor
 </code></pre>
 
-<p>Я буду ставить через Ansible <a href="https://github.com/rossmcdonald/kapacitor" target="_blank">rossmcdonald/kapacitor</a></p>
+<p>Я буду ставить через Ansible <a href="https://github.com/viasite-ansible/ansible-role-kapacitor" target="_blank">viasite-ansible.kapacitor</a></p>
 
-<pre><code class="language-sh">ansible-galaxy install rossmcdonald.kapacitor
+<pre><code class="language-sh">ansible-galaxy install viasite-ansible.kapacitor
+# пример kapacitor.yml ниже, в главе Настройка
 ansible-playbook -c local kapacitor.yml
 </code></pre>
 
 <h4 id="a-name-github-pull-request-a-как-просто-делать-pull-request"><a name="github-pull-request"></a>Как просто делать Pull request</h4>
 
-<p>В плейбуке была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто <a href="https://github.com/rossmcdonald/kapacitor/pull/1" target="_blank">делать pull request</a> прямо в браузере. Это заняло минуты две: жмем &ldquo;редактировать&rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &ldquo;Create pull request&rdquo;.</p>
+<p>В роли была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто <a href="https://github.com/rossmcdonald/kapacitor/pull/1" target="_blank">делать pull request</a> прямо в браузере. Это заняло минуты две: жмем &ldquo;редактировать&rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &ldquo;Create pull request&rdquo;.</p>
 
 <h2 id="настройка">Настройка</h2>
 
-<p>Так как я уже использовал готовую ansible-роль, настройка уже включена в установку. Я взял <a href="https://github.com/rossmcdonald/kapacitor/blob/master/test.yml" target="_blank">тестовый плейбук</a> роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция <code>global</code> в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно.</p>
+<p>Так как я уже использовал готовую ansible-роль rossmcdonald.kapacitor, настройка уже включена в установку. Я взял <a href="https://github.com/rossmcdonald/kapacitor/blob/master/test.yml" target="_blank">тестовый плейбук</a> роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция <code>global</code> в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно. А потом вообще форкнул роль и написал пару (если честно один) удобных шаблонов для создания алертов.</p>
 
 <p>Для установки сделал такой плейбук:</p>
 
 <pre><code class="language-yaml">- hosts: all
   roles:
-    - role: rossmcdonald.kapacitor
+    - role: viasite-ansible.kapacitor
   vars:
     # [influxdb]
     kapacitor_influxdb_enabled: &quot;true&quot;
@@ -191,6 +192,7 @@ ansible-playbook -c local kapacitor.yml
     kapacitor_smtp_from: example@yandex.ru
     kapacitor_smtp_to:
       - &quot;admin@example.com&quot;
+    kapacitor_smtp_state_changes_only: &quot;true&quot;
 
     # [slack]
     kapacitor_slack_enabled: &quot;true&quot;
@@ -198,7 +200,54 @@ ansible-playbook -c local kapacitor.yml
     kapacitor_slack_channel: &quot;#servers&quot;
     kapacitor_slack_global: &quot;true&quot;
 
-    kapacitor_tasks_to_enable:
+    kapacitor_dbrp: telegraf.autogen
+
+    # не обязательно так упарываться
+    kapacitor_message: '{{&quot;{{&quot;}} if eq .Level &quot;OK&quot; }}OK{{&quot;{{&quot;}} else }}{{&quot;{{&quot;}} .Level }}{{&quot;{{&quot;}} end }}: {{&quot;{{&quot;}} .ID }}: {% if item.field is defined %}{{item.field}} {{&quot;{{&quot;}} index .Fields &quot;field_mean&quot; | printf &quot;%0.1f&quot; }}{% endif %} for {{item.period}}'
+    kapacitor_details: &quot;{{ kapacitor_message }}&quot;
+
+    kapacitor_warn_alerts:
+      - stateChangesOnly()
+
+    kapacitor_crit_alerts:
+      - stateChangesOnly(10m)
+      - email()
+
+    kapacitor_stream_database: kapacitor
+
+    kapacitor_tasks:
+      # активное использование процессора
+      - name: usage_user_short
+        template: tick/stream_threshold.tick.j2
+        measurement: cpu
+        field: usage_user
+        groupBy: host
+        period: 5m
+        every: 1m
+        warn: &quot;&gt; 60&quot;
+        crit: &quot;&gt; 75&quot;
+
+      # на диске осталось меньше 3 Гб
+      - name: disk_free
+        template: tick/stream_threshold.tick.j2
+        measurement: disk
+        field: free
+        groupBy: ['host', 'path']
+        period: 1m
+        every: 1m
+        warn: &quot;&lt; 3000000000&quot;
+        crit: &quot;&lt; 1000000000&quot;
+
+      # apache слишком много обрабатывает
+      - name: apache_busy_workers
+        template: tick/stream_threshold.tick.j2
+        measurement: apache
+        field: BusyWorkers
+        groupBy: 'host'
+        period: 5m
+        every: 1m
+        warn: &quot;&gt; 20&quot;
+        crit: &quot;&gt; 50&quot;
 </code></pre>
 
 <h2 id="проверка">Проверка</h2>
