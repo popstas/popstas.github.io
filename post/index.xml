@@ -6,10 +6,26 @@
     <description>Recent content in Posts on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Tue, 01 May 2018 05:35:00 +0600</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 05:55:00 +0600</lastBuildDate>
     
 	<atom:link href="http://blog.popstas.ru/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</title>
+      <link>http://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</link>
+      <pubDate>Tue, 01 May 2018 05:55:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</guid>
+      <description>&lt;p&gt;Я был очень удивлен, что такой базовый функционал сломан из коробки. К счастью, это чинится легко, если вам не нужно переключение языка по Alt+Shift, т.к. именно оно мешает хоткею. Решение нашел случайно, настраивая &lt;a href=&#34;http://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/&#34;&gt;gxneur&lt;/a&gt;, нужно сменить комбинацию в gconf на Super+Space:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gsettings set org.gnome.desktop.input-sources xkb-options &amp;quot;[&#39;grp:super_space_toggle,grp_led:scroll&#39;]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Настройка gxneur в Ubuntu 18.04</title>

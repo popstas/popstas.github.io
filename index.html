@@ -93,6 +93,43 @@
         
 
 <header>
+    <p class="meta">1 May 2018, 05:55
+         - 1 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Я был очень удивлен, что такой базовый функционал сломан из коробки. К счастью, это чинится легко, если вам не нужно переключение языка по Alt+Shift, т.к. именно оно мешает хоткею. Решение нашел случайно, настраивая <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">gxneur</a>, нужно сменить комбинацию в gconf на Super+Space:</p>
+
+<pre><code>gsettings set org.gnome.desktop.input-sources xkb-options &quot;['grp:super_space_toggle,grp_led:scroll']&quot;
+</code></pre>
+
+<p>Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.</p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">1 May 2018, 05:35
          - 2 мин читать 
 
@@ -442,39 +479,6 @@ ubuntu-drivers autoinstall
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">1 Dec 2017, 23:25
-         - 3 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="http://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.</p>
-
-<p><img src="/images/2017-12/ext4-vs-xfs.jpg" />
-</p></p>
-
-          
-              <footer>
-                  <a href="http://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -565,6 +569,10 @@ ubuntu-drivers autoinstall
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
             </li>
           
@@ -578,10 +586,6 @@ ubuntu-drivers autoinstall
           
             <li class="post">
               <a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a>
             </li>
           
         </ul>

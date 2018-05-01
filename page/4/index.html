@@ -93,6 +93,48 @@
         
 
 <header>
+    <p class="meta">31 Jan 2016, 02:00
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/">Проверяем изменения на странице через cron</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Сегодня хотел заказать ароматизаторов на <a href="http://baker-flavors.blogspot.ru/" target="_blank">Baker Flavours</a>, дошел до страницы заказа,
+и увидел &ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&rdquo;.</p>
+
+<p>Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.</p>
+
+<p>Строчка для crontab:</p>
+
+<pre><code>0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &quot;временно прекращен&quot; &gt; /dev/null || { echo &quot;BF order started&quot; | terminal-notifier &amp;&amp; open http://bakerflavors.ru/formbf.htm }
+</code></pre>
+
+<p>Подробности под катом.</p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">31 Jan 2016, 01:43
          - 2 мин читать 
 
@@ -494,6 +536,10 @@
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
             </li>
           
@@ -507,10 +553,6 @@
           
             <li class="post">
               <a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a>
             </li>
           
         </ul>
