@@ -6,10 +6,21 @@
     <description>Recent content in Gnome on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Tue, 01 May 2018 05:55:00 +0600</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 08:20:00 +0600</lastBuildDate>
     
 	<atom:link href="http://blog.popstas.ru/tags/gnome/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</title>
+      <link>http://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</link>
+      <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
+      
+      <guid>http://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</guid>
+      <description>&lt;p&gt;Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</title>
