@@ -121,6 +121,7 @@ ubuntu-drivers autoinstall
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/&#34;&gt;Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Черный экран после загрузки - &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&#34; target=&#34;_blank&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -799,17 +800,6 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
 нажать хоткей и достать все окна этой же программы наверх.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://blog.popstas.ru/blog/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.popstas.ru/blog/1/01/01/</guid>
-      <description>капо 2 лад
-1 Am И за каждым поворотом, Am И за каждым перекрестком F Выбирать пути мы будем Dm(Dm7) E Несмотря на шины в стеклах
-Припев: F Мой кумир, Am Asus4 он не оставит нас в пыли, F проведет, Am Asus4 он через &amp;hellip; невзгод,</description>
     </item>
     
   </channel>

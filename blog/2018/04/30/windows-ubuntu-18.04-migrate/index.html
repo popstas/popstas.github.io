@@ -150,6 +150,7 @@
 <li><del><a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Punto Switcher, без него жизни нет</a></del></li>
 <li><del><a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Alt+Shift+Tab</a></del></li>
 <li><del><a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка терминала, быстрый доступ к серверам, Solarized Dark</a></del></li>
+<li>Ctrl+Tab перестал переключать вкладки в Crome, Vscode и других программах</li>
 <li>RDP, доступ с машины и к ней</li>
 <li>Скриншоты, с рисованием на них и аплоадом</li>
 <li>Удобный DM, допиливание Gnome 3 до рабочего варианта</li>
@@ -196,6 +197,25 @@
 
 <p>Смените пароль на папку &ldquo;Вход&rdquo; в связке на пустой. <a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Подробнее</a></p>
 
+<h3 id="спящий-режим">Спящий режим</h3>
+
+<h4 id="компьютер-просыпается-сразу-после-засыпания">Компьютер просыпается сразу после засыпания</h4>
+
+<p>Нужно отключить все триггеры. Определяем устройства, которые могут будить:</p>
+
+<pre><code>cat  /proc/acpi/wakeup | grep enabled
+GLAN  S4 *enabled   pci:0000:00:1f.6
+XHC   S4 *enabled   pci:0000:00:14.0
+</code></pre>
+
+<p>После чего отправляем туда же имена этих устройств:</p>
+
+<pre><code>echo GLAN &gt; /proc/acpi/wakeup
+echo XHC &gt; /proc/acpi/wakeup
+</code></pre>
+
+<p>Мне это помогло.</p>
+
 <h2 id="настройка-софта">Настройка софта</h2>
 
 <ul>
@@ -203,6 +223,26 @@
 <li><a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt+Shift+Tab в Ubuntu 18.04</a></li>
 <li><a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a></li>
 </ul>
+
+<h2 id="windows-linux-remote-desktop">Windows - Linux Remote Desktop</h2>
+
+<p>Особо я не надеялся, что что-то получится и вообще точно знал, что такого гладкого RDP, как на Windows-Windows соединении не будет.</p>
+
+<h3 id="что-я-пробовал">Что я пробовал:</h3>
+
+<ol>
+<li><p>TigerVNC
+Не получилось завести.</p></li>
+
+<li><p>x2go
+На <a href="https://habr.com/post/329066/" target="_blank">хабре</a> прочитал, что это семантический протокол, то есть передает только изменения, а не тупо картинку.
+Поставил, запустил, работает, но выводит 2 монитора как есть и тормозит.</p></li>
+
+<li><p>xrdp &amp; x11rdp
+x11rdp пробовал собрать через <a href="https://github.com/scarygliders/X11RDP-o-Matic" target="_blank">X11RDP-o-Matic</a>, в результате получился только <a href="https://github.com/scarygliders/X11RDP-o-Matic/issues/91" target="_blank">issue</a>.</p></li>
+</ol>
+
+<p>Думаю, надо просто смириться с тем, что удаленки больше не будет.</p>
         </div>
         
 
