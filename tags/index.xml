@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Thu, 19 May 2016 00:47:52 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 08:20:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>18.04</title>
+      <link>https://blog.popstas.ru/tags/18.04/</link>
+      <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/18.04/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Alerting</title>
@@ -80,6 +89,15 @@
       <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
       
       <guid>https://blog.popstas.ru/tags/artifactory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Asus Dgx</title>
+      <link>https://blog.popstas.ru/tags/asus-dgx/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/asus-dgx/</guid>
       <description></description>
     </item>
     
@@ -183,6 +201,15 @@
     </item>
     
     <item>
+      <title>Drivers</title>
+      <link>https://blog.popstas.ru/tags/drivers/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/drivers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Drupal</title>
       <link>https://blog.popstas.ru/tags/drupal/</link>
       <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
@@ -260,6 +287,15 @@
       <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
       
       <guid>https://blog.popstas.ru/tags/gitlab-ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gnome</title>
+      <link>https://blog.popstas.ru/tags/gnome/</link>
+      <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/gnome/</guid>
       <description></description>
     </item>
     
@@ -449,6 +485,15 @@
       <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
       
       <guid>https://blog.popstas.ru/tags/nodemcu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nvidia</title>
+      <link>https://blog.popstas.ru/tags/nvidia/</link>
+      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/nvidia/</guid>
       <description></description>
     </item>
     
@@ -698,9 +743,18 @@
     <item>
       <title>Ubuntu</title>
       <link>https://blog.popstas.ru/tags/ubuntu/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      <pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Desktop</title>
+      <link>https://blog.popstas.ru/tags/ubuntu-desktop/</link>
+      <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/ubuntu-desktop/</guid>
       <description></description>
     </item>
     

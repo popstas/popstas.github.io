@@ -20,18 +20,18 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
 
   
   
-    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
   
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
 
   
   
@@ -45,10 +45,17 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
 </head>
 <body>
@@ -56,7 +63,7 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
     <h2>Записки о Linux</h2>
 </hgroup></header>
 
@@ -126,7 +133,7 @@
 
 <p>Gist - <a href="https://gist.github.com/popstas/deecce960a44368cff7da33f6c8583a8" target="_blank">https://gist.github.com/popstas/deecce960a44368cff7da33f6c8583a8</a></p>
 
-<pre><code class="language-bash">list_terms (){
+<pre><code>list_terms (){
     uuids=$(gsettings get org.gnome.Terminal.ProfilesList list | tr -d \' | tr -d \[ | tr -d \] | tr -d ,)
     for uuid in $(echo $uuids); do
         gsettings get org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${uuid}/ visible-name | tr -d \'
@@ -164,10 +171,10 @@ cd gnome-terminal-colors-solarized
 <p>После этого продолжил заводить ишью, прочитал все гайды, после чего наткнулся на очередной посыл подальше:</p>
 
 <blockquote>
-<p>If you&rsquo;re a developer of GNOME Terminal, VTE, or GNOME in general, you can file the bug in GNOME&rsquo;s bugzilla. In all other cases, you should file the bug against your Linux distribution&rsquo;s bug tracker; see here for a list of distribution bug trackers. The distribution bug triagers will then gather all the necessary information and confirmation before forwarding the bug to our bugzilla, if necessary.</p>
+<p>If you’re a developer of GNOME Terminal, VTE, or GNOME in general, you can file the bug in GNOME’s bugzilla. In all other cases, you should file the bug against your Linux distribution’s bug tracker; see here for a list of distribution bug trackers. The distribution bug triagers will then gather all the necessary information and confirmation before forwarding the bug to our bugzilla, if necessary.</p>
 </blockquote>
 
-<p>Ок&hellip; Я уже слишком далеко зашел, чтобы останавливаться ) Пошел на <a href="https://bugs.launchpad.net/ubuntu" target="_blank">https://bugs.launchpad.net/ubuntu</a>, там все свалено в кучу и инструкция по заведению бага намного больше, чем на gnome-terminal, странный способ Gnome выбрал, чтобы облегчить себе жить. Ладно, нашел, что подобные баги надо заводить так: <code>ubuntu-bug gnome-terminal</code>.</p>
+<p>Ок… Я уже слишком далеко зашел, чтобы останавливаться ) Пошел на <a href="https://bugs.launchpad.net/ubuntu" target="_blank">https://bugs.launchpad.net/ubuntu</a>, там все свалено в кучу и инструкция по заведению бага намного больше, чем на gnome-terminal, странный способ Gnome выбрал, чтобы облегчить себе жить. Ладно, нашел, что подобные баги надо заводить так: ubuntu-bug gnome-terminal.</p>
 
 <p>В итоге я завел баг - <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1768178" target="_blank">https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1768178</a>, <del>возможно, я что-то не понимаю или плохо искал, но неправильная схема добавлена в терминал в начале 2014, и я не нашел ни одного бага про solarized ни на gnome, ни на launchpad</del>. Конечно, я что-то не понимал, никакого глюка не было, спасибо Egmont Koblinger, который попросил меня внимательно все перепроверить.</p>
 
@@ -183,7 +190,7 @@ cd gnome-terminal-colors-solarized
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/ubuntu-desktop">ubuntu desktop</a>  <a class="category" href="http://blog.popstas.ru/tags/gnome">gnome</a>  <a class="category" href="http://blog.popstas.ru/tags/18.04">18.04</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/ubuntu-desktop">ubuntu desktop</a>  <a class="category" href="https://blog.popstas.ru/tags/gnome">gnome</a>  <a class="category" href="https://blog.popstas.ru/tags/18.04">18.04</a>  
     
     </span>
   </p>
@@ -217,7 +224,7 @@ cd gnome-terminal-colors-solarized
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/" title="Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/" title="Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
     
 
     

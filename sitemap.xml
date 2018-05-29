@@ -3,6 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</loc>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</loc>
+    <lastmod>2018-05-01T05:55:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/</loc>
+    <lastmod>2018-05-01T05:35:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/05/01/time-zone-ubuntu-windows-reboot/</loc>
+    <lastmod>2018-05-01T03:45:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/05/01/seahorse-password-on-ubuntu-boot/</loc>
+    <lastmod>2018-05-01T03:28:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</loc>
+    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</loc>
+    <lastmod>2018-04-30T19:46:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</loc>
+    <lastmod>2018-04-30T18:45:00+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</loc>
+    <lastmod>2018-04-30T18:40:00+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</loc>
     <lastmod>2018-03-01T20:30:00+06:00</lastmod>
   </url>
@@ -157,6 +202,12 @@
   </url>
   
   <url>
+    <loc>https://blog.popstas.ru/tags/18.04/</loc>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.popstas.ru/tags/alerting/</loc>
     <lastmod>2016-05-19T00:47:52+00:00</lastmod>
     <priority>0</priority>
@@ -201,6 +252,12 @@
   <url>
     <loc>https://blog.popstas.ru/tags/artifactory/</loc>
     <lastmod>2017-02-24T17:39:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/tags/asus-dgx/</loc>
+    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -276,6 +333,12 @@
   </url>
   
   <url>
+    <loc>https://blog.popstas.ru/tags/drivers/</loc>
+    <lastmod>2018-04-30T19:53:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.popstas.ru/tags/drupal/</loc>
     <lastmod>2015-12-14T08:16:00+00:00</lastmod>
     <priority>0</priority>
@@ -326,6 +389,12 @@
   <url>
     <loc>https://blog.popstas.ru/tags/gitlab-ci/</loc>
     <lastmod>2017-03-08T01:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/tags/gnome/</loc>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -456,6 +525,12 @@
   </url>
   
   <url>
+    <loc>https://blog.popstas.ru/tags/nvidia/</loc>
+    <lastmod>2018-04-30T19:46:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.popstas.ru/tags/octopress/</loc>
     <lastmod>2017-03-05T20:45:00+00:00</lastmod>
     <priority>0</priority>
@@ -547,13 +622,13 @@
   
   <url>
     <loc>https://blog.popstas.ru/</loc>
-    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.popstas.ru/post/</loc>
-    <lastmod>2018-03-01T20:30:00+06:00</lastmod>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -601,7 +676,7 @@
   
   <url>
     <loc>https://blog.popstas.ru/tags/</loc>
-    <lastmod>2016-05-19T00:47:52+00:00</lastmod>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -637,7 +712,13 @@
   
   <url>
     <loc>https://blog.popstas.ru/tags/ubuntu/</loc>
-    <lastmod>2017-03-26T21:30:00+00:00</lastmod>
+    <lastmod>2018-04-30T18:40:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/tags/ubuntu-desktop/</loc>
+    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -100,6 +100,376 @@ ga('send', 'pageview');
         
 
 <header>
+    <p class="meta">24 Feb 2017, 17:39
+         - 5 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
+и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.</p>
+
+<p>Ниже описано, как создать зеркало из <a href="http://mirror.yandex.ru/ubuntu" target="_blank">http://mirror.yandex.ru/ubuntu</a> и подружить его с Gitlab CI и molecule.</p>
+
+<p>Tl;dr: не делайте локальный репозиторий через <code>apt-mirror</code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng</a>.</p>
+
+<p><img src="/images/2017-02/apt-mirror.png" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">22 Feb 2017, 01:19
+         - 1 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.</p>
+
+<h3 id="для-этого-надо">Для этого надо:</h3>
+
+<ol>
+<li>Извлечь директорию подпроекта в отдельный репозиторий</li>
+<li>Удалить из проекта папку подпроекта</li>
+<li>Добавить в большой проект зависимость от подпроекта</li>
+</ol>
+
+<p>Ниже написано, как сделать 1-й шаг одной командой через скрипт <code>git-extract-subproject</code>.</p>
+
+<p><img src="/images/2017-02/git-extract-subproject.jpg" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">19 May 2016, 00:47
+         - 5 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.</p>
+
+<p>Речь пойдет о Kapacitor, последнеем слое из стека <a href="https://influxdata.com/get-started/what-is-the-tick-stack/" target="_blank">TICK</a> от InfluxData, набора программ для сбора, отображения и обработке метрик.</p>
+
+<p>Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.</p>
+
+<p>А также небольшое замечание о том, <a href="/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request">как делать Pull request&rsquo;ы из браузера за 2 минуты</a></p>
+
+<p><img style="background:#1F242D" src="/images/2016-05/kapacitor.svg" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">11 Apr 2016, 05:01
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/">Bash on Ubuntu on Windows: первый блин</a>
+    </h1>
+</header>
+
+
+        
+          <p>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
+Tl;dr: оно очень сырое, не работает почти ничего.
+Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
+$ aptitude install zsh  Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
+Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">7 Apr 2016, 00:26
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.</p>
+
+<p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.</p>
+
+<ul>
+<li><a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5" target="_blank">issue про недоступность сборки 14316</a></li>
+<li><a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/" target="_blank">Инструкция по обновлению на русском</a></li>
+</ul>
+
+<p><img src="http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">6 Mar 2016, 10:09
+         - 7 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/">CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>С начала января я веду свой <a href="/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик</a>, на котором обкатываю новые для меня технологии:</p>
+
+<ul>
+<li>Статический анализ кода, phpcs, phpmd, Scrutinizer</li>
+<li>Автоматическая сборка, Travis CI</li>
+<li>Unit тесты, PHPUnit</li>
+<li>Покрытие кода, Coveralls</li>
+<li>Работу через задачи для любых изменений, Github Issues, PhpStorm tasks</li>
+<li>Документирование всего: README, CHANGELOG, сайт проекта, &ndash;help</li>
+</ul>
+
+<p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.</p>
+
+<p>Tl;dr: conventional-changelog, стандартизация коммитов.</p>
+
+<p><img src="/images/2016-03/changelog.png" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">2 Mar 2016, 00:49
+         - 5 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Интеграция Git, Gitlab и Planfix почти как на Github</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.</p>
+
+<p>Ниже будет написано, как настроить в <a href="https://planfix.ru/" target="_blank">Планфиксе</a> такое поведение:</p>
+
+<ul>
+<li>В коммите упоминаем задачу, например, <code>Правки футера шаблона, https://test.planfix.ru/task/123456</code></li>
+<li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.</li>
+</ul>
+
+<p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.</p>
+
+<p>Вся интеграция делается в одном файле, код хука лежит здесь -
+<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive" target="_blank">git-hook-post-receive</a></p>
+
+<p><img src="/images/2016-03/planfix_logo.png" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">29 Feb 2016, 03:46
+         - 2 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/">average: измерение среднего времени выполнения команды в bash</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Периодически хочется посчитать среднее время, у меня были такие сценарии:</p>
+
+<ul>
+<li>простая проверка скорости загрузки страницы</li>
+<li>подбор оптимальных параметров к команде</li>
+<li>сравнение разных команд</li>
+</ul>
+
+<p>Раньше я просто запускал несколько раз с <code>time</code>, смотрел результат, у уме делил.
+Но мне это надоело, поэтому написал скрипт <code>average</code>.</p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">27 Feb 2016, 14:48
+         - 7 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/">Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.</p>
+
+<p>Tl;dr: RSS + Twitter + Email &rarr; Pocket &rarr; Firefox &rarr; Twitter + закладки.</p>
+
+<p><img src="/images/2016-02/content_pyramid.png" /></p>
+
+<p></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">26 Feb 2016, 21:29
          - 7 мин читать 
 
@@ -127,372 +497,6 @@ ga('send', 'pageview');
           
               <footer>
                   <a href="https://blog.popstas.ru/blog/2016/02/26/docker-in-images/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">25 Feb 2016, 23:31
-         - 4 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/">Большой тачпад как замена мышки</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
-нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.</p>
-
-<p><img src="/images/2016-02/touchpad_wacom.jpg" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">31 Jan 2016, 02:00
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/">Проверяем изменения на странице через cron</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Сегодня хотел заказать ароматизаторов на <a href="http://baker-flavors.blogspot.ru/" target="_blank">Baker Flavours</a>, дошел до страницы заказа,
-и увидел &ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&rdquo;.</p>
-
-<p>Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.</p>
-
-<p>Строчка для crontab:</p>
-
-<pre><code>0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &quot;временно прекращен&quot; &gt; /dev/null || { echo &quot;BF order started&quot; | terminal-notifier &amp;&amp; open http://bakerflavors.ru/formbf.htm }
-</code></pre>
-
-<p>Подробности под катом.</p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">31 Jan 2016, 01:43
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/">E.ggtimer: таймер в пару кликов в любом браузере</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
-бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
-возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:</p>
-
-<ul>
-<li>Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера</li>
-<li>Пользоваться легко</li>
-</ul>
-
-<p>UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &ldquo;Окей, гугл, таймер на пять минут&rdquo;.</p>
-
-<p><img src="/images/2016-01/eggtimer.png" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">17 Jan 2016, 08:22
-         - 6 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с <a href="http://weburg.net" target="_blank">weburg.net</a>, дающая бонусы,
-их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.</p>
-
-<p>Поддержку раздач можно разбить на несколько задач:</p>
-
-<ol>
-<li>периодически скачивать новинки фильмов</li>
-<li>скачивать новые серии популярных сериалов</li>
-<li>удалять то, что плохо раздается</li>
-</ol>
-
-<p>Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
-<a href="https://github.com/popstas/transmission-cli" target="_blank">transmission-cli</a> - консольная утилита, решающая часть этих задач.</p>
-
-<p><iframe src="https://ghbtns.com/github-btn.html?user=popstas&repo=transmission-cli&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-<a href="https://travis-ci.org/popstas/transmission-cli" target="_blank"><img src="https://travis-ci.org/popstas/transmission-cli.svg?branch=master" alt="Build Status" /></a>
-<a href="https://coveralls.io/github/popstas/transmission-cli?branch=master" target="_blank"><img src="https://coveralls.io/repos/popstas/transmission-cli/badge.svg?branch=master&amp;service=github" alt="Coverage Status" /></a></p>
-
-<p><img src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">17 Jan 2016, 07:50
-         - 1 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/">Быстрое обновление PhpStorm EAP на Mac OS через bash</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
-под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
-Поэтому написал скрипт, не совместимый с Ubuntu :)</p>
-
-<p>UPD: 06.06.2016
-Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.</p>
-
-<p><img src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">14 Dec 2015, 08:16
-         - 6 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/">Разворачиваем Drupal 8 с помощью Otto</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Репост <a href="https://habrahabr.ru/post/273009/" target="_blank">моей статьи</a> с хабра.</p>
-
-<p>Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
-о котором уже была <a href="http://habrahabr.ru/post/268497/">обзорная статья</a> на хабре.</p>
-
-<p>Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
-чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.</p>
-
-<p><img src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" alt="image"/></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">10 Dec 2015, 19:55
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/">Интерактивная Zsh history с поиском и скроллом, percol</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать <code>Ctrl+R</code> и начать набирать
-команду, отобразится последняя команда из истории, для навигации можно использовать
-<code>Ctrl+R</code>, <code>Ctrl+Shift+R</code>. При этом видно одновременно видно только одну команду из истории.</p>
-
-<p>Утилита <a href="https://github.com/mooz/percol#zsh-history-search" target="_blank">percol</a> решает эту проблему.</p>
-
-<p><img src="/images/2015-12/percol.gif" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">22 Nov 2015, 09:40
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/">Простой тайм-трекер для отслеживания потраченного времени</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
-Поэтому написал для себя небольшое приложение, тайм-трекер - <a href="http://time.popstas.ru/" target="_blank">http://time.popstas.ru/</a>
-Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
-глюки, которые раздражали последние годы :)</p>
-
-<p>Tl; dr: выбросил свою поделку, теперь пользуюсь <a href="https://www.toggl.com/" target="_blank">https://www.toggl.com/</a></p>
-
-<p><img src="https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true" /></p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">16 Nov 2015, 23:55
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/">Показать все окна gnome terminal в Ubuntu</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>При работе за компом имею привычку открывать много терминалов,
-не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
-При этом терминалы расположены по всему рабочему экрану.</p>
-
-<p>Из-за этого была такая проблема: при переключении на браузер или редактор,
-которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.</p>
-
-<p>Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
-нажать хоткей и достать все окна этой же программы наверх.</p>
-
-<p></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/" rel="full-article">Читать &rarr;</a>
               </footer>
           
 
@@ -593,23 +597,23 @@ ga('send', 'pageview');
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
+              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
+              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
+              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
+              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
+              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
             </li>
           
         </ul>

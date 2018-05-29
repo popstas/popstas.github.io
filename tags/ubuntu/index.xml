@@ -6,10 +6,26 @@
     <description>Recent content in Ubuntu on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sun, 26 Mar 2017 21:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 18:40:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title>
+      <link>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</link>
+      <pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</guid>
+      <description>&lt;p&gt;26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.&lt;/p&gt;
+
+&lt;p&gt;Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - &lt;a href=&#34;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93&lt;/a&gt;), несколько других похожих постов вообще остались лежать на локалке.&lt;/p&gt;
+
+&lt;p&gt;Так что буду писать по мере наступания на грабли и пополнять статью.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg&#34; /&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
