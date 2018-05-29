@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Influxdb on Popstas</title>
-    <link>http://blog.popstas.ru/tags/influxdb/</link>
+    <link>https://blog.popstas.ru/tags/influxdb/</link>
     <description>Recent content in Influxdb on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 17 Jan 2016 08:22:25 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/influxdb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/influxdb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
-      <link>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
       <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
       <description>&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34; target=&#34;_blank&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
 их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
 

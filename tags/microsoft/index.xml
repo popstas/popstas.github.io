@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microsoft on Popstas</title>
-    <link>http://blog.popstas.ru/tags/microsoft/</link>
+    <link>https://blog.popstas.ru/tags/microsoft/</link>
     <description>Recent content in Microsoft on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 11 Apr 2016 05:01:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bash on Ubuntu on Windows: первый блин</title>
-      <link>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
+      <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
       <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
       <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
 Tl;dr: оно очень сырое, не работает почти ничего.
 Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
@@ -26,10 +26,10 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
     
     <item>
       <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
-      <link>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
+      <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
       <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
       <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
 
 &lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on Popstas</title>
-    <link>http://blog.popstas.ru/tags/windows/</link>
+    <link>https://blog.popstas.ru/tags/windows/</link>
     <description>Recent content in Windows on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 11 Apr 2016 05:01:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bash on Ubuntu on Windows: первый блин</title>
-      <link>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
+      <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
       <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
       <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
 Tl;dr: оно очень сырое, не работает почти ничего.
 Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.

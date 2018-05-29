@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Macos on Popstas</title>
-    <link>http://blog.popstas.ru/tags/macos/</link>
+    <link>https://blog.popstas.ru/tags/macos/</link>
     <description>Recent content in Macos on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 25 Feb 2016 23:31:57 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Большой тачпад как замена мышки</title>
-      <link>http://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
+      <link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
       <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
       <description>&lt;p&gt;Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
 нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
-      <link>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
       <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;

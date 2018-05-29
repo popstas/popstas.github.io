@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fast on Popstas</title>
-    <link>http://blog.popstas.ru/tags/fast/</link>
+    <link>https://blog.popstas.ru/tags/fast/</link>
     <description>Recent content in Fast on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/fast/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/fast/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
-      <link>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
+      <link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
       <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
       <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
 поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.&lt;/p&gt;
 
@@ -45,16 +45,16 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 
 &lt;p&gt;В действии:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
-      <link>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
       <pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
       <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
 бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
 возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p&gt;
@@ -66,17 +66,17 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 
 &lt;p&gt;UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-01/eggtimer.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-01/eggtimer.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
-      <link>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
       <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;

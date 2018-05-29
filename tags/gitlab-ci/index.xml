@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gitlab Ci on Popstas</title>
-    <link>http://blog.popstas.ru/tags/gitlab-ci/</link>
+    <link>https://blog.popstas.ru/tags/gitlab-ci/</link>
     <description>Recent content in Gitlab Ci on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/gitlab-ci/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/gitlab-ci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
-      <link>http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
+      <link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
       <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
       <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
 
 &lt;p&gt;TODO: concurrent
@@ -30,7 +30,7 @@ TODO: несколько дистрибов&lt;/p&gt;
 &lt;li&gt;Тестирование на разных машинах&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/iterations.png&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/iterations.png&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     

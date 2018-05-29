@@ -20,18 +20,18 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
 
   
   
-    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
   
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
 
   
   
@@ -45,10 +45,17 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
 </head>
 <body>
@@ -56,7 +63,7 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
     <h2>Записки о Linux</h2>
 </hgroup></header>
 
@@ -242,17 +249,14 @@ mount: unknown filesystem type 'vboxsf'
 </code></pre>
 
 <p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p>
-
-<pre><code class="language-json">{
-  &quot;builders&quot;: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;builders&#34;</span>: [
     {
-      &quot;type&quot;: &quot;virtualbox-iso&quot;,
-      &quot;guest_additions_path&quot;: &quot;VBoxGuestAdditions_{{.Version}}.iso&quot;
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
+      <span style="color:#f92672">&#34;guest_additions_path&#34;</span>: <span style="color:#e6db74">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>
     }
   ]
-}
-</code></pre>
-
+}</code></pre></div>
 <p>После чтения <a href="https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path" target="_blank">доки</a> стало понятно,
 что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:</p>
 
@@ -273,21 +277,17 @@ mount: unknown filesystem type 'vboxsf'
 <li>в provisioners и post-processors были вписаны <code>&quot;only&quot;: [&quot;virtualbox-iso&quot;]</code> и <code>&quot;only&quot;: [&quot;docker&quot;]</code> куда надо</li>
 <li>в shell provisioners была дописана строчка с <code>override</code>, которая запускает скрипт от имени vagrant и не влияет на docker builder:</li>
 </ul>
-
-<pre><code class="language-json">{
-  &quot;provisioners&quot;: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;provisioners&#34;</span>: [
     {
-      &quot;type&quot;: &quot;shell&quot;,
-      &quot;script&quot;: &quot;packer/scripts/ansible.sh&quot;,
-      &quot;override&quot;: {
-        &quot;virtualbox-iso&quot;: {
-          &quot;execute_command&quot;: &quot;echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'&quot;
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#e6db74">&#34;packer/scripts/ansible.sh&#34;</span>,
+      <span style="color:#f92672">&#34;override&#34;</span>: {
+        <span style="color:#f92672">&#34;virtualbox-iso&#34;</span>: {
+          <span style="color:#f92672">&#34;execute_command&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -S -E bash &#39;{{.Path}}&#39;&#34;</span>
         }
       }
-    },
-
-</code></pre>
-
+    },</code></pre></div>
 <h3 id="сборка-docker-застывала-в-конце">Сборка Docker застывала в конце</h3>
 
 <p>Не понял, с чем это связано, но заствала она на <code>apt autoremove</code>, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.</p>
@@ -306,7 +306,7 @@ mount: unknown filesystem type 'vboxsf'
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/vagrant">vagrant</a>  <a class="category" href="http://blog.popstas.ru/tags/packer">packer</a>  <a class="category" href="http://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="http://blog.popstas.ru/tags/ubuntu">ubuntu</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/vagrant">vagrant</a>  <a class="category" href="https://blog.popstas.ru/tags/packer">packer</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a>  
     
     </span>
   </p>
@@ -340,11 +340,11 @@ mount: unknown filesystem type 'vboxsf'
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/" title="Продублировать последний аргумент текущей команды в zsh, zle widget">Продублировать последний аргумент текущей команды в zsh, zle widget</a>
+        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/" title="Продублировать последний аргумент текущей команды в zsh, zle widget">Продублировать последний аргумент текущей команды в zsh, zle widget</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/" title="Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
+      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/" title="Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
     
   </p>
       <div id="disqus_thread"></div>
@@ -417,23 +417,23 @@ mount: unknown filesystem type 'vboxsf'
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
+              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

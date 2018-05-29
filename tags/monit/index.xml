@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Monit on Popstas</title>
-    <link>http://blog.popstas.ru/tags/monit/</link>
+    <link>https://blog.popstas.ru/tags/monit/</link>
     <description>Recent content in Monit on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 19 May 2016 00:47:52 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/monit/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/monit/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
-      <link>http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
+      <link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
       <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
       <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
 
 &lt;p&gt;Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href=&#34;https://influxdata.com/get-started/what-is-the-tick-stack/&#34; target=&#34;_blank&#34;&gt;TICK&lt;/a&gt; от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p&gt;
 
 &lt;p&gt;Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p&gt;
 
-&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;http://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&amp;rsquo;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&amp;rsquo;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img style=&#34;background:#1F242D&#34; src=&#34;http://blog.popstas.ru/images/2016-05/kapacitor.svg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style=&#34;background:#1F242D&#34; src=&#34;https://blog.popstas.ru/images/2016-05/kapacitor.svg&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

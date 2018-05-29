@@ -20,18 +20,18 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
 
   
   
-    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
   
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
 
   
   
@@ -45,10 +45,17 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
 </head>
 <body>
@@ -56,7 +63,7 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
     <h2>Записки о Linux</h2>
 </hgroup></header>
 
@@ -139,12 +146,9 @@
 <h1 id="установка">Установка</h1>
 
 <p>Установить клиент можно так:</p>
-
-<pre><code class="language-bash">latest_phar=$(curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep 'browser_' | cut -d\&quot; -f4)
-wget -O /usr/local/bin/transmission-cli &quot;$latest_phar&quot;
-chmod +x /usr/local/bin/transmission-cli
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">latest_phar<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep <span style="color:#e6db74">&#39;browser_&#39;</span> | cut -d<span style="color:#ae81ff">\&#34;</span> -f4<span style="color:#66d9ef">)</span>
+wget -O /usr/local/bin/transmission-cli <span style="color:#e6db74">&#34;</span>$latest_phar<span style="color:#e6db74">&#34;</span>
+chmod +x /usr/local/bin/transmission-cli</code></pre></div>
 <p>Пользоваться графиками можно с трудом, потому что InfluxDB и Grafana вам придется устанавливать самостоятельно.
 Я ставил то и другое в docker на свою виртуалку и пробрасывал порты на localhost,
 сейчас localhost вшит в <a href="https://github.com/popstas/transmission-cli/blob/master/src/Config.php" target="_blank">конфиг</a>,
@@ -305,12 +309,9 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
 
 <p>Чтобы добавить coveralls в самом простом случае (в доках есть и сложные), достаточно сделать так, чтобы PHPUnit
 генерил файл <code>build/logs/clover.xml</code>, для этого надо добавить строчку в phpunit.xml, в секцию logging:</p>
-
-<pre><code class="language-xml">&lt;logging&gt;
-    &lt;log type=&quot;coverage-clover&quot; target=&quot;build/logs/clover.xml&quot;/&gt;
-&lt;/logging&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;logging&gt;</span>
+    <span style="color:#f92672">&lt;log</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;coverage-clover&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;build/logs/clover.xml&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/logging&gt;</span></code></pre></div>
 <p>Ну и конечно зарегаться на <a href="https://coveralls.io/" target="_blank">https://coveralls.io/</a> и активировать там проект.
 Если путь будет другой, придется читать доки и создавать файл настройки .coveralls.yml</p>
 
@@ -327,7 +328,7 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/transmission-cli">transmission-cli</a>  <a class="category" href="http://blog.popstas.ru/tags/php">php</a>  <a class="category" href="http://blog.popstas.ru/tags/influxdb">influxdb</a>  <a class="category" href="http://blog.popstas.ru/tags/influxdata">influxdata</a>  <a class="category" href="http://blog.popstas.ru/tags/grafana">grafana</a>  <a class="category" href="http://blog.popstas.ru/tags/travis">travis</a>  <a class="category" href="http://blog.popstas.ru/tags/ci">ci</a>  <a class="category" href="http://blog.popstas.ru/tags/symfony">symfony</a>  <a class="category" href="http://blog.popstas.ru/tags/docker">docker</a>  <a class="category" href="http://blog.popstas.ru/tags/box">box</a>  <a class="category" href="http://blog.popstas.ru/tags/phar">phar</a>  <a class="category" href="http://blog.popstas.ru/tags/phpcs">phpcs</a>  <a class="category" href="http://blog.popstas.ru/tags/phpmd">phpmd</a>  <a class="category" href="http://blog.popstas.ru/tags/composer">composer</a>  <a class="category" href="http://blog.popstas.ru/tags/coveralls">coveralls</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/transmission-cli">transmission-cli</a>  <a class="category" href="https://blog.popstas.ru/tags/php">php</a>  <a class="category" href="https://blog.popstas.ru/tags/influxdb">influxdb</a>  <a class="category" href="https://blog.popstas.ru/tags/influxdata">influxdata</a>  <a class="category" href="https://blog.popstas.ru/tags/grafana">grafana</a>  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a>  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a>  <a class="category" href="https://blog.popstas.ru/tags/symfony">symfony</a>  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a>  <a class="category" href="https://blog.popstas.ru/tags/box">box</a>  <a class="category" href="https://blog.popstas.ru/tags/phar">phar</a>  <a class="category" href="https://blog.popstas.ru/tags/phpcs">phpcs</a>  <a class="category" href="https://blog.popstas.ru/tags/phpmd">phpmd</a>  <a class="category" href="https://blog.popstas.ru/tags/composer">composer</a>  <a class="category" href="https://blog.popstas.ru/tags/coveralls">coveralls</a>  
     
     </span>
   </p>
@@ -361,11 +362,11 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/" title="Быстрое обновление PhpStorm EAP на Mac OS через bash">Быстрое обновление PhpStorm EAP на Mac OS через bash</a>
+        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/" title="Быстрое обновление PhpStorm EAP на Mac OS через bash">Быстрое обновление PhpStorm EAP на Mac OS через bash</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/" title="E.ggtimer: таймер в пару кликов в любом браузере">E.ggtimer: таймер в пару кликов в любом браузере</a>
+      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/" title="E.ggtimer: таймер в пару кликов в любом браузере">E.ggtimer: таймер в пару кликов в любом браузере</a>
     
   </p>
       <div id="disqus_thread"></div>
@@ -438,23 +439,23 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
+              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

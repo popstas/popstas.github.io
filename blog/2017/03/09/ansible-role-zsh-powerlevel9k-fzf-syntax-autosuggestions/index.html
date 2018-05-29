@@ -20,18 +20,18 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
 
   
   
-    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
   
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
 
   
   
@@ -45,10 +45,17 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
 </head>
 <body>
@@ -56,7 +63,7 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
     <h2>Записки о Linux</h2>
 </hgroup></header>
 
@@ -268,14 +275,11 @@ vagrant up
 </code></pre>
 
 <p>Потом создать плейбук вроде такого:</p>
-
-<pre><code class="language-yaml">hosts: all
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">hosts: all
 vars:
-  zsh_autosuggestions_bind_key: &quot;^U&quot;
+  zsh_autosuggestions_bind_key: <span style="color:#e6db74">&#34;^U&#34;</span>
 roles:
-  - viasite-ansible.zsh
-</code></pre>
-
+  - viasite-ansible.zsh</code></pre></div>
 <p>Сохранить, например, в <code>zsh.yml</code>. После этого роль можно применить к локальному юзеру:</p>
 
 <pre><code>ansible-playbook -i &quot;localhost,&quot; -c local zsh.yml
@@ -312,7 +316,7 @@ roles:
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="http://blog.popstas.ru/tags/oh-my-zsh">oh-my-zsh</a>  <a class="category" href="http://blog.popstas.ru/tags/powerlevel9k">powerlevel9k</a>  <a class="category" href="http://blog.popstas.ru/tags/ansible-role">ansible-role</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh-autosuggestions">zsh-autosuggestions</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh-syntax-highlighting">zsh-syntax-highlighting</a>  <a class="category" href="http://blog.popstas.ru/tags/fzf">fzf</a>  <a class="category" href="http://blog.popstas.ru/tags/zsh-command-time">zsh-command-time</a>  <a class="category" href="http://blog.popstas.ru/tags/percol">percol</a>  <a class="category" href="http://blog.popstas.ru/tags/powerline">powerline</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="https://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="https://blog.popstas.ru/tags/oh-my-zsh">oh-my-zsh</a>  <a class="category" href="https://blog.popstas.ru/tags/powerlevel9k">powerlevel9k</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible-role">ansible-role</a>  <a class="category" href="https://blog.popstas.ru/tags/zsh-autosuggestions">zsh-autosuggestions</a>  <a class="category" href="https://blog.popstas.ru/tags/zsh-syntax-highlighting">zsh-syntax-highlighting</a>  <a class="category" href="https://blog.popstas.ru/tags/fzf">fzf</a>  <a class="category" href="https://blog.popstas.ru/tags/zsh-command-time">zsh-command-time</a>  <a class="category" href="https://blog.popstas.ru/tags/percol">percol</a>  <a class="category" href="https://blog.popstas.ru/tags/powerline">powerline</a>  
     
     </span>
   </p>
@@ -346,11 +350,11 @@ roles:
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/" title="Мой процесс написания ansible роли с Molecule и Gitlab CI">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
+        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/" title="Мой процесс написания ansible роли с Molecule и Gitlab CI">Мой процесс написания ansible роли с Molecule и Gitlab CI</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" title="Подсветка Python синтаксиса в PhpStorm">Подсветка Python синтаксиса в PhpStorm</a>
+      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" title="Подсветка Python синтаксиса в PhpStorm">Подсветка Python синтаксиса в PhpStorm</a>
     
   </p>
       <div id="disqus_thread"></div>
@@ -423,23 +427,23 @@ roles:
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
+              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

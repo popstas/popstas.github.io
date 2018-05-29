@@ -20,18 +20,18 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
 
   
   
-    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
   
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
 
   
   
@@ -45,10 +45,17 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
 </head>
 <body>
@@ -56,7 +63,7 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
     <h2>Записки о Linux</h2>
 </hgroup></header>
 
@@ -145,14 +152,11 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
 
 <p>После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
 Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:</p>
-
-<pre><code class="language-bash"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd
-# http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html
-autoload -Uz copy-earlier-word
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd
+</span><span style="color:#75715e"># http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html
+</span><span style="color:#75715e"></span>autoload -Uz copy-earlier-word
 zle -N copy-earlier-word
-bindkey &quot;^[,&quot; copy-earlier-word
-</code></pre>
-
+bindkey <span style="color:#e6db74">&#34;^[,&#34;</span> copy-earlier-word</code></pre></div>
 <p>Код надо вставить в <code>.zshrc</code> или <code>.zshrc.local</code> если вы пользуетесь
 <a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" target="_blank">ansible-role-zsh</a></p>
 
@@ -174,16 +178,14 @@ bindkey &quot;^[,&quot; copy-earlier-word
 <p>Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.</p>
 
 <p>Сам скрипт:</p>
-
-<pre><code class="language-bash"># Ctrl+, - duplicate last word in current command
-zsh-duplicate-last-arg() {
-	BUFFER=$(echo &quot;$BUFFER&quot; | sed -e 's/[[:space:]]*$//')
-	BUFFER=&quot;$BUFFER ${BUFFER##* }&quot;
-	CURSOR=$#BUFFER
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ctrl+, - duplicate last word in current command
+</span><span style="color:#75715e"></span>zsh-duplicate-last-arg<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	BUFFER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$BUFFER<span style="color:#e6db74">&#34;</span> | sed -e <span style="color:#e6db74">&#39;s/[[:space:]]*$//&#39;</span><span style="color:#66d9ef">)</span>
+	BUFFER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BUFFER<span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>BUFFER##* <span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+	CURSOR<span style="color:#f92672">=</span>$#BUFFER
+<span style="color:#f92672">}</span>
 zle -N zsh-duplicate-last-arg
-bindkey '^[,' zsh-duplicate-last-arg
-</code></pre>
+bindkey <span style="color:#e6db74">&#39;^[,&#39;</span> zsh-duplicate-last-arg</code></pre></div>
         </div>
         
 
@@ -195,7 +197,7 @@ bindkey '^[,' zsh-duplicate-last-arg
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="http://blog.popstas.ru/tags/zle">zle</a>  <a class="category" href="http://blog.popstas.ru/tags/fast">fast</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="https://blog.popstas.ru/tags/zle">zle</a>  <a class="category" href="https://blog.popstas.ru/tags/fast">fast</a>  
     
     </span>
   </p>
@@ -229,11 +231,11 @@ bindkey '^[,' zsh-duplicate-last-arg
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" title="Подсветка Python синтаксиса в PhpStorm">Подсветка Python синтаксиса в PhpStorm</a>
+        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/" title="Подсветка Python синтаксиса в PhpStorm">Подсветка Python синтаксиса в PhpStorm</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/" title="Packer: создаем свои vagrant box и docker image из одного конфига">Packer: создаем свои vagrant box и docker image из одного конфига</a>
+      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/" title="Packer: создаем свои vagrant box и docker image из одного конфига">Packer: создаем свои vagrant box и docker image из одного конфига</a>
     
   </p>
       <div id="disqus_thread"></div>
@@ -306,23 +308,23 @@ bindkey '^[,' zsh-duplicate-last-arg
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
+              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

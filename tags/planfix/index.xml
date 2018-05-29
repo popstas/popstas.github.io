@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Planfix on Popstas</title>
-    <link>http://blog.popstas.ru/tags/planfix/</link>
+    <link>https://blog.popstas.ru/tags/planfix/</link>
     <description>Recent content in Planfix on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 01 Mar 2018 20:30:00 +0600</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/planfix/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/planfix/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Интеграция Планфикса и Toggl для учета времени</title>
-      <link>http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link>
+      <link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link>
       <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid>
-      <description>&lt;p&gt;Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href=&#34;http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/&#34;&gt;Планфикса с Git&lt;/a&gt;, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p&gt;
+      <guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid>
+      <description>&lt;p&gt;Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href=&#34;https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/&#34;&gt;Планфикса с Git&lt;/a&gt;, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p&gt;
 
 &lt;p&gt;Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p&gt;
 
@@ -27,16 +27,16 @@
 &lt;li&gt;Расширения для &lt;a href=&#34;https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl&#34; target=&#34;_blank&#34;&gt;Chrome&lt;/a&gt; и &lt;a href=&#34;https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/&#34; target=&#34;_blank&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2018-03/planfix-toggl.png&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-03/planfix-toggl.png&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
-      <link>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
+      <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
       <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
 
 &lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34; target=&#34;_blank&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
@@ -53,7 +53,7 @@
 &lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
 &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

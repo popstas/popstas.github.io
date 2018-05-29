@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on Popstas</title>
-    <link>http://blog.popstas.ru/tags/bash/</link>
+    <link>https://blog.popstas.ru/tags/bash/</link>
     <description>Recent content in Bash on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
-      <link>http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
+      <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
       <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
       <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34; target=&#34;_blank&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
@@ -44,17 +44,17 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Демонстрация фич за 1 минуту:
-&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
-      <link>http://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
+      <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
       <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
       <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
 
 &lt;h3 id=&#34;для-этого-надо&#34;&gt;Для этого надо:&lt;/h3&gt;
@@ -67,17 +67,17 @@
 
 &lt;p&gt;Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code&gt;git-extract-subproject&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Bash on Ubuntu on Windows: первый блин</title>
-      <link>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
+      <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
       <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
       <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
 Tl;dr: оно очень сырое, не работает почти ничего.
 Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
@@ -87,10 +87,10 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
     
     <item>
       <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
-      <link>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
+      <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
       <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
       <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
 
 &lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;
@@ -107,10 +107,10 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
     
     <item>
       <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
-      <link>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
+      <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
       <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
 
 &lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34; target=&#34;_blank&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
@@ -127,17 +127,17 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
 &lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
 &lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>average: измерение среднего времени выполнения команды в bash</title>
-      <link>http://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
+      <link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
       <pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
       <description>&lt;p&gt;Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -154,10 +154,10 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
     
     <item>
       <title>Проверяем изменения на странице через cron</title>
-      <link>http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
       <pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
       <description>&lt;p&gt;Сегодня хотел заказать ароматизаторов на &lt;a href=&#34;http://baker-flavors.blogspot.ru/&#34; target=&#34;_blank&#34;&gt;Baker Flavours&lt;/a&gt;, дошел до страницы заказа,
 и увидел &amp;ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&amp;rdquo;.&lt;/p&gt;
 
@@ -175,10 +175,10 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
     
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
-      <link>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
       <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
@@ -193,27 +193,27 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
     
     <item>
       <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
-      <link>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
+      <link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
       <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
+      <guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
       <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
 &lt;code&gt;Ctrl+R&lt;/code&gt;, &lt;code&gt;Ctrl+Shift+R&lt;/code&gt;. При этом видно одновременно видно только одну команду из истории.&lt;/p&gt;
 
 &lt;p&gt;Утилита &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34; target=&#34;_blank&#34;&gt;percol&lt;/a&gt; решает эту проблему.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2015-12/percol.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2015-12/percol.gif&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Показать все окна gnome terminal в Ubuntu</title>
-      <link>http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
+      <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
       <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
+      <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
       <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,
 не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
 При этом терминалы расположены по всему рабочему экрану.&lt;/p&gt;

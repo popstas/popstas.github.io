@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zsh on Popstas</title>
-    <link>http://blog.popstas.ru/tags/zsh/</link>
+    <link>https://blog.popstas.ru/tags/zsh/</link>
     <description>Recent content in Zsh on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
-      <link>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
+      <link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
       <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
       <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
 поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.&lt;/p&gt;
 
@@ -45,16 +45,16 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 
 &lt;p&gt;В действии:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
-      <link>http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
+      <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
       <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
       <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34; target=&#34;_blank&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
@@ -82,24 +82,24 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Демонстрация фич за 1 минуту:
-&lt;img src=&#34;http://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
-      <link>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
+      <link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
       <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
+      <guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
       <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
 &lt;code&gt;Ctrl+R&lt;/code&gt;, &lt;code&gt;Ctrl+Shift+R&lt;/code&gt;. При этом видно одновременно видно только одну команду из истории.&lt;/p&gt;
 
 &lt;p&gt;Утилита &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34; target=&#34;_blank&#34;&gt;percol&lt;/a&gt; решает эту проблему.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2015-12/percol.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2015-12/percol.gif&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

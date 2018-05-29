@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Transmission Cli on Popstas</title>
-    <link>http://blog.popstas.ru/tags/transmission-cli/</link>
+    <link>https://blog.popstas.ru/tags/transmission-cli/</link>
     <description>Recent content in Transmission Cli on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 06 Mar 2016 10:09:13 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/transmission-cli/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/transmission-cli/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
-      <link>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
+      <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
       <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
-      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
+      <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
+      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
@@ -32,17 +32,17 @@
 
 &lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
-      <link>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
       <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
       <description>&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34; target=&#34;_blank&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
 их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
 

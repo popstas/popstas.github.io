@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rss on Popstas</title>
-    <link>http://blog.popstas.ru/tags/rss/</link>
+    <link>https://blog.popstas.ru/tags/rss/</link>
     <description>Recent content in Rss on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 27 Feb 2016 14:48:03 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/rss/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/rss/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</title>
-      <link>http://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</link>
+      <link>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</link>
       <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid>
+      <guid>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid>
       <description>&lt;p&gt;Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.&lt;/p&gt;
 
 &lt;p&gt;Tl;dr: RSS + Twitter + Email &amp;rarr; Pocket &amp;rarr; Firefox &amp;rarr; Twitter + закладки.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2016-02/content_pyramid.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-02/content_pyramid.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

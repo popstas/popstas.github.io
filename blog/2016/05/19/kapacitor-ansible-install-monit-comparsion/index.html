@@ -20,18 +20,18 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.popstas.ru/css/hugo-octopress.css">
+  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
 
   
   
-    <link rel="stylesheet" href="http://blog.popstas.ru/css/custom.css">
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
   
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.popstas.ru/favicon.png" rel="icon">
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
 
   
   
@@ -45,10 +45,17 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.40.2" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-70438594-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
 </head>
 <body>
@@ -56,7 +63,7 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.popstas.ru/">Popstas</a></h1>
+  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
     <h2>Записки о Linux</h2>
 </hgroup></header>
 
@@ -92,7 +99,7 @@
 
 <header>
     <p class="meta">19 May 2016, 00:47
-         - 6 мин читать 
+         - 5 мин читать 
 
         
     </p>
@@ -147,116 +154,55 @@
 <p>Ставить можно <a href="https://influxdata.com/downloads/#kapacitor" target="_blank">по-разному</a>.</p>
 
 <p>Для тех, кто не дружит с Ansible, установка из репозитория, <a href="https://docs.influxdata.com/influxdb/v0.13/introduction/installation/" target="_blank">взятая из мануала</a> по InfluxDB (репозиторий один на весь стек InfluxData):</p>
-
-<pre><code class="language-sh">curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/lsb-release
-echo &quot;deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable&quot; | sudo tee /etc/apt/sources.list.d/influxdb.list
+echo <span style="color:#e6db74">&#34;deb https://repos.influxdata.com/</span><span style="color:#e6db74">${</span>DISTRIB_ID,,<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>DISTRIB_CODENAME<span style="color:#e6db74">}</span><span style="color:#e6db74"> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/influxdb.list
 aptitude update
-aptitude install kapacitor
-</code></pre>
-
-<p>Я буду ставить через Ansible <a href="https://github.com/viasite-ansible/ansible-role-kapacitor" target="_blank">viasite-ansible.kapacitor</a></p>
-
-<pre><code class="language-sh">ansible-galaxy install viasite-ansible.kapacitor
-# пример kapacitor.yml ниже, в главе Настройка
-ansible-playbook -c local kapacitor.yml
-</code></pre>
-
+aptitude install kapacitor</code></pre></div>
+<p>Я буду ставить через Ansible <a href="https://github.com/rossmcdonald/kapacitor" target="_blank">rossmcdonald/kapacitor</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ansible-galaxy install rossmcdonald.kapacitor
+ansible-playbook -c local kapacitor.yml</code></pre></div>
 <h4 id="a-name-github-pull-request-a-как-просто-делать-pull-request"><a name="github-pull-request"></a>Как просто делать Pull request</h4>
 
-<p>В роли была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто <a href="https://github.com/rossmcdonald/kapacitor/pull/1" target="_blank">делать pull request</a> прямо в браузере. Это заняло минуты две: жмем &ldquo;редактировать&rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &ldquo;Create pull request&rdquo;.</p>
+<p>В плейбуке была ошибка, я бы об этом не упоминал, если бы не узнал недавно, как просто <a href="https://github.com/rossmcdonald/kapacitor/pull/1" target="_blank">делать pull request</a> прямо в браузере. Это заняло минуты две: жмем &ldquo;редактировать&rdquo; на интересующем файле, правим, ниже пишем сообщение к коммиту, сохраняем. Это автоматом создаст форк, отдельную ветку и сделает туда коммит. На следующей странице останется нажать &ldquo;Create pull request&rdquo;.</p>
 
 <h2 id="настройка">Настройка</h2>
 
-<p>Так как я уже использовал готовую ansible-роль rossmcdonald.kapacitor, настройка уже включена в установку. Я взял <a href="https://github.com/rossmcdonald/kapacitor/blob/master/test.yml" target="_blank">тестовый плейбук</a> роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция <code>global</code> в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно. А потом вообще форкнул роль и написал пару (если честно один) удобных шаблонов для создания алертов.</p>
+<p>Так как я уже использовал готовую ansible-роль, настройка уже включена в установку. Я взял <a href="https://github.com/rossmcdonald/kapacitor/blob/master/test.yml" target="_blank">тестовый плейбук</a> роли и изменил его: добавил данные авторизации в InfluxDB, SMTP, Slack. Опция <code>global</code> в настройках канала для уведомлений означает, что он будет использоваться по умолчанию в скриптах, иначе его нужно указывать явно.</p>
 
 <p>Для установки сделал такой плейбук:</p>
-
-<pre><code class="language-yaml">- hosts: all
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- hosts: all
   roles:
-    - role: viasite-ansible.kapacitor
+    - role: rossmcdonald.kapacitor
   vars:
-    # [influxdb]
-    kapacitor_influxdb_enabled: &quot;true&quot;
+    <span style="color:#75715e"># [influxdb]</span>
+    kapacitor_influxdb_enabled: <span style="color:#e6db74">&#34;true&#34;</span>
     kapacitor_influxdb_urls:
-      - http://localhost:8086
+      - http://localhost:<span style="color:#ae81ff">8086</span>
     kapacitor_influxdb_username: user
     kapacitor_influxdb_password: pass
 
-    # [smtp]
-    kapacitor_smtp_enabled: &quot;true&quot;
+    <span style="color:#75715e"># [smtp]</span>
+    kapacitor_smtp_enabled: <span style="color:#e6db74">&#34;true&#34;</span>
     kapacitor_smtp_host: smtp.yandex.ru
-    kapacitor_smtp_port: 587
+    kapacitor_smtp_port: <span style="color:#ae81ff">587</span>
     kapacitor_smtp_username: example@yandex.ru
     kapacitor_smtp_password: pass
     kapacitor_smtp_from: example@yandex.ru
     kapacitor_smtp_to:
-      - &quot;admin@example.com&quot;
-    kapacitor_smtp_state_changes_only: &quot;true&quot;
+      - <span style="color:#e6db74">&#34;admin@example.com&#34;</span>
 
-    # [slack]
-    kapacitor_slack_enabled: &quot;true&quot;
-    kapacitor_slack_url:  https://hooks.slack.com/services/G2JFW7VFQ/B13UHEN5X/9J6IVIcUw9FGCeF7hfjFNGBn # url ненастоящий
-    kapacitor_slack_channel: &quot;#servers&quot;
-    kapacitor_slack_global: &quot;true&quot;
+    <span style="color:#75715e"># [slack]</span>
+    kapacitor_slack_enabled: <span style="color:#e6db74">&#34;true&#34;</span>
+    kapacitor_slack_url:  https://hooks.slack.com/services/G2JFW7VFQ/B13UHEN5X/9J6IVIcUw9FGCeF7hfjFNGBn <span style="color:#75715e"># url ненастоящий</span>
+    kapacitor_slack_channel: <span style="color:#e6db74">&#34;#servers&#34;</span>
+    kapacitor_slack_global: <span style="color:#e6db74">&#34;true&#34;</span>
 
-    kapacitor_dbrp: telegraf.autogen
-
-    # не обязательно так упарываться
-    kapacitor_message: '{{&quot;{{&quot;}} if eq .Level &quot;OK&quot; }}OK{{&quot;{{&quot;}} else }}{{&quot;{{&quot;}} .Level }}{{&quot;{{&quot;}} end }}: {{&quot;{{&quot;}} .ID }}: {% if item.field is defined %}{{item.field}} {{&quot;{{&quot;}} index .Fields &quot;field_mean&quot; | printf &quot;%0.1f&quot; }}{% endif %} for {{item.period}}'
-    kapacitor_details: &quot;{{ kapacitor_message }}&quot;
-
-    kapacitor_warn_alerts:
-      - stateChangesOnly()
-
-    kapacitor_crit_alerts:
-      - stateChangesOnly(10m)
-      - email()
-
-    kapacitor_stream_database: kapacitor
-
-    kapacitor_tasks:
-      # активное использование процессора
-      - name: usage_user_short
-        template: tick/stream_threshold.tick.j2
-        measurement: cpu
-        field: usage_user
-        groupBy: host
-        period: 5m
-        every: 1m
-        warn: &quot;&gt; 60&quot;
-        crit: &quot;&gt; 75&quot;
-
-      # на диске осталось меньше 3 Гб
-      - name: disk_free
-        template: tick/stream_threshold.tick.j2
-        measurement: disk
-        field: free
-        groupBy: ['host', 'path']
-        period: 1m
-        every: 1m
-        warn: &quot;&lt; 3000000000&quot;
-        crit: &quot;&lt; 1000000000&quot;
-
-      # apache слишком много обрабатывает
-      - name: apache_busy_workers
-        template: tick/stream_threshold.tick.j2
-        measurement: apache
-        field: BusyWorkers
-        groupBy: 'host'
-        period: 5m
-        every: 1m
-        warn: &quot;&gt; 20&quot;
-        crit: &quot;&gt; 50&quot;
-</code></pre>
-
+    kapacitor_tasks_to_enable:</code></pre></div>
 <h2 id="проверка">Проверка</h2>
 
 <p>Лучший способ проверить, что Kapacitor видит данные из InfluxDB - записать фрагмент:</p>
-
-<pre><code class="language-sh">kapacitor record stream -name la_alert -duration 5s
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">kapacitor record stream -name la_alert -duration 5s</code></pre></div>
 <p>Если запись пошла, можно приступать к самому интересному: созданию алертов.</p>
 
 <p>Если через 5 секунд команда не завершилась, значит что-то пошло не так.
@@ -281,12 +227,9 @@ ansible-playbook -c local kapacitor.yml
 <p>Оказалось, проблема была в том, что InfluxDB при первом запуске Kapacitor&rsquo;а создал на него подписки (subscriptions), которые означают то, что InfluxDB будет пересылать в Kapacitor все, что приходит в него.</p>
 
 <p>InfluxDB у меня крутится в Docker&rsquo;е с проброшенными портами, а Kapacitor - нет, то есть они технически были не на одной машине. Точнее, для Kapacitor&rsquo;а казалось, что InfluxDB на этой же машине, но для Influx&rsquo;a он на другой машине! Оказалось, что изнутри докера внутренний адрес, на который создались подписки, вел не туда, поэтому данные не доходили до Kapacitor, чтобы исправить это, понадобилось удалить подписки, узнав их имена:</p>
-
-<pre><code class="language-sql">SHOW SUBSCRIPTIONS
-DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON &quot;telegraf&quot;.&quot;default&quot;
-DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON &quot;_internal&quot;.&quot;monitor&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SHOW</span> SUBSCRIPTIONS
+<span style="color:#66d9ef">DROP</span> SUBSCRIPTION <span style="color:#e6db74">&#34;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&#34;</span> <span style="color:#66d9ef">ON</span> <span style="color:#e6db74">&#34;telegraf&#34;</span>.<span style="color:#e6db74">&#34;default&#34;</span>
+<span style="color:#66d9ef">DROP</span> SUBSCRIPTION <span style="color:#e6db74">&#34;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&#34;</span> <span style="color:#66d9ef">ON</span> <span style="color:#e6db74">&#34;_internal&#34;</span>.<span style="color:#e6db74">&#34;monitor&#34;</span></code></pre></div>
 <h2 id="выводы">Выводы</h2>
 
 <ol>
@@ -316,7 +259,7 @@ DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON 
       <span class="categories">
         Теги:
         
-          <a class="category" href="http://blog.popstas.ru/tags/monitoring">monitoring</a>  <a class="category" href="http://blog.popstas.ru/tags/alerting">alerting</a>  <a class="category" href="http://blog.popstas.ru/tags/influxdata">influxdata</a>  <a class="category" href="http://blog.popstas.ru/tags/kapacitor">kapacitor</a>  <a class="category" href="http://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="http://blog.popstas.ru/tags/github">github</a>  <a class="category" href="http://blog.popstas.ru/tags/monit">monit</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/monitoring">monitoring</a>  <a class="category" href="https://blog.popstas.ru/tags/alerting">alerting</a>  <a class="category" href="https://blog.popstas.ru/tags/influxdata">influxdata</a>  <a class="category" href="https://blog.popstas.ru/tags/kapacitor">kapacitor</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/github">github</a>  <a class="category" href="https://blog.popstas.ru/tags/monit">monit</a>  
     
     </span>
   </p>
@@ -350,11 +293,11 @@ DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON 
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/" title="Bash on Ubuntu on Windows: первый блин">Bash on Ubuntu on Windows: первый блин</a>
+        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/" title="Bash on Ubuntu on Windows: первый блин">Bash on Ubuntu on Windows: первый блин</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/" title="Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/" title="Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
     
   </p>
       <div id="disqus_thread"></div>
@@ -427,23 +370,23 @@ DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON 
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
+              <a href="/blog/2018/03/01/planfix-toggl-integration/">Интеграция Планфикса и Toggl для учета времени</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/31/new-year-2018/">Итоги 2017 года</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
+              <a href="/blog/2017/12/01/ext4-vs-xfs/">Ext4 vs XFS</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+              <a href="/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+              <a href="/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
             </li>
           
         </ul>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vscode on Popstas</title>
-    <link>http://blog.popstas.ru/tags/vscode/</link>
+    <link>https://blog.popstas.ru/tags/vscode/</link>
     <description>Recent content in Vscode on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
-      <link>http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
+      <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
       <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
       <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
 
 &lt;p&gt;Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p&gt;
@@ -30,7 +30,7 @@
 
 &lt;p&gt;TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     

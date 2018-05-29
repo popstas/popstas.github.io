@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Offtop on Popstas</title>
-    <link>http://blog.popstas.ru/tags/offtop/</link>
+    <link>https://blog.popstas.ru/tags/offtop/</link>
     <description>Recent content in Offtop on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 31 Dec 2017 01:30:00 +0600</lastBuildDate>
     
-	<atom:link href="http://blog.popstas.ru/tags/offtop/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.popstas.ru/tags/offtop/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Итоги 2017 года</title>
-      <link>http://blog.popstas.ru/blog/2017/12/31/new-year-2018/</link>
+      <link>https://blog.popstas.ru/blog/2017/12/31/new-year-2018/</link>
       <pubDate>Sun, 31 Dec 2017 01:30:00 +0600</pubDate>
       
-      <guid>http://blog.popstas.ru/blog/2017/12/31/new-year-2018/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/12/31/new-year-2018/</guid>
       <description>&lt;p&gt;Решил зафиксировать уходящий год и вспомнить, что было. Давно хотелось иметь такую шпаргалку, чтобы вспоминать, в каком же году это было. К счастью, в этом году перед долгой новогодней ночью нам достались выходные, использую их для этой записи.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.popstas.ru/images/2017-12/new-year.jpg&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-12/new-year.jpg&#34; /&gt;
 &lt;/p&gt;</description>
     </item>
     
