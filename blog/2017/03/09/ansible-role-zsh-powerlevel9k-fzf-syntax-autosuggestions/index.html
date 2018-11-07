@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -141,8 +134,6 @@ ga('send', 'pageview');
 
 <p>Демонстрация фич за 1 минуту:
 <img src="/images/2017-03/ansible-role-zsh-demo.gif" /></p>
-
-<p></p>
 
 <p>Раньше я пользовался <a href="https://github.com/powerline/powerline" target="_blank">powerline</a>, который отвечал за command prompt (строку состояния)
 и <a href="https://github.com/mooz/percol#zsh-history-search" target="_blank">percol</a> для интерактивного поиска. Обе утилиты написаны на python.
@@ -275,11 +266,14 @@ vagrant up
 </code></pre>
 
 <p>Потом создать плейбук вроде такого:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">hosts: all
+
+<pre><code class="language-yaml">hosts: all
 vars:
-  zsh_autosuggestions_bind_key: <span style="color:#e6db74">&#34;^U&#34;</span>
+  zsh_autosuggestions_bind_key: &quot;^U&quot;
 roles:
-  - viasite-ansible.zsh</code></pre></div>
+  - viasite-ansible.zsh
+</code></pre>
+
 <p>Сохранить, например, в <code>zsh.yml</code>. После этого роль можно применить к локальному юзеру:</p>
 
 <pre><code>ansible-playbook -i &quot;localhost,&quot; -c local zsh.yml
@@ -427,6 +421,10 @@ roles:
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/11/07/3d-printed-expandable-tea-box/">Полочки для чая на 3d принтере</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
             </li>
           
@@ -440,10 +438,6 @@ roles:
           
             <li class="post">
               <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
             </li>
           
         </ul>

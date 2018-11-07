@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</loc>
+    <lastmod>2018-11-07T20:45:00+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</loc>
     <lastmod>2018-05-01T08:20:00+06:00</lastmod>
   </url>
@@ -108,7 +113,7 @@
   </url>
   
   <url>
-    <loc>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</loc>
+    <loc>https://blog.popstas.ru/blog/2017/02/22/2017-02-22-git-extract-subproject-preserving-history/</loc>
     <lastmod>2017-02-22T01:19:00+00:00</lastmod>
   </url>
   
@@ -200,6 +205,12 @@
   <url>
     <loc>https://blog.popstas.ru/tags/18.04/</loc>
     <lastmod>2018-05-01T08:20:00+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.popstas.ru/tags/3d-printer/</loc>
+    <lastmod>2018-11-07T20:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -618,13 +629,13 @@
   
   <url>
     <loc>https://blog.popstas.ru/</loc>
-    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
+    <lastmod>2018-11-07T20:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.popstas.ru/post/</loc>
-    <lastmod>2018-05-01T08:20:00+06:00</lastmod>
+    <lastmod>2018-11-07T20:45:00+06:00</lastmod>
     <priority>0</priority>
   </url>
   

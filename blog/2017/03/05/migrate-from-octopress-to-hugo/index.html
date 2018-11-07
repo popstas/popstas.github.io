@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -123,8 +116,7 @@ ga('send', 'pageview');
 <li>просто интересно</li>
 </ul>
 
-<p><img src="/images/2017-03/octopress-to-hugo.png" />
-</p>
+<p><img src="/images/2017-03/octopress-to-hugo.png" /></p>
 
 <h2 id="подробнее-о-причинах">Подробнее о причинах</h2>
 
@@ -381,10 +373,13 @@ paginate = 10
 
 <p>Кастомные виджеты sidebar не предусматривает, поэтому правим шаблон, дописываем в конец, перед <code>&lt;/aside&gt;</code>:
 <code>/themes/octopress/layouts/partials/sidebar.html</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    {{ partial &#34;custom/twitterfeed.html&#34; . }}
+
+<pre><code class="language-html">    {{ partial &quot;custom/twitterfeed.html&quot; . }}
     
-    {{ partial &#34;custom/github.html&#34; . }}
-&lt;/<span style="color:#f92672">aside</span>&gt;</code></pre></div>
+    {{ partial &quot;custom/github.html&quot; . }}
+&lt;/aside&gt;
+</code></pre>
+
 <p>После чего создаем в <code>themes/octopress/layouts/partials/custom</code> соответствующие файлы и копируем туда шаблоны из Octopress.
 При этом нужно заменить переменные с <code>{{ site.var_name }}</code> на <code>{{ .Site.Params.varName }}</code> и добавить в <code>config.toml</code> нужные переменные:</p>
 
@@ -538,6 +533,10 @@ paginate = 10
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/11/07/3d-printed-expandable-tea-box/">Полочки для чая на 3d принтере</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
             </li>
           
@@ -551,10 +550,6 @@ paginate = 10
           
             <li class="post">
               <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
             </li>
           
         </ul>

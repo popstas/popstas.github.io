@@ -17,9 +17,7 @@
       <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</guid>
-      <description>&lt;p&gt;Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,9 +31,7 @@
 &lt;pre&gt;&lt;code&gt;gsettings set org.gnome.desktop.input-sources xkb-options &amp;quot;[&#39;grp:super_space_toggle,grp_led:scroll&#39;]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p&gt;</description>
     </item>
     
   </channel>

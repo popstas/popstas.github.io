@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -135,8 +128,7 @@ ga('send', 'pageview');
 <p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
 Gist с результатами <a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f" target="_blank">здесь</a>.</p>
 
-<p><img src="/images/2017-03/ansible-packer-docker-vagrant.png" />
-</p>
+<p><img src="/images/2017-03/ansible-packer-docker-vagrant.png" /></p>
 
 <p>За основу я взял <a href="https://github.com/geerlingguy/packer-ubuntu-1604" target="_blank">geerlingguy/packer-ubuntu-1604</a>.
 Также смотрел на <a href="https://github.com/chef/bento" target="_blank">chef/bento</a>.</p>
@@ -249,14 +241,17 @@ mount: unknown filesystem type 'vboxsf'
 </code></pre>
 
 <p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;builders&#34;</span>: [
+
+<pre><code class="language-json">{
+  &quot;builders&quot;: [
     {
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
-      <span style="color:#f92672">&#34;guest_additions_path&#34;</span>: <span style="color:#e6db74">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>
+      &quot;type&quot;: &quot;virtualbox-iso&quot;,
+      &quot;guest_additions_path&quot;: &quot;VBoxGuestAdditions_{{.Version}}.iso&quot;
     }
   ]
-}</code></pre></div>
+}
+</code></pre>
+
 <p>После чтения <a href="https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path" target="_blank">доки</a> стало понятно,
 что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:</p>
 
@@ -277,17 +272,21 @@ mount: unknown filesystem type 'vboxsf'
 <li>в provisioners и post-processors были вписаны <code>&quot;only&quot;: [&quot;virtualbox-iso&quot;]</code> и <code>&quot;only&quot;: [&quot;docker&quot;]</code> куда надо</li>
 <li>в shell provisioners была дописана строчка с <code>override</code>, которая запускает скрипт от имени vagrant и не влияет на docker builder:</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;provisioners&#34;</span>: [
+
+<pre><code class="language-json">{
+  &quot;provisioners&quot;: [
     {
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
-      <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#e6db74">&#34;packer/scripts/ansible.sh&#34;</span>,
-      <span style="color:#f92672">&#34;override&#34;</span>: {
-        <span style="color:#f92672">&#34;virtualbox-iso&#34;</span>: {
-          <span style="color:#f92672">&#34;execute_command&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -S -E bash &#39;{{.Path}}&#39;&#34;</span>
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;script&quot;: &quot;packer/scripts/ansible.sh&quot;,
+      &quot;override&quot;: {
+        &quot;virtualbox-iso&quot;: {
+          &quot;execute_command&quot;: &quot;echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'&quot;
         }
       }
-    },</code></pre></div>
+    },
+
+</code></pre>
+
 <h3 id="сборка-docker-застывала-в-конце">Сборка Docker застывала в конце</h3>
 
 <p>Не понял, с чем это связано, но заствала она на <code>apt autoremove</code>, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.</p>
@@ -417,6 +416,10 @@ mount: unknown filesystem type 'vboxsf'
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/11/07/3d-printed-expandable-tea-box/">Полочки для чая на 3d принтере</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
             </li>
           
@@ -430,10 +433,6 @@ mount: unknown filesystem type 'vboxsf'
           
             <li class="post">
               <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
             </li>
           
         </ul>

@@ -17,9 +17,7 @@
       <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</guid>
-      <description>&lt;p&gt;Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,9 +31,7 @@
 &lt;pre&gt;&lt;code&gt;gsettings set org.gnome.desktop.input-sources xkb-options &amp;quot;[&#39;grp:super_space_toggle,grp_led:scroll&#39;]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -44,9 +40,7 @@
       <pubDate>Tue, 01 May 2018 05:35:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/</guid>
-      <description>&lt;p&gt;Для тех, кто не может жить без Punto Switcher, у меня плохие новости: нормальной замены на Ubuntu нет, на форуме люди говорят, что у кого-то работает идеально, я с 10.04 пробую, никогда идеально не было. Будем настраивать то, что есть.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Для тех, кто не может жить без Punto Switcher, у меня плохие новости: нормальной замены на Ubuntu нет, на форуме люди говорят, что у кого-то работает идеально, я с 10.04 пробую, никогда идеально не было. Будем настраивать то, что есть.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -60,9 +54,7 @@
 &lt;p&gt;Не знаю, как это исправляется в Windows, но нетрудно найти &lt;a href=&#34;https://help.ubuntu.com/community/UbuntuTime#Make_Linux_use_.27Local.27_time&#34; target=&#34;_blank&#34;&gt;решение в Ubuntu&lt;/a&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;timedatectl set-local-rtc 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -79,9 +71,7 @@
 &lt;li&gt;Сменить пароль на пустой&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Учтите, что это стремное решение, и лучше так не делать. Я верну пароль, когда система настроена, я не перезагружаюсь каждый день.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Учтите, что это стремное решение, и лучше так не делать. Я верну пароль, когда система настроена, я не перезагружаюсь каждый день.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -96,9 +86,7 @@
 
 &lt;p&gt;Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -121,9 +109,7 @@ ubuntu-drivers autoinstall
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/&#34;&gt;Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Черный экран после загрузки - &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&#34; target=&#34;_blank&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -147,9 +133,7 @@ ubuntu-drivers autoinstall
 
 &lt;p&gt;Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.&lt;/p&gt;
 
-&lt;p&gt;Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -166,8 +150,7 @@ ubuntu-drivers autoinstall
 
 &lt;p&gt;UPD 13.07.2018: цикл статей оборвался из-за того, что я не смог побороть глюк Nvidia (см. комменты) и вернулся на Windows. Можно сказать, что это был такой сложный способ найти крутую скриншотилку Monosnap :)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg&#34; /&gt;
-&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -121,26 +114,27 @@ ga('send', 'pageview');
 
 <p><img src="/images/2015-12/percol.gif" /></p>
 
-<p></p>
-
 <p>Собственно по ссылке выше готовый конфиг для zsh. Я немного изменил его под себя,
 чтобы использовать percol не только для поиска по истории:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> exists <span style="color:#f92672">{</span> which $1 &amp;&gt; /dev/null <span style="color:#f92672">}</span>
-<span style="color:#66d9ef">if</span> exists percol; <span style="color:#66d9ef">then</span>
-	<span style="color:#66d9ef">function</span> percol_select_history<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+<pre><code class="language-bash">function exists { which $1 &amp;&gt; /dev/null }
+if exists percol; then
+	function percol_select_history() {
 		local tac
-		exists gtac <span style="color:#f92672">&amp;&amp;</span> tac<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gtac&#34;</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span> exists tac <span style="color:#f92672">&amp;&amp;</span> tac<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tac&#34;</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span> tac<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tail -r&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">}</span>
-		BUFFER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>fc -l -n <span style="color:#ae81ff">1</span> | eval $tac | percol --query <span style="color:#e6db74">&#34;</span>$LBUFFER<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
-		CURSOR<span style="color:#f92672">=</span>$#BUFFER         <span style="color:#75715e"># move cursor
-</span><span style="color:#75715e"></span>		zle -R -c               <span style="color:#75715e"># refresh
-</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+		exists gtac &amp;&amp; tac=&quot;gtac&quot; || { exists tac &amp;&amp; tac=&quot;tac&quot; || { tac=&quot;tail -r&quot; } }
+		BUFFER=$(fc -l -n 1 | eval $tac | percol --query &quot;$LBUFFER&quot;)
+		CURSOR=$#BUFFER         # move cursor
+		zle -R -c               # refresh
+	}
 
 	zle -N percol_select_history
-	bindkey <span style="color:#e6db74">&#39;^R&#39;</span> percol_select_history
+	bindkey '^R' percol_select_history
 
-	<span style="color:#75715e"># percol based grep
-</span><span style="color:#75715e"></span>	g<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> percol --match-method regex --query<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>; <span style="color:#f92672">}</span>
-<span style="color:#66d9ef">fi</span></code></pre></div>
+	# percol based grep
+	g() { percol --match-method regex --query=&quot;$*&quot;; }
+fi
+</code></pre>
+
 <p>Код я добавил в <a href="https://github.com/popstas/zsh-config" target="_blank">свой .zshrc</a>. Если <a href="https://github.com/robbyrussell/oh-my-zsh/pull/4582" target="_blank">этот пулл реквест</a> примут, то данный код появится в составе
 <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh-my-zsh</a> в виде плагина <code>percol</code>.</p>
 
@@ -287,6 +281,10 @@ ga('send', 'pageview');
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/11/07/3d-printed-expandable-tea-box/">Полочки для чая на 3d принтере</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
             </li>
           
@@ -300,10 +298,6 @@ ga('send', 'pageview');
           
             <li class="post">
               <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
             </li>
           
         </ul>

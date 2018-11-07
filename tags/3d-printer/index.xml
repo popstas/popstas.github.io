@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3d Printer on Popstas</title>
+    <link>https://blog.popstas.ru/tags/3d-printer/</link>
+    <description>Recent content in 3d Printer on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Wed, 07 Nov 2018 20:45:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/3d-printer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Полочки для чая на 3d принтере</title>
+      <link>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</link>
+      <pubDate>Wed, 07 Nov 2018 20:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</guid>
+      <description>&lt;p&gt;Через неделю после приобретения 3d принтера решил воплотить давнюю идею: навести порядок в шкафчике с чаем.&lt;/p&gt;
+
+&lt;p&gt;TL;DR: получилось достаточно хорошо, чтобы выложить &lt;a href=&#34;https://www.thingiverse.com/thing:3197921&#34; target=&#34;_blank&#34;&gt;первую модель на thingverse&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-11/3d-printed-expandable-tea-box-1.jpg&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

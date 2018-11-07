@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -141,8 +134,7 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
 
 <p>В действии:</p>
 
-<p><img src="/images/2017-03/zsh-duplicate-last-arg.gif" />
-</p>
+<p><img src="/images/2017-03/zsh-duplicate-last-arg.gif" /></p>
 
 <p>Когда я правил чужие виджеты (виджетом в zsh называется функция, повешенная на хоткей), я понял,
 что у zsh большие возможности по редактированию текущей строки комманд. Оставалось узнать, как это нагуглить.</p>
@@ -152,11 +144,14 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
 
 <p>После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
 Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd
-</span><span style="color:#75715e"># http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html
-</span><span style="color:#75715e"></span>autoload -Uz copy-earlier-word
+
+<pre><code class="language-bash"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd
+# http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html
+autoload -Uz copy-earlier-word
 zle -N copy-earlier-word
-bindkey <span style="color:#e6db74">&#34;^[,&#34;</span> copy-earlier-word</code></pre></div>
+bindkey &quot;^[,&quot; copy-earlier-word
+</code></pre>
+
 <p>Код надо вставить в <code>.zshrc</code> или <code>.zshrc.local</code> если вы пользуетесь
 <a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" target="_blank">ansible-role-zsh</a></p>
 
@@ -178,14 +173,16 @@ bindkey <span style="color:#e6db74">&#34;^[,&#34;</span> copy-earlier-word</code
 <p>Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.</p>
 
 <p>Сам скрипт:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ctrl+, - duplicate last word in current command
-</span><span style="color:#75715e"></span>zsh-duplicate-last-arg<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	BUFFER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$BUFFER<span style="color:#e6db74">&#34;</span> | sed -e <span style="color:#e6db74">&#39;s/[[:space:]]*$//&#39;</span><span style="color:#66d9ef">)</span>
-	BUFFER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BUFFER<span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>BUFFER##* <span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-	CURSOR<span style="color:#f92672">=</span>$#BUFFER
-<span style="color:#f92672">}</span>
+
+<pre><code class="language-bash"># Ctrl+, - duplicate last word in current command
+zsh-duplicate-last-arg() {
+	BUFFER=$(echo &quot;$BUFFER&quot; | sed -e 's/[[:space:]]*$//')
+	BUFFER=&quot;$BUFFER ${BUFFER##* }&quot;
+	CURSOR=$#BUFFER
+}
 zle -N zsh-duplicate-last-arg
-bindkey <span style="color:#e6db74">&#39;^[,&#39;</span> zsh-duplicate-last-arg</code></pre></div>
+bindkey '^[,' zsh-duplicate-last-arg
+</code></pre>
         </div>
         
 
@@ -308,6 +305,10 @@ bindkey <span style="color:#e6db74">&#39;^[,&#39;</span> zsh-duplicate-last-arg<
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2018/11/07/3d-printed-expandable-tea-box/">Полочки для чая на 3d принтере</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
             </li>
           
@@ -321,10 +322,6 @@ bindkey <span style="color:#e6db74">&#39;^[,&#39;</span> zsh-duplicate-last-arg<
           
             <li class="post">
               <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
             </li>
           
         </ul>
