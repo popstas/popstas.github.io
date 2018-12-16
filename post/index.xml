@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Wed, 07 Nov 2018 20:45:00 +0600</lastBuildDate>
+    <lastBuildDate>Sun, 16 Dec 2018 16:45:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Доработка крышки для насыпания кофе на 3d принтере</title>
+      <link>https://blog.popstas.ru/blog/2018/12/16/3d-printed-coffee-cap/</link>
+      <pubDate>Sun, 16 Dec 2018 16:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/16/3d-printed-coffee-cap/</guid>
+      <description>&lt;p&gt;В последнее время я интересуюсь разными вороками, оказалось, физическая воронка - штука с одной стороны универсальная, с другой - под разные задачи нужны вороки разного размера и формы.&lt;/p&gt;
+
+&lt;p&gt;TL;DR: Решил проблему с насыпанием кофе в кофеварку с помощью 3d принтера, времени на проект ушло около 1 часа (не считая освоения OpenSCAD).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/8AHAl0xgWUvr359m_eFOmpWy2HBtXnSL2vP1_VC7UI0abjlHIezz8lsqeiVfWnO6GRsHEJwQjua7ZZgWsKvQpHWNtLf3JGfZVnqZ2sTC5BMW_VazxPRl--pGuhGQkmW3LKtAwwUUTGjRyVUsxGjpZsEvKmi9SoMtxgBq-pD-el-5122_B51HQ4225bZ8QEbblK1KdSfnmfyNjRVefvWe5FC_N3ybzdMIBJLmQRtCWii0-hGL5hERvS2sz1xPCITIlGcaaDgDovghUXb4fi1H2DC8J9lDUliV56wPNVzE-xpeQVtb4IvRXi25lqwbp8B_s13yObqot-i2qwx5sV8EBt90fXf8spe7k_RfW79_Tefe9c8M1bq5uGTPmbPKCAXaUnWHHnmqllbp3H39HBF3IHN_M2brgcgiE_OhJlGsSLRcoe1pvAJNeQL2ANHLL72XWkDXolvgF3wU6TFDG9Ycmfo6kn_r7XJdb9M3CoSQZNE-X0Z_66TWHVcDxmRCGKo7hcbduIyg04__ditwSy3o-ogviGfYSVG_HkSqyE5dEzv8d9FUR--9CkME8B7FRz4kpA2KCi-viEFqoakG0RpfFiRez8qcKPEEJqLFwbIVq-ULQgT6BhuGaQBcXrOWu8pG_KUi370M6V_AeyQr4miIUYDhdT9Earhi_cTKSBvbusjAV1bGgGGhnL0UoOR8Oo1HLEzUdm71B4YZlNNKaA=w1474-h1106-no&#34; /&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Полочки для чая на 3d принтере</title>
