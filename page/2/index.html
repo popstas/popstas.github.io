@@ -28,7 +28,7 @@
   
 
   
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   
   <link href="https://blog.popstas.ru/favicon.png" rel="icon">
@@ -86,6 +86,50 @@
  <div id="content">
   <div class="blog-index">
     
+    
+    <article>
+
+        
+        
+
+<header>
+    <p class="meta">30 Apr 2018, 19:46
+         - 1 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла <a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux" target="_blank">эта статья</a>, вот краткое содержание:</p>
+
+<pre><code>apt install ubuntu-drivers-common
+ubuntu-drivers devices
+ubuntu-drivers autoinstall
+</code></pre>
+
+<p>Звук по HDMI работал нормально на обоих драйверах.</p>
+
+<h4 id="другие-проблемы-с-видео">Другие проблемы с видео:</h4>
+
+<ul>
+<li><a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a></li>
+<li>Черный экран после загрузки - <a href="https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053" target="_blank">https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053</a></li>
+</ul></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
     
     <article>
 
@@ -464,63 +508,6 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">9 Mar 2017, 08:00
-         - 7 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
-    </h1>
-</header>
-
-
-        
-          <p><p>Репост <a href="https://habrahabr.ru/post/323496/" target="_blank">моей статьи с хабра</a>.</p>
-
-<p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
-Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
-Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
-Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.</p>
-
-<p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
-и обновление. В итоге появилась роль <a href="https://github.com/viasite-ansible/ansible-role-zsh" target="_blank">ansible-role-zsh</a>,
-которая полностью настраивает терминалы на локалке и на моих серверах.</p>
-
-<h3 id="особенности">Особенности:</h3>
-
-<ul>
-<li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)</li>
-<li>быстро загружается, быстро работает</li>
-<li>полностью настраивается через ansible, <code>~/.zshrc</code></li>
-<li>полностью локальная (в систему ничего не ставится, все хранится в <code>~/.oh-my-zsh</code>)</li>
-<li>оставляет возможность юзеру вносить свои настройки через <code>~/.zshrc.local</code></li>
-<li><del>одинаково</del> работает на macOS, старом Debian, Ubuntu, CentOS</li>
-<li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)</li>
-<li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)</li>
-<li>автодополнение по истории команд (помогает реже нажимать <code>Ctrl+R</code>)</li>
-<li>отображение времени для долго выполняемых команд (помогает реже использовать <code>time</code>)</li>
-</ul>
-
-<p>Демонстрация фич за 1 минуту:
-<img src="/images/2017-03/ansible-role-zsh-demo.gif" /></p></p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -597,6 +584,8 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
       
       
       
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
 
     
     
@@ -616,6 +605,10 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2019/03/17/new-year-2018/">Итоги 2018 года</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2018/12/30/my-github-2018/">Мой Github 2018</a>
             </li>
           
@@ -629,10 +622,6 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
           
             <li class="post">
               <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
             </li>
           
         </ul>
@@ -684,7 +673,7 @@ cp &lt;Alt+.&gt; &lt;Alt+.&gt;
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2018 Stanislav Popov -
+  <p>Copyright &copy; 2015-2019 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
