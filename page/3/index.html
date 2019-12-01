@@ -93,6 +93,58 @@
         
 
 <header>
+    <p class="meta">26 Mar 2017, 21:30
+         - 5 мин читать 
+
+        
+    </p>
+    <h1 class="entry-title">
+        <a href="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">Packer: создаем свои vagrant box и docker image из одного конфига</a>
+    </h1>
+</header>
+
+
+        
+          <p><p>Проект <a href="https://github.com/viasite-ansible/ansible-server" target="_blank">viasite-ansible/ansible-server</a> подошел к моменту,
+когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).</p>
+
+<p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
+поэтому <del>я потратил день</del> я вспомнил, что есть такой тул - <a href="https://www.packer.io/" target="_blank">Packer</a>
+и решил, что пришло его время.</p>
+
+<p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
+программах или разворачивания на хостинге.</p>
+
+<p>Для чего это может пригодиться:</p>
+
+<ul>
+<li>ускорение тестирования</li>
+<li>б<strong>о</strong>льшая повторяемость, по сравнению с ansible</li>
+<li>образы для продакшена для быстрого развертывания новых серверов</li>
+<li>образы идентичные продакшену для локальной разработки</li>
+</ul>
+
+<p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
+Gist с результатами <a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f" target="_blank">здесь</a>.</p>
+
+<p><img src="/images/2017-03/ansible-packer-docker-vagrant.png" /></p></p>
+
+          
+              <footer>
+                  <a href="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/" rel="full-article">Читать &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
     <p class="meta">18 Mar 2017, 22:20
          - 2 мин читать 
 
@@ -475,40 +527,6 @@ TODO: несколько дистрибов</p>
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <p class="meta">11 Apr 2016, 05:01
-         - 2 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title">
-        <a href="https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/">Bash on Ubuntu on Windows: первый блин</a>
-    </h1>
-</header>
-
-
-        
-          <p>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
-Tl;dr: оно очень сырое, не работает почти ничего.
-Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
-$ aptitude install zsh  Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
-Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</p>
-
-          
-              <footer>
-                  <a href="https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/" rel="full-article">Читать &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -606,6 +624,10 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
             </li>
           
@@ -621,53 +643,14 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
               <a href="/blog/2018/12/30/my-github-2018/">Мой Github 2018</a>
             </li>
           
-            <li class="post">
-              <a href="/blog/2018/12/16/3d-printed-coffee-cap/">Крышка-дозатор для насыпания кофе на 3d принтере</a>
-            </li>
-          
         </ul>
       </section>
     
   
 
-  <section class="even twitter-feed">
-  <a class="twitter-timeline"
-	 data-dnt="true" href="https://twitter.com/popstas" 
-	 data-chrome="noborders transparent"
-     data-widget-id="691684611357806592">
-     
-     Tweets by @popstas
-  </a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</section>
+  
 
-
-  <section class="even">
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <a href="https://github.com/popstas">@popstas</a> on GitHub
-  <script src="/js/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/js/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'popstas',
-            count:  10 ,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/js/github.js" type="text/javascript"> </script>
-</section>
+  
 </aside>
     
  </div>

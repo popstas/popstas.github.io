@@ -408,6 +408,15 @@
     </item>
     
     <item>
+      <title>Js</title>
+      <link>https://blog.popstas.ru/tags/js/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Kapacitor</title>
       <link>https://blog.popstas.ru/tags/kapacitor/</link>
       <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
@@ -476,6 +485,15 @@
       <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
       
       <guid>https://blog.popstas.ru/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node Red</title>
+      <link>https://blog.popstas.ru/tags/node-red/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/node-red/</guid>
       <description></description>
     </item>
     
@@ -723,6 +741,24 @@
     </item>
     
     <item>
+      <title>Smarthome</title>
+      <link>https://blog.popstas.ru/tags/smarthome/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/smarthome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sonoff</title>
+      <link>https://blog.popstas.ru/tags/sonoff/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/sonoff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Symfony</title>
       <link>https://blog.popstas.ru/tags/symfony/</link>
       <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
@@ -854,6 +890,15 @@
       <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/tags/xfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yandex Dialogs</title>
+      <link>https://blog.popstas.ru/tags/yandex-dialogs/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/yandex-dialogs/</guid>
       <description></description>
     </item>
     
