@@ -82,8 +82,8 @@ article .entry-content > table tr:last-child td {
 }
 
 #content>div>article {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }
 
 article img {
