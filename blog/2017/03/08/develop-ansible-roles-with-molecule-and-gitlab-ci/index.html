@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Мой процесс написания ansible роли с Molecule и Gitlab CI 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -211,12 +212,12 @@ TODO: несколько дистрибов</p>
 <footer>
   <p class="meta">
     
-    <time>8 Mar 2017, 01:00</time>
+    <time itemprop="datePublished" content="2017-03-08T01:00:00UTC">8 Mar 2017, 01:00</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a>  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a>  <a class="category" href="https://blog.popstas.ru/tags/gitlab-ci">gitlab-ci</a>  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a>  <a class="category" href="https://blog.popstas.ru/tags/workflow">workflow</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a><meta itemprop="about" content="molecule">  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a><meta itemprop="about" content="docker">  <a class="category" href="https://blog.popstas.ru/tags/gitlab-ci">gitlab-ci</a><meta itemprop="about" content="gitlab-ci">  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a><meta itemprop="about" content="travis">  <a class="category" href="https://blog.popstas.ru/tags/workflow">workflow</a><meta itemprop="about" content="workflow">  
     
     </span>
   </p>
@@ -362,7 +363,7 @@ TODO: несколько дистрибов</p>
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

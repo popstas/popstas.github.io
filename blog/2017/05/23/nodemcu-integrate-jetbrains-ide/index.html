@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -223,12 +224,12 @@
 <footer>
   <p class="meta">
     
-    <time>23 May 2017, 21:20</time>
+    <time itemprop="datePublished" content="2017-05-23T21:20:00UTC">23 May 2017, 21:20</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/nodemcu">nodemcu</a>  <a class="category" href="https://blog.popstas.ru/tags/jetbrains">jetbrains</a>  <a class="category" href="https://blog.popstas.ru/tags/idea">idea</a>  <a class="category" href="https://blog.popstas.ru/tags/phpstorm">phpstorm</a>  <a class="category" href="https://blog.popstas.ru/tags/python">python</a>  <a class="category" href="https://blog.popstas.ru/tags/atom">atom</a>  <a class="category" href="https://blog.popstas.ru/tags/vscode">vscode</a>  <a class="category" href="https://blog.popstas.ru/tags/lua">lua</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/nodemcu">nodemcu</a><meta itemprop="about" content="nodemcu">  <a class="category" href="https://blog.popstas.ru/tags/jetbrains">jetbrains</a><meta itemprop="about" content="jetbrains">  <a class="category" href="https://blog.popstas.ru/tags/idea">idea</a><meta itemprop="about" content="idea">  <a class="category" href="https://blog.popstas.ru/tags/phpstorm">phpstorm</a><meta itemprop="about" content="phpstorm">  <a class="category" href="https://blog.popstas.ru/tags/python">python</a><meta itemprop="about" content="python">  <a class="category" href="https://blog.popstas.ru/tags/atom">atom</a><meta itemprop="about" content="atom">  <a class="category" href="https://blog.popstas.ru/tags/vscode">vscode</a><meta itemprop="about" content="vscode">  <a class="category" href="https://blog.popstas.ru/tags/lua">lua</a><meta itemprop="about" content="lua">  
     
     </span>
   </p>
@@ -374,7 +375,7 @@
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

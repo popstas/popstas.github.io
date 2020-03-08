@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -111,6 +112,8 @@
 <p>TL;DR: первые тесты показали, что функция построения карты помещения рулит, пылесос убирает, для автоматического применения пригоден, я получил то, на что рассчитывал.</p>
 
 <p>UPD 06.04.2019: <a href="/blog/2019/04/06/ilife-a9s-stress-test/">продолжение теста на чистоту</a>.</p>
+
+<p>UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.</p>
 
 <p><img src="/images/2019-04/ilife-a9s.jpg" /></p>
 
@@ -219,12 +222,12 @@
 <footer>
   <p class="meta">
     
-    <time>4 Apr 2019, 20:55</time>
+    <time itemprop="datePublished" content="2019-04-04T20:55:00&#43;0600">4 Apr 2019, 20:55</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/offtop">offtop</a>  <a class="category" href="https://blog.popstas.ru/tags/smart-home">smart home</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/offtop">offtop</a><meta itemprop="about" content="offtop">  <a class="category" href="https://blog.popstas.ru/tags/smart-home">smart home</a><meta itemprop="about" content="smart home">  
     
     </span>
   </p>
@@ -370,7 +373,7 @@
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

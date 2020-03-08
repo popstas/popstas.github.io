@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -338,12 +339,12 @@ service apt-cacher-ng restart
 <footer>
   <p class="meta">
     
-    <time>26 Feb 2017, 04:14</time>
+    <time itemprop="datePublished" content="2017-02-26T04:14:00UTC">26 Feb 2017, 04:14</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a>  <a class="category" href="https://blog.popstas.ru/tags/apt">apt</a>  <a class="category" href="https://blog.popstas.ru/tags/apt-mirror">apt-mirror</a>  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher">apt-cacher</a>  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher-ng">apt-cacher-ng</a>  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a>  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a>  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a>  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a><meta itemprop="about" content="ubuntu">  <a class="category" href="https://blog.popstas.ru/tags/apt">apt</a><meta itemprop="about" content="apt">  <a class="category" href="https://blog.popstas.ru/tags/apt-mirror">apt-mirror</a><meta itemprop="about" content="apt-mirror">  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher">apt-cacher</a><meta itemprop="about" content="apt-cacher">  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher-ng">apt-cacher-ng</a><meta itemprop="about" content="apt-cacher-ng">  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a><meta itemprop="about" content="gitlab">  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a><meta itemprop="about" content="ci">  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a><meta itemprop="about" content="travis">  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a><meta itemprop="about" content="docker">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a><meta itemprop="about" content="molecule">  
     
     </span>
   </p>
@@ -489,7 +490,7 @@ service apt-cacher-ng restart
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

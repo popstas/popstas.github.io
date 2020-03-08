@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,19 +96,22 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
           <p>После <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">недавнего теста пылесоса</a> и трёх уборок подряд остался один вопрос: когда же пыль исчезнет? Я уже давно думал, откуда берется пыль на мебели, решил, что с улицы.</p>
 
 <p>TL;DR: много, очень много, не знаю сколько. И дело не в плохом роботе-пылесосе.</p>
+
+<p>UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="//www.youtube.com/embed/slXHa4DMp5Q" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
@@ -222,12 +225,12 @@
 <footer>
   <p class="meta">
     
-    <time>6 Apr 2019, 16:05</time>
+    <time itemprop="datePublished" content="2019-04-06T16:05:00&#43;0600">6 Apr 2019, 16:05</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/offtop">offtop</a>  <a class="category" href="https://blog.popstas.ru/tags/smart-home">smart home</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/offtop">offtop</a><meta itemprop="about" content="offtop">  <a class="category" href="https://blog.popstas.ru/tags/smart-home">smart home</a><meta itemprop="about" content="smart home">  
     
     </span>
   </p>
@@ -373,7 +376,7 @@
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

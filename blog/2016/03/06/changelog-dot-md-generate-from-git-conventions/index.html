@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -322,12 +323,12 @@ CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-re
 <footer>
   <p class="meta">
     
-    <time>6 Mar 2016, 10:09</time>
+    <time itemprop="datePublished" content="2016-03-06T10:09:13UTC">6 Mar 2016, 10:09</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/transmission-cli">transmission-cli</a>  <a class="category" href="https://blog.popstas.ru/tags/git">git</a>  <a class="category" href="https://blog.popstas.ru/tags/changelog">changelog</a>  <a class="category" href="https://blog.popstas.ru/tags/github">github</a>  <a class="category" href="https://blog.popstas.ru/tags/docs">docs</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/transmission-cli">transmission-cli</a><meta itemprop="about" content="transmission-cli">  <a class="category" href="https://blog.popstas.ru/tags/git">git</a><meta itemprop="about" content="git">  <a class="category" href="https://blog.popstas.ru/tags/changelog">changelog</a><meta itemprop="about" content="changelog">  <a class="category" href="https://blog.popstas.ru/tags/github">github</a><meta itemprop="about" content="github">  <a class="category" href="https://blog.popstas.ru/tags/docs">docs</a><meta itemprop="about" content="docs">  
     
     </span>
   </p>
@@ -473,7 +474,7 @@ CONVENTIONAL_GITHUB_RELEASER_TOKEN=your_public_repo_token conventional-github-re
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

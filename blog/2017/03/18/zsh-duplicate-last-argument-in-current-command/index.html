@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Продублировать последний аргумент текущей команды в zsh, zle widget 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -189,12 +190,12 @@ bindkey '^[,' zsh-duplicate-last-arg
 <footer>
   <p class="meta">
     
-    <time>18 Mar 2017, 22:20</time>
+    <time itemprop="datePublished" content="2017-03-18T22:20:28UTC">18 Mar 2017, 22:20</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/zsh">zsh</a>  <a class="category" href="https://blog.popstas.ru/tags/zle">zle</a>  <a class="category" href="https://blog.popstas.ru/tags/fast">fast</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/zsh">zsh</a><meta itemprop="about" content="zsh">  <a class="category" href="https://blog.popstas.ru/tags/zle">zle</a><meta itemprop="about" content="zle">  <a class="category" href="https://blog.popstas.ru/tags/fast">fast</a><meta itemprop="about" content="fast">  
     
     </span>
   </p>
@@ -340,7 +341,7 @@ bindkey '^[,' zsh-duplicate-last-arg
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

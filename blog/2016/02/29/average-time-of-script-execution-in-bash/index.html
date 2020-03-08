@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          average: измерение среднего времени выполнения команды в bash 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -196,12 +197,12 @@ average 'command'
 <footer>
   <p class="meta">
     
-    <time>29 Feb 2016, 03:46</time>
+    <time itemprop="datePublished" content="2016-02-29T03:46:56UTC">29 Feb 2016, 03:46</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="https://blog.popstas.ru/tags/server-scripts">server-scripts</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a><meta itemprop="about" content="bash">  <a class="category" href="https://blog.popstas.ru/tags/server-scripts">server-scripts</a><meta itemprop="about" content="server-scripts">  
     
     </span>
   </p>
@@ -347,7 +348,7 @@ average 'command'
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

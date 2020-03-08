@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Простой тайм-трекер для отслеживания потраченного времени 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -200,12 +201,12 @@
 <footer>
   <p class="meta">
     
-    <time>22 Nov 2015, 09:40</time>
+    <time itemprop="datePublished" content="2015-11-22T09:40:45UTC">22 Nov 2015, 09:40</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/gtd">gtd</a>  <a class="category" href="https://blog.popstas.ru/tags/javascript">javascript</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/gtd">gtd</a><meta itemprop="about" content="gtd">  <a class="category" href="https://blog.popstas.ru/tags/javascript">javascript</a><meta itemprop="about" content="javascript">  
     
     </span>
   </p>
@@ -351,7 +352,7 @@
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Packer: создаем свои vagrant box и docker image из одного конфига 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -300,12 +301,12 @@ mount: unknown filesystem type 'vboxsf'
 <footer>
   <p class="meta">
     
-    <time>26 Mar 2017, 21:30</time>
+    <time itemprop="datePublished" content="2017-03-26T21:30:00UTC">26 Mar 2017, 21:30</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/vagrant">vagrant</a>  <a class="category" href="https://blog.popstas.ru/tags/packer">packer</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/vagrant">vagrant</a><meta itemprop="about" content="vagrant">  <a class="category" href="https://blog.popstas.ru/tags/packer">packer</a><meta itemprop="about" content="packer">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a><meta itemprop="about" content="ubuntu">  
     
     </span>
   </p>
@@ -451,7 +452,7 @@ mount: unknown filesystem type 'vboxsf'
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Интеграция Git, Gitlab и Planfix почти как на Github 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -268,12 +269,12 @@ chmod +x .git/hooks/post-receive
 <footer>
   <p class="meta">
     
-    <time>2 Mar 2016, 00:49</time>
+    <time itemprop="datePublished" content="2016-03-02T00:49:29UTC">2 Mar 2016, 00:49</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/git">git</a>  <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a>  <a class="category" href="https://blog.popstas.ru/tags/planfix">planfix</a>  <a class="category" href="https://blog.popstas.ru/tags/github">github</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/git">git</a><meta itemprop="about" content="git">  <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a><meta itemprop="about" content="bash">  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a><meta itemprop="about" content="gitlab">  <a class="category" href="https://blog.popstas.ru/tags/planfix">planfix</a><meta itemprop="about" content="planfix">  <a class="category" href="https://blog.popstas.ru/tags/github">github</a><meta itemprop="about" content="github">  
     
     </span>
   </p>
@@ -419,7 +420,7 @@ chmod +x .git/hooks/post-receive
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

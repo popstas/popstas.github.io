@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -350,12 +351,12 @@ UPD 26.02.2017: на при написании <a href="/blog/2017/02/26/apt-cac
 <footer>
   <p class="meta">
     
-    <time>24 Feb 2017, 17:39</time>
+    <time itemprop="datePublished" content="2017-02-24T17:39:00UTC">24 Feb 2017, 17:39</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a>  <a class="category" href="https://blog.popstas.ru/tags/apt">apt</a>  <a class="category" href="https://blog.popstas.ru/tags/apt-mirror">apt-mirror</a>  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher">apt-cacher</a>  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher-ng">apt-cacher-ng</a>  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a>  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a>  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a>  <a class="category" href="https://blog.popstas.ru/tags/artifactory">artifactory</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a><meta itemprop="about" content="ubuntu">  <a class="category" href="https://blog.popstas.ru/tags/apt">apt</a><meta itemprop="about" content="apt">  <a class="category" href="https://blog.popstas.ru/tags/apt-mirror">apt-mirror</a><meta itemprop="about" content="apt-mirror">  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher">apt-cacher</a><meta itemprop="about" content="apt-cacher">  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher-ng">apt-cacher-ng</a><meta itemprop="about" content="apt-cacher-ng">  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a><meta itemprop="about" content="gitlab">  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a><meta itemprop="about" content="ci">  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a><meta itemprop="about" content="docker">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a><meta itemprop="about" content="molecule">  <a class="category" href="https://blog.popstas.ru/tags/artifactory">artifactory</a><meta itemprop="about" content="artifactory">  
     
     </span>
   </p>
@@ -501,7 +502,7 @@ UPD 26.02.2017: на при написании <a href="/blog/2017/02/26/apt-cac
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

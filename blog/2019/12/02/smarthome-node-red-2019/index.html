@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -413,12 +414,12 @@
 <footer>
   <p class="meta">
     
-    <time>2 Dec 2019, 02:00</time>
+    <time itemprop="datePublished" content="2019-12-02T02:00:00&#43;0600">2 Dec 2019, 02:00</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/smarthome">smarthome</a>  <a class="category" href="https://blog.popstas.ru/tags/js">js</a>  <a class="category" href="https://blog.popstas.ru/tags/node-red">node-red</a>  <a class="category" href="https://blog.popstas.ru/tags/sonoff">sonoff</a>  <a class="category" href="https://blog.popstas.ru/tags/yandex-dialogs">yandex-dialogs</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/smart-home">smart home</a><meta itemprop="about" content="smart home">  <a class="category" href="https://blog.popstas.ru/tags/js">js</a><meta itemprop="about" content="js">  <a class="category" href="https://blog.popstas.ru/tags/node-red">node-red</a><meta itemprop="about" content="node-red">  <a class="category" href="https://blog.popstas.ru/tags/sonoff">sonoff</a><meta itemprop="about" content="sonoff">  <a class="category" href="https://blog.popstas.ru/tags/yandex-dialogs">yandex-dialogs</a><meta itemprop="about" content="yandex-dialogs">  
     
     </span>
   </p>
@@ -564,7 +565,7 @@
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

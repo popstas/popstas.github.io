@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -320,12 +321,12 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
 <footer>
   <p class="meta">
     
-    <time>17 Jan 2016, 08:22</time>
+    <time itemprop="datePublished" content="2016-01-17T08:22:25UTC">17 Jan 2016, 08:22</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/transmission-cli">transmission-cli</a>  <a class="category" href="https://blog.popstas.ru/tags/php">php</a>  <a class="category" href="https://blog.popstas.ru/tags/influxdb">influxdb</a>  <a class="category" href="https://blog.popstas.ru/tags/influxdata">influxdata</a>  <a class="category" href="https://blog.popstas.ru/tags/grafana">grafana</a>  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a>  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a>  <a class="category" href="https://blog.popstas.ru/tags/symfony">symfony</a>  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a>  <a class="category" href="https://blog.popstas.ru/tags/box">box</a>  <a class="category" href="https://blog.popstas.ru/tags/phar">phar</a>  <a class="category" href="https://blog.popstas.ru/tags/phpcs">phpcs</a>  <a class="category" href="https://blog.popstas.ru/tags/phpmd">phpmd</a>  <a class="category" href="https://blog.popstas.ru/tags/composer">composer</a>  <a class="category" href="https://blog.popstas.ru/tags/coveralls">coveralls</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/transmission-cli">transmission-cli</a><meta itemprop="about" content="transmission-cli">  <a class="category" href="https://blog.popstas.ru/tags/php">php</a><meta itemprop="about" content="php">  <a class="category" href="https://blog.popstas.ru/tags/influxdb">influxdb</a><meta itemprop="about" content="influxdb">  <a class="category" href="https://blog.popstas.ru/tags/influxdata">influxdata</a><meta itemprop="about" content="influxdata">  <a class="category" href="https://blog.popstas.ru/tags/grafana">grafana</a><meta itemprop="about" content="grafana">  <a class="category" href="https://blog.popstas.ru/tags/travis">travis</a><meta itemprop="about" content="travis">  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a><meta itemprop="about" content="ci">  <a class="category" href="https://blog.popstas.ru/tags/symfony">symfony</a><meta itemprop="about" content="symfony">  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a><meta itemprop="about" content="docker">  <a class="category" href="https://blog.popstas.ru/tags/box">box</a><meta itemprop="about" content="box">  <a class="category" href="https://blog.popstas.ru/tags/phar">phar</a><meta itemprop="about" content="phar">  <a class="category" href="https://blog.popstas.ru/tags/phpcs">phpcs</a><meta itemprop="about" content="phpcs">  <a class="category" href="https://blog.popstas.ru/tags/phpmd">phpmd</a><meta itemprop="about" content="phpmd">  <a class="category" href="https://blog.popstas.ru/tags/composer">composer</a><meta itemprop="about" content="composer">  <a class="category" href="https://blog.popstas.ru/tags/coveralls">coveralls</a><meta itemprop="about" content="coveralls">  
     
     </span>
   </p>
@@ -471,7 +472,7 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

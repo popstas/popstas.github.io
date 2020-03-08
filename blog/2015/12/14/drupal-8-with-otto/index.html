@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Разворачиваем Drupal 8 с помощью Otto 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -304,12 +305,12 @@ access it using the above IP at port 5000.
 <footer>
   <p class="meta">
     
-    <time>14 Dec 2015, 08:16</time>
+    <time itemprop="datePublished" content="2015-12-14T08:16:00UTC">14 Dec 2015, 08:16</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/otto">otto</a>  <a class="category" href="https://blog.popstas.ru/tags/vagrant">vagrant</a>  <a class="category" href="https://blog.popstas.ru/tags/drupal">drupal</a>  <a class="category" href="https://blog.popstas.ru/tags/consul">consul</a>  <a class="category" href="https://blog.popstas.ru/tags/hashicorp">hashicorp</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/otto">otto</a><meta itemprop="about" content="otto">  <a class="category" href="https://blog.popstas.ru/tags/vagrant">vagrant</a><meta itemprop="about" content="vagrant">  <a class="category" href="https://blog.popstas.ru/tags/drupal">drupal</a><meta itemprop="about" content="drupal">  <a class="category" href="https://blog.popstas.ru/tags/consul">consul</a><meta itemprop="about" content="consul">  <a class="category" href="https://blog.popstas.ru/tags/hashicorp">hashicorp</a><meta itemprop="about" content="hashicorp">  
     
     </span>
   </p>
@@ -455,7 +456,7 @@ access it using the above IP at port 5000.
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

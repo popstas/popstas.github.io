@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -260,12 +261,12 @@ DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON 
 <footer>
   <p class="meta">
     
-    <time>19 May 2016, 00:47</time>
+    <time itemprop="datePublished" content="2016-05-19T00:47:52UTC">19 May 2016, 00:47</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/monitoring">monitoring</a>  <a class="category" href="https://blog.popstas.ru/tags/alerting">alerting</a>  <a class="category" href="https://blog.popstas.ru/tags/influxdata">influxdata</a>  <a class="category" href="https://blog.popstas.ru/tags/kapacitor">kapacitor</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/github">github</a>  <a class="category" href="https://blog.popstas.ru/tags/monit">monit</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/monitoring">monitoring</a><meta itemprop="about" content="monitoring">  <a class="category" href="https://blog.popstas.ru/tags/alerting">alerting</a><meta itemprop="about" content="alerting">  <a class="category" href="https://blog.popstas.ru/tags/influxdata">influxdata</a><meta itemprop="about" content="influxdata">  <a class="category" href="https://blog.popstas.ru/tags/kapacitor">kapacitor</a><meta itemprop="about" content="kapacitor">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/github">github</a><meta itemprop="about" content="github">  <a class="category" href="https://blog.popstas.ru/tags/monit">monit</a><meta itemprop="about" content="monit">  
     
     </span>
   </p>
@@ -411,7 +412,7 @@ DROP SUBSCRIPTION &quot;kapacitor-42d050d7-5e60-462f-b079-3f8157ec2eff&quot; ON 
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

@@ -56,8 +56,8 @@
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -85,8 +85,8 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -96,13 +96,14 @@
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Перенос блога с Octopress на Hugo 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
@@ -417,12 +418,12 @@ paginate = 10
 <footer>
   <p class="meta">
     
-    <time>5 Mar 2017, 20:45</time>
+    <time itemprop="datePublished" content="2017-03-05T20:45:00UTC">5 Mar 2017, 20:45</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/octopress">octopress</a>  <a class="category" href="https://blog.popstas.ru/tags/hugo">hugo</a>  <a class="category" href="https://blog.popstas.ru/tags/go">go</a>  <a class="category" href="https://blog.popstas.ru/tags/ruby">ruby</a>  <a class="category" href="https://blog.popstas.ru/tags/blog">blog</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/octopress">octopress</a><meta itemprop="about" content="octopress">  <a class="category" href="https://blog.popstas.ru/tags/hugo">hugo</a><meta itemprop="about" content="hugo">  <a class="category" href="https://blog.popstas.ru/tags/go">go</a><meta itemprop="about" content="go">  <a class="category" href="https://blog.popstas.ru/tags/ruby">ruby</a><meta itemprop="about" content="ruby">  <a class="category" href="https://blog.popstas.ru/tags/blog">blog</a><meta itemprop="about" content="blog">  
     
     </span>
   </p>
@@ -568,7 +569,7 @@ paginate = 10
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2019 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
