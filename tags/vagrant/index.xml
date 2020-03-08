@@ -1,54 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>vagrant on Popstas</title>
-    <link>https://blog.popstas.ru/tags/vagrant/</link>
-    <description>Recent content in vagrant on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Sun, 26 Mar 2017 21:30:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
-      <link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
-      <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
-когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p&gt;
-&lt;p&gt;Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
-поэтому &lt;del&gt;я потратил день&lt;/del&gt; я вспомнил, что есть такой тул - &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer&lt;/a&gt;
-и решил, что пришло его время.&lt;/p&gt;
-&lt;p&gt;Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
-программах или разворачивания на хостинге.&lt;/p&gt;
-&lt;p&gt;Для чего это может пригодиться:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ускорение тестирования&lt;/li&gt;
-&lt;li&gt;б&lt;strong&gt;о&lt;/strong&gt;льшая повторяемость, по сравнению с ansible&lt;/li&gt;
-&lt;li&gt;образы для продакшена для быстрого развертывания новых серверов&lt;/li&gt;
-&lt;li&gt;образы идентичные продакшену для локальной разработки&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Разворачиваем Drupal 8 с помощью Otto</title>
-      <link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link>
-      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid>
-      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/273009/&#34;&gt;моей статьи&lt;/a&gt; с хабра.&lt;/p&gt;
-&lt;p&gt;Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
-о котором уже была &lt;!-- raw HTML omitted --&gt;обзорная статья&lt;!-- raw HTML omitted --&gt; на хабре.&lt;/p&gt;
-&lt;p&gt;Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
-чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vagrant on Popstas</title><link>https://blog.popstas.ru/tags/vagrant/</link><description>Recent content in vagrant on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 26 Mar 2017 21:30:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/vagrant/index.xml" rel="self" type="application/rss+xml"/><item><title>Packer: создаем свои vagrant box и docker image из одного конфига</title><link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link><pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid><description>&lt;p>Проект &lt;a href="https://github.com/viasite-ansible/ansible-server">viasite-ansible/ansible-server&lt;/a> подошел к моменту,
+когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p>
+&lt;p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
+поэтому &lt;del>я потратил день&lt;/del> я вспомнил, что есть такой тул - &lt;a href="https://www.packer.io/">Packer&lt;/a>
+и решил, что пришло его время.&lt;/p>
+&lt;p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
+программах или разворачивания на хостинге.&lt;/p>
+&lt;p>Для чего это может пригодиться:&lt;/p>
+&lt;ul>
+&lt;li>ускорение тестирования&lt;/li>
+&lt;li>б&lt;strong>о&lt;/strong>льшая повторяемость, по сравнению с ansible&lt;/li>
+&lt;li>образы для продакшена для быстрого развертывания новых серверов&lt;/li>
+&lt;li>образы идентичные продакшену для локальной разработки&lt;/li>
+&lt;/ul>
+&lt;p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
+Gist с результатами &lt;a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь&lt;/a>.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" /></description></item><item><title>Разворачиваем Drupal 8 с помощью Otto</title><link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link><pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/273009/">моей статьи&lt;/a> с хабра.&lt;/p>
+&lt;p>Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
+о котором уже была &lt;!-- raw HTML omitted -->обзорная статья&lt;!-- raw HTML omitted --> на хабре.&lt;/p>
+&lt;p>Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
+чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p>
+&lt;img itemprop="image" src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" /></description></item></channel></rss>

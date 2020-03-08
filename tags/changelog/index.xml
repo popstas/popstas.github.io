@@ -1,35 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>changelog on Popstas</title>
-    <link>https://blog.popstas.ru/tags/changelog/</link>
-    <description>Recent content in changelog on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Sun, 06 Mar 2016 10:09:13 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/changelog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
-      <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
-      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
-&lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
-&lt;li&gt;Unit тесты, PHPUnit&lt;/li&gt;
-&lt;li&gt;Покрытие кода, Coveralls&lt;/li&gt;
-&lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
-&lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
-&lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>changelog on Popstas</title><link>https://blog.popstas.ru/tags/changelog/</link><description>Recent content in changelog on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 06 Mar 2016 10:09:13 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/changelog/index.xml" rel="self" type="application/rss+xml"/><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
+&lt;ul>
+&lt;li>Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li>
+&lt;li>Автоматическая сборка, Travis CI&lt;/li>
+&lt;li>Unit тесты, PHPUnit&lt;/li>
+&lt;li>Покрытие кода, Coveralls&lt;/li>
+&lt;li>Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li>
+&lt;li>Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li>
+&lt;/ul>
+&lt;p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p>
+&lt;p>Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/changelog.png" /></description></item></channel></rss>

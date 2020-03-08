@@ -1,50 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>smart home on Popstas</title>
-    <link>https://blog.popstas.ru/tags/smart-home/</link>
-    <description>Recent content in smart home on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Mon, 02 Dec 2019 02:00:00 +0600</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/smart-home/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title>
-      <link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid>
-      <description>&lt;p&gt;В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;
-(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href=&#34;https://www.youtube.com/watch?v=WfI69DC_jaw&#34;&gt;Будет ласковый дождь&lt;/a&gt;&amp;quot;).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</title>
-      <link>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</link>
-      <pubDate>Sat, 06 Apr 2019 16:05:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</guid>
-      <description>&lt;p&gt;После &lt;a href=&#34;https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/&#34;&gt;недавнего теста пылесоса&lt;/a&gt; и трёх уборок подряд остался один вопрос: когда же пыль исчезнет? Я уже давно думал, откуда берется пыль на мебели, решил, что с улицы.&lt;/p&gt;
-&lt;p&gt;TL;DR: много, очень много, не знаю сколько. И дело не в плохом роботе-пылесосе.&lt;/p&gt;
-&lt;p&gt;UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</title>
-      <link>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</link>
-      <pubDate>Thu, 04 Apr 2019 20:55:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</guid>
-      <description>&lt;p&gt;Психанул и купил робот-пылесос.&lt;/p&gt;
-&lt;p&gt;TL;DR: первые тесты показали, что функция построения карты помещения рулит, пылесос убирает, для автоматического применения пригоден, я получил то, на что рассчитывал.&lt;/p&gt;
-&lt;p&gt;UPD 06.04.2019: &lt;a href=&#34;https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/&#34;&gt;продолжение теста на чистоту&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>smart home on Popstas</title><link>https://blog.popstas.ru/tags/smart-home/</link><description>Recent content in smart home on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 02 Dec 2019 02:00:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/smart-home/index.xml" rel="self" type="application/rss+xml"/><item><title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title><link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link><pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid><description>&lt;p>В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p>
+&lt;p>&lt;img itemprop="image" src="https://blog.popstas.ru/images/2019-12/smarthome.jpg" />
+(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href="https://www.youtube.com/watch?v=WfI69DC_jaw">Будет ласковый дождь&lt;/a>&amp;quot;).&lt;/p></description></item><item><title>Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</title><link>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</link><pubDate>Sat, 06 Apr 2019 16:05:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</guid><description>&lt;p>После &lt;a href="https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">недавнего теста пылесоса&lt;/a> и трёх уборок подряд остался один вопрос: когда же пыль исчезнет? Я уже давно думал, откуда берется пыль на мебели, решил, что с улицы.&lt;/p>
+&lt;p>TL;DR: много, очень много, не знаю сколько. И дело не в плохом роботе-пылесосе.&lt;/p>
+&lt;p>UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p>
+&lt;p>UPD 08.03.2020: после отката на версию 2.x заработало.&lt;/p></description></item><item><title>Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</title><link>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</link><pubDate>Thu, 04 Apr 2019 20:55:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</guid><description>&lt;p>Психанул и купил робот-пылесос.&lt;/p>
+&lt;p>TL;DR: первые тесты показали, что функция построения карты помещения рулит, пылесос убирает, для автоматического применения пригоден, я получил то, на что рассчитывал.&lt;/p>
+&lt;p>UPD 06.04.2019: &lt;a href="https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/">продолжение теста на чистоту&lt;/a>.&lt;/p>
+&lt;p>UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p>
+&lt;p>UPD 08.03.2020: после отката на версию 2.x заработало.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2019-04/ilife-a9s.jpg" /></description></item></channel></rss>

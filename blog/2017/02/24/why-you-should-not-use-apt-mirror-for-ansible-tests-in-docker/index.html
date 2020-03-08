@@ -1,467 +1,55 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
-
-  
-  
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  
-
-  
-  <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
-
-  
-  
-  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
-
-  
-  
-    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
-  
-
-  
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  
-  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
-
-  
-  
-  
-
-  
-
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <meta name="author" content="Stanislav Popov">
-
-  
-  <meta name="generator" content="Hugo 0.66.0" />
-
-  
-  
-
-</head>
-<body>
-
-
-<header role="banner"><hgroup>
-  
-  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
-    <div>Записки о Linux</div>
-</hgroup></header>
-
-
-<nav role="navigation">
-
-<ul class="main-navigation">
-  
-  
-</ul>
-
-
-<ul class="subscription">
-  
-    
-        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
-    
-  
-
-</ul>
-
-
-</nav>
-
-
-<div id="main">
-  <div id="content">
-    <div>
-      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
-        <meta itemprop="author publisher" content="Stanislav Popov">
-        
-        
-
-<header>
-    <p class="meta">24 Feb 2017, 17:39
-         - 5 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title" itemprop="headline">
-         Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей 
-    </h1>
-</header>
-
-
-        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">
-        <div class="entry-content" itemprop="articleBody">
-          
-          
-          
-          <p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
-и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.</p>
-<p>Ниже описано, как создать зеркало из <a href="http://mirror.yandex.ru/ubuntu">http://mirror.yandex.ru/ubuntu</a> и подружить его с Gitlab CI и molecule.</p>
-<p>Tl;dr: не делайте локальный репозиторий через <code>apt-mirror</code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng</a>.</p>
-<p><!-- raw HTML omitted --></p>
-<h2 id="настройка-apt-mirror">Настройка apt-mirror</h2>
-<p>Для синхронизации локального репозитория с основным вариант один - <code>apt-mirror</code>.
-<a href="https://apt-mirror.github.io">Официальный сайт</a> считает нас умными, поэтому все его инструкции заключаются в 3 строчках:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install apt-mirror
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=/css/fonts.css rel=stylesheet type=text/css><title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title><link rel=stylesheet href=/css/hugo-octopress.css><link rel=stylesheet href=https://blog.popstas.ru/css/custom.css><link rel=stylesheet href=/css/fork-awesome.min.css><link href=https://blog.popstas.ru/favicon.png rel=icon><link href=http://feeds.feedburner.com/popstas rel=alternate type=application/rss+xml title=RSS><meta name=description content><meta name=keywords content><meta name=author content="Stanislav Popov"><meta name=generator content="Hugo 0.66.0"></head><body><header role=banner><hgroup><div><a href=https://blog.popstas.ru/>Popstas</a></div><div>Записки о Linux</div></hgroup></header><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value;">
+<option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=http://feeds.feedburner.com/popstas target=_blank type=application/rss+xml title=RSS><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank><fieldset role=search><input class=search type=text name=q results=0 placeholder=Search>
+<input type=hidden name=q value=site:https://blog.popstas.ru/></fieldset></form></nav><div id=main><div id=content><div><article class=hentry role=article itemscope itemtype=http://schema.org/Article><meta itemprop="author publisher" content="Stanislav Popov"><meta itemprop=mainEntityOfPage content="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/"><header><h1 class=entry-title itemprop=headline>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</h1><p class=meta>Feb 24, 2017 - 5 мин читать</p></header><div class=entry-content itemprop=articleBody><p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
+и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.</p><p>Ниже описано, как создать зеркало из <a href=http://mirror.yandex.ru/ubuntu>http://mirror.yandex.ru/ubuntu</a> и подружить его с Gitlab CI и molecule.</p><p>Tl;dr: не делайте локальный репозиторий через <code>apt-mirror</code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через <a href=/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/>apt-cacher-ng</a>.</p><img itemprop=image src=/images/2017-02/apt-mirror.png><h2 id=настройка-apt-mirror>Настройка apt-mirror</h2><p>Для синхронизации локального репозитория с основным вариант один - <code>apt-mirror</code>.
+<a href=https://apt-mirror.github.io>Официальный сайт</a> считает нас умными, поэтому все его инструкции заключаются в 3 строчках:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>apt-get install apt-mirror
 nano /etc/apt/mirror.list
 sudo apt-mirror
-</code></pre></div><p>Все действительно почти так просто. Почти.</p>
-<h3 id="выбор-самого-быстрого-репозитория">Выбор самого быстрого репозитория</h3>
-<p>Пока гуглил тему, случайно наткнулся на <a href="https://hub.docker.com/r/evgeniyklemin/ubuntu-fastest-apt-mirror/">инструкцию</a>, как выбрать самый быстрый репозиторий.
-Скорее всего, для нас для всех это будет <a href="http://mirror.yandex.ru/ubuntu,">http://mirror.yandex.ru/ubuntu,</a> но можно в этом убедиться:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget -q -nv -O- http://ftp.ru.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-26_amd64.deb &gt; /tmp/netselect_0.3.ds1-26_amd64.deb
+</code></pre></div><p>Все действительно почти так просто. Почти.</p><h3 id=выбор-самого-быстрого-репозитория>Выбор самого быстрого репозитория</h3><p>Пока гуглил тему, случайно наткнулся на <a href=https://hub.docker.com/r/evgeniyklemin/ubuntu-fastest-apt-mirror/>инструкцию</a>, как выбрать самый быстрый репозиторий.
+Скорее всего, для нас для всех это будет <a href=http://mirror.yandex.ru/ubuntu,>http://mirror.yandex.ru/ubuntu,</a> но можно в этом убедиться:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget -q -nv -O- http://ftp.ru.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-26_amd64.deb &gt; /tmp/netselect_0.3.ds1-26_amd64.deb
 dpkg -i /tmp/netselect_0.3.ds1-26_amd64.deb
-netselect -s3 -t20 <span style="color:#e6db74">`</span>wget -q -nv -O- https://launchpad.net/ubuntu/+archivemirrors | grep -P -B8 <span style="color:#e6db74">&#34;statusUP|statusSIX&#34;</span> | grep -o -P <span style="color:#e6db74">&#34;(f|ht)tp.*\&#34;&#34;</span> | tr <span style="color:#e6db74">&#39;&#34;\n&#39;</span> <span style="color:#e6db74">&#39;  &#39;</span><span style="color:#e6db74">`</span>
+netselect -s3 -t20 <span style=color:#e6db74>`</span>wget -q -nv -O- https://launchpad.net/ubuntu/+archivemirrors | grep -P -B8 <span style=color:#e6db74>&#34;statusUP|statusSIX&#34;</span> | grep -o -P <span style=color:#e6db74>&#34;(f|ht)tp.*\&#34;&#34;</span> | tr <span style=color:#e6db74>&#39;&#34;\n&#39;</span> <span style=color:#e6db74>&#39;  &#39;</span><span style=color:#e6db74>`</span>
 </code></pre></div><p>Пакета нет в репозитории Ubuntu, поэтому качаем из репозитория Debian
-В результате вы получите список из 3 самых быстрых (по пингу) репозиториев:</p>
-<pre><code>54 http://mirror.yandex.ru/ubuntu/
+В результате вы получите список из 3 самых быстрых (по пингу) репозиториев:</p><pre><code>54 http://mirror.yandex.ru/ubuntu/
 89 http://ubuntu.volia.net/ubuntu-archive/
 124 http://nl.archive.ubuntu.com/ubuntu/
-</code></pre><h3 id="конфигурация">Конфигурация</h3>
-<p>Открываем <code>/etc/apt/mirror.list</code>.</p>
-<ul>
-<li>Меняем <code>archive.ubuntu.com</code> на <code>mirror.yandex.ru</code>.</li>
-<li>Убираем <code>multiverse</code> репозиторий (в стандартном Docker контейнере <code>ubuntu</code> его нет, видимо не очень нужен, зато экономим сразу 13 Гб).</li>
-<li>Меняем путь хранения зеркала, не забывая после этого скопировать пустой скрипт в новое место <code>/var/spool/apt-mirror/var/postmirror.sh</code>, иначе <code>apt-mirror</code> будет в конце падать с ошибкой. У меня зеркало будет храниться в <code>/var/backups/apt-mirror</code> (на диске с бекапами места много)</li>
-</ul>
-<p>Это же в виде команд:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i /etc/apt/mirror.list <span style="color:#e6db74">&#39;s/archive.ubuntu.com/mirror.yandex.ru/g&#39;</span>
-sed -i /etc/apt/mirror.list <span style="color:#e6db74">&#39;s/ multiverse//g&#39;</span>
-sed -i /etc/apt/mirror.list <span style="color:#e6db74">&#39;s/\/var\/spool\/apt-mirror/\var\/backups\/apt-mirror/g&#39;</span>
+</code></pre><h3 id=конфигурация>Конфигурация</h3><p>Открываем <code>/etc/apt/mirror.list</code>.</p><ul><li>Меняем <code>archive.ubuntu.com</code> на <code>mirror.yandex.ru</code>.</li><li>Убираем <code>multiverse</code> репозиторий (в стандартном Docker контейнере <code>ubuntu</code> его нет, видимо не очень нужен, зато экономим сразу 13 Гб).</li><li>Меняем путь хранения зеркала, не забывая после этого скопировать пустой скрипт в новое место <code>/var/spool/apt-mirror/var/postmirror.sh</code>, иначе <code>apt-mirror</code> будет в конце падать с ошибкой. У меня зеркало будет храниться в <code>/var/backups/apt-mirror</code> (на диске с бекапами места много)</li></ul><p>Это же в виде команд:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i /etc/apt/mirror.list <span style=color:#e6db74>&#39;s/archive.ubuntu.com/mirror.yandex.ru/g&#39;</span>
+sed -i /etc/apt/mirror.list <span style=color:#e6db74>&#39;s/ multiverse//g&#39;</span>
+sed -i /etc/apt/mirror.list <span style=color:#e6db74>&#39;s/\/var\/spool\/apt-mirror/\var\/backups\/apt-mirror/g&#39;</span>
 mkdir -p /var/backups/apt-mirror/var
 cp /var/spool/apt-mirror/var/postmirror.sh /var/backups/apt-mirror/var
-</code></pre></div><p>Добавляем в cron задание по обновлению репозитория, я буду запускать в 1 ночи:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#e6db74">&#39;s/#0 4/0 1/g&#39;</span> /etc/cron.d/apt-mirror
-</code></pre></div><p>Настраиваем nginx на отдачу репозитория, у меня конфиг такой:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">server <span style="color:#f92672">{</span>
+</code></pre></div><p>Добавляем в cron задание по обновлению репозитория, я буду запускать в 1 ночи:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;s/#0 4/0 1/g&#39;</span> /etc/cron.d/apt-mirror
+</code></pre></div><p>Настраиваем nginx на отдачу репозитория, у меня конфиг такой:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>server <span style=color:#f92672>{</span>
   listen 80;
   server_name mirror.myserver.ru;
   root /var/backups/apt-mirror/mirror/mirror.yandex.ru;
   access_log off;
 
-  location / <span style="color:#f92672">{</span>
+  location / <span style=color:#f92672>{</span>
     autoindex on;
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
 </code></pre></div><p>Все готово, осталось запустить <code>apt-mirror</code> и подождать денек: у меня выкачивалось 142 Гб.
 Причем обновления тоже будут весить ощутимо, как я понял: через день я запустил apt-mirror еще раз,
-он скачал 1.5 Гб.</p>
-<p>Проверяем URL <a href="http://mirror.myserver.ru/,">http://mirror.myserver.ru/,</a> там должен быть доступен каталог <code>ubuntu</code>.</p>
-<p>После этого можете сменить системные репозитории в ваших локальных убунтах и наслаждаться скоростью.</p>
-<p>date = &ldquo;Ошибка&rdquo;
+он скачал 1.5 Гб.</p><p>Проверяем URL <a href=http://mirror.myserver.ru/,>http://mirror.myserver.ru/,</a> там должен быть доступен каталог <code>ubuntu</code>.</p><p>После этого можете сменить системные репозитории в ваших локальных убунтах и наслаждаться скоростью.</p><p>date = &ldquo;Ошибка&rdquo;
 slug = &ldquo;Ошибка/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker&rdquo;
-Хотя нет, насладиться сразу конечно не получилось. По какой-то причине (наверное причина в месте на диске), apt-mirror выкачивает только amd64 пакеты, из-за чего <code>apt-get update</code> ругается:</p>
-<pre><code>W: The repository 'http://apt.myserver.ru/ubuntu xenial-backports Release' does not have a Release file.
+Хотя нет, насладиться сразу конечно не получилось. По какой-то причине (наверное причина в месте на диске), apt-mirror выкачивает только amd64 пакеты, из-за чего <code>apt-get update</code> ругается:</p><pre><code>W: The repository 'http://apt.myserver.ru/ubuntu xenial-backports Release' does not have a Release file.
 W: Failed to fetch http://apt.myserver.ru/ubuntu/dists/xenial/main/binary-i386/Packages: 404  Not Found
 W: Failed to fetch http://apt.myserver.ru/ubuntu/dists/xenial-updates/main/binary-i386/Packages: 404  Not Found
 E: Some index files failed to download. They have been ignored, or old ones used instead.
-</code></pre><p>Казалось бы ничего страшного, но уверен, что в тестах ненулевой код выхода apt-get будет все останавливать, поэтому придется чинить.</p>
-<p>Ошибка есть на <a href="https://askubuntu.com/questions/465303/apt-mirror-error/574141">askubuntu.com</a>, спасибо человеку, который предложил решение и негодовал по поводу того, что есть только в <code>man sources.list</code>.</p>
-<p>Решение напрашивается: явно указывать в <code>sources.list</code>, что в репозитории только amd64 пакеты, то есть вместо:</p>
-<pre><code>deb [ arch=amd64 ] http://apt.myserver.ru/ubuntu/ xenial main restricted universe
-</code></pre><p>С настройкой <code>apt-mirror</code> закончили, перейдем к использованию в тестах.</p>
-<h2 id="переключение-docker-контейнера-на-локальный-apt-репозиторий">Переключение Docker контейнера на локальный apt репозиторий</h2>
-<p><a href="https://github.com/ekino/docker-images/tree/master/apt-mirror">https://github.com/ekino/docker-images/tree/master/apt-mirror</a> - здесь приведено 2 способа настройки репозитория в контейнере, не изменяя его:</p>
-<ol>
-<li>[Плохой способ] Подмена через DNS</li>
-<li>[Хороший способ] Подмена <code>/etc/apt/sources.list</code></li>
-</ol>
-<p>Я выбрал хороший. Делается это монтированием файла на место <code>/etc/apt/sources.list</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FQDN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apt.myserver.ru&#34;</span>
-cat <span style="color:#e6db74">&lt;&lt;EOF &gt; sources.list-$FQDN
-</span><span style="color:#e6db74">deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial main restricted universe
-</span><span style="color:#e6db74">deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial-updates main restricted universe
-</span><span style="color:#e6db74">deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial-security main restricted universe
-</span><span style="color:#e6db74">EOF</span>
-</code></pre></div><p>Чтобы не тащить с собой артефакты, файл создается командой.</p>
-<p>После этого проверяем, это должно отработать нормально:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -it -v <span style="color:#66d9ef">$(</span>readlink -f sources.list-$FQDN<span style="color:#66d9ef">)</span>:/etc/apt/sources.list ubuntu:16.04 apt-get update
-</code></pre></div><p>Если <code>readlink</code> выдает ошибку <code>readlink: illegal option -- f</code>, тогда вы скорее всего сидите на MacOS и вам нужно сделать <code>brew install coreutils</code> и прописать в переменную <code>PATH</code> то, что он просит.</p>
-<h2 id="сравнение-скорости">Сравнение скорости</h2>
-<p>Я потратил около 4 часов на то, чтобы настроить локальные репозитории, посмотрим, сколько я сэкономил времени.
-Скорость инета у меня 30 мбит.</p>
-<p>Я сравнил отработку <code>time molecule test</code> на 3 ansible ролях, вот результаты:</p>
-<table>
-<thead>
-<tr>
-<th>Роль</th>
-<th>Стандартный репозиторий</th>
-<th>Локальный репозиторий</th>
-<th>Travis CI:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ansible-role-common</td>
-<td>8:04</td>
-<td>6:18</td>
-<td><strong>4:32</strong></td>
-</tr>
-<tr>
-<td>ansible-role-mysql</td>
-<td>3:41</td>
-<td><strong>3:22</strong></td>
-<td>3:46</td>
-</tr>
-<tr>
-<td>ansible-role-zsh</td>
-<td>3:29</td>
-<td><strong>2:54</strong></td>
-<td>4:08</td>
-</tr>
-</tbody>
-</table>
-<p>Как видно, прирост небольшой, всего 20-30%.
-UPD 26.02.2017: на при написании <a href="/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">статьи про apt-cacher-ng</a> я перепроверил результаты и разница сократилась до 10-20%.</p>
-<p>Тут надо заметить, что в <code>test</code> входит проверка идемпотентности, где никакие пакеты не ставятся. Тогда я сравнил время выполнения &lsquo;molecule converge&rsquo; для <code>ansible-role-mysql</code> и получил немного лучшие результаты: 2:30 против 3:17, это уже почти в 2 раза быстрее.</p>
-<table>
-<thead>
-<tr>
-<th>Роль</th>
-<th>Стандартный репозиторий</th>
-<th>Локальный репозиторий</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ansible-role-common</td>
-<td>8:15</td>
-<td>6:09</td>
-</tr>
-<tr>
-<td>ansible-role-mysql</td>
-<td>3:17</td>
-<td>2:30</td>
-</tr>
-<tr>
-<td>ansible-role-zsh</td>
-<td>4:05</td>
-<td>2:43</td>
-</tr>
-</tbody>
-</table>
-<h2 id="выводы-по-поводу-apt-mirror">Выводы по поводу apt-mirror</h2>
-<p>Результаты меня немного расстроили. Оказалось, что поразительного прироста в скорости, на который я надеялся, не будет.</p>
-<h3 id="плюсы">Плюсы:</h3>
-<ul>
-<li>один раз потратил время, чтобы при каждом тесте ждать меньше</li>
-<li>уменьшает желание тестировать не на чистой машине</li>
-<li>интернет-канал не занимается в рабочее время</li>
-</ul>
-<h3 id="минусы">Минусы</h3>
-<ul>
-<li>эффект слабый, 20-30%</li>
-<li>сложности с пробросом файла <code>sources.list</code></li>
-<li>уход от стандартной конфигурации Gitlab CI</li>
-<li>разные конфиги для Travis CI и Gitlab CI</li>
-</ul>
-<p>На основе этого сделал для себя вывод: это подходит только для локального постоянного применения, в остальных случаях минусы перевешивают.</p>
-<h2 id="что-то-тут-не-так">Что-то тут не так&hellip;</h2>
-<p>После этого я задумался: а как делают &ldquo;большие&rdquo;? Из серьезных решений для локальных репозиториев я знаю только Artifactory. Пошел посмотреть, как у них обстоят дела с зеркалами и <a href="https://www.jfrog.com/knowledge-base/how-to-mirror-a-remote-repository/">нашел</a>: они умеют быть зеркалом, но не рекоменуют их так использовать, т.к. это неэффективно. Вместо этого они предлагают пользоваться ими как кеширующим сервером. Такие дела&hellip;</p>
-<p>UPD 26.02.2017: перешел на использование apt-cacher-ng, в моем случае он лучше по всем параметрам, подробности читайте в продолжении</p>
-        </div>
-        
-
-<footer>
-  <p class="meta">
-    
-    <time itemprop="datePublished" content="2017-02-24T17:39:00UTC">24 Feb 2017, 17:39</time>
-    
-      <span class="categories">
-        , теги:
-        
-          <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a><meta itemprop="about" content="ubuntu">  <a class="category" href="https://blog.popstas.ru/tags/apt">apt</a><meta itemprop="about" content="apt">  <a class="category" href="https://blog.popstas.ru/tags/apt-mirror">apt-mirror</a><meta itemprop="about" content="apt-mirror">  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher">apt-cacher</a><meta itemprop="about" content="apt-cacher">  <a class="category" href="https://blog.popstas.ru/tags/apt-cacher-ng">apt-cacher-ng</a><meta itemprop="about" content="apt-cacher-ng">  <a class="category" href="https://blog.popstas.ru/tags/gitlab">gitlab</a><meta itemprop="about" content="gitlab">  <a class="category" href="https://blog.popstas.ru/tags/ci">ci</a><meta itemprop="about" content="ci">  <a class="category" href="https://blog.popstas.ru/tags/docker">docker</a><meta itemprop="about" content="docker">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/molecule">molecule</a><meta itemprop="about" content="molecule">  <a class="category" href="https://blog.popstas.ru/tags/artifactory">artifactory</a><meta itemprop="about" content="artifactory">  
-    
-    </span>
-  </p>
-
-  
-  <div class="sharing">
-  
-  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-    <a href="https://www.addtoany.com/share"></a>
-    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
-  </div>
-  <script>
-    var a2a_config = a2a_config || {};
-    a2a_config.locale = "ru";
-    a2a_config.color_main = "undefined";
-    a2a_config.color_border = "undefined";
-    a2a_config.color_link_text = "undefined";
-    a2a_config.color_link_text_hover = "undefined";
-    a2a_config.color_bg = "undefined";
-    a2a_config.color_arrow = "undefined";
-    a2a_config.color_arrow_hover = "undefined";
-    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
-  </script>
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
-  
-</div>
-
-  
-
-  
-
-  <p class="meta">
-    
-        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/" title="Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
-    
-
-    
-      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/" title="Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a>
-    
-  </p>
-      <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    
-    
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'popstas';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-  
-</footer>
-
-      </article>
-    </div>
-    
-
-<aside class="sidebar thirds">
-  <section class="first odd">
-
-    
-
-    <p>
-      
-    </p>
-  </section>
-
-
-
-  
-  <ul class="sidebar-nav">
-    <li class="sidebar-nav-item">
-      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
-      
-      
-      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
-       
-      
-      
-      
-      
-      
-      
-      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
-      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
-
-    
-    
-    </li>
-  </ul>
-
-  
-
-  
-
-  
-  
-  
-    
-      <section class="even">
-        <h4>Последние посты:</h4>
-        <ul id="recent_posts">
-          
-            <li class="post">
-              <a href="/tags/offtop/">offtop</a>
-            </li>
-          
-            <li class="post">
-              <a href="/">Popstas</a>
-            </li>
-          
-            <li class="post">
-              <a href="/post/">Posts</a>
-            </li>
-          
-            <li class="post">
-              <a href="/tags/">Tags</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-        </ul>
-      </section>
-    
-  
-
-  
-
-  
-</aside>
-
-  </div>
-</div>
-
-<footer role="contentinfo">
-  <p>Copyright &copy; 2015-2020 Stanislav Popov -
-  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
-</p>
-
-</footer>
-
-
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
-  
-
-
-
-
-<script type="text/javascript" >
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-  ym(51681281, "init", {
-       id:51681281,
-       clickmap:true,
-       trackLinks:true,
-       accurateTrackBounce:true,
-       webvisor:true
-  });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-
-</body>
-</html>
-
+</code></pre><p>Казалось бы ничего страшного, но уверен, что в тестах ненулевой код выхода apt-get будет все останавливать, поэтому придется чинить.</p><p>Ошибка есть на <a href=https://askubuntu.com/questions/465303/apt-mirror-error/574141>askubuntu.com</a>, спасибо человеку, который предложил решение и негодовал по поводу того, что есть только в <code>man sources.list</code>.</p><p>Решение напрашивается: явно указывать в <code>sources.list</code>, что в репозитории только amd64 пакеты, то есть вместо:</p><pre><code>deb [ arch=amd64 ] http://apt.myserver.ru/ubuntu/ xenial main restricted universe
+</code></pre><p>С настройкой <code>apt-mirror</code> закончили, перейдем к использованию в тестах.</p><h2 id=переключение-docker-контейнера-на-локальный-apt-репозиторий>Переключение Docker контейнера на локальный apt репозиторий</h2><p><a href=https://github.com/ekino/docker-images/tree/master/apt-mirror>https://github.com/ekino/docker-images/tree/master/apt-mirror</a> - здесь приведено 2 способа настройки репозитория в контейнере, не изменяя его:</p><ol><li>[Плохой способ] Подмена через DNS</li><li>[Хороший способ] Подмена <code>/etc/apt/sources.list</code></li></ol><p>Я выбрал хороший. Делается это монтированием файла на место <code>/etc/apt/sources.list</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>FQDN<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;apt.myserver.ru&#34;</span>
+cat <span style=color:#e6db74>&lt;&lt;EOF &gt; sources.list-$FQDN
+</span><span style=color:#e6db74>deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial main restricted universe
+</span><span style=color:#e6db74>deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial-updates main restricted universe
+</span><span style=color:#e6db74>deb [ arch=amd64 ] http://$FQDN/ubuntu/ xenial-security main restricted universe
+</span><span style=color:#e6db74>EOF</span>
+</code></pre></div><p>Чтобы не тащить с собой артефакты, файл создается командой.</p><p>После этого проверяем, это должно отработать нормально:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run --rm -it -v <span style=color:#66d9ef>$(</span>readlink -f sources.list-$FQDN<span style=color:#66d9ef>)</span>:/etc/apt/sources.list ubuntu:16.04 apt-get update
+</code></pre></div><p>Если <code>readlink</code> выдает ошибку <code>readlink: illegal option -- f</code>, тогда вы скорее всего сидите на MacOS и вам нужно сделать <code>brew install coreutils</code> и прописать в переменную <code>PATH</code> то, что он просит.</p><h2 id=сравнение-скорости>Сравнение скорости</h2><p>Я потратил около 4 часов на то, чтобы настроить локальные репозитории, посмотрим, сколько я сэкономил времени.
+Скорость инета у меня 30 мбит.</p><p>Я сравнил отработку <code>time molecule test</code> на 3 ansible ролях, вот результаты:</p><table><thead><tr><th>Роль</th><th>Стандартный репозиторий</th><th>Локальный репозиторий</th><th>Travis CI:</th></tr></thead><tbody><tr><td>ansible-role-common</td><td>8:04</td><td>6:18</td><td><strong>4:32</strong></td></tr><tr><td>ansible-role-mysql</td><td>3:41</td><td><strong>3:22</strong></td><td>3:46</td></tr><tr><td>ansible-role-zsh</td><td>3:29</td><td><strong>2:54</strong></td><td>4:08</td></tr></tbody></table><p>Как видно, прирост небольшой, всего 20-30%.
+UPD 26.02.2017: на при написании <a href=/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/>статьи про apt-cacher-ng</a> я перепроверил результаты и разница сократилась до 10-20%.</p><p>Тут надо заметить, что в <code>test</code> входит проверка идемпотентности, где никакие пакеты не ставятся. Тогда я сравнил время выполнения &lsquo;molecule converge&rsquo; для <code>ansible-role-mysql</code> и получил немного лучшие результаты: 2:30 против 3:17, это уже почти в 2 раза быстрее.</p><table><thead><tr><th>Роль</th><th>Стандартный репозиторий</th><th>Локальный репозиторий</th></tr></thead><tbody><tr><td>ansible-role-common</td><td>8:15</td><td>6:09</td></tr><tr><td>ansible-role-mysql</td><td>3:17</td><td>2:30</td></tr><tr><td>ansible-role-zsh</td><td>4:05</td><td>2:43</td></tr></tbody></table><h2 id=выводы-по-поводу-apt-mirror>Выводы по поводу apt-mirror</h2><p>Результаты меня немного расстроили. Оказалось, что поразительного прироста в скорости, на который я надеялся, не будет.</p><h3 id=плюсы>Плюсы:</h3><ul><li>один раз потратил время, чтобы при каждом тесте ждать меньше</li><li>уменьшает желание тестировать не на чистой машине</li><li>интернет-канал не занимается в рабочее время</li></ul><h3 id=минусы>Минусы</h3><ul><li>эффект слабый, 20-30%</li><li>сложности с пробросом файла <code>sources.list</code></li><li>уход от стандартной конфигурации Gitlab CI</li><li>разные конфиги для Travis CI и Gitlab CI</li></ul><p>На основе этого сделал для себя вывод: это подходит только для локального постоянного применения, в остальных случаях минусы перевешивают.</p><h2 id=что-то-тут-не-так>Что-то тут не так&mldr;</h2><p>После этого я задумался: а как делают &ldquo;большие&rdquo;? Из серьезных решений для локальных репозиториев я знаю только Artifactory. Пошел посмотреть, как у них обстоят дела с зеркалами и <a href=https://www.jfrog.com/knowledge-base/how-to-mirror-a-remote-repository/>нашел</a>: они умеют быть зеркалом, но не рекоменуют их так использовать, т.к. это неэффективно. Вместо этого они предлагают пользоваться ими как кеширующим сервером. Такие дела&mldr;</p><p>UPD 26.02.2017: перешел на использование apt-cacher-ng, в моем случае он лучше по всем параметрам, подробности читайте в продолжении</p></div><footer><p class=meta><time itemprop=datePublished content="2017-02-24T17:39:00UTC">24 Feb 2017, 17:39</time>
+<span class=categories>, теги:
+<a class=category href=https://blog.popstas.ru/tags/ubuntu>ubuntu</a><meta itemprop=about content="ubuntu"><a class=category href=https://blog.popstas.ru/tags/apt>apt</a><meta itemprop=about content="apt"><a class=category href=https://blog.popstas.ru/tags/apt-mirror>apt-mirror</a><meta itemprop=about content="apt-mirror"><a class=category href=https://blog.popstas.ru/tags/apt-cacher>apt-cacher</a><meta itemprop=about content="apt-cacher"><a class=category href=https://blog.popstas.ru/tags/apt-cacher-ng>apt-cacher-ng</a><meta itemprop=about content="apt-cacher-ng"><a class=category href=https://blog.popstas.ru/tags/gitlab>gitlab</a><meta itemprop=about content="gitlab"><a class=category href=https://blog.popstas.ru/tags/ci>ci</a><meta itemprop=about content="ci"><a class=category href=https://blog.popstas.ru/tags/docker>docker</a><meta itemprop=about content="docker"><a class=category href=https://blog.popstas.ru/tags/ansible>ansible</a><meta itemprop=about content="ansible"><a class=category href=https://blog.popstas.ru/tags/molecule>molecule</a><meta itemprop=about content="molecule"><a class=category href=https://blog.popstas.ru/tags/artifactory>artifactory</a><meta itemprop=about content="artifactory"></span></p><div class=sharing><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a href=https://www.addtoany.com/share></a><a class=a2a_button_facebook></a><a class=a2a_button_twitter></a><a class=a2a_button_google_plus></a><a class=a2a_button_vk></a><a class=a2a_button_pocket></a></div><script>var a2a_config=a2a_config||{};a2a_config.locale="ru";a2a_config.color_main="undefined";a2a_config.color_border="undefined";a2a_config.color_link_text="undefined";a2a_config.color_link_text_hover="undefined";a2a_config.color_bg="undefined";a2a_config.color_arrow="undefined";a2a_config.color_arrow_hover="undefined";a2a_config.prioritize=["facebook","twitter","google_plus","pocket","vk"];</script><script async src=https://static.addtoany.com/menu/page.js></script></div><p class=meta><a class="basic-alignment left" href=https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/ title="Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject">Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</a>
+<a class="basic-alignment right" href=https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/ title="Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker">Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</a></p></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank href=https://github.com/popstas/ title=https://github.com/popstas/><i class="fa fa-github fa-3x"></i></a><a target=_blank href=https://twitter.com/popstas/ title=https://twitter.com/popstas/><i class="fa fa-twitter fa-3x"></i></a><a target=_blank href="tg://resolve?domain=popstas" title=popstas><i class="fa fa-telegram fa-3x"></i></a><a target=_blank href=mailto:popstas@gmail.com title=popstas@gmail.com><i class="fa fa-at fa-3x"></i></a></li></ul><section class=even><div class=sidebar-title>Последние посты:</div><ul id=recent_posts><li class=post><a href=/blog/2019/12/29/new-year-2019/>Итоги 2019 года</a></li><li class=post><a href=/blog/2019/12/29/books-2019/>Мои книги в 2019: психология, бизнес, художка</a></li><li class=post><a href=/blog/2019/12/02/smarthome-node-red-2019/>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a></li><li class=post><a href=/blog/2019/04/06/ilife-a9s-stress-test/>Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2015-2020 Stanislav Popov -
+<span class=credit>Powered by <a target=_blank href=https://gohugo.io>Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/>Hugo-Octopress</a> theme.</p></footer><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WPJWVXB');</script><script type=text/javascript>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(51681281,"init",{id:51681281,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script><noscript><div><img src=https://mc.yandex.ru/watch/51681281 style=position:absolute;left:-9999px alt></div></noscript></body></html>

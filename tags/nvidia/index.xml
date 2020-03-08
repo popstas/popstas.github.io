@@ -1,33 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>nvidia on Popstas</title>
-    <link>https://blog.popstas.ru/tags/nvidia/</link>
-    <description>Recent content in nvidia on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Mon, 30 Apr 2018 19:46:00 +0600</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/nvidia/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</title>
-      <link>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</link>
-      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</guid>
-      <description>&lt;p&gt;Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href=&#34;https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux&#34;&gt;эта статья&lt;/a&gt;, вот краткое содержание:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;apt install ubuntu-drivers-common
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nvidia on Popstas</title><link>https://blog.popstas.ru/tags/nvidia/</link><description>Recent content in nvidia on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 30 Apr 2018 19:46:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/nvidia/index.xml" rel="self" type="application/rss+xml"/><item><title>Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</title><link>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</link><pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</guid><description>&lt;p>Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux">эта статья&lt;/a>, вот краткое содержание:&lt;/p>
+&lt;pre>&lt;code>apt install ubuntu-drivers-common
 ubuntu-drivers devices
 ubuntu-drivers autoinstall
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Звук по HDMI работал нормально на обоих драйверах.&lt;/p&gt;
-&lt;h4 id=&#34;другие-проблемы-с-видео&#34;&gt;Другие проблемы с видео:&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/&#34;&gt;Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Черный экран после загрузки - &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>&lt;p>Звук по HDMI работал нормально на обоих драйверах.&lt;/p>
+&lt;h4 id="другие-проблемы-с-видео">Другие проблемы с видео:&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a>&lt;/li>
+&lt;li>Черный экран после загрузки - &lt;a href="https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053">https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

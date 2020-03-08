@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>gadgets on Popstas</title>
-    <link>https://blog.popstas.ru/tags/gadgets/</link>
-    <description>Recent content in gadgets on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Thu, 25 Feb 2016 23:31:57 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/gadgets/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Большой тачпад как замена мышки</title>
-      <link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
-      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
-      <description>&lt;p&gt;Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
-нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gadgets on Popstas</title><link>https://blog.popstas.ru/tags/gadgets/</link><description>Recent content in gadgets on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 25 Feb 2016 23:31:57 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/gadgets/index.xml" rel="self" type="application/rss+xml"/><item><title>Большой тачпад как замена мышки</title><link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link><pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid><description>&lt;p>Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
+нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg" /></description></item></channel></rss>

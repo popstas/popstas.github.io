@@ -1,60 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>gitlab on Popstas</title>
-    <link>https://blog.popstas.ru/tags/gitlab/</link>
-    <description>Recent content in gitlab on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
-      <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
-      <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
-&lt;p&gt;В статье ниже описано, как решить ту же проблему, используя &lt;code&gt;apt-cacher-ng&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
-      <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
-      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
-      <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
-и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p&gt;
-&lt;p&gt;Ниже описано, как создать зеркало из &lt;a href=&#34;http://mirror.yandex.ru/ubuntu&#34;&gt;http://mirror.yandex.ru/ubuntu&lt;/a&gt; и подружить его с Gitlab CI и molecule.&lt;/p&gt;
-&lt;p&gt;Tl;dr: не делайте локальный репозиторий через &lt;code&gt;apt-mirror&lt;/code&gt; для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;apt-cacher-ng&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
-      <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
-      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
-      <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
-&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
-на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
-после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
-&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gitlab on Popstas</title><link>https://blog.popstas.ru/tags/gitlab/</link><description>Recent content in gitlab on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/gitlab/index.xml" rel="self" type="application/rss+xml"/><item><title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title><link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link><pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid><description>&lt;p>В &lt;a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">предыдущей статье&lt;/a> я настраивал &lt;code>apt-mirror&lt;/code> для тех же целей. У того способа нашлось несколько недостатков.&lt;/p>
+&lt;p>В статье ниже описано, как решить ту же проблему, используя &lt;code>apt-cacher-ng&lt;/code>.&lt;/p>
+&lt;p>Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png" /></description></item><item><title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title><link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link><pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid><description>&lt;p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
+и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p>
+&lt;p>Ниже описано, как создать зеркало из &lt;a href="http://mirror.yandex.ru/ubuntu">http://mirror.yandex.ru/ubuntu&lt;/a> и подружить его с Gitlab CI и molecule.&lt;/p>
+&lt;p>Tl;dr: не делайте локальный репозиторий через &lt;code>apt-mirror&lt;/code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng&lt;/a>.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/apt-mirror.png" /></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
+&lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
+&lt;ul>
+&lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
+&lt;li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.&lt;/li>
+&lt;/ul>
+&lt;p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
+&lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" /></description></item></channel></rss>

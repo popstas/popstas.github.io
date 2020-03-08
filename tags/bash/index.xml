@@ -1,183 +1,79 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bash on Popstas</title>
-    <link>https://blog.popstas.ru/tags/bash/</link>
-    <description>Recent content in bash on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/bash/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
-      <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
-      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bash on Popstas</title><link>https://blog.popstas.ru/tags/bash/</link><description>Recent content in bash on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title><link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link><pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/323496/">моей статьи с хабра&lt;/a>.&lt;/p>
+&lt;p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
 Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
 Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
-Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p&gt;
-&lt;p&gt;Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
-и обновление. В итоге появилась роль &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-zsh&#34;&gt;ansible-role-zsh&lt;/a&gt;,
-которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p&gt;
-&lt;h3 id=&#34;особенности&#34;&gt;Особенности:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li&gt;
-&lt;li&gt;быстро загружается, быстро работает&lt;/li&gt;
-&lt;li&gt;полностью настраивается через ansible, &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;полностью локальная (в систему ничего не ставится, все хранится в &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;оставляет возможность юзеру вносить свои настройки через &lt;code&gt;~/.zshrc.local&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;del&gt;одинаково&lt;/del&gt; работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li&gt;
-&lt;li&gt;нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li&gt;
-&lt;li&gt;встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li&gt;
-&lt;li&gt;автодополнение по истории команд (помогает реже нажимать &lt;code&gt;Ctrl+R&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;отображение времени для долго выполняемых команд (помогает реже использовать &lt;code&gt;time&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Демонстрация фич за 1 минуту:
-&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
-      <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
-      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
-      <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
-&lt;h3 id=&#34;для-этого-надо&#34;&gt;Для этого надо:&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Извлечь директорию подпроекта в отдельный репозиторий&lt;/li&gt;
-&lt;li&gt;Удалить из проекта папку подпроекта&lt;/li&gt;
-&lt;li&gt;Добавить в большой проект зависимость от подпроекта&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code&gt;git-extract-subproject&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Bash on Ubuntu on Windows: первый блин</title>
-      <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
-      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
-      <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
+Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p>
+&lt;p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
+и обновление. В итоге появилась роль &lt;a href="https://github.com/viasite-ansible/ansible-role-zsh">ansible-role-zsh&lt;/a>,
+которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p>
+&lt;h3 id="особенности">Особенности:&lt;/h3>
+&lt;ul>
+&lt;li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li>
+&lt;li>быстро загружается, быстро работает&lt;/li>
+&lt;li>полностью настраивается через ansible, &lt;code>~/.zshrc&lt;/code>&lt;/li>
+&lt;li>полностью локальная (в систему ничего не ставится, все хранится в &lt;code>~/.oh-my-zsh&lt;/code>)&lt;/li>
+&lt;li>оставляет возможность юзеру вносить свои настройки через &lt;code>~/.zshrc.local&lt;/code>&lt;/li>
+&lt;li>&lt;del>одинаково&lt;/del> работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li>
+&lt;li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li>
+&lt;li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li>
+&lt;li>автодополнение по истории команд (помогает реже нажимать &lt;code>Ctrl+R&lt;/code>)&lt;/li>
+&lt;li>отображение времени для долго выполняемых команд (помогает реже использовать &lt;code>time&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;p>Демонстрация фич за 1 минуту:
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />&lt;/p></description></item><item><title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title><link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link><pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid><description>&lt;p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p>
+&lt;h3 id="для-этого-надо">Для этого надо:&lt;/h3>
+&lt;ol>
+&lt;li>Извлечь директорию подпроекта в отдельный репозиторий&lt;/li>
+&lt;li>Удалить из проекта папку подпроекта&lt;/li>
+&lt;li>Добавить в большой проект зависимость от подпроекта&lt;/li>
+&lt;/ol>
+&lt;p>Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code>git-extract-subproject&lt;/code>.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" /></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
 Tl;dr: оно очень сырое, не работает почти ничего.
 Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
 $ aptitude install zsh Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
-Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description>
-    </item>
-    
-    <item>
-      <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
-      <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
-      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
-      <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
-&lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34;&gt;issue про недоступность сборки 14316&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;Инструкция по обновлению на русском&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
-      <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
-      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
-      <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
-&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
-на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
-после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
-&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>average: измерение среднего времени выполнения команды в bash</title>
-      <link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
-      <pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
-      <description>&lt;p&gt;Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;простая проверка скорости загрузки страницы&lt;/li&gt;
-&lt;li&gt;подбор оптимальных параметров к команде&lt;/li&gt;
-&lt;li&gt;сравнение разных команд&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Раньше я просто запускал несколько раз с &lt;code&gt;time&lt;/code&gt;, смотрел результат, у уме делил.
-Но мне это надоело, поэтому написал скрипт &lt;code&gt;average&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Проверяем изменения на странице через cron</title>
-      <link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
-      <pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
-      <description>&lt;p&gt;Сегодня хотел заказать ароматизаторов на &lt;a href=&#34;http://baker-flavors.blogspot.ru/&#34;&gt;Baker Flavours&lt;/a&gt;, дошел до страницы заказа,
-и увидел &amp;ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&amp;quot;.&lt;/p&gt;
-&lt;p&gt;Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.&lt;/p&gt;
-&lt;p&gt;Строчка для crontab:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &amp;quot;временно прекращен&amp;quot; &amp;gt; /dev/null || { echo &amp;quot;BF order started&amp;quot; | terminal-notifier &amp;amp;&amp;amp; open http://bakerflavors.ru/formbf.htm }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Подробности под катом.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
-      <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
-      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
-      <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
+&lt;p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5">issue про недоступность сборки 14316&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">Инструкция по обновлению на русском&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;img itemprop="image" src="http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png" /></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
+&lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
+&lt;ul>
+&lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
+&lt;li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.&lt;/li>
+&lt;/ul>
+&lt;p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
+&lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" /></description></item><item><title>average: измерение среднего времени выполнения команды в bash</title><link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link><pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid><description>&lt;p>Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p>
+&lt;ul>
+&lt;li>простая проверка скорости загрузки страницы&lt;/li>
+&lt;li>подбор оптимальных параметров к команде&lt;/li>
+&lt;li>сравнение разных команд&lt;/li>
+&lt;/ul>
+&lt;p>Раньше я просто запускал несколько раз с &lt;code>time&lt;/code>, смотрел результат, у уме делил.
+Но мне это надоело, поэтому написал скрипт &lt;code>average&lt;/code>.&lt;/p></description></item><item><title>Проверяем изменения на странице через cron</title><link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link><pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid><description>&lt;p>Сегодня хотел заказать ароматизаторов на &lt;a href="http://baker-flavors.blogspot.ru/">Baker Flavours&lt;/a>, дошел до страницы заказа,
+и увидел &amp;ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&amp;quot;.&lt;/p>
+&lt;p>Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.&lt;/p>
+&lt;p>Строчка для crontab:&lt;/p>
+&lt;pre>&lt;code>0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &amp;quot;временно прекращен&amp;quot; &amp;gt; /dev/null || { echo &amp;quot;BF order started&amp;quot; | terminal-notifier &amp;amp;&amp;amp; open http://bakerflavors.ru/formbf.htm }
+&lt;/code>&lt;/pre>&lt;p>Подробности под катом.&lt;/p></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
-Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
-&lt;p&gt;UPD: 06.06.2016
-Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
-      <link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
-      <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
-      <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
+Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
+&lt;p>UPD: 06.06.2016
+Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
+&lt;img itemprop="image" src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
-&lt;code&gt;Ctrl+R&lt;/code&gt;, &lt;code&gt;Ctrl+Shift+R&lt;/code&gt;. При этом видно одновременно видно только одну команду из истории.&lt;/p&gt;
-&lt;p&gt;Утилита &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34;&gt;percol&lt;/a&gt; решает эту проблему.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Показать все окна gnome terminal в Ubuntu</title>
-      <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
-      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
-      <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,
+&lt;code>Ctrl+R&lt;/code>, &lt;code>Ctrl+Shift+R&lt;/code>. При этом видно одновременно видно только одну команду из истории.&lt;/p>
+&lt;p>Утилита &lt;a href="https://github.com/mooz/percol#zsh-history-search">percol&lt;/a> решает эту проблему.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2015-12/percol.gif" /></description></item><item><title>Показать все окна gnome terminal в Ubuntu</title><link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link><pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid><description>&lt;p>При работе за компом имею привычку открывать много терминалов,
 не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
-При этом терминалы расположены по всему рабочему экрану.&lt;/p&gt;
-&lt;p&gt;Из-за этого была такая проблема: при переключении на браузер или редактор,
-которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p&gt;
-&lt;p&gt;Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
-нажать хоткей и достать все окна этой же программы наверх.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+При этом терминалы расположены по всему рабочему экрану.&lt;/p>
+&lt;p>Из-за этого была такая проблема: при переключении на браузер или редактор,
+которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p>
+&lt;p>Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
+нажать хоткей и достать все окна этой же программы наверх.&lt;/p></description></item></channel></rss>

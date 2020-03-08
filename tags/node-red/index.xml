@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>node-red on Popstas</title>
-    <link>https://blog.popstas.ru/tags/node-red/</link>
-    <description>Recent content in node-red on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Mon, 02 Dec 2019 02:00:00 +0600</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/node-red/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title>
-      <link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid>
-      <description>&lt;p&gt;В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;
-(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href=&#34;https://www.youtube.com/watch?v=WfI69DC_jaw&#34;&gt;Будет ласковый дождь&lt;/a&gt;&amp;quot;).&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>node-red on Popstas</title><link>https://blog.popstas.ru/tags/node-red/</link><description>Recent content in node-red on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 02 Dec 2019 02:00:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/node-red/index.xml" rel="self" type="application/rss+xml"/><item><title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title><link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link><pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid><description>&lt;p>В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p>
+&lt;p>&lt;img itemprop="image" src="https://blog.popstas.ru/images/2019-12/smarthome.jpg" />
+(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href="https://www.youtube.com/watch?v=WfI69DC_jaw">Будет ласковый дождь&lt;/a>&amp;quot;).&lt;/p></description></item></channel></rss>

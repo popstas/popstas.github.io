@@ -1,40 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>apt-cacher on Popstas</title>
-    <link>https://blog.popstas.ru/tags/apt-cacher/</link>
-    <description>Recent content in apt-cacher on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Sun, 26 Feb 2017 04:14:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/apt-cacher/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
-      <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
-      <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
-&lt;p&gt;В статье ниже описано, как решить ту же проблему, используя &lt;code&gt;apt-cacher-ng&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
-      <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
-      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
-      <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
-и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p&gt;
-&lt;p&gt;Ниже описано, как создать зеркало из &lt;a href=&#34;http://mirror.yandex.ru/ubuntu&#34;&gt;http://mirror.yandex.ru/ubuntu&lt;/a&gt; и подружить его с Gitlab CI и molecule.&lt;/p&gt;
-&lt;p&gt;Tl;dr: не делайте локальный репозиторий через &lt;code&gt;apt-mirror&lt;/code&gt; для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;apt-cacher-ng&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>apt-cacher on Popstas</title><link>https://blog.popstas.ru/tags/apt-cacher/</link><description>Recent content in apt-cacher on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 26 Feb 2017 04:14:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/apt-cacher/index.xml" rel="self" type="application/rss+xml"/><item><title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title><link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link><pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid><description>&lt;p>В &lt;a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">предыдущей статье&lt;/a> я настраивал &lt;code>apt-mirror&lt;/code> для тех же целей. У того способа нашлось несколько недостатков.&lt;/p>
+&lt;p>В статье ниже описано, как решить ту же проблему, используя &lt;code>apt-cacher-ng&lt;/code>.&lt;/p>
+&lt;p>Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png" /></description></item><item><title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title><link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link><pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid><description>&lt;p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
+и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p>
+&lt;p>Ниже описано, как создать зеркало из &lt;a href="http://mirror.yandex.ru/ubuntu">http://mirror.yandex.ru/ubuntu&lt;/a> и подружить его с Gitlab CI и molecule.&lt;/p>
+&lt;p>Tl;dr: не делайте локальный репозиторий через &lt;code>apt-mirror&lt;/code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng&lt;/a>.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/apt-mirror.png" /></description></item></channel></rss>

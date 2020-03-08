@@ -1,28 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>monitoring on Popstas</title>
-    <link>https://blog.popstas.ru/tags/monitoring/</link>
-    <description>Recent content in monitoring on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Thu, 19 May 2016 00:47:52 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
-      <link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
-      <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
-&lt;p&gt;Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href=&#34;https://influxdata.com/get-started/what-is-the-tick-stack/&#34;&gt;TICK&lt;/a&gt; от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p&gt;
-&lt;p&gt;Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p&gt;
-&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&#39;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>monitoring on Popstas</title><link>https://blog.popstas.ru/tags/monitoring/</link><description>Recent content in monitoring on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 19 May 2016 00:47:52 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title><link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link><pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid><description>&lt;p>Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p>
+&lt;p>Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href="https://influxdata.com/get-started/what-is-the-tick-stack/">TICK&lt;/a> от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p>
+&lt;p>Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p>
+&lt;p>А также небольшое замечание о том, &lt;a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request">как делать Pull request'ы из браузера за 2 минуты&lt;/a>&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" /></description></item></channel></rss>

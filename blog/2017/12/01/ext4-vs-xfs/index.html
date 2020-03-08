@@ -1,133 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
-
-  
-  
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  
-
-  
-  <title>Ext4 vs XFS</title>
-
-  
-  
-  <link rel="stylesheet" href="https://blog.popstas.ru/css/hugo-octopress.css">
-
-  
-  
-    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
-  
-
-  
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  
-  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
-
-  
-  
-  
-
-  
-
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <meta name="author" content="Stanislav Popov">
-
-  
-  <meta name="generator" content="Hugo 0.66.0" />
-
-  
-  
-
-</head>
-<body>
-
-
-<header role="banner"><hgroup>
-  
-  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
-    <div>Записки о Linux</div>
-</hgroup></header>
-
-
-<nav role="navigation">
-
-<ul class="main-navigation">
-  
-  
-</ul>
-
-
-<ul class="subscription">
-  
-    
-        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
-    
-  
-
-</ul>
-
-
-</nav>
-
-
-<div id="main">
-  <div id="content">
-    <div>
-      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
-        <meta itemprop="author publisher" content="Stanislav Popov">
-        
-        
-
-<header>
-    <p class="meta">1 Dec 2017, 23:25
-         - 3 мин читать 
-
-        
-    </p>
-    <h1 class="entry-title" itemprop="headline">
-         Ext4 vs XFS 
-    </h1>
-</header>
-
-
-        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/">
-        <div class="entry-content" itemprop="articleBody">
-          
-          
-          
-          <p>Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.</p>
-<p><!-- raw HTML omitted --></p>
-<p>Немного о моем применении: у нас есть сервер с бекапами, бекапы делаются с помощью rsnapshot, сейчас там около 15 000 000 файлов. Любая попытка просканировать всю файловую систему занимает часы радости не доставляет.</p>
-<p>Так вот, для тестов создал на свободном HDD 2 раздела по 50 Гб, залил на них папку с ~ 1 млн файлов на ~ 35 Гб, вот результаты:</p>
-<h3 id="1-заливка-файлов">1. Заливка файлов:</h3>
-<pre><code>$ time rsync -a /home/ /tmp/ext4/ \
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=/css/fonts.css rel=stylesheet type=text/css><title>Ext4 vs XFS</title><link rel=stylesheet href=/css/hugo-octopress.css><link rel=stylesheet href=https://blog.popstas.ru/css/custom.css><link rel=stylesheet href=/css/fork-awesome.min.css><link href=https://blog.popstas.ru/favicon.png rel=icon><link href=http://feeds.feedburner.com/popstas rel=alternate type=application/rss+xml title=RSS><meta name=description content><meta name=keywords content><meta name=author content="Stanislav Popov"><meta name=generator content="Hugo 0.66.0"></head><body><header role=banner><hgroup><div><a href=https://blog.popstas.ru/>Popstas</a></div><div>Записки о Linux</div></hgroup></header><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value;">
+<option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=http://feeds.feedburner.com/popstas target=_blank type=application/rss+xml title=RSS><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank><fieldset role=search><input class=search type=text name=q results=0 placeholder=Search>
+<input type=hidden name=q value=site:https://blog.popstas.ru/></fieldset></form></nav><div id=main><div id=content><div><article class=hentry role=article itemscope itemtype=http://schema.org/Article><meta itemprop="author publisher" content="Stanislav Popov"><meta itemprop=mainEntityOfPage content="https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/"><header><h1 class=entry-title itemprop=headline>Ext4 vs XFS</h1><p class=meta>Dec 1, 2017 - 3 мин читать</p></header><div class=entry-content itemprop=articleBody><p>Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.</p><img itemprop=image src=/images/2017-12/ext4-vs-xfs.jpg><p>Немного о моем применении: у нас есть сервер с бекапами, бекапы делаются с помощью rsnapshot, сейчас там около 15 000 000 файлов. Любая попытка просканировать всю файловую систему занимает часы радости не доставляет.</p><p>Так вот, для тестов создал на свободном HDD 2 раздела по 50 Гб, залил на них папку с ~ 1 млн файлов на ~ 35 Гб, вот результаты:</p><h3 id=1-заливка-файлов>1. Заливка файлов:</h3><pre><code>$ time rsync -a /home/ /tmp/ext4/ \
 &amp;&amp; time rsync -a /home/ /tmp/xfs/
 
 rsync -a /home/ /tmp/ext4/  161.20s user 255.46s system 21% cpu 32:06.78 total
 rsync -a /home/ /tmp/xfs/  137.56s user 176.48s system 24% cpu 21:46.11 total
-</code></pre><p>Хотя перед первым rsync я прогрел /home/, похоже все-таки xfs прошла настолько быстрее из-за кеша. Или нет.</p>
-<p>Дальше я стал учитывать кеш.</p>
-<h3 id="2-повторная-синхронизация">2. Повторная синхронизация:</h3>
-<pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rsync -a /home/ /tmp/ext4/ \
+</code></pre><p>Хотя перед первым rsync я прогрел /home/, похоже все-таки xfs прошла настолько быстрее из-за кеша. Или нет.</p><p>Дальше я стал учитывать кеш.</p><h3 id=2-повторная-синхронизация>2. Повторная синхронизация:</h3><pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rsync -a /home/ /tmp/ext4/ \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rsync -a /home/ /tmp/xfs/
 
 rsync -a /home/ /tmp/ext4/  7.41s user 25.23s system 9% cpu 5:40.08 total
 rsync -a /home/ /tmp/xfs/  6.78s user 21.76s system 11% cpu 4:11.81 total
-</code></pre><p>Уже видно, что xfs что-то дает, несмотря на то, что /home был на ext4 (на другом диске).</p>
-<h3 id="3-поиск-файлов">3. Поиск файлов:</h3>
-<pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/ext4 | wc -l \
+</code></pre><p>Уже видно, что xfs что-то дает, несмотря на то, что /home был на ext4 (на другом диске).</p><h3 id=3-поиск-файлов>3. Поиск файлов:</h3><pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/ext4 | wc -l \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/xfs | wc -l
 
 1185847
@@ -137,9 +20,7 @@ wc -l  0.10s user 0.13s system 0% cpu 2:02.55 total
 1185847
 find /tmp/xfs  1.51s user 3.55s system 10% cpu 46.362 total
 wc -l  0.11s user 0.10s system 0% cpu 46.361 total
-</code></pre><p>Уже интереснее, поиск файлов в 2+ раза быстрее!</p>
-<h3 id="4-повторный-поиск">4. Повторный поиск:</h3>
-<pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/ext4 | wc -l \
+</code></pre><p>Уже интереснее, поиск файлов в 2+ раза быстрее!</p><h3 id=4-повторный-поиск>4. Повторный поиск:</h3><pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/ext4 | wc -l \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/xfs | wc -l
 
 1185847
@@ -148,212 +29,15 @@ wc -l  0.10s user 0.12s system 0% cpu 1:43.87 total
 1185847
 find /tmp/xfs  1.26s user 3.20s system 14% cpu 30.090 total
 wc -l  0.07s user 0.14s system 0% cpu 30.090 total
-</code></pre><p>Видимо, кеши я убиваю не все (может sync помог бы?), но общая картина все равно прекрасная.</p>
-<h3 id="5-удаление-файлов">5. Удаление файлов:</h3>
-<pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rm -rf /tmp/ext4/* \
+</code></pre><p>Видимо, кеши я убиваю не все (может sync помог бы?), но общая картина все равно прекрасная.</p><h3 id=5-удаление-файлов>5. Удаление файлов:</h3><pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rm -rf /tmp/ext4/* \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rm -rf /tmp/xfs/*
 
 rm -rf /tmp/ext4/*  1.56s user 26.07s system 18% cpu 2:30.88 total
 rm -rf /tmp/xfs/*  1.45s user 33.49s system 47% cpu 1:14.33 total
-</code></pre><h2 id="вывод">Вывод</h2>
-<p>Вывод: не вижу причин не переходить, думаю сначала перевести бекапы, потом домашние папки на XFS.</p>
-<p>Кстати, гонял еще sysbench, на небольшом количестве файлов разницы нет.</p>
-<h3 id="6-большой-поиск-файлов">6. Большой поиск файлов</h3>
-<p>После того, как дописал заметку, переключил диск с бекапами на XFS (как раз досинхронизировался, спустя 2 суток), не мог не написать о первом действительно ощутимом изменении.</p>
-<p>Мне нужно было найти и удалить все папки &ldquo;backup&rdquo; и удалить их (бинарные бекапы забекапились случайно):</p>
-<pre><code>find /var/backups/rsnapshot/ -type d -name &quot;backup&quot;
-</code></pre><p>Так вот, на XFS команда прошла за 19 минут и нашла 240 папок, при этом диск при поиске использовался только наполовину, а IOPS было примерно 1000. (кто дочитал досюда, тот понял, что значит график наверху).</p>
-<p>На ext4 та же самая команда на тех же самых файлах нашла 70 папок за 80 минут, загружая диск на 100% с IOPS в среднем 535, потом я устал ждать и остановил поиск. Результат оказался не в 2 раза лучше, как я ожидал, а примерно в 15 раз лучше!</p>
-        </div>
-        
-
-<footer>
-  <p class="meta">
-    
-    <time itemprop="datePublished" content="2017-12-01T23:25:00&#43;0600">1 Dec 2017, 23:25</time>
-    
-      <span class="categories">
-        , теги:
-        
-          <a class="category" href="https://blog.popstas.ru/tags/linux">linux</a><meta itemprop="about" content="linux">  <a class="category" href="https://blog.popstas.ru/tags/ext4">ext4</a><meta itemprop="about" content="ext4">  <a class="category" href="https://blog.popstas.ru/tags/xfs">xfs</a><meta itemprop="about" content="xfs">  
-    
-    </span>
-  </p>
-
-  
-  <div class="sharing">
-  
-  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-    <a href="https://www.addtoany.com/share"></a>
-    <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
-  </div>
-  <script>
-    var a2a_config = a2a_config || {};
-    a2a_config.locale = "ru";
-    a2a_config.color_main = "undefined";
-    a2a_config.color_border = "undefined";
-    a2a_config.color_link_text = "undefined";
-    a2a_config.color_link_text_hover = "undefined";
-    a2a_config.color_bg = "undefined";
-    a2a_config.color_arrow = "undefined";
-    a2a_config.color_arrow_hover = "undefined";
-    a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
-  </script>
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
-  
-</div>
-
-  
-
-  
-
-  <p class="meta">
-    
-        <a class="basic-alignment left" href="https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/" title="Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
-    
-
-    
-      <a class="basic-alignment right" href="https://blog.popstas.ru/blog/2017/12/31/new-year-2018/" title="Итоги 2017 года">Итоги 2017 года</a>
-    
-  </p>
-      <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    
-    
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'popstas';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-  
-</footer>
-
-      </article>
-    </div>
-    
-
-<aside class="sidebar thirds">
-  <section class="first odd">
-
-    
-
-    <p>
-      
-    </p>
-  </section>
-
-
-
-  
-  <ul class="sidebar-nav">
-    <li class="sidebar-nav-item">
-      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
-      
-      
-      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
-       
-      
-      
-      
-      
-      
-      
-      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
-      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
-
-    
-    
-    </li>
-  </ul>
-
-  
-
-  
-
-  
-  
-  
-    
-      <section class="even">
-        <h4>Последние посты:</h4>
-        <ul id="recent_posts">
-          
-            <li class="post">
-              <a href="/tags/offtop/">offtop</a>
-            </li>
-          
-            <li class="post">
-              <a href="/">Popstas</a>
-            </li>
-          
-            <li class="post">
-              <a href="/post/">Posts</a>
-            </li>
-          
-            <li class="post">
-              <a href="/tags/">Tags</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-        </ul>
-      </section>
-    
-  
-
-  
-
-  
-</aside>
-
-  </div>
-</div>
-
-<footer role="contentinfo">
-  <p>Copyright &copy; 2015-2020 Stanislav Popov -
-  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
-</p>
-
-</footer>
-
-
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
-  
-
-
-
-
-<script type="text/javascript" >
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-  ym(51681281, "init", {
-       id:51681281,
-       clickmap:true,
-       trackLinks:true,
-       accurateTrackBounce:true,
-       webvisor:true
-  });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-
-</body>
-</html>
-
+</code></pre><h2 id=вывод>Вывод</h2><p>Вывод: не вижу причин не переходить, думаю сначала перевести бекапы, потом домашние папки на XFS.</p><p>Кстати, гонял еще sysbench, на небольшом количестве файлов разницы нет.</p><h3 id=6-большой-поиск-файлов>6. Большой поиск файлов</h3><p>После того, как дописал заметку, переключил диск с бекапами на XFS (как раз досинхронизировался, спустя 2 суток), не мог не написать о первом действительно ощутимом изменении.</p><p>Мне нужно было найти и удалить все папки &ldquo;backup&rdquo; и удалить их (бинарные бекапы забекапились случайно):</p><pre><code>find /var/backups/rsnapshot/ -type d -name &quot;backup&quot;
+</code></pre><p>Так вот, на XFS команда прошла за 19 минут и нашла 240 папок, при этом диск при поиске использовался только наполовину, а IOPS было примерно 1000. (кто дочитал досюда, тот понял, что значит график наверху).</p><p>На ext4 та же самая команда на тех же самых файлах нашла 70 папок за 80 минут, загружая диск на 100% с IOPS в среднем 535, потом я устал ждать и остановил поиск. Результат оказался не в 2 раза лучше, как я ожидал, а примерно в 15 раз лучше!</p></div><footer><p class=meta><time itemprop=datePublished content="2017-12-01T23:25:00+0600">1 Dec 2017, 23:25</time>
+<span class=categories>, теги:
+<a class=category href=https://blog.popstas.ru/tags/linux>linux</a><meta itemprop=about content="linux"><a class=category href=https://blog.popstas.ru/tags/ext4>ext4</a><meta itemprop=about content="ext4"><a class=category href=https://blog.popstas.ru/tags/xfs>xfs</a><meta itemprop=about content="xfs"></span></p><div class=sharing><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a href=https://www.addtoany.com/share></a><a class=a2a_button_facebook></a><a class=a2a_button_twitter></a><a class=a2a_button_google_plus></a><a class=a2a_button_vk></a><a class=a2a_button_pocket></a></div><script>var a2a_config=a2a_config||{};a2a_config.locale="ru";a2a_config.color_main="undefined";a2a_config.color_border="undefined";a2a_config.color_link_text="undefined";a2a_config.color_link_text_hover="undefined";a2a_config.color_bg="undefined";a2a_config.color_arrow="undefined";a2a_config.color_arrow_hover="undefined";a2a_config.prioritize=["facebook","twitter","google_plus","pocket","vk"];</script><script async src=https://static.addtoany.com/menu/page.js></script></div><p class=meta><a class="basic-alignment left" href=https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/ title="Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a>
+<a class="basic-alignment right" href=https://blog.popstas.ru/blog/2017/12/31/new-year-2018/ title="Итоги 2017 года">Итоги 2017 года</a></p></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank href=https://github.com/popstas/ title=https://github.com/popstas/><i class="fa fa-github fa-3x"></i></a><a target=_blank href=https://twitter.com/popstas/ title=https://twitter.com/popstas/><i class="fa fa-twitter fa-3x"></i></a><a target=_blank href="tg://resolve?domain=popstas" title=popstas><i class="fa fa-telegram fa-3x"></i></a><a target=_blank href=mailto:popstas@gmail.com title=popstas@gmail.com><i class="fa fa-at fa-3x"></i></a></li></ul><section class=even><div class=sidebar-title>Последние посты:</div><ul id=recent_posts><li class=post><a href=/blog/2019/12/29/new-year-2019/>Итоги 2019 года</a></li><li class=post><a href=/blog/2019/12/29/books-2019/>Мои книги в 2019: психология, бизнес, художка</a></li><li class=post><a href=/blog/2019/12/02/smarthome-node-red-2019/>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a></li><li class=post><a href=/blog/2019/04/06/ilife-a9s-stress-test/>Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2015-2020 Stanislav Popov -
+<span class=credit>Powered by <a target=_blank href=https://gohugo.io>Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/>Hugo-Octopress</a> theme.</p></footer><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WPJWVXB');</script><script type=text/javascript>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(51681281,"init",{id:51681281,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script><noscript><div><img src=https://mc.yandex.ru/watch/51681281 style=position:absolute;left:-9999px alt></div></noscript></body></html>

@@ -1,40 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>macos on Popstas</title>
-    <link>https://blog.popstas.ru/tags/macos/</link>
-    <description>Recent content in macos on Popstas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    <lastBuildDate>Thu, 25 Feb 2016 23:31:57 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.popstas.ru/tags/macos/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Большой тачпад как замена мышки</title>
-      <link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
-      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
-      <description>&lt;p&gt;Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
-нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
-      <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
-      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
-      <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>macos on Popstas</title><link>https://blog.popstas.ru/tags/macos/</link><description>Recent content in macos on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 25 Feb 2016 23:31:57 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/macos/index.xml" rel="self" type="application/rss+xml"/><item><title>Большой тачпад как замена мышки</title><link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link><pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid><description>&lt;p>Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
+нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg" /></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
-Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
-&lt;p&gt;UPD: 06.06.2016
-Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
+&lt;p>UPD: 06.06.2016
+Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
+&lt;img itemprop="image" src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item></channel></rss>
