@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Drivers on Popstas</title>
+    <title>drivers on Popstas</title>
     <link>https://blog.popstas.ru/tags/drivers/</link>
-    <description>Recent content in Drivers on Popstas</description>
+    <description>Recent content in drivers on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 30 Apr 2018 19:53:00 +0600</lastBuildDate>
@@ -17,13 +17,10 @@
       <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</guid>
-      <description>&lt;p&gt;Драйвера поставились сами. Звук определился, но не играл. Помог &lt;a href=&#34;https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound&#34; target=&#34;_blank&#34;&gt;этот пост&lt;/a&gt;:&lt;/p&gt;
-
+      <description>&lt;p&gt;Драйвера поставились сами. Звук определился, но не играл. Помог &lt;a href=&#34;https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound&#34;&gt;этот пост&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;alsa-utils у меня уже были установлены, запустил alsamixer, переключил выход с Headphones на Multichannel, заработало.&lt;/p&gt;
-
 &lt;p&gt;Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -32,20 +29,15 @@
       <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</guid>
-      <description>&lt;p&gt;Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href=&#34;https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux&#34; target=&#34;_blank&#34;&gt;эта статья&lt;/a&gt;, вот краткое содержание:&lt;/p&gt;
-
+      <description>&lt;p&gt;Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href=&#34;https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux&#34;&gt;эта статья&lt;/a&gt;, вот краткое содержание:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;apt install ubuntu-drivers-common
 ubuntu-drivers devices
 ubuntu-drivers autoinstall
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Звук по HDMI работал нормально на обоих драйверах.&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Звук по HDMI работал нормально на обоих драйверах.&lt;/p&gt;
 &lt;h4 id=&#34;другие-проблемы-с-видео&#34;&gt;Другие проблемы с видео:&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/&#34;&gt;Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Черный экран после загрузки - &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&#34; target=&#34;_blank&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Черный экран после загрузки - &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

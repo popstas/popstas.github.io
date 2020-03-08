@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Xfs on Popstas</title>
+    <title>xfs on Popstas</title>
     <link>https://blog.popstas.ru/tags/xfs/</link>
-    <description>Recent content in Xfs on Popstas</description>
+    <description>Recent content in xfs on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 Dec 2017 23:25:00 +0600</lastBuildDate>
@@ -18,8 +18,7 @@
       
       <guid>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</guid>
       <description>&lt;p&gt;Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-12/ext4-vs-xfs.jpg&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

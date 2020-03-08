@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -107,43 +107,25 @@
           
           
           
-          <p>Сегодня хотел заказать ароматизаторов на <a href="http://baker-flavors.blogspot.ru/" target="_blank">Baker Flavours</a>, дошел до страницы заказа,
-и увидел &ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&rdquo;.</p>
-
+          <p>Сегодня хотел заказать ароматизаторов на <a href="http://baker-flavors.blogspot.ru/">Baker Flavours</a>, дошел до страницы заказа,
+и увидел &ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&quot;.</p>
 <p>Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.</p>
-
 <p>Строчка для crontab:</p>
-
 <pre><code>0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &quot;временно прекращен&quot; &gt; /dev/null || { echo &quot;BF order started&quot; | terminal-notifier &amp;&amp; open http://bakerflavors.ru/formbf.htm }
-</code></pre>
-
-<p>Подробности под катом.</p>
-
+</code></pre><p>Подробности под катом.</p>
 <p>Нужно сделать так, чтобы я узнал о том, что этот текст со страницы пропадет.</p>
-
 <p>Получаем содержимое страницы:</p>
-
 <pre><code>curl -s http://bakerflavors.ru/formbf.htm
-</code></pre>
-
-<p>Оказалось, что страница в windows-1251 кодировке и выдает <code>�</code>. Конвертируем:</p>
-
+</code></pre><p>Оказалось, что страница в windows-1251 кодировке и выдает <code>�</code>. Конвертируем:</p>
 <pre><code>curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8
-</code></pre>
-
-<p>Проверяем наличие текста:</p>
-
+</code></pre><p>Проверяем наличие текста:</p>
 <pre><code>curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &quot;временно прекращен&quot; &gt; /dev/null 
-</code></pre>
-
-<p>Когда текст пропадет, grep выдаст ненулевой exitcode. Добавляем действие на этот случай.</p>
-
+</code></pre><p>Когда текст пропадет, grep выдаст ненулевой exitcode. Добавляем действие на этот случай.</p>
 <p>В начале я сделал как обычно делаю на сервере: отправил письмо через команду <code>mail</code>. Оказалось, что письмо уходит в спам.
 Не стал с этим разбираться, вместо этого буду показывать notification. Уведомление сделал через
-<a href="https://github.com/julienXX/terminal-notifier" target="_blank">julienXX/terminal-notifier</a> (Mac OS),
+<a href="https://github.com/julienXX/terminal-notifier">julienXX/terminal-notifier</a> (Mac OS),
 но тут опять вышел облом: уведомление нельзя показывать бесконечно, если я окажусь в это время не перед экраном,
 я об этом не узнаю. Поэтому буду еще и открывать страницу заказа в браузере. В итоге получилось вот это:</p>
-
 <pre><code>curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &quot;временно прекращен&quot; &gt; /dev/null || { \
   echo &quot;BF order started&quot; | terminal-notifier &amp;&amp; \
   open http://bakerflavors.ru/formbf.htm \
@@ -273,23 +255,23 @@
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

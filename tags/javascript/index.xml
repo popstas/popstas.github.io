@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javascript on Popstas</title>
+    <title>javascript on Popstas</title>
     <link>https://blog.popstas.ru/tags/javascript/</link>
-    <description>Recent content in Javascript on Popstas</description>
+    <description>Recent content in javascript on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 22 Nov 2015 09:40:45 +0000</lastBuildDate>
@@ -18,13 +18,11 @@
       
       <guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid>
       <description>&lt;p&gt;На работе у меня часто бывает такое, что не понятно, куда ушло время.
-Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href=&#34;http://time.popstas.ru/&#34; target=&#34;_blank&#34;&gt;http://time.popstas.ru/&lt;/a&gt;
+Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href=&#34;http://time.popstas.ru/&#34;&gt;http://time.popstas.ru/&lt;/a&gt;
 Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
 глюки, которые раздражали последние годы :)&lt;/p&gt;
-
-&lt;p&gt;Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href=&#34;https://www.toggl.com/&#34; target=&#34;_blank&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href=&#34;https://www.toggl.com/&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

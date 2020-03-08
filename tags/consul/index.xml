@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Consul on Popstas</title>
+    <title>consul on Popstas</title>
     <link>https://blog.popstas.ru/tags/consul/</link>
-    <description>Recent content in Consul on Popstas</description>
+    <description>Recent content in consul on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 14 Dec 2015 08:16:00 +0000</lastBuildDate>
@@ -17,15 +17,12 @@
       <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid>
-      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/273009/&#34; target=&#34;_blank&#34;&gt;моей статьи&lt;/a&gt; с хабра.&lt;/p&gt;
-
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/273009/&#34;&gt;моей статьи&lt;/a&gt; с хабра.&lt;/p&gt;
 &lt;p&gt;Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
-о котором уже была &lt;a href=&#34;http://habrahabr.ru/post/268497/&#34;&gt;обзорная статья&lt;/a&gt; на хабре.&lt;/p&gt;
-
+о котором уже была &lt;!-- raw HTML omitted --&gt;обзорная статья&lt;!-- raw HTML omitted --&gt; на хабре.&lt;/p&gt;
 &lt;p&gt;Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
 чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png&#34; alt=&#34;image&#34;/&gt;&lt;/p&gt;</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
   </channel>

@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,75 +108,44 @@
           
           
           <p>Эта статья первая на новом движке.</p>
-
 <h4 id="зачем">Зачем:</h4>
-
 <ul>
 <li>Не зависеть от ruby</li>
 <li>быстрее</li>
 <li>просто интересно</li>
 </ul>
-
-<p><img src="/images/2017-03/octopress-to-hugo.png" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <h2 id="подробнее-о-причинах">Подробнее о причинах</h2>
-
 <h3 id="не-зависеть-от-ruby">Не зависеть от ruby</h3>
-
 <p>Это было главной причиной. Однажды я захотел написать статью, но <code>rake</code> в папке проекта перестал работать.
 Оказалось, что Octopress не совместим с текущим ruby 2.4 (что намекает на то, что проект бросают).</p>
-
 <p>Можно было сделать песочницу с ruby 2.3 для конеретного проекта, но я с руби сталкивался мало (Vagrant, Octopress)
 и большого желания познавать его не было. Поэтому я просто переключал системную версию руби:</p>
-
 <pre><code>brew switch ruby 2.3.2
-</code></pre>
-
-<p>После этого начинал работать Octopress, но переставал работать Vim.</p>
-
+</code></pre><p>После этого начинал работать Octopress, но переставал работать Vim.</p>
 <p>Пробовал скачать контейнер с Octopress, но тоже за 20 минут не разобрался, как с ним жить: внутри нет git для деплоя,
 порт для <code>rake preview</code> не открыт&hellip; нафиг.</p>
-
 <p>С Hugo такого безобразия не должно быть, т.к. он написан на Go и содержит один бинарник, ничего не требуя от системы.</p>
-
 <h3 id="быстрее">Быстрее</h3>
-
 <p>Так как я пишу 5 раз в год, меня это не очень волновало, но все-таки скорость впечетляет:
 мой блог на данный момент состоит примерно из 85 страниц, Hugo генерирует их за 30 мс!</p>
-
 <p>Самое приятное в этом то, что в Hugo есть live reload: страница в браузере обновляется сама при редактировании исходника.</p>
-
 <h2 id="установка">Установка</h2>
-
-<p><a href="https://github.com/codebrane/octohug" target="_blank">Устанавливаем</a> в систему, я сделал так:</p>
-
+<p><a href="https://github.com/codebrane/octohug">Устанавливаем</a> в систему, я сделал так:</p>
 <pre><code>brew install hugo
-</code></pre>
-
-<p>Для подсветки кода ему нужен <code>pygments</code>, ставим его:</p>
-
+</code></pre><p>Для подсветки кода ему нужен <code>pygments</code>, ставим его:</p>
 <pre><code>pip install pygments
-</code></pre>
-
-<p>Если вы любите <a href="http://ethanschoonover.com/solarized" target="_blank">Solarized Dark</a> как люблю его я, ставим тему для pygments:</p>
-
+</code></pre><p>Если вы любите <a href="http://ethanschoonover.com/solarized">Solarized Dark</a> как люблю его я, ставим тему для pygments:</p>
 <pre><code>git clone https://github.com/john2x/solarized-pygment.git
 cd solarized-pygment
 ./setup.py install
 cd ..
 rm -rf solarized-pygment
-</code></pre>
-
-<p>Переходим в папку, где будет новый проект. У меня блог лежал в <code>~/projects/site/blog.popstas.ru</code>,
+</code></pre><p>Переходим в папку, где будет новый проект. У меня блог лежал в <code>~/projects/site/blog.popstas.ru</code>,
 я заранее переименовал старый проект в <code>~/projects/site/blog.popstas.ru_octopress</code>.</p>
-
 <p>Создаем новый сайт:</p>
-
 <pre><code>hugo new site blog.popstas.ru
-</code></pre>
-
-<p>Получаем следующее:</p>
-
+</code></pre><p>Получаем следующее:</p>
 <pre><code>$ tree blog.popstas.ru
 
 blog.popstas.ru
@@ -186,18 +155,11 @@ blog.popstas.ru
 ├── data
 ├── layouts
 ├── static
-</code></pre>
-
-<p>Переходим в папку нового блога.</p>
-
-<p>Добавляем тему. Я искал порт своей темы Octopress на Hugo и <a href="https://github.com/parsiya/Hugo-Octopress" target="_blank">нашел</a>:</p>
-
+</code></pre><p>Переходим в папку нового блога.</p>
+<p>Добавляем тему. Я искал порт своей темы Octopress на Hugo и <a href="https://github.com/parsiya/Hugo-Octopress">нашел</a>:</p>
 <pre><code>mkdir themes
 git clone https://github.com/parsiya/Hugo-Octopress octopress
-</code></pre>
-
-<p>Вносим первые правки в <code>config.toml</code>:</p>
-
+</code></pre><p>Вносим первые правки в <code>config.toml</code>:</p>
 <pre><code>baseURL = &quot;http://blog.popstas.ru/&quot;
 languageCode = &quot;ru-ru&quot;
 title = &quot;Popstas&quot;
@@ -214,12 +176,8 @@ theme = &quot;octopress&quot;
     # Highlight shortcode and code fences (```) will be treated similarly
     pygmentscodefences = true
 
-</code></pre>
-
-<h2 id="перенос-контента">Перенос контента</h2>
-
+</code></pre><h2 id="перенос-контента">Перенос контента</h2>
 <p>Определим список задач:</p>
-
 <ul>
 <li>Перенести md файлы</li>
 <li>Сохранить урлы статей</li>
@@ -234,14 +192,10 @@ theme = &quot;octopress&quot;
 <li>Перенести соц. панель AddToAny</li>
 <li>Русифицировать</li>
 </ul>
-
 <h3 id="перенос-md-файлов">Перенос md файлов</h3>
-
-<p>В hugo есть только миграция с Jekyl, поэтому идем на github, ищем &ldquo;octopress hugo&rdquo; и находим <a href="https://github.com/codebrane/octohug" target="_blank">octohug</a>.
+<p>В hugo есть только миграция с Jekyl, поэтому идем на github, ищем &ldquo;octopress hugo&rdquo; и находим <a href="https://github.com/codebrane/octohug">octohug</a>.
 Его нужно скачать, скомпилировать, скопировать в папку старого блога и запустить.</p>
-
 <p>После этого в корне старого блога появится папка <code>content</code>, ее нужно перенести в новый блог:</p>
-
 <pre><code>go get github.com/codebrane/octohug
 cd &quot;$GOPATH/src/github.com/codebrane/octohug&quot;
 go build
@@ -251,30 +205,22 @@ cd ~/projects/site/blog.popstas.ru_octopress
 ./octohug
 
 mv content ../blog.popstas.ru
-</code></pre>
-
-<p>Пора посмотреть, что получается. Переходим в папку нового блога и запускаем генератор:</p>
-
+</code></pre><p>Пора посмотреть, что получается. Переходим в папку нового блога и запускаем генератор:</p>
 <pre><code>cd ~/projects/site/blog.popstas.ru
 hugo serve
-</code></pre>
-
-<p>Лично мне результат не понравился :) Статьи перенеслись, но с кривыми датами, заголовками и форматированием.
+</code></pre><p>Лично мне результат не понравился :) Статьи перенеслись, но с кривыми датами, заголовками и форматированием.
 Открываем оба блога в вашем редакторе и на следующие пару часов превращаемся в контентщика. Вот что правил я:</p>
-
 <ul>
 <li><code>&lt;!-- more --&gt;</code> заменить на <code>&lt;!--more--&gt;</code></li>
 <li>перекопировать титлы (обратите внимание, из <code>title: &quot;title&quot;</code> надо делать <code>title = &quot;title&quot;</code>)</li>
 <li>убрать из <code>slug</code> даты</li>
 <li>поправить все даты</li>
 <li>заменить все <code>{[процентик]img</code> на <code>&lt;img src</code> (заменил <code>%</code> на <code>[процентик]</code>, Github ругался)</li>
-<li>перекопировать теги, где они не перенеслись. Также я заменил <code>Categories =</code> на <code>Tags =</code>, это сломало старые урлы категорий,
+<li>перекопировать теги, где они не перенеслись. Также я заменил <code>Categories = </code> на <code>Tags = </code>, это сломало старые урлы категорий,
 но зато сделало теги тегами</li>
 <li>пройтись по каждой статье и глазами найти остальные несоответствия</li>
 </ul>
-
 <p>Вносим правки в <code>config.toml</code>:</p>
-
 <pre><code>disablePathToLower = false
 paginate = 10
 
@@ -302,88 +248,52 @@ paginate = 10
 [blackfriday]
     hrefTargetBlank = true # open the external links in a new window
     fractions = false
-</code></pre>
-
-<h3 id="урлы">Урлы</h3>
-
+</code></pre><h3 id="урлы">Урлы</h3>
 <p>Урлы зависят не от имени файла (оно может быть любым), а от шаблона урлов, в моем случае от даты и алиаса (slug).</p>
-
 <p><code>config.toml</code>:</p>
-
 <pre><code>[permalinks]
     post = &quot;/blog/:year/:month/:day/:slug/&quot;
-</code></pre>
-
-<h3 id="правки-css-темы">Правки CSS темы</h3>
-
+</code></pre><h3 id="правки-css-темы">Правки CSS темы</h3>
 <p>К сожалению препроцессора не будет.</p>
-
 <p><code>config.toml</code>:</p>
-
 <pre><code>[params]
     customCSS = [&quot;css/custom.css&quot;]
-</code></pre>
-
-<h3 id="картинки-и-прочая-статика">Картинки и прочая статика</h3>
-
+</code></pre><h3 id="картинки-и-прочая-статика">Картинки и прочая статика</h3>
 <p>Копируем все, что должно быть в корне сайта из <code>sources</code> в <code>static</code>.</p>
-
 <h3 id="discus">Discus</h3>
-
 <p><code>config.toml</code>:</p>
-
 <pre><code>[params]
     # Disqus shortcode
     # Disable comments for a specific post by adding &quot;comments: false&quot; in its frontmatter
     disqusShortname = &quot;popstas&quot;
-</code></pre>
-
-<p>Комменты появятся только при деплое, на localhost они отключены по каким-то причинам.</p>
-
+</code></pre><p>Комменты появятся только при деплое, на localhost они отключены по каким-то причинам.</p>
 <h3 id="google-analytics">Google Analytics</h3>
-
 <p><code>config.toml</code>:</p>
-
 <pre><code>[params]
     # Google analytics account id
     googleAnalytics = &quot;UA-70438594-1&quot;
-</code></pre>
-
-<h3 id="rss">RSS</h3>
-
+</code></pre><h3 id="rss">RSS</h3>
 <p><code>config.toml</code>:</p>
-
 <pre><code>[params]
     rss = true  # switch to true to enable RSS icon link
 
     # Set to true to use a text label for RSS instead of an icon
     # This is overwritten by the `rss` setting
     textrss = false
-</code></pre>
-
-<h3 id="боковая-колонка-последние-посты">Боковая колонка: последние посты</h3>
-
+</code></pre><h3 id="боковая-колонка-последние-посты">Боковая колонка: последние посты</h3>
 <p><code>config.toml</code>:</p>
-
 <pre><code>[params]
 	# Number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
 	sidebarRecentLimit = 5
-</code></pre>
-
-<h3 id="боковая-колонка-twitter-лента-проекты-на-github">Боковая колонка: Twitter лента, проекты на Github</h3>
-
+</code></pre><h3 id="боковая-колонка-twitter-лента-проекты-на-github">Боковая колонка: Twitter лента, проекты на Github</h3>
 <p>Кастомные виджеты sidebar не предусматривает, поэтому правим шаблон, дописываем в конец, перед <code>&lt;/aside&gt;</code>:
 <code>/themes/octopress/layouts/partials/sidebar.html</code>:</p>
-
-<pre><code class="language-html">    {{ partial &quot;custom/twitterfeed.html&quot; . }}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    {{ partial &#34;custom/twitterfeed.html&#34; . }}
     
-    {{ partial &quot;custom/github.html&quot; . }}
-&lt;/aside&gt;
-</code></pre>
-
-<p>После чего создаем в <code>themes/octopress/layouts/partials/custom</code> соответствующие файлы и копируем туда шаблоны из Octopress.
+    {{ partial &#34;custom/github.html&#34; . }}
+&lt;/<span style="color:#f92672">aside</span>&gt;
+</code></pre></div><p>После чего создаем в <code>themes/octopress/layouts/partials/custom</code> соответствующие файлы и копируем туда шаблоны из Octopress.
 При этом нужно заменить переменные с <code>{{ site.var_name }}</code> на <code>{{ .Site.Params.varName }}</code> и добавить в <code>config.toml</code> нужные переменные:</p>
-
 <pre><code>[params]
     # Twitter feed
     twitterUsername = &quot;popstas&quot;
@@ -393,24 +303,17 @@ paginate = 10
     # Github repos
     githubUser = &quot;popstas&quot;
     githubRepoCount = 10
-</code></pre>
-
-<p>Код виджетов здесь:
-<a href="https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/twitterfeed.html" target="_blank">Twitter</a>
+</code></pre><p>Код виджетов здесь:
+<a href="https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/twitterfeed.html">Twitter</a>
 и
-<a href="https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/github.html" target="_blank">Github</a></p>
-
+<a href="https://github.com/popstas/popstas.github.io-hugo/blob/master/themes/octopress/layouts/partials/custom/github.html">Github</a></p>
 <h3 id="соц-панель-addtoany">Соц. панель AddToAny</h3>
-
 <p>С соц. панелью поступил так же, как и с виджетами боковой колонки: шаблон в <code>partials/custom</code>, вставил в <code>/themes/octopress/layouts/partials/post_footer.html:18</code>,
 там есть специальное место для соц. панели.</p>
-
 <h2 id="русификация">Русификация</h2>
-
 <p>Поменял формат дат в <code>themes/octopress/layouts/partials/post_header.html</code> и <code>themes/octopress/layouts/partials/post_footer.html</code>,
 было: <code>{{ .Date.Format &quot;Jan 2, 2006&quot; }}</code>, стало: <code>{{ .Date.Format &quot;2 Jan 2006, 15:04&quot; }}</code>,
-подробности <a href="https://golang.org/pkg/time/#Time.Format" target="_blank">тут</a>.</p>
-
+подробности <a href="https://golang.org/pkg/time/#Time.Format">тут</a>.</p>
 <p>Насчет остального не стал париться и тупо нашел и заменил строчки в шаблонах.</p>
         </div>
         
@@ -536,23 +439,23 @@ paginate = 10
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

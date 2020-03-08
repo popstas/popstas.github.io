@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,25 +108,18 @@
           
           
           <p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.</p>
-
-<p>Ниже будет написано, как настроить в <a href="https://planfix.ru/" target="_blank">Планфиксе</a> такое поведение:</p>
-
+<p>Ниже будет написано, как настроить в <a href="https://planfix.ru/">Планфиксе</a> такое поведение:</p>
 <ul>
 <li>В коммите упоминаем задачу, например, <code>Правки футера шаблона, https://test.planfix.ru/task/123456</code></li>
 <li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
 на Gitlab, если проект подключен к репозиторию.</li>
 </ul>
-
 <p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
 после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.</p>
-
 <p>Вся интеграция делается в одном файле, код хука лежит здесь -
-<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive" target="_blank">git-hook-post-receive</a></p>
-
-<p><img src="/images/2016-03/planfix_logo.png" /></p>
-
+<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive</a></p>
+<p><!-- raw HTML omitted --></p>
 <p>Здесь надо в 2 словах рассказать о нашем workflow:</p>
-
 <ul>
 <li>Компания занимается разработкой и поддержкой около 100 сайтов.</li>
 <li>Каждый сайт использует Git, репозиторий лежит прямо в корне сайта, bare репозитории отсутствуют.</li>
@@ -140,11 +133,8 @@
 <li>Git по сути используется не для доставки изменений на боевой сайт,
 а для их доставки на компы разработчиков и ведения журнала изменений сайта.</li>
 </ul>
-
 <h2 id="github-issues">Github issues</h2>
-
 <p>Кто не знает про issues гитхаба, расскажу вкратце о его фишках:</p>
-
 <ul>
 <li>В задачах можно ссылаться на коммиты и другие задачи по номерам, они автоматически становятся ссылками.</li>
 <li>В коммитах можно ссылаться на задачи так же: <code>#123</code>, такой коммит автоматом упоминается в задаче.</li>
@@ -153,101 +143,69 @@
 <li>Можно закрывать задачу прямо из коммита, для этого достаточно упомянуть его рядом с одним из ключевых слов,
 например, <code>closes #123</code> после пуша в гитхаб закроет указанную задачу.</li>
 </ul>
-
 <p>А главное, что все связано и из любого места можно перейти на связанные действия.</p>
-
 <p>Я уже краем уха слышал и видел обо всем этом и видел в чужих репозиториях, но вся картина нарисовалась только после использования.
-Да и к тому же на гитхабе до этого сталкивался только с pull-request&rsquo;ами, там немного другое поведение.</p>
-
+Да и к тому же на гитхабе до этого сталкивался только с pull-request'ами, там немного другое поведение.</p>
 <h2 id="phpstorm-tasks">PhpStorm tasks</h2>
-
 <p>В PhpStorm есть интеграция с менеджерами задач, Github там конечно есть, Планфикса там конечно нет,
 но зато если у менеджера задач есть API, можно интегрировать неподдерживаемый сервис.
 У Планфикса API есть, но из коробки он не подойдет для этой интеграции, нужно писать свои обертки.
 В общем-то это дает не много, всего лишь можно будет получать список задач по команде из шторма, и дописывать в коммит ссылку на задачу.</p>
-
 <p>Кстати таски в шторме помогают и без интеграции с трекером: Ctrl+Shift+A - open task, автоматом чистятся все вкладки
 (создается контекст задачи), создается ветка в гите, changelist, по close task - коммит, я недавно начал пользоваться.</p>
-
 <p>Но гораздо интереснее интеграция в другую сторону: ссылки из задач на коммиты.</p>
-
 <p>Когда я разобрался с тем, как устроена интеграция задач в гитхабе, до меня быстро дошло:
 просто менеджер задач должен уметь парсить текст коммита, приходящий из гита и делать на основе этого какие-то действия.
 С этим тоже пока облом: в Планфиксе на данный момент нет обработки писем, прилетающих в задачи, зато
-<a href="https://planfix.ru/docs/%D0%9A%D0%B0%D0%BA_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83_%D0%BF%D0%BE_e-mail%3F" target="_blank">есть обработка писем</a>,
+<a href="https://planfix.ru/docs/%D0%9A%D0%B0%D0%BA_%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83_%D0%BF%D0%BE_e-mail%3F">есть обработка писем</a>,
 приходящих на email юзера, что позволяет надеяться на появление обработки писем, приходящих на email задачи.
 TODO: это есть.</p>
-
 <h2 id="gitlab">Gitlab</h2>
-
 <p>Самые активные проекты мы дублируем на наш внутренний Gitlab. Использование довольно извращенное,
 Gitlab сейчас никак не участвует в рабочем процессе, являясь просто зеркалом и веб-интерфейсом для просмотра коммитов.</p>
-
 <p>На машине разработчика настраивается <code>pre-push</code> хук, который пушит также в Gitlab:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+remote<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
 
-<pre><code class="language-bash">#!/bin/bash
-
-remote=&quot;$1&quot;
-
-if [ &quot;$remote&quot; != &quot;gitlab&quot; ] &amp;&amp; [ &quot;$(git remote show | grep -c &quot;gitlab&quot;)&quot; = 1 ]; then
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$remote<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gitlab&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>git remote show | grep -c <span style="color:#e6db74">&#34;gitlab&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
         git push gitlab master
-fi
-</code></pre>
-
-<h2 id="git-и-planfix">Git и Planfix</h2>
-
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><h2 id="git-и-planfix">Git и Planfix</h2>
 <p>Никакой готовой интеграции между Git и Планфиксом нет, зато обе системы гибкие и позволяют лепить уникальные решения без больших усилий.</p>
-
 <p>Git поддерживает хуки: скрипты, запускающиеся по определенным событиям.</p>
-
 <p>У каждой задачи в Планфиксе есть свой email адрес, если послать на него письмо, оно придет в задачу в виде комментария,
 если с email отправителя связан пользователь, то письмо придет как будто от него.</p>
-
 <p>Значит нам нужно отправлять email из Git в Планфикс на адрес задачи.</p>
-
 <h3 id="настройка-входящих-в-задачу-писем">Настройка входящих в задачу писем</h3>
-
-<p>Управление аккаунтом - Работа с помощью e-mail - <a href="https://tagilcity.planfix.ru/?action=email&amp;mode=taskRules" target="_blank">Правила обработки для задач</a></p>
-
-<p>Надо создать 2 правила:
-1. Выработка из коммита
-2. Обрезка лишнего текста в коммите</p>
-
+<p>Управление аккаунтом - Работа с помощью e-mail - <a href="https://tagilcity.planfix.ru/?action=email&amp;mode=taskRules">Правила обработки для задач</a></p>
+<p>Надо создать 2 правила:</p>
+<ol>
+<li>Выработка из коммита</li>
+<li>Обрезка лишнего текста в коммите</li>
+</ol>
 <p>Обязательно в таком порядке!</p>
-
 <h4 id="в-правиле-выработки">В правиле выработки:</h4>
-
 <ul>
 <li>Тема содержит текст <code>@commit</code></li>
 <li>Содержание содержит слово <code>time:</code></li>
 <li>Добавить аналитику &ldquo;выработка&rdquo;: <code>Вид работы:</code>, <code>Дата:</code>, <code>time:</code>, <code>Автор:</code></li>
 </ul>
-
 <h4 id="в-правиле-обрезки">В правиле обрезки:</h4>
-
 <ul>
 <li>Тема содержит текст <code>@commit</code></li>
 <li>Удалить все, начиная с метки <code>-+-+-</code></li>
 </ul>
-
-<h1 id="связываем-все-вместе">Связываем все вместе</h1>
-
+<h2 id="связываем-всё-вместе">Связываем всё вместе</h2>
 <p>Вся интеграция делается в одном файле, код хука лежит здесь -
-<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive" target="_blank">git-hook-post-receive</a></p>
-
+<a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive</a></p>
 <p>Чтобы подключить хук, надо положить скрипт в папку <code>.git/hooks/post-receive</code> и сделать его исполняемым,
 для этого надо выполнить в корне проекта:</p>
-
-<pre><code class="language-bash">curl -s &quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&quot; &gt; .git/hooks/post-receive
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -s <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&#34;</span> &gt; .git/hooks/post-receive
 chmod +x .git/hooks/post-receive
-</code></pre>
-
-<p>Так как у нас много проектов, я храню его в отдельной общей папке, а в каждом репозитории создаю символическую ссылку на него.</p>
-
+</code></pre></div><p>Так как у нас много проектов, я храню его в отдельной общей папке, а в каждом репозитории создаю символическую ссылку на него.</p>
 <p>Хук получает список коммитов, пришедших с последним пушем, находит первую ссылку на задачу Планфикса и отправляет туда письмо.</p>
-
 <h4 id="о-письме">О письме</h4>
-
 <ul>
 <li><strong>Отправитель</strong>: email того, кто сделал коммит. По этой причине email в git config и email в профиле юзера Планфикса должны совпадать.</li>
 <li><strong>Получатель</strong>: email задачи Планфикса</li>
@@ -255,13 +213,9 @@ chmod +x .git/hooks/post-receive
 <code>@commit</code> ничего не значит, может быть потом пригодится для поиска таких комментов, хотя в отчетах текст комментария все равно использовать нельзя.</li>
 <li><strong>Текст письма</strong>: текст коммита. Если репозиторий имеет зеркало на Gitlab, то в конец текста будет добавлена ссылка на коммит.</li>
 </ul>
-
 <p>Чтобы хук добавлял ссылку на Gitlab, не придумал ничего лучше, чем добавить remote <code>gitlab</code>:</p>
-
 <pre><code>git remote add gitlab ssh://git@org.ru:10022/sites/test.ru.git
-</code></pre>
-
-<p>После этого хук будет извлекать из этого адреса URL <a href="http://org.ru/sites/test" target="_blank">http://org.ru/sites/test</a>, который является главной страницей репозитория.
+</code></pre><p>После этого хук будет извлекать из этого адреса URL <a href="http://org.ru/sites/test,">http://org.ru/sites/test,</a> который является главной страницей репозитория.
 Сайт при всем при этом не имеет доступа к Gitlab, поэтому push и pull в этот remote работать не будут.</p>
         </div>
         
@@ -387,23 +341,23 @@ chmod +x .git/hooks/post-receive
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

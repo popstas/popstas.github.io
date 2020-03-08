@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fast on Popstas</title>
+    <title>fast on Popstas</title>
     <link>https://blog.popstas.ru/tags/fast/</link>
-    <description>Recent content in Fast on Popstas</description>
+    <description>Recent content in fast on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
@@ -19,33 +19,22 @@
       <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
       <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
 поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.&lt;/p&gt;
-
 &lt;p&gt;Так вот, у меня в терминале бывает частая задача: скопировать файл и положить рядом с немного другим именем.
 Раньше я пользовался такой схемой:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;ls filename.ext
 cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
 Потом через &lt;code&gt;Alt+.&lt;/code&gt; вставлял 2 раза последний аргумент предыдущей команды.&lt;/p&gt;
-
 &lt;p&gt;Другие примеры использования:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;mv path/file1 path/file2&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;cp config.example config&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;mc /home/user /home/user&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Теперь я могу делать так:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;cp filename.ext &amp;lt;Alt+,&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;В действии:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; /&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;В действии:&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -57,15 +46,12 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
       <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
 бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
 возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера&lt;/li&gt;
 &lt;li&gt;Пользоваться легко&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-01/eggtimer.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -77,11 +63,9 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
-
 &lt;p&gt;UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

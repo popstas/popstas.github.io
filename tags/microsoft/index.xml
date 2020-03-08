@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Microsoft on Popstas</title>
+    <title>microsoft on Popstas</title>
     <link>https://blog.popstas.ru/tags/microsoft/</link>
-    <description>Recent content in Microsoft on Popstas</description>
+    <description>Recent content in microsoft on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 11 Apr 2016 05:01:00 +0000</lastBuildDate>
@@ -20,7 +20,7 @@
       <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
 Tl;dr: оно очень сырое, не работает почти ничего.
 Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
-$ aptitude install zsh  Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
+$ aptitude install zsh Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
 Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description>
     </item>
     
@@ -31,15 +31,12 @@ $ aptitude install zsh  Конечно, ничего не вышло :) Во-п�
       
       <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
       <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
-
 &lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34; target=&#34;_blank&#34;&gt;issue про недоступность сборки 14316&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34; target=&#34;_blank&#34;&gt;Инструкция по обновлению на русском&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34;&gt;issue про недоступность сборки 14316&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;Инструкция по обновлению на русском&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

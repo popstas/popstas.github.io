@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Windows on Popstas</title>
+    <title>windows on Popstas</title>
     <link>https://blog.popstas.ru/tags/windows/</link>
-    <description>Recent content in Windows on Popstas</description>
+    <description>Recent content in windows on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 11 Apr 2016 05:01:00 +0000</lastBuildDate>
@@ -20,7 +20,7 @@
       <description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
 Tl;dr: оно очень сырое, не работает почти ничего.
 Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
-$ aptitude install zsh  Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
+$ aptitude install zsh Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
 Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description>
     </item>
     

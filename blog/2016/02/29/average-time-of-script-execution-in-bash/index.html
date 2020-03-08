@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,71 +108,38 @@
           
           
           <p>Периодически хочется посчитать среднее время, у меня были такие сценарии:</p>
-
 <ul>
 <li>простая проверка скорости загрузки страницы</li>
 <li>подбор оптимальных параметров к команде</li>
 <li>сравнение разных команд</li>
 </ul>
-
 <p>Раньше я просто запускал несколько раз с <code>time</code>, смотрел результат, у уме делил.
 Но мне это надоело, поэтому написал скрипт <code>average</code>.</p>
-
-<p>Код лежит здесь - <a href="https://github.com/popstas/server-scripts/blob/master/bin/average" target="_blank">https://github.com/popstas/server-scripts/blob/master/bin/average</a></p>
-
+<p>Код лежит здесь - <a href="https://github.com/popstas/server-scripts/blob/master/bin/average">https://github.com/popstas/server-scripts/blob/master/bin/average</a></p>
 <p>Поставить можно так:</p>
-
-<pre><code class="language-bash">curl -s &quot;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&quot; &gt; /usr/local/bin/average
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -s <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/popstas/server-scripts/master/bin/average&#34;</span> &gt; /usr/local/bin/average
 chmod +x /usr/local/bin/average
-</code></pre>
-
-<p>Использовать можно так:</p>
-
+</code></pre></div><p>Использовать можно так:</p>
 <p>Запуск команды по умолчанию, 5 циклов:</p>
-
 <pre><code>average 'command'
-</code></pre>
-
-<p>Запуск команды с указанным кол-вом циклов:</p>
-
+</code></pre><p>Запуск команды с указанным кол-вом циклов:</p>
 <pre><code>average 10 'command'
-</code></pre>
-
-<p>Запуск команды с передачей кол-ва циклов через переменную окружения:</p>
-
+</code></pre><p>Запуск команды с передачей кол-ва циклов через переменную окружения:</p>
 <pre><code>export CYCLES=5
 average 'command'
-</code></pre>
-
-<p>Чтобы не показывать вывод команды, можно обрезать его через tail:</p>
-
+</code></pre><p>Чтобы не показывать вывод команды, можно обрезать его через tail:</p>
 <pre><code>average 'command' | tail -n1
-</code></pre>
-
-<h3 id="узнать-среднее-время-загрузки-страницы">Узнать среднее время загрузки страницы:</h3>
-
+</code></pre><h3 id="узнать-среднее-время-загрузки-страницы">Узнать среднее время загрузки страницы:</h3>
 <p>С учетом кэша:</p>
-
 <pre><code>average 'curl -s &quot;http://example.com/&quot; &gt; /dev/null'
-</code></pre>
-
-<p>В обход кэша:</p>
-
+</code></pre><p>В обход кэша:</p>
 <pre><code>average 'curl -s &quot;http://example.com/?t=$RANDOM&quot; &gt; /dev/null'
-</code></pre>
-
-<h2 id="продвинутое-использование">Продвинутое использование</h2>
-
+</code></pre><h2 id="продвинутое-использование">Продвинутое использование</h2>
 <p>Мне надо было узнать оптимальное количество параллельных процессов для запуска тестов,
 теперь я могу узнать это запуском одной команды:</p>
-
 <pre><code>for p in {1..10}; do echo &quot;$p&quot; - $(average &quot;vendor/bin/paratest -p $p&quot; | tail -n1); done
-</code></pre>
-
-<p>Команда переберет кол-во процессов от 1 до 10, по каждой итерации выведет среднее время.</p>
-
+</code></pre><p>Команда переберет кол-во процессов от 1 до 10, по каждой итерации выведет среднее время.</p>
 <p>После запуска получил такие результаты:</p>
-
 <pre><code>$ for p in {1..10}; do echo &quot;$p&quot; - $(average &quot;vendor/bin/paratest -p $p&quot; | tail -n1); done
 
 1 - 1 loops, best of 5: 13.9 sec per loop
@@ -185,11 +152,8 @@ average 'command'
 8 - 1 loops, best of 5: 4.23 sec per loop
 9 - 1 loops, best of 5: 4.13 sec per loop
 10 - 1 loops, best of 5: 4.33 sec per loop
-</code></pre>
-
-<p>Видно, что после 4 потоков разницы почти нет, а вот комп от запуска кучи параллельных процессов тормозит
+</code></pre><p>Видно, что после 4 потоков разницы почти нет, а вот комп от запуска кучи параллельных процессов тормозит
 очень даже заметно.</p>
-
 <p>Конечно, в этом случае много ума не надо, чтобы понять, что кол-во процессов должно быть по кол-ву ядер, но я что-то засомневался :)</p>
         </div>
         
@@ -315,23 +279,23 @@ average 'command'
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Twitter on Popstas</title>
+    <title>twitter on Popstas</title>
     <link>https://blog.popstas.ru/tags/twitter/</link>
-    <description>Recent content in Twitter on Popstas</description>
+    <description>Recent content in twitter on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 27 Feb 2016 14:48:03 +0000</lastBuildDate>
@@ -18,10 +18,8 @@
       
       <guid>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid>
       <description>&lt;p&gt;Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.&lt;/p&gt;
-
-&lt;p&gt;Tl;dr: RSS + Twitter + Email &amp;rarr; Pocket &amp;rarr; Firefox &amp;rarr; Twitter + закладки.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-02/content_pyramid.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;Tl;dr: RSS + Twitter + Email → Pocket → Firefox → Twitter + закладки.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

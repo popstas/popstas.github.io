@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,106 +108,67 @@
           
           
           <p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию <a href="/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git</a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.</p>
-
 <p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:</p>
-
 <ul>
-<li><a href="https://github.com/viasite/planfix-toggl-server" target="_blank">Описание</a></li>
-<li><a href="https://github.com/viasite/planfix-toggl-server/releases" target="_blank">Ссылки на загрузки</a> (проверялось только под Windows и Linux)</li>
-<li>Расширения для <a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl" target="_blank">Chrome</a> и <a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/" target="_blank">Firefox</a></li>
+<li><a href="https://github.com/viasite/planfix-toggl-server">Описание</a></li>
+<li><a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки</a> (проверялось только под Windows и Linux)</li>
+<li>Расширения для <a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome</a> и <a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox</a></li>
 </ul>
-
-<p><img src="/images/2018-03/planfix-toggl.png" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <h2 id="toggl">Toggl</h2>
-
 <p>Я постоянно пользуюсь Toggl с ноября 2015, так как у меня в рабочем дне бывает очень много переключений с одной задачи на другую (20-30 в день - обычное дело), Toggl стал для меня незаменимым инструментом для отслеживания того, на что сколько именно времени я потратил. Так как в нашей компании потраченное время напрямую влияет на зарплату и на стоимость для наших клиентов, учет времени для меня был довольно важен.</p>
-
-<p>Еще до Toggl я делал <a href="/blog/2015/11/22/simple-time-tracker/">что-то похожее на него</a>, то ли не понял тогда, как им пользоваться, то ли там фич не хватало. В любом случае, ничего лучше Toggl для учета времени я не видел, хотя в последние годы и не искал, кто еще не пробовал, советую на него посмотреть - <a href="https://toggl.com" target="_blank">https://toggl.com</a></p>
-
+<p>Еще до Toggl я делал <a href="/blog/2015/11/22/simple-time-tracker/">что-то похожее на него</a>, то ли не понял тогда, как им пользоваться, то ли там фич не хватало. В любом случае, ничего лучше Toggl для учета времени я не видел, хотя в последние годы и не искал, кто еще не пробовал, советую на него посмотреть - <a href="https://toggl.com">https://toggl.com</a></p>
 <h2 id="планфикс">Планфикс</h2>
-
-<p>Планфикс не имеет из коробки автоматической системы учета времени, если не считать <a href="https://planfix.ru/timer/" target="_blank">Таймера</a>, который не ложится под нашу систему учета времени: мы используем кастомные аналитики, а Таймер умеет ставить только Фактическое время работы.</p>
-
-<p>В то же время, на форуме <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1612" target="_blank">уже</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1209" target="_blank">не раз</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1354" target="_blank">поднималась</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=2688" target="_blank">тема трекинга времени</a>, в частности, <a href="https://forum.planfix.ru/viewtopic.php?f=32&amp;t=4348" target="_blank">интеграцией с Toggl</a></p>
-
-<p>Я же последние 2 года переносил данные из Toggl в Планфикс вручную, это было сравнительно легко, чтобы было еще проще, я написал <a href="https://github.com/viasite/userscript-planfixfix" target="_blank">небольшой юзерскрипт</a>, который сокращал ввод аналитики до пары кликов (не будет работать без дописывания под вас).</p>
-
+<p>Планфикс не имеет из коробки автоматической системы учета времени, если не считать <a href="https://planfix.ru/timer/">Таймера</a>, который не ложится под нашу систему учета времени: мы используем кастомные аналитики, а Таймер умеет ставить только Фактическое время работы.</p>
+<p>В то же время, на форуме <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1612">уже</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1209">не раз</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1354">поднималась</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=2688">тема трекинга времени</a>, в частности, <a href="https://forum.planfix.ru/viewtopic.php?f=32&amp;t=4348">интеграцией с Toggl</a></p>
+<p>Я же последние 2 года переносил данные из Toggl в Планфикс вручную, это было сравнительно легко, чтобы было еще проще, я написал <a href="https://github.com/viasite/userscript-planfixfix">небольшой юзерскрипт</a>, который сокращал ввод аналитики до пары кликов (не будет работать без дописывания под вас).</p>
 <p>Схема была такая:</p>
-
 <ul>
 <li>если задача закончена, смотрю общее время в Toggl и сразу переношу в Планфикс, <a href="/blog/2016/03/02/git-gitlab-planfix-integration/">через коммит</a> или вручную</li>
 <li>если задача вернулась в работу, считаю в уме, сколько я уже внес и сколько осталось</li>
 <li>в конце месяца смотрю сумму по самым большим проектам, сравниваю с отчетом Планфикса и добавляю разницу</li>
 </ul>
-
 <p>В общем, так можно было и продолжать пользоваться, но это было не очень удобно, да и часть времени все равно не доходила до Планфикса.</p>
-
 <h2 id="от-прототипа-до-сегодня">От прототипа до сегодня</h2>
-
 <p>Я знал, что у Планфикса и Toggl есть API, что можно это все использовать и связать, но мне казалось это слишком сложным (так и оказалось :) и я не мог придумать, как связывать записи в Toggl с задачами в Планфиксе.</p>
-
 <p>Но вот месяц назад звезды сошлись и я вдруг понял: нужно хранить в Toggl номер задачи, а назад отправлять через email! Чтобы номер задачи был отдельно и не мельтешил, я решил, что разумнее всего будет сделать его в виде тега.</p>
-
-<p>Тем же вечером я пришел домой и за 3 часа написал <a href="https://github.com/viasite/planfix-toggl/blob/17627de92067302e5ad5deeb1ccc9e9814eacad5/renderer.js" target="_blank">рабочий прототип</a>: nodejs скрипт, который при запуске находит Toggl-записи с тегом из цифр, отправляет email на соответствующий адрес и отмечает в Toggl запись как отправленную добавлением к ней тега <code>sent</code>.</p>
-
+<p>Тем же вечером я пришел домой и за 3 часа написал <a href="https://github.com/viasite/planfix-toggl/blob/17627de92067302e5ad5deeb1ccc9e9814eacad5/renderer.js">рабочий прототип</a>: nodejs скрипт, который при запуске находит Toggl-записи с тегом из цифр, отправляет email на соответствующий адрес и отмечает в Toggl запись как отправленную добавлением к ней тега <code>sent</code>.</p>
 <p>Следующую неделю я занимался ежедневным переписыванием с нуля проекта:</p>
-
 <ol>
 <li>NodeJS скрипт</li>
 <li>Electron приложение</li>
 <li>Express.js + серверный рендеринг twig</li>
 <li>Express.js + Vue + OnsenUI</li>
 </ol>
-
 <p>Вечером переписывал, а днем использовал на работе последнюю рабочую версию.</p>
-
-<p>В первые пару дней я понял, что теги с номером задач вручную ставить не очень удобно, поэтому я решился дописать официальное расширение Toggl для браузеров, чтобы прямо на странице задачи была кнопка Play, как положено. На удивление, это оказалось так просто, что я пожалел, что не сделал это давно. Естественно, я отправил <a href="https://github.com/toggl/toggl-button/pull/969" target="_blank">pull request</a>, который к сожалению был проигнорирован, как и другие недавние запросы интеграций. Если у вас есть github аккаунт и вы собираетесь пользоваться расширением, пожалуйста, оставьте палец вверх в пулл реквесте, может быть так быстрее примут, мне не хочется сопровождать два расширения.</p>
-
+<p>В первые пару дней я понял, что теги с номером задач вручную ставить не очень удобно, поэтому я решился дописать официальное расширение Toggl для браузеров, чтобы прямо на странице задачи была кнопка Play, как положено. На удивление, это оказалось так просто, что я пожалел, что не сделал это давно. Естественно, я отправил <a href="https://github.com/toggl/toggl-button/pull/969">pull request</a>, который к сожалению был проигнорирован, как и другие недавние запросы интеграций. Если у вас есть github аккаунт и вы собираетесь пользоваться расширением, пожалуйста, оставьте палец вверх в пулл реквесте, может быть так быстрее примут, мне не хочется сопровождать два расширения.</p>
 <p>К концу первой недели вся видимая часть уже выглядела почти так, как сейчас, но внутри было всё настолько прототипно, что кроме меня этим никто не мог пользоваться.</p>
-
-<p>Потом я решил оставить web UI как есть, а серверную часть переписать на Go, который давно хотелось попробовать. Это разделило проект на 2 части: <a href="https://github.com/viasite/planfix-toggl-client" target="_blank">planfix-toggl-client</a> (web UI), <a href="https://github.com/viasite/planfix-toggl-server" target="_blank">planfix-toggl-server</a> (отправлялка и API для UI).</p>
-
-<p>Через несколько дней я что-то сломал, и письма перестали доходить до Планфикса. Дело было в выходные, я решил, что письма стали попадать в спам. В тот день я решил отказаться от отправки письмами и переписать отправку на Планфикс API. Это в итоге добавило неделю, чтобы переписать на API без изменения остального. Конечно, API на Go для Планфикса никто не использовал, поэтому выделился еще один подпроект - <a href="https://github.com/popstas/planfix-go" target="_blank">planfix-go</a> (API для между отправлялкой и Планфиксом). API позволило настроить весь процесс, не используя обработку действий в Планфиксе, как я делал раньше, а сразу отправлять готовую аналитику с гарантией того, что она отправится и без необходимости указывать логин и пароль от своего ящика в конфиге.</p>
-
-<p>После этого уже были мелкие доработки, чистка кода, добавление удобняшек, дальнейшая история есть в <a href="https://github.com/viasite/planfix-toggl-server/blob/master/CHANGELOG.md" target="_blank">CHANGELOG.md</a>.</p>
-
-<p>Наконец, я вернулся к расширению браузера, до сих пор оно работало в режиме разработчика, чтобы этим мог пользоваться кто-то, кроме меня, нужно было опубликовать расширение официально, что я и сделал, оказалось тоже всё просто, и через час расширения для <a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl" target="_blank">Chrome</a> и <a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/" target="_blank">Firefox</a> уже были доступны.</p>
-
-<h2 id="планфикс-toggl">Планфикс + Toggl</h2>
-
-<p>Что получилось в итоге, я постарался изложить в <a href="https://github.com/viasite/planfix-toggl-server" target="_blank">описании проекта</a>.</p>
-
+<p>Потом я решил оставить web UI как есть, а серверную часть переписать на Go, который давно хотелось попробовать. Это разделило проект на 2 части: <a href="https://github.com/viasite/planfix-toggl-client">planfix-toggl-client</a> (web UI), <a href="https://github.com/viasite/planfix-toggl-server">planfix-toggl-server</a> (отправлялка и API для UI).</p>
+<p>Через несколько дней я что-то сломал, и письма перестали доходить до Планфикса. Дело было в выходные, я решил, что письма стали попадать в спам. В тот день я решил отказаться от отправки письмами и переписать отправку на Планфикс API. Это в итоге добавило неделю, чтобы переписать на API без изменения остального. Конечно, API на Go для Планфикса никто не использовал, поэтому выделился еще один подпроект - <a href="https://github.com/popstas/planfix-go">planfix-go</a> (API для между отправлялкой и Планфиксом). API позволило настроить весь процесс, не используя обработку действий в Планфиксе, как я делал раньше, а сразу отправлять готовую аналитику с гарантией того, что она отправится и без необходимости указывать логин и пароль от своего ящика в конфиге.</p>
+<p>После этого уже были мелкие доработки, чистка кода, добавление удобняшек, дальнейшая история есть в <a href="https://github.com/viasite/planfix-toggl-server/blob/master/CHANGELOG.md">CHANGELOG.md</a>.</p>
+<p>Наконец, я вернулся к расширению браузера, до сих пор оно работало в режиме разработчика, чтобы этим мог пользоваться кто-то, кроме меня, нужно было опубликовать расширение официально, что я и сделал, оказалось тоже всё просто, и через час расширения для <a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome</a> и <a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox</a> уже были доступны.</p>
+<h2 id="планфикс--toggl">Планфикс + Toggl</h2>
+<p>Что получилось в итоге, я постарался изложить в <a href="https://github.com/viasite/planfix-toggl-server">описании проекта</a>.</p>
 <p>UI в общем-то сделан больше для интереса, для проверки того, что процесс запущен, но также выполняет одну удобную мне функцию: я могу из него перейти на страницу любой из последних 10-15 задач, над которыми я работал. В левой колонке указано количество сгруппированных записей (кол-во переключений), в правой - потраченное на задачу время, примерно как в Toggl, но с группировкой по задачам Планфикса.</p>
-
 <p>Выглядит это так:</p>
-
-<p><img src="/images/2018-03/planfix-toggl-server-ui.jpg" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>Остальной &ldquo;интерфейс&rdquo; довольно суров: конфиг для настройки и лог для обратной связи.</p>
-
 <p>Как я использую planfix-toggl-server (не очень удачное название, решил не называть sender, вдруг еще что-то захочется добавить):</p>
-
 <ul>
 <li>Добавил программу в автозагрузку Windows через планировщик заданий</li>
 <li>Программа работает на фоне и раз в час отправляет накопившиеся неотправленные записи</li>
 <li>Новую задачу я начинаю в Планфиксе, через расширение, после этого переключаюсь на нее уже через Toggl (отправлялка уберет тег <code>sent</code> из активной записи, если вы вернулись к уже отправленной задаче)</li>
 </ul>
-
 <p>Что насчет отправки: способ через API доступен только для платных аккаунтов Планфикса, тут никакого заговора нет, просто так надежнее. По этой же причине отправка через email стала еще ненадежнее, т.к. я ей больше не пользуюсь.</p>
-
 <p>Что насчет паролей: чтобы пользоваться отправлялкой, вам нужно будет внести свои ключи API от Планфикса и Toggl и логин с паролем от вашего юзера в Планфиксе, тут ничего секьюрного я не придумал (да и не пытался). Все исходники открыты, я могу только сказать, что никакие данные не отправляются никуда, кроме как по маршруту из Toggl в Планфикс, статистика не собирается (поэтому надеюсь получить обратную связь другими способами).</p>
-
 <p>Конечно, проект такой, что вряд ли им сможет пользоваться не программист, но я постарался сделать всё просто, насколько возможно было сделать без написания полноценного UI и чтобы не делать больше того, что мне хотелось сделать. Буду рад, если кому-то еще это пригодится.</p>
-
 <h2 id="код">Код</h2>
-
 <ul>
-<li><a href="https://github.com/viasite/planfix-toggl-server" target="_blank">https://github.com/viasite/planfix-toggl-server</a></li>
-<li><a href="https://github.com/viasite/planfix-toggl-client" target="_blank">https://github.com/viasite/planfix-toggl-client</a></li>
-<li><a href="https://github.com/viasite/toggl-button-planfix" target="_blank">https://github.com/viasite/toggl-button-planfix</a></li>
-<li><a href="https://github.com/popstas/planfix-go" target="_blank">https://github.com/popstas/planfix-go</a></li>
-<li><a href="https://github.com/popstas/go-toggl" target="_blank">https://github.com/popstas/go-toggl</a></li>
+<li><a href="https://github.com/viasite/planfix-toggl-server">https://github.com/viasite/planfix-toggl-server</a></li>
+<li><a href="https://github.com/viasite/planfix-toggl-client">https://github.com/viasite/planfix-toggl-client</a></li>
+<li><a href="https://github.com/viasite/toggl-button-planfix">https://github.com/viasite/toggl-button-planfix</a></li>
+<li><a href="https://github.com/popstas/planfix-go">https://github.com/popstas/planfix-go</a></li>
+<li><a href="https://github.com/popstas/go-toggl">https://github.com/popstas/go-toggl</a></li>
 </ul>
         </div>
         
@@ -333,23 +294,23 @@
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

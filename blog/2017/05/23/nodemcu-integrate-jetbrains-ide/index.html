@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,115 +108,76 @@
           
           
           <p>Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.</p>
-
 <p>Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:</p>
-
 <ul>
 <li>нет структуры проекта (можно только открывать вкладки по одной через File - Open)</li>
 <li>простой редактор без автодополнения, мультиредактирования и т.д.</li>
 <li>нельзя загружать файл по хоткею</li>
 <li>нет git</li>
 </ul>
-
 <p>TL;DR: написал свой велосипед, работает, но не без проблем.</p>
-
-<p><img src="/images/2017-05/nodemcu-idea.png" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <h2 id="как-это-работает">Как это работает:</h2>
-
-<p>В девайс загружается файл с <a href="https://github.com/popstas/nodemcu-d1-xyc-wb-dc/blob/master/ota.lua" target="_blank">ota.lua</a>.
+<p>В девайс загружается файл с <a href="https://github.com/popstas/nodemcu-d1-xyc-wb-dc/blob/master/ota.lua">ota.lua</a>.
 После этого можно отправлять POST запросы на <code>/ota</code>, указывая <code>filename</code> (имя файла) и <code>content</code> (содержимое файла),
 если его размер помещается в доступную оперативку, он будет загружен.</p>
-
 <h2 id="как-я-пришел-к-тому-что-получилось">Как я пришел к тому, что получилось</h2>
-
 <p>Кому интересен результат, тот может перейти сразу к 4-й части.</p>
-
 <h3 id="1-web-клиент">1. Web Клиент</h3>
-
 <p>Теперь нужен удобный клиент, чтобы загружать файлы. Сначала я не думал про JetBrains, решил написать веб-клиент,
 как раз на неделе услышал, что vscode легко встраивать в веб. Так и оказалось. Получился примитивный клиент без доступа
-к локальной файловой системе, но с крутым редактором. Клиент можно посмотреть <a href="https://github.com/popstas/nodemcu-d1-xyc-wb-dc/tree/master/ota-client" target="_blank">здесь</a>.
+к локальной файловой системе, но с крутым редактором. Клиент можно посмотреть <a href="https://github.com/popstas/nodemcu-d1-xyc-wb-dc/tree/master/ota-client">здесь</a>.
 Перед тем, как смотреть, надо установить зависимости через <code>npm install</code>. Эта часть интересна только интеграцией vscode
-(если точнее, <a href="https://github.com/Microsoft/monaco-editor" target="_blank">monaco-editor</a>):</p>
-
-<p><img src="/images/2017-05/nodemcu-ota-client.png" /></p>
-
+(если точнее, <a href="https://github.com/Microsoft/monaco-editor">monaco-editor</a>):</p>
+<p><!-- raw HTML omitted --></p>
 <h3 id="2-web-ide">2. Web IDE</h3>
-
 <p>Написав первый клиент, я начал думать дальше в эту сторону, уже задумал взять Electron, завернуть приложение в него,
 добавить вкладки, доступ к файлам&hellip; К счастью, меня довольно быстро отпустило, я понял, что собираюсь писать свою IDE,
 это, мягко говоря, не укладывалось в 2 вечера, которые я решил потратить на OTA upload.</p>
-
 <p>Тогда я подумал, что особенного в моем решении и понял: все уже написано, кроме той части, которая загружает файл в устройство.
 Ок, подумал я, значит надо взять редактор, где уже все есть и написать к нему плагин, который по Ctrl+S отправляет файл куда надо.</p>
-
 <h3 id="3-atom">3. Atom</h3>
-
 <p>Следующим подопытным был Atom, которым я не очень-то пользуюсь, но иногда открываю. Плагины пишутся на CoffeeScript,
 который я не знаю&hellip; что-то тут опять не так&hellip;</p>
-
-<h3 id="4-nodemcu-ota-uploader-py">4. nodemcu-ota-uploader.py</h3>
-
+<h3 id="4-nodemcu-ota-uploaderpy">4. nodemcu-ota-uploader.py</h3>
 <p>Тогда я подумал еще и понял, что плагин можно и не писать: в моем любимом PhpStorm можно добавить произвольный скрипт,
 передать ему через переменные путь до текущего файла и повесить на хоткей.</p>
-
 <p>Это показалось мне очень разумным, по сравнению с прошлыми идеями, поэтому в этом месте я сел и написал простой загрузчик
 на питоне, который принимает имя файла, отправляет запрос по жестко зашитому урлу и больше ничего не умеет,
-он лежит здесь - <a href="https://github.com/popstas/nodemcu-d1-xyc-wb-dc/blob/master/nodemcu-ota-uploader.py" target="_blank">nodemcu-ota-uploader.py</a></p>
-
+он лежит здесь - <a href="https://github.com/popstas/nodemcu-d1-xyc-wb-dc/blob/master/nodemcu-ota-uploader.py">nodemcu-ota-uploader.py</a></p>
 <h3 id="5-phpstorm">5. PhpStorm</h3>
-
 <p>Пошел в PhpStorm, поставил плагин Lua, перезапустил, но код так и не раскрасился, в настройках Lua тоже никак не проявился.
 Я сижу на PhpStorm EAP, думаю, что плагин просто не успели подправить под новую версию, я почти уверен, что раньше он работал.</p>
-
 <p>Но самое главное, что идея работает! Зашел в Settings - Tools - External Tools, добавил свой тул:</p>
-
 <ul>
 <li>Name: <code>nodemcu-ota-uploader</code></li>
 <li>Program: <code>/usr/local/bin/nodemcu-ota-uploader.py</code></li>
 <li>Parameters: <code>$FilePath$</code></li>
 </ul>
-
 <p>Нажал <code>OK</code>, <code>Apply</code>, после этого сразу пошел в Settings - Keymap, нашел его там и повесил на <code>Ctrl+Shift+S</code>.</p>
-
 <p>Осталось решить проблему с поддержкой Lua.</p>
-
 <h3 id="6-idea">6. IDEA</h3>
-
 <p>Проблему я решил, сменив в очередной раз редактор. У меня стояла IDEA EAP чуть старее, чем PhpStorm, поставил плагин туда - работает!</p>
-
 <p>Добавил тул тем же способом, что и в PhpStorm - работает!</p>
-
 <h2 id="минусы">Минусы</h2>
-
 <p>Минусов хватает:</p>
-
 <ul>
 <li>нет REPL</li>
 <li>нет сниппетов</li>
 <li>нет вывода от NodeMCU</li>
 </ul>
-
 <p>По этому поводу пока не парюсь, держу открытым ESPlorer. Теоретически можно решить, дописав telnet сервер в железку.</p>
-
 <ul>
 <li>нельзя загрузить большой файл, даже средний нельзя</li>
 </ul>
-
 <p>Подопытная железка запускает датчик движения, отправляет данные через MQTT. На момент загрузки всех скриптов <code>print(node.heap())</code>
 говорит, что свободно около 30 000 байт. Этого хватает, чтобы залить скрипт в 1.5 кб, но на 2 кб железка уже падает с
 <code>unprotected error in call to Lua API (not enough memory)</code>.</p>
-
 <p>Это так просто не исправить, думаю, надо упростить протокол, принимать в начале файл, а после этого потоком грузить
 содержимое файла, сразу же сохраняя в файл, чтобы не заполнять оперативку.</p>
-
 <h2 id="альтернативы">Альтернативы</h2>
-
-<p>Конечно, я не первый, кто написал кастомную загружалку. Думаю, стоит обратить внимание на <a href="https://github.com/NodeUSB/nodemcu-ide" target="_blank">https://github.com/NodeUSB/nodemcu-ide</a></p>
-
+<p>Конечно, я не первый, кто написал кастомную загружалку. Думаю, стоит обратить внимание на <a href="https://github.com/NodeUSB/nodemcu-ide">https://github.com/NodeUSB/nodemcu-ide</a></p>
 <h2 id="итог">Итог</h2>
-
 <p>Данное решение видится мне ужасным велосипедом, буду блогодарен, если кто-нибудь подскажет мне готовую интеграцию с нормальным редактором.</p>
         </div>
         
@@ -342,23 +303,23 @@
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

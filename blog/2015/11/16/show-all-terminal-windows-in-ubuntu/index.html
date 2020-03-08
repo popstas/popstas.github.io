@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -110,56 +110,42 @@
           <p>При работе за компом имею привычку открывать много терминалов,
 не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
 При этом терминалы расположены по всему рабочему экрану.</p>
-
 <p>Из-за этого была такая проблема: при переключении на браузер или редактор,
 которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.</p>
-
 <p>Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
 нажать хоткей и достать все окна этой же программы наверх.</p>
-
 <h4 id="для-этого-нужно">Для этого нужно:</h4>
-
 <ul>
 <li>определить текущее окно</li>
 <li>определить его класс</li>
 <li>найти все окна с тем же классом</li>
 <li>активировать каждое из окон</li>
 </ul>
-
 <p>Для манипуляции с окнами из консоли использовал <code>xdotool</code>:</p>
-
 <pre><code>sudo aptitude install xdotool
-</code></pre>
-
-<p>Через полчаса родился страшный однострочник, в итоге из него получился такой скрипт:</p>
-
-<pre><code class="language-bash"># !/bin/bash
+</code></pre><p>Через полчаса родился страшный однострочник, в итоге из него получился такой скрипт:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># !/bin/bash</span>
 # 
-# Activate all windows with process name of currently active window
+<span style="color:#75715e"># Activate all windows with process name of currently active window</span>
 
-# Получить текущее активное окно, его pid, имя процесса
-current_pid=$(xdotool getwindowpid $(xdotool getactivewindow))
-current_name=$(ps -p $current_pid -o comm=)
-clean_name=${current_name%-}
+<span style="color:#75715e"># Получить текущее активное окно, его pid, имя процесса</span>
+current_pid<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>xdotool getwindowpid <span style="color:#66d9ef">$(</span>xdotool getactivewindow<span style="color:#66d9ef">))</span>
+current_name<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ps -p $current_pid -o comm<span style="color:#f92672">=</span><span style="color:#66d9ef">)</span>
+clean_name<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>current_name%-<span style="color:#e6db74">}</span>
 
-name=${1:-$clean_name}
+name<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1<span style="color:#66d9ef">:-</span>$clean_name<span style="color:#e6db74">}</span>
 
-# найти окна процесса (только видимые), активировать каждое из них
-xdotool search --onlyvisible --class &quot;$name&quot; \
-  | xargs -L1 --no-run-if-empty xdotool windowactivate
-</code></pre>
-
-<h3 id="какие-были-проблемы">Какие были проблемы:</h3>
-
+<span style="color:#75715e"># найти окна процесса (только видимые), активировать каждое из них</span>
+xdotool search --onlyvisible --class <span style="color:#e6db74">&#34;</span>$name<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  | xargs -L1 --no-run-if-empty xdotool windowactivate
+</code></pre></div><h3 id="какие-были-проблемы">Какие были проблемы:</h3>
 <ul>
 <li>У каждого процесса оказалось штук по 5 &ldquo;окон&rdquo;, которые на самом деле не видны</li>
 <li>Текущий процесс <code>gnome-terminal</code> виден в процессах как <code>gnome-terminal-server</code>,
 в процессах имя не входит и отображается как <code>gnome-terminal-</code>,
 в этом месте был вбит костыль, добавлена обрезка дефиса в конце.</li>
 </ul>
-
 <p>Скрипт был сохранен в <code>/usr/local/bin/window-activate</code> и через <code>ccsm</code> (Compiz config settings manager) повешен на хоткей.</p>
-
 <p>Скрипт можно вызывать, передав параметром имя процесса, иначе возьмет его из текущего окна.</p>
         </div>
         
@@ -283,23 +269,23 @@ xdotool search --onlyvisible --class &quot;$name&quot; \
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

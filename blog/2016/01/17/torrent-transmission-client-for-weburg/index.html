@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -107,51 +107,35 @@
           
           
           
-          <p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с <a href="http://weburg.net" target="_blank">weburg.net</a>, дающая бонусы,
+          <p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с <a href="http://weburg.net">weburg.net</a>, дающая бонусы,
 их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.</p>
-
 <p>Поддержку раздач можно разбить на несколько задач:</p>
-
 <ol>
 <li>периодически скачивать новинки фильмов</li>
 <li>скачивать новые серии популярных сериалов</li>
 <li>удалять то, что плохо раздается</li>
 </ol>
-
 <p>Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
-<a href="https://github.com/popstas/transmission-cli" target="_blank">transmission-cli</a> - консольная утилита, решающая часть этих задач.</p>
-
-<p><iframe src="https://ghbtns.com/github-btn.html?user=popstas&repo=transmission-cli&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-<a href="https://travis-ci.org/popstas/transmission-cli" target="_blank"><img src="https://travis-ci.org/popstas/transmission-cli.svg?branch=master" alt="Build Status" /></a>
-<a href="https://coveralls.io/github/popstas/transmission-cli?branch=master" target="_blank"><img src="https://coveralls.io/repos/popstas/transmission-cli/badge.svg?branch=master&amp;service=github" alt="Coverage Status" /></a></p>
-
-<p><img src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true" /></p>
-
+<a href="https://github.com/popstas/transmission-cli">transmission-cli</a> - консольная утилита, решающая часть этих задач.</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --></p>
 <h2 id="возможности">Возможности</h2>
-
 <ul>
-<li>скачивание популярных торрентов с <a href="http://weburg.net" target="_blank">http://weburg.net</a></li>
+<li>скачивание популярных торрентов с <a href="http://weburg.net">http://weburg.net</a></li>
 <li>удаление дублирующихся раздач (для сериалов)</li>
 <li>отправка метрик в InfluxDB (для слежения за популярностью)</li>
 </ul>
-
-<h1 id="установка">Установка</h1>
-
+<h2 id="установка">Установка</h2>
 <p>Установить клиент можно так:</p>
-
-<pre><code class="language-bash">latest_phar=$(curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep 'browser_' | cut -d\&quot; -f4)
-wget -O /usr/local/bin/transmission-cli &quot;$latest_phar&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">latest_phar<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://api.github.com/repos/popstas/transmission-cli/releases/latest | grep <span style="color:#e6db74">&#39;browser_&#39;</span> | cut -d<span style="color:#ae81ff">\&#34;</span> -f4<span style="color:#66d9ef">)</span>
+wget -O /usr/local/bin/transmission-cli <span style="color:#e6db74">&#34;</span>$latest_phar<span style="color:#e6db74">&#34;</span>
 chmod +x /usr/local/bin/transmission-cli
-</code></pre>
-
-<p>Пользоваться графиками можно с трудом, потому что InfluxDB и Grafana вам придется устанавливать самостоятельно.
+</code></pre></div><p>Пользоваться графиками можно с трудом, потому что InfluxDB и Grafana вам придется устанавливать самостоятельно.
 Я ставил то и другое в docker на свою виртуалку и пробрасывал порты на localhost,
-сейчас localhost вшит в <a href="https://github.com/popstas/transmission-cli/blob/master/src/Config.php" target="_blank">конфиг</a>,
+сейчас localhost вшит в <a href="https://github.com/popstas/transmission-cli/blob/master/src/Config.php">конфиг</a>,
 который по сути сейчас находится в коде.</p>
-
 <p>Поставить можно так, заменив папки <code>/Users/popstas/lib/grafana</code> и <code>/var/lib/influxdb</code> на ваши,
 это укажет, где будут храниться данные InfluxDB и Grafana:</p>
-
 <pre><code>docker run -d \ -p 3000:3000 \
            -v /Users/popstas/lib/grafana:/var/lib/grafana \
             --name grafana grafana/grafana
@@ -159,162 +143,116 @@ chmod +x /usr/local/bin/transmission-cli
 docker run -d -p 8083:8083 -p 8086:8086 \
            -v /var/lib/influxdb:/data \
            --name influxdb tutum/influxdb
-</code></pre>
-
-<p>Папку от InfluxDB я оставил в виртуалке, т.к. оказалось, что InfluxDB не может работать с папкой, смонтированной в
+</code></pre><p>Папку от InfluxDB я оставил в виртуалке, т.к. оказалось, что InfluxDB не может работать с папкой, смонтированной в
 VirtualBox из Mac OS (какой-то старый глюк docker).</p>
-
 <p>Чтобы собиралась статистика, нужно добавить в cron задания, я собираю с 2 компов, поэтому добавляю 2 раза.</p>
-
 <p>Также, чтобы не было конфликтов, статистика не будет отсылаться, если найдет раздачи с одинаковыми названиями,
 которые обычно остаются от сериалов. Поэтому их нужно чистить перед отпправкой статистики.</p>
-
 <p>Раздачи у меня скачиваются в папку, за которой следят оба Transmission, как только туда попадает торрент, раздача
 сразу начинается (можно сделать, чтобы спрашивала разрешение, настраивается в Transmission).</p>
-
 <p>В итоге у меня получился такой cron:</p>
-
 <pre><code>PATH=&quot;$PATH:/usr/local/bin&quot;
 59 * * * * transmission-cli remove-duplicates --host=localhost
 59 * * * * transmission-cli remove-duplicates --host=wrtnsq
 0  * * * * transmission-cli send-metrics --host=localhost
 0  * * * * transmission-cli send-metrics --host=wrtnsq
 1  2 * * * transmission-cli download-weburg --dest=/Volumes/media/_planeta/_torrents
-</code></pre>
-
-<h2 id="результаты-статистики">Результаты статистики</h2>
-
+</code></pre><h2 id="результаты-статистики">Результаты статистики</h2>
 <p>Никогда не знал о своих раздачах ничего, кроме рейтинга и объема розданного за все время.
 Графики показали интересные вещи (о которых можно было и так догадаться):</p>
-
 <ul>
 <li>с 18 до 22 пик раздач, с 22 до 2 спад, с 2 до 9 все спят</li>
 <li>в праздники и выходные больше качают днем и до ночи, но после 2 все равно все спят</li>
 <li>популярные фильмы популярны обычно не больше недели</li>
 <li>есть популярные фильмы, которые популярны и через несколько месяцев, например &ldquo;Интерстеллар&rdquo;</li>
 </ul>
-
 <p>Сейчас я могу выбрать в Grafana период в 7 дней, отсортировать раздачи по розданным Гб и получить список
 раздач-кандидатов на удаление.</p>
-
 <p>Со статистикой еще надо работать, что еще хочется сделать:</p>
-
 <ul>
-<li><p>нормальную группировку по периодам, сейчас группируется только за час или за весь выбранный период,
+<li>
+<p>нормальную группировку по периодам, сейчас группируется только за час или за весь выбранный период,
 нельзя выбрать последнюю неделю и посмотреть посуточные метрики. Я скидываю метрики и сначала не понимал,
 почему так, но тут как раз вышла статья
-<a href="http://habrahabr.ru/post/274303/" target="_blank">Почему расчет перцентилей работает не так как вы ожидаете?</a> и многое мне объяснила.</p></li>
-
-<li><p>добавить в метрики инфу о весе раздач и вывести эффективность раздач: например, фильм в 1080p весом в 10 Гб
+<a href="http://habrahabr.ru/post/274303/">Почему расчет перцентилей работает не так как вы ожидаете?</a> и многое мне объяснила.</p>
+</li>
+<li>
+<p>добавить в метрики инфу о весе раздач и вывести эффективность раздач: например, фильм в 1080p весом в 10 Гб
 скачали на 50 Гб за неделю, а 2 Гб фильм низкого качества скачали на 10 Гб, если не учитывать вес раздач, то выходит,
-что первая раздача в 5 раз эффективнее, но если учитвать, то оказвается, что они равны.</p></li>
+что первая раздача в 5 раз эффективнее, но если учитвать, то оказвается, что они равны.</p>
+</li>
 </ul>
-
 <h2 id="техническая-часть">Техническая часть:</h2>
-
 <ul>
 <li>Symfony console - каркас консольной утилиты</li>
 <li>InfluxDB - хранилище метрик</li>
 <li>Grafana - рисование графиков</li>
 <li>Composer - управление зависимостями</li>
-<li>Box - <a href="http://habrahabr.ru/post/274745/" target="_blank">сборка PHAR</a></li>
+<li>Box - <a href="http://habrahabr.ru/post/274745/">сборка PHAR</a></li>
 <li>PHPCS, PHPMD - линтеры PHP</li>
 <li>Travis CI - публицация PHAR на Github</li>
 <li>Coveralls - сервис слежения за покрытием кода тестами</li>
 </ul>
-
 <p>Половину из этого я ни разу не использовал, вторую половину - немного. Поэтому граблей хватает.</p>
-
 <h3 id="symfony-console">Symfony console</h3>
-
 <p>Тут мне сказать особо нечего, фреймворки я только начинаю осваивать, пока ничего не понятно с Dependency Injection,
 чувствую, что у меня переменные в функции местами прокидываются криво, а местами не прокидываются, где стоило бы.</p>
-
 <p>Не понятно, как тестить через PHPUnit, как мокать объекты.</p>
-
 <p>Пока радуюсь, что освоился с namespaces и использовал на практике PSR-2 и PSR-4.</p>
-
 <p>Почти все идеи взяты из исходников
-<a href="https://github.com/composer/composer" target="_blank">composer</a> и
-<a href="https://github.com/MartialGeek/transmission-api" target="_blank">transmission-api</a></p>
-
+<a href="https://github.com/composer/composer">composer</a> и
+<a href="https://github.com/MartialGeek/transmission-api">transmission-api</a></p>
 <h3 id="influxdb">InfluxDB</h3>
-
 <p>InfluxDB не может работать с папкой, смонтированной в VirtualBox из Mac OS (какой-то старый глюк docker).</p>
-
 <p>InfluxDB я раньше не видел, хотел посмотреть ее как замену для хранилища Whisper из стека
 Diamond -&gt; Carbon -&gt; Whisper -&gt; Graphite -&gt; Grafana для рисования графиков сервера.</p>
-
 <p>Компания, стоящая за InfluxDB с недавнего времени назвается InfluxData и предлагает свой стек
-<a href="https://influxdata.com/time-series-platform/" target="_blank">TICK</a>, в который
+<a href="https://influxdata.com/time-series-platform/">TICK</a>, в который
 входит еще и алертинг по отклонениям метрик. Могу сказать о нем то, что Telegraf работает, InfluxDB работает без тормозов,
 собирая с моего компа метрики раз в 10 секунд, Chronograf какой-то неполноценный, по сравнению с Grafana,
 а Kapacitor я еще не смотрел (UPD 19.05.2016: <a href="/blog/categories/kapacitor/">уже смотрел</a>).</p>
-
 <h3 id="grafana">Grafana</h3>
-
 <p>В Grafana 2.6 появилось много нового, по сравнению с 2.0, которую я видел в августе. А вообще, если кто использовал
 Cacti или Graphite и не видел Grafana, посмотрите, красота неописуемая.</p>
-
 <h3 id="composer">Composer</h3>
-
 <p>Некоторые dev-пакеты (phpunit) потребовали php 5.6 для запуска, поэтому поставил 5.6 минимальной необходимой версией,
 хотя по факту клиент может работать и на 5.5, а на 5.4 уже не может.</p>
-
 <h3 id="box">Box</h3>
-
 <p>Если собирать PHAR, используя box, установленный через composer, в архив попадает много ненужных dev-пакетов.
 Сначала я пытался бороться с этим исключением пакетов через box.json, потом понял, что это бесполезно
 (все пакеты не исключишь, а однажды исключишь нужный), в итоге пришел к такой схеме:</p>
-
 <ul>
 <li>ставим пакеты через <code>composer install --no-dev</code></li>
 <li>качаем box.phar</li>
 <li>собираем transmission-cli.phar</li>
 <li>доставляем пакеты через composer update</li>
 </ul>
-
 <p>Это в 3 раза уменьшило вес собранного архива.</p>
-
 <h3 id="phpcs-phpmd">PHPCS, PHPMD</h3>
-
 <p>PHP Code Sniffer умеет анализировать ваш код на соответствие определенным стандартам, в моем случае PSR-2,
 ставится через Composer, используется так:</p>
-
 <pre><code>./vendor/bin/phpcs --standard=psr2 ./src
-</code></pre>
-
-<p>А PHP Mess Detector у меня не запустился.</p>
-
+</code></pre><p>А PHP Mess Detector у меня не запустился.</p>
 <h3 id="travis-ci">Travis CI</h3>
-
 <p>Впервые удалось использовать его по назначению. Как-то пробовал использовать его для тестов пакета bash скриптов
-<a href="https://github.com/popstas/drupal-scripts" target="_blank">drupal-scripts</a>, но быстро сдался, т.к. в окружении travis они вели себя не так,
+<a href="https://github.com/popstas/drupal-scripts">drupal-scripts</a>, но быстро сдался, т.к. в окружении travis они вели себя не так,
 как на локалке (в итоге перекинул тесты на TeamCity).</p>
-
 <p>На этом проекте travis прогоняет тесты phpunit
 (тестов по сути еще нет, но без phpunit в каком-либо виде travis по умолчанию фейлит сборку)
 и если к коммиту был проставлен git tag,
 публикует PHAR как приложение к релизу на Github, чуть подробнее я написал
-в <a href="http://habrahabr.ru/post/274745/#comment_8736379" target="_blank">этом комменте</a>.</p>
-
+в <a href="http://habrahabr.ru/post/274745/#comment_8736379">этом комменте</a>.</p>
 <h3 id="coveralls">Coveralls</h3>
-
 <p>До покрытия тестами я еще не добирался, я тесты-то еще только начинаю использовать, решил попробовать на этом проекте.</p>
-
 <p>Чтобы добавить coveralls в самом простом случае (в доках есть и сложные), достаточно сделать так, чтобы PHPUnit
 генерил файл <code>build/logs/clover.xml</code>, для этого надо добавить строчку в phpunit.xml, в секцию logging:</p>
-
-<pre><code class="language-xml">&lt;logging&gt;
-    &lt;log type=&quot;coverage-clover&quot; target=&quot;build/logs/clover.xml&quot;/&gt;
-&lt;/logging&gt;
-</code></pre>
-
-<p>Ну и конечно зарегаться на <a href="https://coveralls.io/" target="_blank">https://coveralls.io/</a> и активировать там проект.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;logging&gt;</span>
+    <span style="color:#f92672">&lt;log</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;coverage-clover&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;build/logs/clover.xml&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/logging&gt;</span>
+</code></pre></div><p>Ну и конечно зарегаться на <a href="https://coveralls.io/">https://coveralls.io/</a> и активировать там проект.
 Если путь будет другой, придется читать доки и создавать файл настройки .coveralls.yml</p>
-
 <p>В результате я имею красивую красную ачивку на странице проекта
-и <a href="https://coveralls.io/github/popstas/transmission-cli" target="_blank">историю деградации покрытия</a> :)</p>
+и <a href="https://coveralls.io/github/popstas/transmission-cli">историю деградации покрытия</a> :)</p>
         </div>
         
 
@@ -439,23 +377,23 @@ Cacti или Graphite и не видел Grafana, посмотрите, крас
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

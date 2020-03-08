@@ -1,35 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Popstas</title>
+    <title>git on Popstas</title>
     <link>https://blog.popstas.ru/tags/git/</link>
-    <description>Recent content in Git on Popstas</description>
+    <description>Recent content in git on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Wed, 22 Feb 2017 01:19:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 01:30:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
-      <link>https://blog.popstas.ru/blog/2017/02/22/2017-02-22-git-extract-subproject-preserving-history/</link>
+      <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
       <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
       
-      <guid>https://blog.popstas.ru/blog/2017/02/22/2017-02-22-git-extract-subproject-preserving-history/</guid>
+      <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
       <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
-
 &lt;h3 id=&#34;для-этого-надо&#34;&gt;Для этого надо:&lt;/h3&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Извлечь директорию подпроекта в отдельный репозиторий&lt;/li&gt;
 &lt;li&gt;Удалить из проекта папку подпроекта&lt;/li&gt;
 &lt;li&gt;Добавить в большой проект зависимость от подпроекта&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;p&gt;Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code&gt;git-extract-subproject&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -39,7 +35,6 @@
       
       <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
       <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
 &lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
@@ -48,12 +43,9 @@
 &lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
 &lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
-
 &lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -63,22 +55,17 @@
       
       <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
-
-&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34; target=&#34;_blank&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
-
+&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
 на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
 после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
-
 &lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

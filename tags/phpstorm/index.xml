@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Phpstorm on Popstas</title>
+    <title>phpstorm on Popstas</title>
     <link>https://blog.popstas.ru/tags/phpstorm/</link>
-    <description>Recent content in Phpstorm on Popstas</description>
+    <description>Recent content in phpstorm on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate>
@@ -18,19 +18,15 @@
       
       <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
       <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
-
 &lt;p&gt;Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li&gt;
 &lt;li&gt;простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li&gt;
 &lt;li&gt;нельзя загружать файл по хоткею&lt;/li&gt;
 &lt;li&gt;нет git&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,13 +36,10 @@
       
       <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
       <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
-
 &lt;p&gt;Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p&gt;
-
 &lt;p&gt;Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
-&lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34; target=&#34;_blank&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/phpstorm-python.gif&#34; /&gt;&lt;/p&gt;</description>
+&lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -58,11 +51,9 @@
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
-
 &lt;p&gt;UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

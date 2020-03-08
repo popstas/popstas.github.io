@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Popstas</title>
@@ -6,10 +6,127 @@
     <description>Recent content in Tags on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Tue, 01 May 2018 08:20:00 +0600</lastBuildDate>
+    <lastBuildDate>Sun, 29 Dec 2019 14:20:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>offtop</title>
+      <link>https://blog.popstas.ru/tags/offtop/</link>
+      <pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/offtop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>итоги года</title>
+      <link>https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0/</link>
+      <pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>books</title>
+      <link>https://blog.popstas.ru/tags/books/</link>
+      <pubDate>Sun, 29 Dec 2019 02:05:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js</title>
+      <link>https://blog.popstas.ru/tags/js/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>node-red</title>
+      <link>https://blog.popstas.ru/tags/node-red/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/node-red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smart home</title>
+      <link>https://blog.popstas.ru/tags/smart-home/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/smart-home/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sonoff</title>
+      <link>https://blog.popstas.ru/tags/sonoff/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/sonoff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yandex-dialogs</title>
+      <link>https://blog.popstas.ru/tags/yandex-dialogs/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/yandex-dialogs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://blog.popstas.ru/tags/git/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://blog.popstas.ru/tags/github/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>opensource</title>
+      <link>https://blog.popstas.ru/tags/opensource/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/opensource/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://blog.popstas.ru/tags/projects/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>3d printer</title>
+      <link>https://blog.popstas.ru/tags/3d-printer/</link>
+      <pubDate>Sun, 16 Dec 2018 16:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/3d-printer/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>18.04</title>
@@ -21,295 +138,7 @@
     </item>
     
     <item>
-      <title>3d Printer</title>
-      <link>https://blog.popstas.ru/tags/3d-printer/</link>
-      <pubDate>Sun, 16 Dec 2018 16:45:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/3d-printer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Alerting</title>
-      <link>https://blog.popstas.ru/tags/alerting/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/alerting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ansible</title>
-      <link>https://blog.popstas.ru/tags/ansible/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/ansible/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ansible Role</title>
-      <link>https://blog.popstas.ru/tags/ansible-role/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/ansible-role/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apt</title>
-      <link>https://blog.popstas.ru/tags/apt/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/apt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apt Cacher</title>
-      <link>https://blog.popstas.ru/tags/apt-cacher/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/apt-cacher/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apt Cacher Ng</title>
-      <link>https://blog.popstas.ru/tags/apt-cacher-ng/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/apt-cacher-ng/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apt Mirror</title>
-      <link>https://blog.popstas.ru/tags/apt-mirror/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/apt-mirror/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Artifactory</title>
-      <link>https://blog.popstas.ru/tags/artifactory/</link>
-      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/artifactory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Asus Dgx</title>
-      <link>https://blog.popstas.ru/tags/asus-dgx/</link>
-      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/asus-dgx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Atom</title>
-      <link>https://blog.popstas.ru/tags/atom/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/atom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bash</title>
-      <link>https://blog.popstas.ru/tags/bash/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/bash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://blog.popstas.ru/tags/blog/</link>
-      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Books</title>
-      <link>https://blog.popstas.ru/tags/books/</link>
-      <pubDate>Sun, 29 Dec 2019 02:05:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/books/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Box</title>
-      <link>https://blog.popstas.ru/tags/box/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/box/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Changelog</title>
-      <link>https://blog.popstas.ru/tags/changelog/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/changelog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ci</title>
-      <link>https://blog.popstas.ru/tags/ci/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/ci/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Composer</title>
-      <link>https://blog.popstas.ru/tags/composer/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/composer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Consul</title>
-      <link>https://blog.popstas.ru/tags/consul/</link>
-      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/consul/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Coveralls</title>
-      <link>https://blog.popstas.ru/tags/coveralls/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/coveralls/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://blog.popstas.ru/tags/docker/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docs</title>
-      <link>https://blog.popstas.ru/tags/docs/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/docs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Drivers</title>
-      <link>https://blog.popstas.ru/tags/drivers/</link>
-      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/drivers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Drupal</title>
-      <link>https://blog.popstas.ru/tags/drupal/</link>
-      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/drupal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ext4</title>
-      <link>https://blog.popstas.ru/tags/ext4/</link>
-      <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/ext4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fast</title>
-      <link>https://blog.popstas.ru/tags/fast/</link>
-      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/fast/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fzf</title>
-      <link>https://blog.popstas.ru/tags/fzf/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/fzf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gadgets</title>
-      <link>https://blog.popstas.ru/tags/gadgets/</link>
-      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/gadgets/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://blog.popstas.ru/tags/git/</link>
-      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://blog.popstas.ru/tags/github/</link>
-      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gitlab</title>
-      <link>https://blog.popstas.ru/tags/gitlab/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/gitlab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gitlab Ci</title>
-      <link>https://blog.popstas.ru/tags/gitlab-ci/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/gitlab-ci/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gnome</title>
+      <title>gnome</title>
       <link>https://blog.popstas.ru/tags/gnome/</link>
       <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
       
@@ -318,511 +147,16 @@
     </item>
     
     <item>
-      <title>Go</title>
-      <link>https://blog.popstas.ru/tags/go/</link>
-      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Grafana</title>
-      <link>https://blog.popstas.ru/tags/grafana/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/grafana/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gtd</title>
-      <link>https://blog.popstas.ru/tags/gtd/</link>
-      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/gtd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hashicorp</title>
-      <link>https://blog.popstas.ru/tags/hashicorp/</link>
-      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/hashicorp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://blog.popstas.ru/tags/hugo/</link>
-      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Idea</title>
-      <link>https://blog.popstas.ru/tags/idea/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/idea/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Influxdata</title>
-      <link>https://blog.popstas.ru/tags/influxdata/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/influxdata/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Influxdb</title>
-      <link>https://blog.popstas.ru/tags/influxdb/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/influxdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Insider</title>
-      <link>https://blog.popstas.ru/tags/insider/</link>
-      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/insider/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://blog.popstas.ru/tags/javascript/</link>
-      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jetbrains</title>
-      <link>https://blog.popstas.ru/tags/jetbrains/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/jetbrains/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Js</title>
-      <link>https://blog.popstas.ru/tags/js/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kapacitor</title>
-      <link>https://blog.popstas.ru/tags/kapacitor/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/kapacitor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://blog.popstas.ru/tags/linux/</link>
-      <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lua</title>
-      <link>https://blog.popstas.ru/tags/lua/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/lua/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Macos</title>
-      <link>https://blog.popstas.ru/tags/macos/</link>
-      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microsoft</title>
-      <link>https://blog.popstas.ru/tags/microsoft/</link>
-      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/microsoft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Molecule</title>
-      <link>https://blog.popstas.ru/tags/molecule/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/molecule/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Monit</title>
-      <link>https://blog.popstas.ru/tags/monit/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/monit/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Monitoring</title>
-      <link>https://blog.popstas.ru/tags/monitoring/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/monitoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node Red</title>
-      <link>https://blog.popstas.ru/tags/node-red/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/node-red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nodejs</title>
-      <link>https://blog.popstas.ru/tags/nodejs/</link>
-      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/nodejs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nodemcu</title>
-      <link>https://blog.popstas.ru/tags/nodemcu/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/nodemcu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nvidia</title>
-      <link>https://blog.popstas.ru/tags/nvidia/</link>
-      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/nvidia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Octopress</title>
-      <link>https://blog.popstas.ru/tags/octopress/</link>
-      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/octopress/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Offtop</title>
-      <link>https://blog.popstas.ru/tags/offtop/</link>
-      <pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/offtop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Oh My Zsh</title>
-      <link>https://blog.popstas.ru/tags/oh-my-zsh/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/oh-my-zsh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Onsenui</title>
-      <link>https://blog.popstas.ru/tags/onsenui/</link>
-      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/onsenui/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Opensource</title>
-      <link>https://blog.popstas.ru/tags/opensource/</link>
-      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/opensource/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Otto</title>
-      <link>https://blog.popstas.ru/tags/otto/</link>
-      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/otto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Packer</title>
-      <link>https://blog.popstas.ru/tags/packer/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/packer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Percol</title>
-      <link>https://blog.popstas.ru/tags/percol/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/percol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Phar</title>
-      <link>https://blog.popstas.ru/tags/phar/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/phar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Php</title>
-      <link>https://blog.popstas.ru/tags/php/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Phpcs</title>
-      <link>https://blog.popstas.ru/tags/phpcs/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/phpcs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Phpmd</title>
-      <link>https://blog.popstas.ru/tags/phpmd/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/phpmd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Phpstorm</title>
-      <link>https://blog.popstas.ru/tags/phpstorm/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/phpstorm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Planfix</title>
-      <link>https://blog.popstas.ru/tags/planfix/</link>
-      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/planfix/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pocket</title>
-      <link>https://blog.popstas.ru/tags/pocket/</link>
-      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/pocket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Podcasts</title>
-      <link>https://blog.popstas.ru/tags/podcasts/</link>
-      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/podcasts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Powerlevel9k</title>
-      <link>https://blog.popstas.ru/tags/powerlevel9k/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/powerlevel9k/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Powerline</title>
-      <link>https://blog.popstas.ru/tags/powerline/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/powerline/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://blog.popstas.ru/tags/projects/</link>
-      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/projects/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://blog.popstas.ru/tags/python/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rss</title>
-      <link>https://blog.popstas.ru/tags/rss/</link>
-      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/rss/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ruby</title>
-      <link>https://blog.popstas.ru/tags/ruby/</link>
-      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/ruby/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Server Scripts</title>
-      <link>https://blog.popstas.ru/tags/server-scripts/</link>
-      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/server-scripts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Smart Home</title>
-      <link>https://blog.popstas.ru/tags/smart-home/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/smart-home/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sonoff</title>
-      <link>https://blog.popstas.ru/tags/sonoff/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/sonoff/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Symfony</title>
-      <link>https://blog.popstas.ru/tags/symfony/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/symfony/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Textmate</title>
-      <link>https://blog.popstas.ru/tags/textmate/</link>
-      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/textmate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Toggl</title>
-      <link>https://blog.popstas.ru/tags/toggl/</link>
-      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/toggl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Transmission Cli</title>
-      <link>https://blog.popstas.ru/tags/transmission-cli/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/transmission-cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Travis</title>
-      <link>https://blog.popstas.ru/tags/travis/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/travis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Twitter</title>
-      <link>https://blog.popstas.ru/tags/twitter/</link>
-      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
-      
-      <guid>https://blog.popstas.ru/tags/twitter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ubuntu</title>
+      <title>ubuntu</title>
       <link>https://blog.popstas.ru/tags/ubuntu/</link>
-      <pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate>
+      <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/tags/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ubuntu Desktop</title>
+      <title>ubuntu desktop</title>
       <link>https://blog.popstas.ru/tags/ubuntu-desktop/</link>
       <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
       
@@ -831,34 +165,79 @@
     </item>
     
     <item>
-      <title>Update</title>
-      <link>https://blog.popstas.ru/tags/update/</link>
-      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      <title>asus-dgx</title>
+      <link>https://blog.popstas.ru/tags/asus-dgx/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/update/</guid>
+      <guid>https://blog.popstas.ru/tags/asus-dgx/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Vagrant</title>
-      <link>https://blog.popstas.ru/tags/vagrant/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      <title>drivers</title>
+      <link>https://blog.popstas.ru/tags/drivers/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/vagrant/</guid>
+      <guid>https://blog.popstas.ru/tags/drivers/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Vscode</title>
-      <link>https://blog.popstas.ru/tags/vscode/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      <title>nvidia</title>
+      <link>https://blog.popstas.ru/tags/nvidia/</link>
+      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/vscode/</guid>
+      <guid>https://blog.popstas.ru/tags/nvidia/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Vue</title>
+      <title>go</title>
+      <link>https://blog.popstas.ru/tags/go/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs</title>
+      <link>https://blog.popstas.ru/tags/nodejs/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>onsenui</title>
+      <link>https://blog.popstas.ru/tags/onsenui/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/onsenui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>planfix</title>
+      <link>https://blog.popstas.ru/tags/planfix/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/planfix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>toggl</title>
+      <link>https://blog.popstas.ru/tags/toggl/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/toggl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vue</title>
       <link>https://blog.popstas.ru/tags/vue/</link>
       <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
       
@@ -867,25 +246,25 @@
     </item>
     
     <item>
-      <title>Windows</title>
-      <link>https://blog.popstas.ru/tags/windows/</link>
-      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      <title>ext4</title>
+      <link>https://blog.popstas.ru/tags/ext4/</link>
+      <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/windows/</guid>
+      <guid>https://blog.popstas.ru/tags/ext4/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Workflow</title>
-      <link>https://blog.popstas.ru/tags/workflow/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      <title>linux</title>
+      <link>https://blog.popstas.ru/tags/linux/</link>
+      <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/workflow/</guid>
+      <guid>https://blog.popstas.ru/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Xfs</title>
+      <title>xfs</title>
       <link>https://blog.popstas.ru/tags/xfs/</link>
       <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
       
@@ -894,16 +273,124 @@
     </item>
     
     <item>
-      <title>Yandex Dialogs</title>
-      <link>https://blog.popstas.ru/tags/yandex-dialogs/</link>
-      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      <title>atom</title>
+      <link>https://blog.popstas.ru/tags/atom/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/yandex-dialogs/</guid>
+      <guid>https://blog.popstas.ru/tags/atom/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Zle</title>
+      <title>idea</title>
+      <link>https://blog.popstas.ru/tags/idea/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/idea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jetbrains</title>
+      <link>https://blog.popstas.ru/tags/jetbrains/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/jetbrains/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lua</title>
+      <link>https://blog.popstas.ru/tags/lua/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/lua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodemcu</title>
+      <link>https://blog.popstas.ru/tags/nodemcu/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/nodemcu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://blog.popstas.ru/tags/php/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phpstorm</title>
+      <link>https://blog.popstas.ru/tags/phpstorm/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/phpstorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://blog.popstas.ru/tags/python/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>https://blog.popstas.ru/tags/vscode/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>https://blog.popstas.ru/tags/ansible/</link>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>packer</title>
+      <link>https://blog.popstas.ru/tags/packer/</link>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/packer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://blog.popstas.ru/tags/vagrant/</link>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fast</title>
+      <link>https://blog.popstas.ru/tags/fast/</link>
+      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/fast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zle</title>
       <link>https://blog.popstas.ru/tags/zle/</link>
       <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
       
@@ -912,7 +399,7 @@
     </item>
     
     <item>
-      <title>Zsh</title>
+      <title>zsh</title>
       <link>https://blog.popstas.ru/tags/zsh/</link>
       <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
       
@@ -921,7 +408,79 @@
     </item>
     
     <item>
-      <title>Zsh Autosuggestions</title>
+      <title>textmate</title>
+      <link>https://blog.popstas.ru/tags/textmate/</link>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/textmate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ansible-role</title>
+      <link>https://blog.popstas.ru/tags/ansible-role/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/ansible-role/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://blog.popstas.ru/tags/bash/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fzf</title>
+      <link>https://blog.popstas.ru/tags/fzf/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/fzf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oh-my-zsh</title>
+      <link>https://blog.popstas.ru/tags/oh-my-zsh/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/oh-my-zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>percol</title>
+      <link>https://blog.popstas.ru/tags/percol/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/percol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powerlevel9k</title>
+      <link>https://blog.popstas.ru/tags/powerlevel9k/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/powerlevel9k/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powerline</title>
+      <link>https://blog.popstas.ru/tags/powerline/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/powerline/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh-autosuggestions</title>
       <link>https://blog.popstas.ru/tags/zsh-autosuggestions/</link>
       <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
       
@@ -930,7 +489,7 @@
     </item>
     
     <item>
-      <title>Zsh Command Time</title>
+      <title>zsh-command-time</title>
       <link>https://blog.popstas.ru/tags/zsh-command-time/</link>
       <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
       
@@ -939,7 +498,7 @@
     </item>
     
     <item>
-      <title>Zsh Syntax Highlighting</title>
+      <title>zsh-syntax-highlighting</title>
       <link>https://blog.popstas.ru/tags/zsh-syntax-highlighting/</link>
       <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
       
@@ -948,11 +507,452 @@
     </item>
     
     <item>
-      <title>Итоги Года</title>
-      <link>https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0/</link>
-      <pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate>
+      <title>docker</title>
+      <link>https://blog.popstas.ru/tags/docker/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
       
-      <guid>https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0/</guid>
+      <guid>https://blog.popstas.ru/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://blog.popstas.ru/tags/gitlab/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab-ci</title>
+      <link>https://blog.popstas.ru/tags/gitlab-ci/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/gitlab-ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>molecule</title>
+      <link>https://blog.popstas.ru/tags/molecule/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/molecule/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>travis</title>
+      <link>https://blog.popstas.ru/tags/travis/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/travis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://blog.popstas.ru/tags/workflow/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://blog.popstas.ru/tags/blog/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://blog.popstas.ru/tags/hugo/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>octopress</title>
+      <link>https://blog.popstas.ru/tags/octopress/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/octopress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>https://blog.popstas.ru/tags/ruby/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt</title>
+      <link>https://blog.popstas.ru/tags/apt/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/apt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt-cacher</title>
+      <link>https://blog.popstas.ru/tags/apt-cacher/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/apt-cacher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt-cacher-ng</title>
+      <link>https://blog.popstas.ru/tags/apt-cacher-ng/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/apt-cacher-ng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt-mirror</title>
+      <link>https://blog.popstas.ru/tags/apt-mirror/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/apt-mirror/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ci</title>
+      <link>https://blog.popstas.ru/tags/ci/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>artifactory</title>
+      <link>https://blog.popstas.ru/tags/artifactory/</link>
+      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/artifactory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>server-scripts</title>
+      <link>https://blog.popstas.ru/tags/server-scripts/</link>
+      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/server-scripts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>alerting</title>
+      <link>https://blog.popstas.ru/tags/alerting/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/alerting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>influxdata</title>
+      <link>https://blog.popstas.ru/tags/influxdata/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/influxdata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kapacitor</title>
+      <link>https://blog.popstas.ru/tags/kapacitor/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/kapacitor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monit</title>
+      <link>https://blog.popstas.ru/tags/monit/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/monit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>https://blog.popstas.ru/tags/monitoring/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microsoft</title>
+      <link>https://blog.popstas.ru/tags/microsoft/</link>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://blog.popstas.ru/tags/windows/</link>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>insider</title>
+      <link>https://blog.popstas.ru/tags/insider/</link>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/insider/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>update</title>
+      <link>https://blog.popstas.ru/tags/update/</link>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/update/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>changelog</title>
+      <link>https://blog.popstas.ru/tags/changelog/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/changelog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docs</title>
+      <link>https://blog.popstas.ru/tags/docs/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/docs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>transmission-cli</title>
+      <link>https://blog.popstas.ru/tags/transmission-cli/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/transmission-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pocket</title>
+      <link>https://blog.popstas.ru/tags/pocket/</link>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/pocket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>podcasts</title>
+      <link>https://blog.popstas.ru/tags/podcasts/</link>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/podcasts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rss</title>
+      <link>https://blog.popstas.ru/tags/rss/</link>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/rss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twitter</title>
+      <link>https://blog.popstas.ru/tags/twitter/</link>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gadgets</title>
+      <link>https://blog.popstas.ru/tags/gadgets/</link>
+      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/gadgets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macos</title>
+      <link>https://blog.popstas.ru/tags/macos/</link>
+      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>box</title>
+      <link>https://blog.popstas.ru/tags/box/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/box/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>composer</title>
+      <link>https://blog.popstas.ru/tags/composer/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/composer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coveralls</title>
+      <link>https://blog.popstas.ru/tags/coveralls/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/coveralls/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grafana</title>
+      <link>https://blog.popstas.ru/tags/grafana/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>influxdb</title>
+      <link>https://blog.popstas.ru/tags/influxdb/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/influxdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phar</title>
+      <link>https://blog.popstas.ru/tags/phar/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/phar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phpcs</title>
+      <link>https://blog.popstas.ru/tags/phpcs/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/phpcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phpmd</title>
+      <link>https://blog.popstas.ru/tags/phpmd/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/phpmd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>symfony</title>
+      <link>https://blog.popstas.ru/tags/symfony/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/symfony/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>consul</title>
+      <link>https://blog.popstas.ru/tags/consul/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/consul/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drupal</title>
+      <link>https://blog.popstas.ru/tags/drupal/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/drupal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hashicorp</title>
+      <link>https://blog.popstas.ru/tags/hashicorp/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/hashicorp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>otto</title>
+      <link>https://blog.popstas.ru/tags/otto/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/otto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gtd</title>
+      <link>https://blog.popstas.ru/tags/gtd/</link>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/gtd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://blog.popstas.ru/tags/javascript/</link>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/tags/javascript/</guid>
       <description></description>
     </item>
     

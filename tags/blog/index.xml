@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Popstas</title>
+    <title>blog on Popstas</title>
     <link>https://blog.popstas.ru/tags/blog/</link>
-    <description>Recent content in Blog on Popstas</description>
+    <description>Recent content in blog on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 05 Mar 2017 20:45:00 +0000</lastBuildDate>
@@ -18,16 +18,13 @@
       
       <guid>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid>
       <description>&lt;p&gt;Эта статья первая на новом движке.&lt;/p&gt;
-
 &lt;h4 id=&#34;зачем&#34;&gt;Зачем:&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Не зависеть от ruby&lt;/li&gt;
 &lt;li&gt;быстрее&lt;/li&gt;
 &lt;li&gt;просто интересно&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/octopress-to-hugo.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

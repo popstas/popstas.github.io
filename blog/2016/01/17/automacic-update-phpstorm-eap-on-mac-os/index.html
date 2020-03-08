@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -110,14 +110,10 @@
           <p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)</p>
-
 <p>UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.</p>
-
-<p><img src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>Что он делает:</p>
-
 <ul>
 <li>идет на страницу EAP, находит там версию</li>
 <li>проверяет, что на компе стоит другая версия EAP</li>
@@ -127,18 +123,12 @@
 <li>удаляет текущую версию и копирует новую в папку /Applications</li>
 <li>запускает новую версию</li>
 </ul>
-
 <p>Поставить можно так:</p>
-
 <pre><code>curl -s &quot;https://gist.githubusercontent.com/popstas/613a72a34576b85caec4/raw/644f457ed0187ab0d1207576e925c06260451131/phpstorm-eap-update.sh&quot; &gt; /usr/local/bin/phpstorm-eap-update
 chmod +x /usr/local/bin/phpstorm-eap-update
-</code></pre>
-
-<p>После чего можно обновлять просто запуском <code>phpstorm-eap-update</code>.
+</code></pre><p>После чего можно обновлять просто запуском <code>phpstorm-eap-update</code>.
 По идее можно даже в cron его засунуть, чтобы совсем автомат, но я и так узнаю о новой версии из rss.</p>
-
-<p>Код лежит здесь - <a href="https://gist.github.com/popstas/613a72a34576b85caec4" target="_blank">https://gist.github.com/popstas/613a72a34576b85caec4</a></p>
-
+<p>Код лежит здесь - <a href="https://gist.github.com/popstas/613a72a34576b85caec4">https://gist.github.com/popstas/613a72a34576b85caec4</a></p>
 <p>В PhpStorm 11 из фич ничего особенного не нашел, зато с этой версии он перешел на использование Java 8,
 не знаю, в этом ли дело, но у меня он вроде перестал тормозить.</p>
         </div>
@@ -265,23 +255,23 @@ chmod +x /usr/local/bin/phpstorm-eap-update
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

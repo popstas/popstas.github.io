@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -109,81 +109,56 @@
           
           <p>В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
 поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.</p>
-
 <p>Так вот, у меня в терминале бывает частая задача: скопировать файл и положить рядом с немного другим именем.
 Раньше я пользовался такой схемой:</p>
-
 <pre><code>ls filename.ext
 cp &lt;Alt+.&gt; &lt;Alt+.&gt;
-</code></pre>
-
-<p>То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
+</code></pre><p>То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
 Потом через <code>Alt+.</code> вставлял 2 раза последний аргумент предыдущей команды.</p>
-
 <p>Другие примеры использования:</p>
-
 <ul>
 <li><code>mv path/file1 path/file2</code></li>
 <li><code>cp config.example config</code></li>
 <li><code>mc /home/user /home/user</code></li>
 </ul>
-
 <p>Теперь я могу делать так:</p>
-
 <pre><code>cp filename.ext &lt;Alt+,&gt;
-</code></pre>
-
-<p>В действии:</p>
-
-<p><img src="/images/2017-03/zsh-duplicate-last-arg.gif" /></p>
-
+</code></pre><p>В действии:</p>
+<p><!-- raw HTML omitted --></p>
 <p>Когда я правил чужие виджеты (виджетом в zsh называется функция, повешенная на хоткей), я понял,
 что у zsh большие возможности по редактированию текущей строки комманд. Оставалось узнать, как это нагуглить.</p>
-
 <p>Ключевик я нашел в тех же скриптах: <code>ZLE</code> или Zsh Line Editor. ОК, гуглим <code>zsh zle</code>,
-попадаем <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html" target="_blank">на доку</a>. Через 10 минут чтения и правок родилась эта функция.</p>
-
+попадаем <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html">на доку</a>. Через 10 минут чтения и правок родилась эта функция.</p>
 <p>После того, как я написал свой виджет, оказалось, что такая команда уже встроена в zsh, и даже лучше.
 Оставлю свой скрипт в конце статьи для того, чтобы было понятно, как можно писать свои виджеты, но пользоваться лучше этим:</p>
-
-<pre><code class="language-bash"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd
-# http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Example &lt;Ctrl+.&gt;&lt;Ctrl+,&gt; inserts 2nd argument from end of prev. cmd</span>
+<span style="color:#75715e"># http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html</span>
 autoload -Uz copy-earlier-word
 zle -N copy-earlier-word
-bindkey &quot;^[,&quot; copy-earlier-word
-</code></pre>
-
-<p>Код надо вставить в <code>.zshrc</code> или <code>.zshrc.local</code> если вы пользуетесь
-<a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" target="_blank">ansible-role-zsh</a></p>
-
+bindkey <span style="color:#e6db74">&#34;^[,&#34;</span> copy-earlier-word
+</code></pre></div><p>Код надо вставить в <code>.zshrc</code> или <code>.zshrc.local</code> если вы пользуетесь
+<a href="http://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh</a></p>
 <p>Виджет вставляет последний аргумент текущей команды, но если нажать еще дважды - вставит предпоследний.
 Например, вы ввели команду <code>some-command arg1 arg2</code>, чтобы вставить предпоследний аргумент, нажмите <code>&lt;Alt+.&gt;&lt;Alt+,&gt;&lt;Alt+,&gt;</code>.</p>
-
 <h3 id="как-работают-виджеты-zsh">Как работают виджеты zsh:</h3>
-
 <p>Функция, вызванная через механизм виджетов, имеет доступ к куче внутренних переменных zsh, некоторые можно только читать,
 другие можно изменять на лету.</p>
-
 <p>Я воспользовался двумя переменными:</p>
-
 <ul>
 <li><code>BUFFER</code> - содержит текущую введенную команду. Переменную можно менять, но курсор при этом остается на месте.</li>
 <li><code>CURSOR</code> - позиция курсора</li>
 </ul>
-
 <p>Оставалось сделать команде rtrim, отрезать последнее слово, добавить к буферу и передвинуть курсор на новое место.</p>
-
 <p>Сам скрипт:</p>
-
-<pre><code class="language-bash"># Ctrl+, - duplicate last word in current command
-zsh-duplicate-last-arg() {
-	BUFFER=$(echo &quot;$BUFFER&quot; | sed -e 's/[[:space:]]*$//')
-	BUFFER=&quot;$BUFFER ${BUFFER##* }&quot;
-	CURSOR=$#BUFFER
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ctrl+, - duplicate last word in current command</span>
+zsh-duplicate-last-arg<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	BUFFER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$BUFFER<span style="color:#e6db74">&#34;</span> | sed -e <span style="color:#e6db74">&#39;s/[[:space:]]*$//&#39;</span><span style="color:#66d9ef">)</span>
+	BUFFER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BUFFER<span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>BUFFER##* <span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+	CURSOR<span style="color:#f92672">=</span>$#BUFFER
+<span style="color:#f92672">}</span>
 zle -N zsh-duplicate-last-arg
-bindkey '^[,' zsh-duplicate-last-arg
-</code></pre>
+bindkey <span style="color:#e6db74">&#39;^[,&#39;</span> zsh-duplicate-last-arg
+</code></pre></div>
         </div>
         
 
@@ -308,23 +283,23 @@ bindkey '^[,' zsh-duplicate-last-arg
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

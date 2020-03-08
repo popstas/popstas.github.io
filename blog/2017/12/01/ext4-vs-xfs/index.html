@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,39 +108,25 @@
           
           
           <p>Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.</p>
-
-<p><img src="/images/2017-12/ext4-vs-xfs.jpg" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>Немного о моем применении: у нас есть сервер с бекапами, бекапы делаются с помощью rsnapshot, сейчас там около 15 000 000 файлов. Любая попытка просканировать всю файловую систему занимает часы радости не доставляет.</p>
-
 <p>Так вот, для тестов создал на свободном HDD 2 раздела по 50 Гб, залил на них папку с ~ 1 млн файлов на ~ 35 Гб, вот результаты:</p>
-
 <h3 id="1-заливка-файлов">1. Заливка файлов:</h3>
-
 <pre><code>$ time rsync -a /home/ /tmp/ext4/ \
 &amp;&amp; time rsync -a /home/ /tmp/xfs/
 
 rsync -a /home/ /tmp/ext4/  161.20s user 255.46s system 21% cpu 32:06.78 total
 rsync -a /home/ /tmp/xfs/  137.56s user 176.48s system 24% cpu 21:46.11 total
-</code></pre>
-
-<p>Хотя перед первым rsync я прогрел /home/, похоже все-таки xfs прошла настолько быстрее из-за кеша. Или нет.</p>
-
+</code></pre><p>Хотя перед первым rsync я прогрел /home/, похоже все-таки xfs прошла настолько быстрее из-за кеша. Или нет.</p>
 <p>Дальше я стал учитывать кеш.</p>
-
 <h3 id="2-повторная-синхронизация">2. Повторная синхронизация:</h3>
-
 <pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rsync -a /home/ /tmp/ext4/ \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rsync -a /home/ /tmp/xfs/
 
 rsync -a /home/ /tmp/ext4/  7.41s user 25.23s system 9% cpu 5:40.08 total
 rsync -a /home/ /tmp/xfs/  6.78s user 21.76s system 11% cpu 4:11.81 total
-</code></pre>
-
-<p>Уже видно, что xfs что-то дает, несмотря на то, что /home был на ext4 (на другом диске).</p>
-
+</code></pre><p>Уже видно, что xfs что-то дает, несмотря на то, что /home был на ext4 (на другом диске).</p>
 <h3 id="3-поиск-файлов">3. Поиск файлов:</h3>
-
 <pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/ext4 | wc -l \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/xfs | wc -l
 
@@ -151,12 +137,8 @@ wc -l  0.10s user 0.13s system 0% cpu 2:02.55 total
 1185847
 find /tmp/xfs  1.51s user 3.55s system 10% cpu 46.362 total
 wc -l  0.11s user 0.10s system 0% cpu 46.361 total
-</code></pre>
-
-<p>Уже интереснее, поиск файлов в 2+ раза быстрее!</p>
-
+</code></pre><p>Уже интереснее, поиск файлов в 2+ раза быстрее!</p>
 <h3 id="4-повторный-поиск">4. Повторный поиск:</h3>
-
 <pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/ext4 | wc -l \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time find /tmp/xfs | wc -l
 
@@ -166,36 +148,21 @@ wc -l  0.10s user 0.12s system 0% cpu 1:43.87 total
 1185847
 find /tmp/xfs  1.26s user 3.20s system 14% cpu 30.090 total
 wc -l  0.07s user 0.14s system 0% cpu 30.090 total
-</code></pre>
-
-<p>Видимо, кеши я убиваю не все (может sync помог бы?), но общая картина все равно прекрасная.</p>
-
+</code></pre><p>Видимо, кеши я убиваю не все (может sync помог бы?), но общая картина все равно прекрасная.</p>
 <h3 id="5-удаление-файлов">5. Удаление файлов:</h3>
-
 <pre><code>$ echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rm -rf /tmp/ext4/* \
 &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches &amp;&amp; time rm -rf /tmp/xfs/*
 
 rm -rf /tmp/ext4/*  1.56s user 26.07s system 18% cpu 2:30.88 total
 rm -rf /tmp/xfs/*  1.45s user 33.49s system 47% cpu 1:14.33 total
-</code></pre>
-
-<h2 id="вывод">Вывод</h2>
-
+</code></pre><h2 id="вывод">Вывод</h2>
 <p>Вывод: не вижу причин не переходить, думаю сначала перевести бекапы, потом домашние папки на XFS.</p>
-
 <p>Кстати, гонял еще sysbench, на небольшом количестве файлов разницы нет.</p>
-
 <h3 id="6-большой-поиск-файлов">6. Большой поиск файлов</h3>
-
 <p>После того, как дописал заметку, переключил диск с бекапами на XFS (как раз досинхронизировался, спустя 2 суток), не мог не написать о первом действительно ощутимом изменении.</p>
-
 <p>Мне нужно было найти и удалить все папки &ldquo;backup&rdquo; и удалить их (бинарные бекапы забекапились случайно):</p>
-
 <pre><code>find /var/backups/rsnapshot/ -type d -name &quot;backup&quot;
-</code></pre>
-
-<p>Так вот, на XFS команда прошла за 19 минут и нашла 240 папок, при этом диск при поиске использовался только наполовину, а IOPS было примерно 1000. (кто дочитал досюда, тот понял, что значит график наверху).</p>
-
+</code></pre><p>Так вот, на XFS команда прошла за 19 минут и нашла 240 папок, при этом диск при поиске использовался только наполовину, а IOPS было примерно 1000. (кто дочитал досюда, тот понял, что значит график наверху).</p>
 <p>На ext4 та же самая команда на тех же самых файлах нашла 70 папок за 80 минут, загружая диск на 100% с IOPS в среднем 535, потом я устал ждать и остановил поиск. Результат оказался не в 2 раза лучше, как я ожидал, а примерно в 15 раз лучше!</p>
         </div>
         
@@ -321,23 +288,23 @@ rm -rf /tmp/xfs/*  1.45s user 33.49s system 47% cpu 1:14.33 total
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -107,40 +107,29 @@
           
           
           
-          <p>Проект <a href="https://github.com/viasite-ansible/ansible-server" target="_blank">viasite-ansible/ansible-server</a> подошел к моменту,
+          <p>Проект <a href="https://github.com/viasite-ansible/ansible-server">viasite-ansible/ansible-server</a> подошел к моменту,
 когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).</p>
-
 <p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
-поэтому <del>я потратил день</del> я вспомнил, что есть такой тул - <a href="https://www.packer.io/" target="_blank">Packer</a>
+поэтому <del>я потратил день</del> я вспомнил, что есть такой тул - <a href="https://www.packer.io/">Packer</a>
 и решил, что пришло его время.</p>
-
 <p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
 программах или разворачивания на хостинге.</p>
-
 <p>Для чего это может пригодиться:</p>
-
 <ul>
 <li>ускорение тестирования</li>
 <li>б<strong>о</strong>льшая повторяемость, по сравнению с ansible</li>
 <li>образы для продакшена для быстрого развертывания новых серверов</li>
 <li>образы идентичные продакшену для локальной разработки</li>
 </ul>
-
 <p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами <a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f" target="_blank">здесь</a>.</p>
-
-<p><img src="/images/2017-03/ansible-packer-docker-vagrant.png" /></p>
-
-<p>За основу я взял <a href="https://github.com/geerlingguy/packer-ubuntu-1604" target="_blank">geerlingguy/packer-ubuntu-1604</a>.
-Также смотрел на <a href="https://github.com/chef/bento" target="_blank">chef/bento</a>.</p>
-
+Gist с результатами <a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь</a>.</p>
+<p><!-- raw HTML omitted --></p>
+<p>За основу я взял <a href="https://github.com/geerlingguy/packer-ubuntu-1604">geerlingguy/packer-ubuntu-1604</a>.
+Также смотрел на <a href="https://github.com/chef/bento">chef/bento</a>.</p>
 <h2 id="vagrant-provision-vs-packer-build">Vagrant provision vs Packer build</h2>
-
 <p>Если брать конкретный момент времени и запустить одновременно <code>vagrant provision</code> и <code>packer build</code> с одним и тем же ansible плейбуком,
 скорее всего результат будет одинаковым. Но:</p>
-
 <h4 id="почему-не-vagrant-provision">Почему не vagrant provision:</h4>
-
 <ul>
 <li>В packer время тратится только один раз, а в ansible - при создании каждой машины из образа.</li>
 <li>Со временем запуск ansible будет давать немного разные результаты (программы обновляются),
@@ -150,60 +139,40 @@ Gist с результатами <a href="https://gist.github.com/popstas/9a42d1
 что содержимое образов будет одинаковым.</li>
 <li>На Windows машинах есть проблемы с провиженингом ansible.</li>
 </ul>
-
 <h2 id="из-чего-состоит-packer">Из чего состоит Packer</h2>
-
 <p>На самом деле там больше сущностей, перечислю то, с чем столкнулся я.</p>
-
-<h3 id="provisioners-https-www-packer-io-docs-templates-provisioners-html"><a href="https://www.packer.io/docs/templates/provisioners.html" target="_blank">Provisioners</a></h3>
-
+<h3 id="provisionershttpswwwpackeriodocstemplatesprovisionershtml"><a href="https://www.packer.io/docs/templates/provisioners.html">Provisioners</a></h3>
 <p>Тут все как в Vagrant, provisioners - это то, что ставит все, что нужно, в ваш образ.
 Я пользуюсь
-<a href="https://www.packer.io/docs/provisioners/shell.html" target="_blank">shell</a> и
-<a href="https://www.packer.io/docs/provisioners/ansible-local.html" target="_blank">ansible-local</a>.</p>
-
-<h3 id="builders-https-www-packer-io-docs-templates-builders-html"><a href="https://www.packer.io/docs/templates/builders.html" target="_blank">Builders</a></h3>
-
+<a href="https://www.packer.io/docs/provisioners/shell.html">shell</a> и
+<a href="https://www.packer.io/docs/provisioners/ansible-local.html">ansible-local</a>.</p>
+<h3 id="buildershttpswwwpackeriodocstemplatesbuildershtml"><a href="https://www.packer.io/docs/templates/builders.html">Builders</a></h3>
 <p>Builders определяют выходные форматы образов.
 OpenStack, AWS, Digital Ocean и других хостингов.</p>
-
 <p>А еще можно <del>грабить корованы</del> собирать Docker контейнеры. Это удобно тем,
 что можно в одном конфиге описать сборку vagrant box и docker image и использовать то и другое по необходимости.</p>
-
 <p>Необходимость у меня такая: docker образы меньше весят (спасибо слоям) и запускаются мгновенно (2 секунды против 1.5 минут в Vagrant).
 С другой стороны, не все роли можно протестировать в Docker. А еще мне кажется, что в среднем программистам проще работать с Vagrant.</p>
-
 <p>Я использую
-<a href="https://www.packer.io/docs/builders/virtualbox.html" target="_blank">virtualbox</a> и
-<a href="https://www.packer.io/docs/builders/docker.html" target="_blank">docker</a>.</p>
-
-<h3 id="post-rocessors-https-www-packer-io-docs-templates-post-processors-html"><a href="https://www.packer.io/docs/templates/post-processors.html" target="_blank">Post-rocessors</a></h3>
-
+<a href="https://www.packer.io/docs/builders/virtualbox.html">virtualbox</a> и
+<a href="https://www.packer.io/docs/builders/docker.html">docker</a>.</p>
+<h3 id="post-rocessorshttpswwwpackeriodocstemplatespost-processorshtml"><a href="https://www.packer.io/docs/templates/post-processors.html">Post-rocessors</a></h3>
 <p>Пост-процессоры запаковывают получившиеся артефакты в разные форматы, публикуют их.
 Здесь можно протегировать образ, запушить образы в vagrant cloud и в docker hub.</p>
-
 <p>Я использую
-<a href="https://www.packer.io/docs/post-processors/vagrant.html" target="_blank">vagrant</a> и
-<a href="https://www.packer.io/docs/post-processors/docker-tag.html" target="_blank">docker tag</a>.</p>
-
+<a href="https://www.packer.io/docs/post-processors/vagrant.html">vagrant</a> и
+<a href="https://www.packer.io/docs/post-processors/docker-tag.html">docker tag</a>.</p>
 <h2 id="packer-build">packer build</h2>
-
 <p>Всю магию делает <code>packer build ubuntu1604.json</code>. Полезные аргументы:</p>
-
 <ul>
 <li><code>--only=docker</code>, <code>--only=virtualbox-iso</code> - полезно для тестирования одного из builders</li>
 <li><code>--on-error=ask</code> - позволяет перед убийством виртуалки залезть в нее и посмотреть, что пошло не так</li>
 </ul>
-
 <p>Перед запуском нужно скачать дистрибутив Ubuntu и положить его туда, куда указывает <code>iso_urls</code> в настройках билдера.
 Итак, запускаем&hellip;</p>
-
 <h2 id="грабли-при-packer-build">Грабли при packer build</h2>
-
 <h3 id="warning-authentication-failure-retrying">Warning: Authentication failure. Retrying&hellip;</h3>
-
 <p>После первой удачной сборки при <code>vagrant up</code> получил такую ошибку:</p>
-
 <pre><code>==&gt; default: Waiting for machine to boot. This may take a few minutes...
     default: SSH address: 127.0.0.1:2200
     default: SSH username: vagrant
@@ -211,20 +180,13 @@ OpenStack, AWS, Digital Ocean и других хостингов.</p>
     default: Warning: Authentication failure. Retrying...
     default: Warning: Authentication failure. Retrying...
     default: Warning: Authentication failure. Retrying...
-</code></pre>
-
-<p>При этом через <code>vagrant ssh</code> можно зайти с паролем <code>vagrant</code>.
-Решение я позаимствовал у <a href="https://github.com/chef/bento/blob/master/scripts/ubuntu/vagrant.sh" target="_blank">chef/bento</a>,
+</code></pre><p>При этом через <code>vagrant ssh</code> можно зайти с паролем <code>vagrant</code>.
+Решение я позаимствовал у <a href="https://github.com/chef/bento/blob/master/scripts/ubuntu/vagrant.sh">chef/bento</a>,
 нужно добавить insecure public key в authorized_keys юзера:</p>
-
 <pre><code>mkdir ~/.ssh
 curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub &gt;&gt; ~/.ssh/authorized_keys
-</code></pre>
-
-<h3 id="vagrant-was-unable-to-mount-virtualbox-shared-folders">Vagrant was unable to mount VirtualBox shared folders</h3>
-
+</code></pre><h3 id="vagrant-was-unable-to-mount-virtualbox-shared-folders">Vagrant was unable to mount VirtualBox shared folders</h3>
 <p>После исправления прошлой проблемы появилась новая:</p>
-
 <pre><code>==&gt; default: Mounting shared folders...
     default: /vagrant =&gt; /Users/popstas/projects/ansible/viasite-ansible/temp
 Vagrant was unable to mount VirtualBox shared folders. This is usually
@@ -239,61 +201,44 @@ mount -t vboxsf -o uid=900,gid=900 vagrant /vagrant
 The error output from the command was:
 
 mount: unknown filesystem type 'vboxsf'
-</code></pre>
-
-<p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p>
-
-<pre><code class="language-json">{
-  &quot;builders&quot;: [
+</code></pre><p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;builders&#34;</span>: [
     {
-      &quot;type&quot;: &quot;virtualbox-iso&quot;,
-      &quot;guest_additions_path&quot;: &quot;VBoxGuestAdditions_{{.Version}}.iso&quot;
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
+      <span style="color:#f92672">&#34;guest_additions_path&#34;</span>: <span style="color:#e6db74">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>
     }
   ]
 }
-</code></pre>
-
-<p>После чтения <a href="https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path" target="_blank">доки</a> стало понятно,
+</code></pre></div><p>После чтения <a href="https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path">доки</a> стало понятно,
 что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:</p>
-
 <pre><code>sudo apt-get install virtualbox-guest-utils --no-install-recommends
-</code></pre>
-
-<p>Хотя чуть позже вычитал у Express 42
-<a href="https://github.com/express42-cookbooks/testo/blob/master/packer/scripts/postinstall.sh#L20-L24" target="_blank">как поставить из iso</a>,
+</code></pre><p>Хотя чуть позже вычитал у Express 42
+<a href="https://github.com/express42-cookbooks/testo/blob/master/packer/scripts/postinstall.sh#L20-L24">как поставить из iso</a>,
 лично я не вижу ничего плохого в установке из пакетов.</p>
-
-<h3 id="can-only-tag-from-docker-builder-artifacts-unknown-artifact-type-mitchellh-virtualbox-could-not-open-lock-file-var-lib-dpkg-lock">Can only tag from Docker builder artifacts, Unknown artifact type: mitchellh.virtualbox, Could not open lock file /var/lib/dpkg/lock</h3>
-
+<h3 id="can-only-tag-from-docker-builder-artifacts-unknown-artifact-type-mitchellhvirtualbox-could-not-open-lock-file-varlibdpkglock">Can only tag from Docker builder artifacts, Unknown artifact type: mitchellh.virtualbox, Could not open lock file /var/lib/dpkg/lock</h3>
 <p>Причиной этих ошибок было то, что по умолчанию все provisioners и post-processors применяются ко всем builders.
 Так как vagrant и docker отличаются, понадобилось внести изменения:</p>
-
 <ul>
 <li>внутри скриптов добавлены условия, например, <code>if [ -d /home/vagrant ]</code></li>
 <li>в provisioners и post-processors были вписаны <code>&quot;only&quot;: [&quot;virtualbox-iso&quot;]</code> и <code>&quot;only&quot;: [&quot;docker&quot;]</code> куда надо</li>
 <li>в shell provisioners была дописана строчка с <code>override</code>, которая запускает скрипт от имени vagrant и не влияет на docker builder:</li>
 </ul>
-
-<pre><code class="language-json">{
-  &quot;provisioners&quot;: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;provisioners&#34;</span>: [
     {
-      &quot;type&quot;: &quot;shell&quot;,
-      &quot;script&quot;: &quot;packer/scripts/ansible.sh&quot;,
-      &quot;override&quot;: {
-        &quot;virtualbox-iso&quot;: {
-          &quot;execute_command&quot;: &quot;echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'&quot;
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#e6db74">&#34;packer/scripts/ansible.sh&#34;</span>,
+      <span style="color:#f92672">&#34;override&#34;</span>: {
+        <span style="color:#f92672">&#34;virtualbox-iso&#34;</span>: {
+          <span style="color:#f92672">&#34;execute_command&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -S -E bash &#39;{{.Path}}&#39;&#34;</span>
         }
       }
     },
 
-</code></pre>
-
-<h3 id="сборка-docker-застывала-в-конце">Сборка Docker застывала в конце</h3>
-
+</code></pre></div><h3 id="сборка-docker-застывала-в-конце">Сборка Docker застывала в конце</h3>
 <p>Не понял, с чем это связано, но заствала она на <code>apt autoremove</code>, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.</p>
-
 <h2 id="итог">Итог</h2>
-
 <p>Я получил готовый vagrant box, из которого можно поднять виртуалку за 1.5 минуты или контейнер за секунду, вместо 10 минут. Profit!</p>
         </div>
         
@@ -419,23 +364,23 @@ mount: unknown filesystem type 'vboxsf'
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Packer on Popstas</title>
+    <title>packer on Popstas</title>
     <link>https://blog.popstas.ru/tags/packer/</link>
-    <description>Recent content in Packer on Popstas</description>
+    <description>Recent content in packer on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 26 Mar 2017 21:30:00 +0000</lastBuildDate>
@@ -17,29 +17,23 @@
       <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
-      <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34; target=&#34;_blank&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
+      <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
 когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p&gt;
-
 &lt;p&gt;Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
-поэтому &lt;del&gt;я потратил день&lt;/del&gt; я вспомнил, что есть такой тул - &lt;a href=&#34;https://www.packer.io/&#34; target=&#34;_blank&#34;&gt;Packer&lt;/a&gt;
+поэтому &lt;del&gt;я потратил день&lt;/del&gt; я вспомнил, что есть такой тул - &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer&lt;/a&gt;
 и решил, что пришло его время.&lt;/p&gt;
-
 &lt;p&gt;Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
 программах или разворачивания на хостинге.&lt;/p&gt;
-
 &lt;p&gt;Для чего это может пригодиться:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;ускорение тестирования&lt;/li&gt;
 &lt;li&gt;б&lt;strong&gt;о&lt;/strong&gt;льшая повторяемость, по сравнению с ansible&lt;/li&gt;
 &lt;li&gt;образы для продакшена для быстрого развертывания новых серверов&lt;/li&gt;
 &lt;li&gt;образы идентичные продакшену для локальной разработки&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f&#34; target=&#34;_blank&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png&#34; /&gt;&lt;/p&gt;</description>
+Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

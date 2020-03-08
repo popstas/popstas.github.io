@@ -45,7 +45,7 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
@@ -108,19 +108,12 @@
           
           
           <p>26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.</p>
-
-<p>Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - <a href="https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93" target="_blank">https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93</a>), несколько других похожих постов вообще остались лежать на локалке.</p>
-
+<p>Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - <a href="https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),">https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),</a> несколько других похожих постов вообще остались лежать на локалке.</p>
 <p>Так что буду писать по мере наступания на грабли и пополнять статью.</p>
-
 <p>UPD 13.07.2018: цикл статей оборвался из-за того, что я не смог побороть глюк Nvidia (см. комменты) и вернулся на Windows. Можно сказать, что это был такой сложный способ найти крутую скриншотилку Monosnap :)</p>
-
-<p><img src="/images/2018-04/windows-ubuntu.jpg" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>Статьи цикла можно было бы найти по тегу 18.04, но hugo что-то сломался и выдает RSS ленту вместо HTML страницы, так что придется вручную.</p>
-
-<h4 id="статьи-цикла-переезд-на-ubuntu-18-04">Статьи цикла “Переезд на Ubuntu 18.04”:</h4>
-
+<h4 id="статьи-цикла-переезд-на-ubuntu-1804">Статьи цикла “Переезд на Ubuntu 18.04”:</h4>
 <ul>
 <li><a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a></li>
 <li><a href="/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</a></li>
@@ -131,9 +124,7 @@
 <li><a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt+Shift+Tab в Ubuntu 18.04</a></li>
 <li><a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a></li>
 </ul>
-
 <h4 id="зачем-мне-это-надо">Зачем мне это надо</h4>
-
 <ol>
 <li>Всегда мечтал о терминале на десктопной системе, остальное в общем вытекает из этого пункта.</li>
 <li>Ставить программы без костылей. Например, надо мне pylint, php, npm, shellcheck для нормальной работы IDE, хочу ставить их без костылей</li>
@@ -142,9 +133,7 @@
 <li>Настраивать систему по возможности через ansible</li>
 <li>Больше пересечений десктопной и серверной оси, это в теории позволяет переносить какие-то решения между системами</li>
 </ol>
-
 <h2 id="список-нерешенных-проблем">Список нерешенных проблем:</h2>
-
 <ul>
 <li><del><a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени так, чтобы при перезагрузке в Windows часы не слетали</a></del></li>
 <li><del><a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Не спрашивать пароль от связки ключей при каждой загрузке</a></del></li>
@@ -154,18 +143,15 @@
 <li>Ctrl+Tab перестал переключать вкладки в Crome, Vscode и других программах</li>
 <li>RDP, доступ с машины и к ней</li>
 <li><del>Скриншоты, с рисованием на них и аплоадом</del> Monosnap</li>
-<li><del>Удобный DM, допиливание Gnome 3 до рабочего варианта</del> <a href="https://gist.github.com/popstas/53927ce7a36898e398a126d71886eea1" target="_blank">Мой список расширений</a></li>
+<li><del>Удобный DM, допиливание Gnome 3 до рабочего варианта</del> <a href="https://gist.github.com/popstas/53927ce7a36898e398a126d71886eea1">Мой список расширений</a></li>
 <li><del>Нормальный launcher, замена Alfred и Hain</del> Albert</li>
 <li>Работа виртуальных рабочих столов не хуже, чем в Windows (года 2 назад я бы не поверил, что скажу такое)</li>
 <li><del>Монтирование сетевых дисков с медиа и проектами</del> это получилось через NFS</li>
 <li>Нормальная работа спящего режима (сейчас он не просыпается)</li>
 <li><del>Удобное переключение на OpenVPN и обратно (не думал, что будет хуже, чем на винде, но сходу не нашел GUI)</del> стандартный гномовский UI работает, но не понимает .ovpn файлы, где всё вместе: ключи и конфиг, а также не нашел способа исключать из VPN домены</li>
 </ul>
-
 <h2 id="настройка-железа">Настройка железа</h2>
-
 <h3 id="моя-машина">Моя машина:</h3>
-
 <ul>
 <li>Intel 6700K, 32 Gb DDR4, SSD 240 Gb</li>
 <li>Nvidia Geforce 1050Ti 4 Gb (Gigabyte)</li>
@@ -173,70 +159,42 @@
 <li>Внешний звук M-Audio Fast Track MK-2</li>
 <li>Внутренний звук Asus DGX Xonar 5.1</li>
 </ul>
-
 <h3 id="видео">Видео</h3>
-
 <p><a href="/blog/2018/04/30/nvidia-ubuntu-18.04/">Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</a></p>
-
 <h3 id="звук">Звук</h3>
-
 <h4 id="asus-dgx">Asus DGX</h4>
-
 <p><a href="/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/">Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</a></p>
-
 <h4 id="m-audio-fast-track-mk-2">M-Audio Fast Track MK-2</h4>
-
 <p>Еще не смотрел толком, но вывод звука работает.</p>
-
 <h2 id="настройка-системы">Настройка системы</h2>
-
 <h3 id="дата-и-время">Дата и время</h3>
-
 <p>Если коротко, то <code>timedatectl set-local-rtc 1</code>. <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Подробнее</a></p>
-
 <h3 id="пароль-от-связки-ключей-при-каждой-загрузке">Пароль от связки ключей при каждой загрузке</h3>
-
 <p>Смените пароль на папку “Вход” в связке на пустой. <a href="/blog/2018/04/30/windows-ubuntu-18.04-migrate/">Подробнее</a></p>
-
 <h3 id="спящий-режим">Спящий режим</h3>
-
 <h4 id="компьютер-просыпается-сразу-после-засыпания">Компьютер просыпается сразу после засыпания</h4>
-
 <p>Нужно отключить все триггеры. Определяем устройства, которые могут будить:</p>
-
 <pre><code>cat  /proc/acpi/wakeup | grep enabled
 GLAN  S4 *enabled   pci:0000:00:1f.6
 XHC   S4 *enabled   pci:0000:00:14.0
-</code></pre>
-
-<p>После чего отправляем туда же имена этих устройств:</p>
-
+</code></pre><p>После чего отправляем туда же имена этих устройств:</p>
 <pre><code>echo GLAN &gt; /proc/acpi/wakeup
 echo XHC &gt; /proc/acpi/wakeup
-</code></pre>
-
-<p>Мне это помогло.</p>
-
+</code></pre><p>Мне это помогло.</p>
 <h2 id="настройка-софта">Настройка софта</h2>
-
 <ul>
 <li><a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a></li>
 <li><a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt+Shift+Tab в Ubuntu 18.04</a></li>
 <li><a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a></li>
 </ul>
-
-<h3 id="windows-linux-remote-desktop">Windows - Linux Remote Desktop</h3>
-
+<h3 id="windows---linux-remote-desktop">Windows - Linux Remote Desktop</h3>
 <p>Особо я не надеялся, что что-то получится и вообще точно знал, что такого гладкого RDP, как на Windows-Windows соединении не будет.</p>
-
 <h4 id="что-я-пробовал">Что я пробовал:</h4>
-
 <ol>
 <li>TigerVNC Не получилось завести.</li>
-<li>x2go На <a href="https://habr.com/post/329066/" target="_blank">хабре</a> прочитал, что это семантический протокол, то есть передает только изменения, а не тупо картинку. Поставил, запустил, работает, но выводит 2 монитора как есть и тормозит.</li>
-<li>xrdp &amp; x11rdp x11rdp пробовал собрать через <a href="https://github.com/scarygliders/X11RDP-o-Matic" target="_blank">X11RDP-o-Matic</a>, в результате получился только <a href="https://github.com/scarygliders/X11RDP-o-Matic/issues/91" target="_blank">issue</a>.</li>
+<li>x2go На <a href="https://habr.com/post/329066/">хабре</a> прочитал, что это семантический протокол, то есть передает только изменения, а не тупо картинку. Поставил, запустил, работает, но выводит 2 монитора как есть и тормозит.</li>
+<li>xrdp &amp; x11rdp x11rdp пробовал собрать через <a href="https://github.com/scarygliders/X11RDP-o-Matic">X11RDP-o-Matic</a>, в результате получился только <a href="https://github.com/scarygliders/X11RDP-o-Matic/issues/91">issue</a>.</li>
 </ol>
-
 <p><del>Думаю, надо просто смириться с тем, что удаленки больше не будет</del> не смог смириться.</p>
         </div>
         
@@ -362,23 +320,23 @@ echo XHC &gt; /proc/acpi/wakeup
         <ul id="recent_posts">
           
             <li class="post">
+              <a href="/tags/offtop/">offtop</a>
+            </li>
+          
+            <li class="post">
+              <a href="/">Popstas</a>
+            </li>
+          
+            <li class="post">
+              <a href="/post/">Posts</a>
+            </li>
+          
+            <li class="post">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+            <li class="post">
               <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/29/books-2019/">Мои книги в 2019: психология, бизнес, художка</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/12/02/smarthome-node-red-2019/">Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/06/ilife-a9s-stress-test/">Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</a>
-            </li>
-          
-            <li class="post">
-              <a href="/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</a>
             </li>
           
         </ul>

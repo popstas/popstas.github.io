@@ -28,7 +28,7 @@
   
 
   
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   
   <link href="https://blog.popstas.ru/favicon.png" rel="icon">
@@ -45,17 +45,10 @@
   <meta name="author" content="Stanislav Popov">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.66.0" />
 
   
   
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-70438594-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </head>
 <body>
@@ -63,8 +56,8 @@ ga('send', 'pageview');
 
 <header role="banner"><hgroup>
   
-  <h1><a href="https://blog.popstas.ru/">Popstas</a></h1>
-    <h2>Записки о Linux</h2>
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
 </hgroup></header>
 
 
@@ -92,8 +85,8 @@ ga('send', 'pageview');
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
-
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
         
         
 
@@ -103,39 +96,30 @@ ga('send', 'pageview');
 
         
     </p>
-    <h1 class="entry-title">
+    <h1 class="entry-title" itemprop="headline">
          Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject 
     </h1>
 </header>
 
 
-        <div class="entry-content">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/">
+        <div class="entry-content" itemprop="articleBody">
           
           
           
           <p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.</p>
-
 <h3 id="для-этого-надо">Для этого надо:</h3>
-
 <ol>
 <li>Извлечь директорию подпроекта в отдельный репозиторий</li>
 <li>Удалить из проекта папку подпроекта</li>
 <li>Добавить в большой проект зависимость от подпроекта</li>
 </ol>
-
 <p>Ниже написано, как сделать 1-й шаг одной командой через скрипт <code>git-extract-subproject</code>.</p>
-
-<p><img src="/images/2017-02/git-extract-subproject.jpg" /></p>
-
-<p></p>
-
-<p>В общем все оказалось просто, за минуту находится статья об этом - <a href="http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/" target="_blank">
+<p><!-- raw HTML omitted --></p>
+<p>В общем все оказалось просто, за минуту находится статья об этом - <a href="http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/">
 Moving Files from one Git Repository to Another, Preserving History</a>, за 10 минут становится понятно, что как работает.</p>
-
 <p>Мне нужно было проделать эту операцию 10+ раз, поэтому написал скрипт, извлекающий репозиторий одной командой.</p>
-
 <h2 id="алгоритм-извлечения">Алгоритм извлечения:</h2>
-
 <ol>
 <li>Клонировать большой проект во временный репозиторий</li>
 <li>Удалить из него все, кроме папки модуля через git-фильтр. При этом переписывается история</li>
@@ -144,31 +128,24 @@ Moving Files from one Git Repository to Another, Preserving History</a>, за 10
 <li>Сделать pull из remote source в master</li>
 <li>Подчистить следы</li>
 </ol>
-
 <p>По идее уже после п.2 временный репозиторий выглядит как готовый модуль, пп.3-6 нужны для того, чтобы не тащить следы истории и настроек родительского проекта в дочерний.</p>
-
 <p>Например, у меня есть репозиторий <code>ansible-server</code>, в нем лежит роль <code>roles/server-scripts</code>. Тогда нужно перейти в папку ansible-server и запустить:</p>
-
 <pre><code>git-extract-subproject roles/server-scripts ansible-role-server-scripts
-</code></pre>
-
-<p>После этого рядом с <code>ansible-server</code> создастся готовый проект <code>ansible-role-server-scripts</code>. Остается добавить в него remote origin куда следует и запушить.</p>
-
-<p>В итоге получился репозиторий с историей - <a href="https://github.com/viasite-ansible/ansible-role-server-scripts/commits/master" target="_blank">viasite-ansible/ansible-role-server-scripts</a>.</p>
-
-<p>Код скрипта здесь - <a href="https://github.com/popstas/server-scripts/blob/master/bin/git-extract-subproject" target="_blank">popstas/server-scripts</a></p>
+</code></pre><p>После этого рядом с <code>ansible-server</code> создастся готовый проект <code>ansible-role-server-scripts</code>. Остается добавить в него remote origin куда следует и запушить.</p>
+<p>В итоге получился репозиторий с историей - <a href="https://github.com/viasite-ansible/ansible-role-server-scripts/commits/master">viasite-ansible/ansible-role-server-scripts</a>.</p>
+<p>Код скрипта здесь - <a href="https://github.com/popstas/server-scripts/blob/master/bin/git-extract-subproject">popstas/server-scripts</a></p>
         </div>
         
 
 <footer>
   <p class="meta">
     
-    <time>22 Feb 2017, 01:19</time>
+    <time itemprop="datePublished" content="2017-02-22T01:19:00UTC">22 Feb 2017, 01:19</time>
     
       <span class="categories">
-        Теги:
+        , теги:
         
-          <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a>  <a class="category" href="https://blog.popstas.ru/tags/git">git</a>  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a>  <a class="category" href="https://blog.popstas.ru/tags/server-scripts">server-scripts</a>  
+          <a class="category" href="https://blog.popstas.ru/tags/bash">bash</a><meta itemprop="about" content="bash">  <a class="category" href="https://blog.popstas.ru/tags/git">git</a><meta itemprop="about" content="git">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/server-scripts">server-scripts</a><meta itemprop="about" content="server-scripts">  
     
     </span>
   </p>
@@ -260,6 +237,8 @@ Moving Files from one Git Repository to Another, Preserving History</a>, за 10
       
       
       
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
 
     
     
@@ -279,23 +258,23 @@ Moving Files from one Git Repository to Another, Preserving History</a>, за 10
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2018/05/01/gnome-terminal-solarized/">Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</a>
+              <a href="/tags/offtop/">offtop</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/alt-shift-tab-in-ubuntu/">Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</a>
+              <a href="/">Popstas</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">Настройка gxneur в Ubuntu 18.04</a>
+              <a href="/post/">Posts</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/time-zone-ubuntu-windows-reboot/">Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</a>
+              <a href="/tags/">Tags</a>
             </li>
           
             <li class="post">
-              <a href="/blog/2018/05/01/seahorse-password-on-ubuntu-boot/">Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</a>
+              <a href="/blog/2019/12/29/new-year-2019/">Итоги 2019 года</a>
             </li>
           
         </ul>
@@ -303,63 +282,47 @@ Moving Files from one Git Repository to Another, Preserving History</a>, за 10
     
   
 
-  <section class="even twitter-feed">
-  <a class="twitter-timeline"
-	 data-dnt="true" href="https://twitter.com/popstas" 
-	 data-chrome="noborders transparent"
-     data-widget-id="691684611357806592">
-     
-     Tweets by @popstas
-  </a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</section>
+  
 
-
-  <section class="even">
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <a href="https://github.com/popstas">@popstas</a> on GitHub
-  <script src="/js/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/js/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'popstas',
-            count:  10 ,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/js/github.js" type="text/javascript"> </script>
-</section>
+  
 </aside>
 
   </div>
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2015-2018 Stanislav Popov -
+  <p>Copyright &copy; 2015-2020 Stanislav Popov -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
 </footer>
 
 
-<script>
-  var _gaq=[['_setAccount','UA-70438594-1'],['_trackPageview']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
+  
+
+
+
+
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(51681281, "init", {
+       id:51681281,
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
 </script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
 
 </body>
 </html>

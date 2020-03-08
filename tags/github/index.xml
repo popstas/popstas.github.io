@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Github on Popstas</title>
+    <title>github on Popstas</title>
     <link>https://blog.popstas.ru/tags/github/</link>
-    <description>Recent content in Github on Popstas</description>
+    <description>Recent content in github on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 30 Dec 2018 01:30:00 +0600</lastBuildDate>
@@ -18,7 +18,6 @@
       
       <guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid>
       <description>&lt;p&gt;Новые проекты:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;planfix-toggl-server - Go&lt;/li&gt;
 &lt;li&gt;planfix-toggl-client - Vue&lt;/li&gt;
@@ -31,25 +30,17 @@
 &lt;li&gt;hain-plugin-puttytray - JS&lt;/li&gt;
 &lt;li&gt;viasite-projects - JS, Vue&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Правки старых:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;site-discovery - Python&lt;/li&gt;
 &lt;li&gt;ansible-role-zsh - YML&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Проект года: &lt;a href=&#34;https://chords.popstas.ru&#34; target=&#34;_blank&#34;&gt;https://chords.popstas.ru&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;Проект года: &lt;a href=&#34;https://chords.popstas.ru&#34;&gt;https://chords.popstas.ru&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Все остальные ссылки и описания под катом.&lt;/p&gt;
-
 &lt;p&gt;PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p&gt;
-
 &lt;p&gt;Держусь на уровне 1000 коммитов в год.&lt;/p&gt;
-
 &lt;p&gt;Было это так:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/github-octocat.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -59,14 +50,10 @@
       
       <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
       <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
-
-&lt;p&gt;Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href=&#34;https://influxdata.com/get-started/what-is-the-tick-stack/&#34; target=&#34;_blank&#34;&gt;TICK&lt;/a&gt; от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p&gt;
-
+&lt;p&gt;Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href=&#34;https://influxdata.com/get-started/what-is-the-tick-stack/&#34;&gt;TICK&lt;/a&gt; от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p&gt;
 &lt;p&gt;Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p&gt;
-
-&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&amp;rsquo;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&#34;background:#1F242D&#34; src=&#34;https://blog.popstas.ru/images/2016-05/kapacitor.svg&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&#39;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -76,7 +63,6 @@
       
       <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
       <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
 &lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
@@ -85,12 +71,9 @@
 &lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
 &lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
-
 &lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/changelog.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -100,22 +83,17 @@
       
       <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
-
-&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34; target=&#34;_blank&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
-
+&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
 на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
 после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
-
 &lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34; target=&#34;_blank&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; /&gt;&lt;/p&gt;</description>
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
