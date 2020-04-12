@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Popstas</title><link>https://blog.popstas.ru/</link><description>Recent content on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 11 Apr 2020 19:12:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Навигатор</title><link>https://blog.popstas.ru/navigator/</link><pubDate>Sat, 11 Apr 2020 19:12:00 +0600</pubDate><guid>https://blog.popstas.ru/navigator/</guid><description>&lt;p>&lt;a href="https://blog.popstas.ru/tags/projects/">Проекты&lt;/a>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Popstas</title><link>https://blog.popstas.ru/</link><description>Recent content on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 12 Apr 2020 22:51:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Навигатор</title><link>https://blog.popstas.ru/navigator/</link><pubDate>Sat, 11 Apr 2020 19:12:00 +0600</pubDate><guid>https://blog.popstas.ru/navigator/</guid><description>&lt;p>&lt;a href="https://blog.popstas.ru/tags/projects/">Проекты&lt;/a>&lt;/p>
 &lt;h2 id="процессы-и-инструменты-разработки">Процессы и инструменты разработки&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://blog.popstas.ru/tags/jetbrains/">JetBrains&lt;/a>&lt;/li>
@@ -24,7 +24,11 @@
 &lt;li>&lt;a href="https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0">Итоги года&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.popstas.ru/tags/3d-printer">3D печать&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.popstas.ru/tags/smart-home/">Умный дом&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Итоги 2019 года</title><link>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</link><pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</guid><description>&lt;p>Обзор можно разделить на 3 части:&lt;/p>
+&lt;/ul></description></item><item><title>Конспекты курса Deep Learning на пальцах 2019: таймкоды</title><link>https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/</link><pubDate>Sun, 12 Apr 2020 22:51:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/</guid><description>&lt;p>&lt;a href="https://www.youtube.com/playlist?list=PL5FkQ0AF9O_o2Eb5Qn8pwCDg7TniyV1Wb">Курс &amp;ldquo;Deep learning на пальцах - 2019&amp;rdquo; от sim0nsays&lt;/a>&lt;/p>
+&lt;p>Хорошие обзорные теоретические курсы по нейросетям. У них есть недостаток: отсутствие таймкодов.&lt;/p>
+&lt;p>Этот пост по сути список таймкодов.&lt;/p>
+&lt;p>На данный момент я посмотрел 10 лекций.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2020-04/deep-learning-2019.jpg" /></description></item><item><title>Итоги 2019 года</title><link>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</link><pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</guid><description>&lt;p>Обзор можно разделить на 3 части:&lt;/p>
 &lt;ol>
 &lt;li>Контент - что я читал, слушал и смотрел, самая полезная часть, отсюда можно что-то утянуть себе&lt;/li>
 &lt;li>Технические итоги - для инженеров&lt;/li>
