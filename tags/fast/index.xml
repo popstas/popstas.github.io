@@ -23,9 +23,12 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;li>Пользоваться легко&lt;/li>
 &lt;/ul>
 &lt;p>UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p>
+&lt;p>UPD 12.04.2020: больше не пользуюсь, теперь в каждой комнате есть колонка с Алисой, проще сказать: &amp;ldquo;Алиса, таймер на 5 минут&amp;rdquo;.&lt;/p>
 &lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-01/eggtimer.png" /></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
 &lt;p>UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
+&lt;p>UPD: 30.03.2018
+JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
 &lt;img itemprop="image" src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item></channel></rss>

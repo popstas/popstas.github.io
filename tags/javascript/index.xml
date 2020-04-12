@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>javascript on Popstas</title><link>https://blog.popstas.ru/tags/javascript/</link><description>Recent content in javascript on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 22 Nov 2015 09:40:45 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Простой тайм-трекер для отслеживания потраченного времени</title><link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link><pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid><description>&lt;p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>javascript on Popstas</title><link>https://blog.popstas.ru/tags/javascript/</link><description>Recent content in javascript on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 02 Dec 2019 02:00:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title><link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link><pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid><description>&lt;p>В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p>
+&lt;p>&lt;img itemprop="image" src="https://blog.popstas.ru/images/2019-12/smarthome.jpg" />
+(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href="https://www.youtube.com/watch?v=WfI69DC_jaw">Будет ласковый дождь&lt;/a>&amp;quot;).&lt;/p></description></item><item><title>Мой Github 2018</title><link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link><pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid><description>&lt;p>Новые проекты:&lt;/p>
+&lt;ul>
+&lt;li>planfix-toggl-server - Go&lt;/li>
+&lt;li>planfix-toggl-client - Vue&lt;/li>
+&lt;li>chords-viewer - Vue&lt;/li>
+&lt;li>chords-parser - JS&lt;/li>
+&lt;li>voice-list - Vue&lt;/li>
+&lt;li>yandex-dialogs-client - Vue&lt;/li>
+&lt;li>yandex-dialogs-whatis - JS&lt;/li>
+&lt;li>yandex-dialogs-tester - JS&lt;/li>
+&lt;li>hain-plugin-puttytray - JS&lt;/li>
+&lt;li>viasite-projects - JS, Vue&lt;/li>
+&lt;/ul>
+&lt;p>Правки старых:&lt;/p>
+&lt;ul>
+&lt;li>site-discovery - Python&lt;/li>
+&lt;li>ansible-role-zsh - YML&lt;/li>
+&lt;/ul>
+&lt;p>Проект года: &lt;a href="https://chords.popstas.ru">https://chords.popstas.ru&lt;/a>&lt;/p>
+&lt;p>Все остальные ссылки и описания под катом.&lt;/p>
+&lt;p>PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p>
+&lt;p>Держусь на уровне 1000 коммитов в год.&lt;/p>
+&lt;p>Было это так:&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-12/github-octocat.png" /></description></item><item><title>Интеграция Планфикса и Toggl для учета времени</title><link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link><pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid><description>&lt;p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git&lt;/a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p>
+&lt;p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server">Описание&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки&lt;/a> (проверялось только под Windows и Linux)&lt;/li>
+&lt;li>Расширения для &lt;a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome&lt;/a> и &lt;a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" /></description></item><item><title>Простой тайм-трекер для отслеживания потраченного времени</title><link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link><pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid><description>&lt;p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
 Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href="https://time.popstas.ru/">https://time.popstas.ru/&lt;/a>
 Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
 глюки, которые раздражали последние годы :)&lt;/p>

@@ -28,17 +28,14 @@
 &lt;li>Добавить в большой проект зависимость от подпроекта&lt;/li>
 &lt;/ol>
 &lt;p>Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code>git-extract-subproject&lt;/code>.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" /></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
-Tl;dr: оно очень сырое, не работает почти ничего.
-Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
-$ aptitude install zsh Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
-Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" /></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>&lt;p>Итак, &lt;a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления&lt;/a> Windows, поставил в нее Ubuntu &lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">по инструкции&lt;/a>, вот что было дальше:&lt;/p>
+&lt;p>Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" /></description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
 &lt;p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5">issue про недоступность сборки 14316&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">Инструкция по обновлению на русском&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;img itemprop="image" src="http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png" /></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
+&lt;/ul></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
 &lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
 &lt;ul>
 &lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
@@ -66,6 +63,8 @@ $ aptitude install zsh Конечно, ничего не вышло :) Во-пе
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
 &lt;p>UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
+&lt;p>UPD: 30.03.2018
+JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
 &lt;img itemprop="image" src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
 &lt;code>Ctrl+R&lt;/code>, &lt;code>Ctrl+Shift+R&lt;/code>. При этом видно одновременно видно только одну команду из истории.&lt;/p>

@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Popstas</title><link>https://blog.popstas.ru/</link><description>Recent content on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 29 Dec 2019 14:20:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Итоги 2019 года</title><link>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</link><pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</guid><description>&lt;p>Обзор можно разделить на 3 части:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Popstas</title><link>https://blog.popstas.ru/</link><description>Recent content on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 11 Apr 2020 19:12:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Навигатор</title><link>https://blog.popstas.ru/navigator/</link><pubDate>Sat, 11 Apr 2020 19:12:00 +0600</pubDate><guid>https://blog.popstas.ru/navigator/</guid><description>&lt;h2 id="процессы-и-инструменты-разработки">Процессы и инструменты разработки&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/jetbrains/">JetBrains&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/docker/">Docker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/ubuntu/">Ubuntu&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/ubuntu-desktop/">Ubuntu Desktop&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/windows/">Windows&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/git/">Git&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/ci/">Continous integration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/planfix/">Планфикс&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="по-языкам">По языкам&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/nodejs/">Node.js&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/vue/">Vue.js&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/javascript/">JavaScript&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/python">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/go/">Go&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/php/">PHP&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/bash/">Bash&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/zsh/">Zsh&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/ansible/">Ansible&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/molecule/">Molecule&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="личное-хобби">Личное, хобби&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/offtop/">Все нетехнические посты&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/books/">Книги&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0">Итоги года&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/3d-printer">3D печать&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.popstas.ru/tags/smart-home/">Умный дом&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Итоги 2019 года</title><link>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</link><pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</guid><description>&lt;p>Обзор можно разделить на 3 части:&lt;/p>
 &lt;ol>
 &lt;li>Контент - что я читал, слушал и смотрел, самая полезная часть, отсюда можно что-то утянуть себе&lt;/li>
 &lt;li>Технические итоги - для инженеров&lt;/li>
@@ -198,17 +223,14 @@ TODO: несколько дистрибов&lt;/p>
 &lt;p>Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href="https://influxdata.com/get-started/what-is-the-tick-stack/">TICK&lt;/a> от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p>
 &lt;p>Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p>
 &lt;p>А также небольшое замечание о том, &lt;a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request">как делать Pull request'ы из браузера за 2 минуты&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" /></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>Итак, дождался обновления Windows, поставил в нее Ubuntu по инструкции, вот что было дальше:
-Tl;dr: оно очень сырое, не работает почти ничего.
-Первым делом захотелось родной zsh, берем aptitude, ставим, Ubuntu же! Шелл открылся под root, так что sudo не нужен.
-$ aptitude install zsh Конечно, ничего не вышло :) Во-первых, aptitude не нашел файл /var/lock/aptitude, нет проблем, ставим через apt-get, но оказывается, что нет инета.
-Про это есть issue#14 (а багов за 4 дня открыли 40+), оказалось, дело в DNS, лечится так:</description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" /></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>&lt;p>Итак, &lt;a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления&lt;/a> Windows, поставил в нее Ubuntu &lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">по инструкции&lt;/a>, вот что было дальше:&lt;/p>
+&lt;p>Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" /></description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
 &lt;p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5">issue про недоступность сборки 14316&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">Инструкция по обновлению на русском&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;img itemprop="image" src="http://az648995.vo.msecnd.net/win/2016/04/bash-1024x569.png" /></description></item><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
+&lt;/ul></description></item><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
 &lt;ul>
 &lt;li>Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li>
 &lt;li>Автоматическая сборка, Travis CI&lt;/li>
@@ -258,6 +280,7 @@ $ aptitude install zsh Конечно, ничего не вышло :) Во-пе
 &lt;li>Пользоваться легко&lt;/li>
 &lt;/ul>
 &lt;p>UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p>
+&lt;p>UPD 12.04.2020: больше не пользуюсь, теперь в каждой комнате есть колонка с Алисой, проще сказать: &amp;ldquo;Алиса, таймер на 5 минут&amp;rdquo;.&lt;/p>
 &lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-01/eggtimer.png" /></description></item><item><title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title><link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link><pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid><description>&lt;p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href="http://weburg.net">weburg.net&lt;/a>, дающая бонусы,
 их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p>
 &lt;p>Поддержку раздач можно разбить на несколько задач:&lt;/p>
@@ -274,6 +297,8 @@ $ aptitude install zsh Конечно, ничего не вышло :) Во-пе
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
 &lt;p>UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
+&lt;p>UPD: 30.03.2018
+JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
 &lt;img itemprop="image" src="http://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item><item><title>Разворачиваем Drupal 8 с помощью Otto</title><link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link><pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/273009/">моей статьи&lt;/a> с хабра.&lt;/p>
 &lt;p>Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
 о котором уже была &lt;!-- raw HTML omitted -->обзорная статья&lt;!-- raw HTML omitted --> на хабре.&lt;/p>
