@@ -20,8 +20,10 @@
 &lt;li>отображение времени для долго выполняемых команд (помогает реже использовать &lt;code>time&lt;/code>)&lt;/li>
 &lt;/ul>
 &lt;p>Демонстрация фич за 1 минуту:
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />&lt;/p></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />&lt;/p></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
 &lt;code>Ctrl+R&lt;/code>, &lt;code>Ctrl+Shift+R&lt;/code>. При этом видно одновременно видно только одну команду из истории.&lt;/p>
 &lt;p>Утилита &lt;a href="https://github.com/mooz/percol#zsh-history-search">percol&lt;/a> решает эту проблему.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2015-12/percol.gif" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2015-12/percol.gif" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2015-12/percol.gif" /></description></item></channel></rss>

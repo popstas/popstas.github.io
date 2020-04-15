@@ -21,18 +21,21 @@
 &lt;p>PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p>
 &lt;p>Держусь на уровне 1000 коммитов в год.&lt;/p>
 &lt;p>Было это так:&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-12/github-octocat.png" /></description></item><item><title>Интеграция Планфикса и Toggl для учета времени</title><link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link><pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid><description>&lt;p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git&lt;/a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-12/github-octocat.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2018-12/github-octocat.png" /></description></item><item><title>Интеграция Планфикса и Toggl для учета времени</title><link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link><pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid><description>&lt;p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git&lt;/a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p>
 &lt;p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server">Описание&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки&lt;/a> (проверялось только под Windows и Linux)&lt;/li>
 &lt;li>Расширения для &lt;a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome&lt;/a> и &lt;a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" /></description></item><item><title>Перенос блога с Octopress на Hugo</title><link>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link><pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid><description>&lt;p>Эта статья первая на новом движке.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" /></description></item><item><title>Перенос блога с Octopress на Hugo</title><link>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link><pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid><description>&lt;p>Эта статья первая на новом движке.&lt;/p>
 &lt;h4 id="зачем">Зачем:&lt;/h4>
 &lt;ul>
 &lt;li>Не зависеть от ruby&lt;/li>
 &lt;li>быстрее&lt;/li>
 &lt;li>просто интересно&lt;/li>
 &lt;/ul>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/octopress-to-hugo.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/octopress-to-hugo.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/octopress-to-hugo.png" /></description></item></channel></rss>

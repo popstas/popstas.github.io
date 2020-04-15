@@ -10,4 +10,5 @@
 &lt;p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p>
 &lt;p>Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p>
 &lt;p>UPD 14.04.2020: &lt;a href="https://blog.popstas.ru/blog/2020/04/14/npm-version/">как я использую conventional changelog в связке с npm version&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/changelog.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/changelog.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-03/changelog.png" /></description></item></channel></rss>

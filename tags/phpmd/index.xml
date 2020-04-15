@@ -9,4 +9,5 @@
 &lt;p>Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
 &lt;a href="https://github.com/popstas/transmission-cli">transmission-cli&lt;/a> - консольная утилита, решающая часть этих задач.&lt;/p>
 &lt;!-- raw HTML omitted -->
-&lt;img itemprop="image" src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true" />
+&lt;meta property="og:image" content="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw=true" /></description></item></channel></rss>

@@ -7,15 +7,18 @@
 &lt;li>нет git&lt;/li>
 &lt;/ul>
 &lt;p>TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" /></description></item><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" /></description></item><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
 &lt;p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p>
 &lt;p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
 &lt;a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm">Официальная документация&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" /></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" /></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
 &lt;p>UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
 &lt;p>UPD: 30.03.2018
 JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" />
+&lt;meta property="og:image" content="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item></channel></rss>

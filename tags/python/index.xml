@@ -21,7 +21,8 @@
 &lt;p>PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p>
 &lt;p>Держусь на уровне 1000 коммитов в год.&lt;/p>
 &lt;p>Было это так:&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-12/github-octocat.png" /></description></item><item><title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title><link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link><pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid><description>&lt;p>Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-12/github-octocat.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2018-12/github-octocat.png" /></description></item><item><title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title><link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link><pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid><description>&lt;p>Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p>
 &lt;p>Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p>
 &lt;ul>
 &lt;li>нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li>
@@ -30,8 +31,10 @@
 &lt;li>нет git&lt;/li>
 &lt;/ul>
 &lt;p>TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" /></description></item><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" /></description></item><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
 &lt;p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p>
 &lt;p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
 &lt;a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm">Официальная документация&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" /></description></item></channel></rss>

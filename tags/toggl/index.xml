@@ -5,4 +5,5 @@
 &lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки&lt;/a> (проверялось только под Windows и Linux)&lt;/li>
 &lt;li>Расширения для &lt;a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome&lt;/a> и &lt;a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" /></description></item></channel></rss>

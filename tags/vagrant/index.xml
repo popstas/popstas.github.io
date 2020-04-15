@@ -14,9 +14,11 @@
 &lt;/ul>
 &lt;p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
 Gist с результатами &lt;a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь&lt;/a>.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" /></description></item><item><title>Разворачиваем Drupal 8 с помощью Otto</title><link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link><pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/273009/">моей статьи&lt;/a> с хабра.&lt;/p>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" /></description></item><item><title>Разворачиваем Drupal 8 с помощью Otto</title><link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link><pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/273009/">моей статьи&lt;/a> с хабра.&lt;/p>
 &lt;p>Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
 о котором уже была &lt;!-- raw HTML omitted -->обзорная статья&lt;!-- raw HTML omitted --> на хабре.&lt;/p>
 &lt;p>Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
 чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p>
-&lt;img itemprop="image" src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" />
+&lt;meta property="og:image" content="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" /></description></item></channel></rss>

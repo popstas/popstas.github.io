@@ -2,4 +2,5 @@
 и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p>
 &lt;p>Ниже описано, как создать зеркало из &lt;a href="http://mirror.yandex.ru/ubuntu">http://mirror.yandex.ru/ubuntu&lt;/a> и подружить его с Gitlab CI и molecule.&lt;/p>
 &lt;p>Tl;dr: не делайте локальный репозиторий через &lt;code>apt-mirror&lt;/code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng&lt;/a>.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/apt-mirror.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/apt-mirror.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-02/apt-mirror.png" /></description></item></channel></rss>

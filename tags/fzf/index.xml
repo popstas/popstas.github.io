@@ -20,4 +20,5 @@
 &lt;li>отображение времени для долго выполняемых команд (помогает реже использовать &lt;code>time&lt;/code>)&lt;/li>
 &lt;/ul>
 &lt;p>Демонстрация фич за 1 минуту:
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />&lt;/p></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />&lt;/p></description></item></channel></rss>

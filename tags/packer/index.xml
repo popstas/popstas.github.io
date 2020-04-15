@@ -14,4 +14,5 @@
 &lt;/ul>
 &lt;p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
 Gist с результатами &lt;a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь&lt;/a>.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" /></description></item></channel></rss>
+&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" />
+&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" /></description></item></channel></rss>
