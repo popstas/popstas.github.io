@@ -15,8 +15,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;p>Теперь я могу делать так:&lt;/p>
 &lt;pre>&lt;code>cp filename.ext &amp;lt;Alt+,&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>В действии:&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" /></description></item><item><title>E.ggtimer: таймер в пару кликов в любом браузере</title><link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link><pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid><description>&lt;p>Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" alt="zsh duplicate last argument">&lt;/p></description></item><item><title>E.ggtimer: таймер в пару кликов в любом браузере</title><link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link><pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid><description>&lt;p>Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
 бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
 возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p>
 &lt;ul>
@@ -25,13 +24,11 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;/ul>
 &lt;p>UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p>
 &lt;p>UPD 12.04.2020: больше не пользуюсь, теперь в каждой комнате есть колонка с Алисой, проще сказать: &amp;ldquo;Алиса, таймер на 5 минут&amp;rdquo;.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-01/eggtimer.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-01/eggtimer.png" /></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-01/eggtimer.png" alt="egg timer">&lt;/p></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
 Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
 &lt;p>UPD: 06.06.2016
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
 &lt;p>UPD: 30.03.2018
 JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" />
-&lt;meta property="og:image" content="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item></channel></rss>
+&lt;p>&lt;img src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" alt="phpstorm">&lt;/p></description></item></channel></rss>

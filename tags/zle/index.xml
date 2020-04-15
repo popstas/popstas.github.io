@@ -15,5 +15,4 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
 &lt;p>Теперь я могу делать так:&lt;/p>
 &lt;pre>&lt;code>cp filename.ext &amp;lt;Alt+,&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>В действии:&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" /></description></item></channel></rss>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" alt="zsh duplicate last argument">&lt;/p></description></item></channel></rss>

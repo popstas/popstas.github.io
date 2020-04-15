@@ -2,5 +2,4 @@
 &lt;p>Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href="https://influxdata.com/get-started/what-is-the-tick-stack/">TICK&lt;/a> от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p>
 &lt;p>Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p>
 &lt;p>А также небольшое замечание о том, &lt;a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request">как делать Pull request'ы из браузера за 2 минуты&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-05/kapacitor.svg" /></description></item></channel></rss>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" alt="Kapacitor">&lt;/p></description></item></channel></rss>

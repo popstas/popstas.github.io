@@ -19,9 +19,8 @@
 &lt;li>автодополнение по истории команд (помогает реже нажимать &lt;code>Ctrl+R&lt;/code>)&lt;/li>
 &lt;li>отображение времени для долго выполняемых команд (помогает реже использовать &lt;code>time&lt;/code>)&lt;/li>
 &lt;/ul>
-&lt;p>Демонстрация фич за 1 минуту:
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" />&lt;/p></description></item><item><title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title><link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link><pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid><description>&lt;p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p>
+&lt;p>Демонстрация фич за 1 минуту:&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" alt="ansible role zsh">&lt;/p></description></item><item><title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title><link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link><pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid><description>&lt;p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p>
 &lt;h3 id="для-этого-надо">Для этого надо:&lt;/h3>
 &lt;ol>
 &lt;li>Извлечь директорию подпроекта в отдельный репозиторий&lt;/li>
@@ -29,11 +28,9 @@
 &lt;li>Добавить в большой проект зависимость от подпроекта&lt;/li>
 &lt;/ol>
 &lt;p>Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code>git-extract-subproject&lt;/code>.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" /></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>&lt;p>Итак, &lt;a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления&lt;/a> Windows, поставил в нее Ubuntu &lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">по инструкции&lt;/a>, вот что было дальше:&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" alt="Git projects extract">&lt;/p></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>&lt;p>Итак, &lt;a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления&lt;/a> Windows, поставил в нее Ubuntu &lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">по инструкции&lt;/a>, вот что было дальше:&lt;/p>
 &lt;p>Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" /></description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" alt="Bash on Ubuntu on Windows">&lt;/p></description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
 &lt;p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5">issue про недоступность сборки 14316&lt;/a>&lt;/li>
@@ -49,8 +46,7 @@
 после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
 &lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
 &lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-03/planfix_logo.png" /></description></item><item><title>average: измерение среднего времени выполнения команды в bash</title><link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link><pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid><description>&lt;p>Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" alt="planfix">&lt;/p></description></item><item><title>average: измерение среднего времени выполнения команды в bash</title><link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link><pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid><description>&lt;p>Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p>
 &lt;ul>
 &lt;li>простая проверка скорости загрузки страницы&lt;/li>
 &lt;li>подбор оптимальных параметров к команде&lt;/li>
@@ -69,13 +65,11 @@
 Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
 &lt;p>UPD: 30.03.2018
 JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" />
-&lt;meta property="og:image" content="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" /></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
+&lt;p>&lt;img src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" alt="phpstorm">&lt;/p></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
 &lt;code>Ctrl+R&lt;/code>, &lt;code>Ctrl+Shift+R&lt;/code>. При этом видно одновременно видно только одну команду из истории.&lt;/p>
 &lt;p>Утилита &lt;a href="https://github.com/mooz/percol#zsh-history-search">percol&lt;/a> решает эту проблему.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2015-12/percol.gif" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2015-12/percol.gif" /></description></item><item><title>Показать все окна gnome terminal в Ubuntu</title><link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link><pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid><description>&lt;p>При работе за компом имею привычку открывать много терминалов,
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2015-12/percol.gif" alt="zsh history percol">&lt;/p></description></item><item><title>Показать все окна gnome terminal в Ubuntu</title><link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link><pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid><description>&lt;p>При работе за компом имею привычку открывать много терминалов,
 не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
 При этом терминалы расположены по всему рабочему экрану.&lt;/p>
 &lt;p>Из-за этого была такая проблема: при переключении на браузер или редактор,

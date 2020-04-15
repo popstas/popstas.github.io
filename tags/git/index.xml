@@ -6,8 +6,7 @@
 &lt;li>Добавить в большой проект зависимость от подпроекта&lt;/li>
 &lt;/ol>
 &lt;p>Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code>git-extract-subproject&lt;/code>.&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" /></description></item><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" alt="Git projects extract">&lt;/p></description></item><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
 &lt;ul>
 &lt;li>Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li>
 &lt;li>Автоматическая сборка, Travis CI&lt;/li>
@@ -19,8 +18,7 @@
 &lt;p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p>
 &lt;p>Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p>
 &lt;p>UPD 14.04.2020: &lt;a href="https://blog.popstas.ru/blog/2020/04/14/npm-version/">как я использую conventional changelog в связке с npm version&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/changelog.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-03/changelog.png" /></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/changelog.png" alt="changelog">&lt;/p></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
 &lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
 &lt;ul>
 &lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
@@ -31,5 +29,4 @@
 после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
 &lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
 &lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-03/planfix_logo.png" /></description></item></channel></rss>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" alt="planfix">&lt;/p></description></item></channel></rss>

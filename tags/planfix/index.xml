@@ -5,8 +5,7 @@
 &lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки&lt;/a> (проверялось только под Windows и Linux)&lt;/li>
 &lt;li>Расширения для &lt;a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome&lt;/a> и &lt;a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" /></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" alt="planfix and toggl">&lt;/p></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
 &lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
 &lt;ul>
 &lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
@@ -17,5 +16,4 @@
 после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
 &lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
 &lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
-&lt;img itemprop="image" src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" />
-&lt;meta property="og:image" content="https://blog.popstas.ru/images/2016-03/planfix_logo.png" /></description></item></channel></rss>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" alt="planfix">&lt;/p></description></item></channel></rss>

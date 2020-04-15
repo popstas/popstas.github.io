@@ -3,5 +3,4 @@
 о котором уже была &lt;!-- raw HTML omitted -->обзорная статья&lt;!-- raw HTML omitted --> на хабре.&lt;/p>
 &lt;p>Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
 чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p>
-&lt;img itemprop="image" src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" />
-&lt;meta property="og:image" content="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" /></description></item></channel></rss>
+&lt;p>&lt;img src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" alt="Otto">&lt;/p></description></item></channel></rss>
