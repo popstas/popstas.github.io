@@ -39,7 +39,7 @@
 &lt;/ul>
 &lt;p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p>
 &lt;p>Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p>
-&lt;p>UPD 14.04.2020: &lt;a href="https://blog.popstas.ru/blog/2020/04/15/npm-version/">как я использую conventional changelog в связке с npm version&lt;/a>&lt;/p>
+&lt;p>UPD 15.04.2020: &lt;a href="https://blog.popstas.ru/blog/2020/04/15/npm-version/">как я использую conventional changelog в связке с npm version&lt;/a>&lt;/p>
 &lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/changelog.png" alt="changelog">&lt;/p></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
 &lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
 &lt;ul>
