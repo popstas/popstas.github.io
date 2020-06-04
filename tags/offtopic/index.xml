@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>offtopic on Popstas</title>
+    <link>https://blog.popstas.ru/tags/offtopic/</link>
+    <description>Recent content in offtopic on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 16 Jan 2018 20:45:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/offtopic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Планы на 2018 год</title>
+      <link>https://blog.popstas.ru/blog/2018/01/16/plans-for-2018/</link>
+      <pubDate>Tue, 16 Jan 2018 20:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/01/16/plans-for-2018/</guid>
+      <description>&lt;p&gt;На днях подумал, что пора уже, пора уже наконец-то сделать это!&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

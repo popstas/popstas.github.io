@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keras on Popstas</title>
+    <link>https://blog.popstas.ru/tags/keras/</link>
+    <description>Recent content in keras on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Thu, 19 Mar 2020 14:20:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/keras/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Обнаружение объектов на камере на Keras</title>
+      <link>https://blog.popstas.ru/blog/2020/03/19/human-detection-tensorflow-keras/</link>
+      <pubDate>Thu, 19 Mar 2020 14:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/03/19/human-detection-tensorflow-keras/</guid>
+      <description>&lt;p&gt;О том, как я написал нейросеть для обнаружения себя с нуля за неделю.&lt;/p&gt;
+&lt;p&gt;Что я задумал: поставить камеру в коридоре, чтобы она видела кухню и комнату и сообщала дому, где именно есть люди.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;.&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

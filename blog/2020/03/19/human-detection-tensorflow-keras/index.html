@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  <meta property="og:description" content="О том, как я написал нейросеть для обнаружения себя с нуля за неделю.
+Что я задумал: поставить камеру в коридоре, чтобы она видела кухню и комнату и сообщала дому, где именно есть люди.
+" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.popstas.ru/blog/2020/03/19/human-detection-tensorflow-keras/" />
+  <meta property="og:title" content="Обнаружение объектов на камере на Keras" />
+  
+  <meta property="og:image" content="https://blog.popstas.ru/" />
+  
+
+  
+  <title>Обнаружение объектов на камере на Keras - ML </title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  <link href="http://feeds.feedburner.com/popstas" rel="alternate" type="application/rss+xml" title="RSS" />
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="ML, tensorflow, keras, smart home">
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <div><a href="https://blog.popstas.ru/">Popstas</a></div>
+    <div>Записки о Linux</div>
+</hgroup></header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Поискать в Google"/>
+      <input type="hidden" name="q" value="site:https://blog.popstas.ru/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2020/03/19/human-detection-tensorflow-keras/">
+        <header>
+          <h1 class="entry-title" itemprop="headline">
+            Обнаружение объектов на камере на Keras 
+          </h1>
+          <p class="meta header-date">19.03.2020, 14:20 - 6 мин читать
+
+          
+
+          </p>
+        </header>
+        <div class="entry-content" itemprop="articleBody">
+          
+          
+          
+          <p>О том, как я написал нейросеть для обнаружения себя с нуля за неделю.</p>
+<p>Что я задумал: поставить камеру в коридоре, чтобы она видела кухню и комнату и сообщала дому, где именно есть люди.</p>
+<p><img src="." alt=""></p>
+<h2 id="камера">Камера</h2>
+<p>В январе заказал камеру Xiaomi Dafang, чтобы приделать компьютерное зрение к своей системе.</p>
+<p>Сразу прошил <a href="https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks">кастомной прошивкой cfw</a>, чтобы не отдавать картинку наружу и отвязать от Mi Home, которым я не пользуюсь.</p>
+<p>Из коробки настроил датчик движения на область картинки, 10 минут - и сигнал движения с камеры стал событием &ldquo;движение в комнате&rdquo; в моей системе. Поискал способ разметить 2 зоны на камере - не нашёл.</p>
+<p>Настроил сбор фоток с камеры при любом движении, фотки пересылаются по FTP в папку, которая доступна на моём компе.</p>
+<p>Эх, &ldquo;придётся&rdquo; использовать нейросети )</p>
+<h2 id="разметка-изображений">Разметка изображений</h2>
+<p>О нейросетях я к этому времени знал по вступительным статьям, знал слова Tensorflow и Keras. &ldquo;Надо разметить картинки&rdquo; - подумал я.</p>
+<p>Нашёл на хабре <a href="https://habr.com/ru/company/microsoft/blog/342056/">статью про распознавание птиц</a>. В ней нашёл то, что надо: <a href="https://github.com/microsoft/VoTT">Visual Object Tagging Tool (VOTT)</a>.</p>
+<p>За 2 дня разметил 1000 фоток через VOTT, отмечал теги human, stand, kitchen, sleep, vacuum (пылесос).</p>
+<h2 id="введение-в-нейросети">Введение в нейросети</h2>
+<p>Когда у меня было 100 размеченных фоток, хотелось уже засунуть их в нейросеть, обучить и использовать на практике. Ничего не вышло.</p>
+<p>Туман начал рассеиваться после пары часов просмотра <a href="https://www.youtube.com/playlist?list=PLtPJ9lKvJ4oiz9aaL_xcZd-x0qd8G0VN_">курса &ldquo;Нейросети на Python&rdquo; Андрея Сазонова</a>. Советую начать с него, как посоветовали мне. Результаты моих просмотров [в отдельном посте]/blog/2020/04/12/deep-learning-ngu-2019/).</p>
+<h2 id="настройка-окружения-на-windows">Настройка окружения на Windows</h2>
+<p>Я недооценил сложность проблемы, из-за этого потратил немного времени на установку просто через <code>pip install tensorflow keras</code>, это не сработало.</p>
+<p><a href="https://github.com/antoniosehk/keras-tensorflow-windows-installation">Установка Tensorflow и Keras на Windows</a> - пошаговая инструкция, с которой я смог. Как ставил я:</p>
+<ul>
+<li>Удалил все версии Python (чтобы не мешались, необязательный шаг и единственный, который не описан в инструкции)</li>
+<li>Поставил <a href="https://www.anaconda.com/distribution/">Anaconda Python 3.7</a> (пришлось переставлять, чтобы добавить переменные окружения в PATH)</li>
+<li>Обновил пакеты Anaconda (ставится сразу старое)</li>
+<li>Поставил CUDA</li>
+<li>Скачал cuDNN и прописал в PATH</li>
+<li>Поставил keras-gpu через Anaconda</li>
+</ul>
+<p>В инструкции тестовый скрипт приведён для Tensorflow 1, его надо исправить, <a href="https://github.com/keras-team/keras/issues/12379">issue</a>.</p>
+<p>Заменить блок:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> keras
+<span style="color:#f92672">from</span> keras.datasets <span style="color:#f92672">import</span> mnist
+<span style="color:#f92672">from</span> keras.models <span style="color:#f92672">import</span> Sequential
+<span style="color:#f92672">from</span> keras.layers <span style="color:#f92672">import</span> Dense, Dropout
+<span style="color:#f92672">from</span> keras.optimizers <span style="color:#f92672">import</span> RMSprop
+</code></pre></div><p>На этот:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> tensorflow <span style="color:#f92672">import</span> keras
+<span style="color:#f92672">from</span> tensorflow.keras.datasets <span style="color:#f92672">import</span> mnist
+<span style="color:#f92672">from</span> tensorflow.keras.models <span style="color:#f92672">import</span> Sequential
+<span style="color:#f92672">from</span> tensorflow.keras.layers <span style="color:#f92672">import</span> Dense, Dropout
+<span style="color:#f92672">from</span> tensorflow.keras.optimizers <span style="color:#f92672">import</span> RMSprop
+</code></pre></div><p>Фишка в том, что в tf2 уже включён Keras, надо использовать его. <a href="https://www.pyimagesearch.com/2019/10/21/keras-vs-tf-keras-whats-the-difference-in-tensorflow-2-0/">Отличия отдельного Keras и встроенного в tf2</a>.</p>
+<p>Это не вышло, было слишком много ошибок. В итоге переустановил на tensorflow==1.13.2 (по этой рекомендации - <a href="https://github.com/tensorflow/models/issues/7522,">https://github.com/tensorflow/models/issues/7522,</a> tf 1.14.0 вылетал с Windows fatal exception: access violation).</p>
+<h3 id="сборка-tfrecords-из-датасета-pascal">Сборка tfrecords из датасета Pascal</h3>
+<p>Датасет, сохранённый в VOTT, надо положить в <code>data</code> проекта. У меня в xml файлах были написаны не те пути, что по факту, возможно, это был временный глюк. Например, в xml:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;annotation</span> <span style="color:#a6e22e">verified=</span><span style="color:#e6db74">&#34;yes&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;folder&gt;</span>Annotation<span style="color:#f92672">&lt;/folder&gt;</span>
+    <span style="color:#f92672">&lt;filename&gt;</span>11-01-2020_23.39.19.jpg<span style="color:#f92672">&lt;/filename&gt;</span>
+<span style="color:#f92672">&lt;/annotation&gt;</span>
+</code></pre></div><p>Скрипт конвертации искал папку <code>Annotation</code>, для него создал <code>data/Annotation</code>, туда положил xml'ы, в ту же папку скопировал папку <code>JPEGImages</code>.</p>
+<p>Скачал <a href="https://github.com/tensorflow/models,">https://github.com/tensorflow/models,</a> положил папку <code>object_detection</code> в корень своего проекта, потом нужные скрипты переносил в корень и запускал оттуда. Только так у меня работали <code>from object_detection import *</code>. Чтобы работали импорты Protobuf (что бы это ни значило), надо в начале запустить их компиляцию:</p>
+<pre><code>protoc object_detection/protos/*.proto --python_out=.
+</code></pre><p>Кое-как переписал create_pascal_tf_record.py, подгоняя код под данные с обеих сторон, прошёл Step 3 - Prepare the labeled images as Tensorflow input, получил tfrecords (2 файла). Из 5000+ файлов и 275 файлов получилось 2 файла на 170 Мб. У меня были такие команды для запуска конвертации:</p>
+<pre><code>python create_human_tf_record.py --set=train --data_dir=data --output_path=tfrecords/human_train.record
+python create_human_tf_record.py --set=val --data_dir=data --output_path=tfrecords/human_val.record
+</code></pre><p>Это падало с Segmentation fault.</p>
+<p>Создал новый environment в conda:
+conda create -n model python=3.6
+pip install tensorflow-gpu==1.13.2</p>
+<p>Проверить версию tf можно так:</p>
+<pre><code>python -c 'import tensorflow as tf; print(tf.__version__)'
+</code></pre><p>При этом у меня пока сохранился только один класс объекта, хотя у меня их 5.</p>
+<p>Не исключаю, что этот шаг можно пропустить и сразу экспортировать датасет в tfrecords, но пока слишком много неизвестных для меня, чтобы так отклоняться от инструкций.</p>
+<h3 id="переобучение-модели-zoo">Переобучение модели zoo</h3>
+<p>Официальный туториал почти хорош - <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md">https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md</a></p>
+<p>Сразу <a href="#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-pycocotools-%D0%BD%D0%B0-windows-10">пролистайте ниже</a> и начинайте качать MS VS++ 2015 Build Tools для компиляции pycocotools, у меня стоял 2017, он не сработал. Это займёт примерно 1 час.</p>
+<p>Скачал модель ssd_mobilenet_v1_coco из <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md">Tensorflow Detection Model Zoo</a>. Сохранил в <code>models/ssd_mobilenet_v1_coco</code>.</p>
+<p>Отредактировал там <code>pipeline.config</code>, пути к моделям, вот мой кусочек:</p>
+<pre><code>train_config {
+  ...
+  fine_tune_checkpoint: &quot;C:/projects/tensorflow/room-object-detection/models/ssd_mobilenet_v1_coco/model.ckpt&quot;
+  from_detection_checkpoint: true
+  num_steps: 200000
+}
+train_input_reader {
+  label_map_path: &quot;C:/projects/tensorflow/room-object-detection/tfrecords/tf_label_map.pbtxt&quot;
+  tf_record_input_reader {
+    input_path: &quot;C:/projects/tensorflow/room-object-detection/tfrecords//mscoco_train.record&quot;
+  }
+}
+</code></pre><pre><code>pip install &quot;git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&amp;subdirectory=PythonAPI&quot;
+</code></pre><p>На Ubuntu можно просто <code>pip install pycocotools</code>.</p>
+<p>Скопировал <code>model_main.py</code> из <code>object_detection</code>, запустил:</p>
+<pre><code>python model_main.py --pipeline_config_path=models/ssd_mobilenet_v1_coco/pipeline.config --model_dir=models/ssd_mobilenet_v1_coco/train --alsologtostderr
+</code></pre><p>Конечно, команда не запустилась сразу. Выдавало ошибку: No module named &lsquo;nets&rsquo;. <a href="https://github.com/tensorflow/models/issues/1842">Решение</a>: скопировать <code>slim</code> из репозитория <code>tensorflow/models</code> (из <code>research</code>), потом добавить это в PYTHONPATH:</p>
+<pre><code>export PYTHONPATH=$PYTHONPATH:$PWD:$PWD/slim
+</code></pre><p>Для Windows cmd проще открыть окно &ldquo;Переменные среды&rdquo; и добавить туда, у меня так:</p>
+<pre><code>C:/projects/tensorflow/room-object-detection;C:/projects/tensorflow/room-object-detection/slim
+</code></pre><p>Были проблемы с настройками в <code>pipeline.config</code>, поправил. Теперь вылето с переполнением памяти:</p>
+<pre><code>2020-03-20 01:28:17.463412: W tensorflow/core/framework/op_kernel.cc:1401] OP_REQUIRES failed at cast_op.cc:109 : Resource exhausted: OOM when allocating tensor with shape[720,1280,3] and type float on /job:localhost/replica:0/task:0/device:CPU:0 by allocator cpu
+</code></pre><p>Вздохнул, перезапустил&hellip; сработало!</p>
+<p>Запустил tensorboard:</p>
+<pre><code>tensorboard --logdir=models/ssd_mobilenet_v1_coco/train
+</code></pre><p>Он что-то показал, какой-никакой прогресс.</p>
+<h4 id="установка-pycocotools-на-windows-10">Установка pycocotools на Windows 10</h4>
+<p>No module named &lsquo;pycocotools&rsquo; - pip install pycocotools не компилирует, не мог пройти этот шаг.</p>
+<p>Помогли советы отсюда - <a href="https://www.kaggle.com/c/tgs-salt-identification-challenge/discussion/62381">https://www.kaggle.com/c/tgs-salt-identification-challenge/discussion/62381</a></p>
+<ol>
+<li>Install Visual C++ 2015 Build Tools from <a href="https://go.microsoft.com/fwlink/?LinkId=691126">https://go.microsoft.com/fwlink/?LinkId=691126</a> with default selection.</li>
+<li>Go to C:\Program Files (x86)\Microsoft Visual C++ Build Tools and run vcbuildtools_msbuild.bat</li>
+<li>In Anaconda, run</li>
+</ol>
+<h3 id="запуск-model_mainpy">Запуск model_main.py</h3>
+<p>TypeError: &lsquo;numpy.float64&rsquo; object cannot be interpreted as an integer</p>
+<p><a href="https://github.com/rbgirshick/py-faster-rcnn/issues/481">https://github.com/rbgirshick/py-faster-rcnn/issues/481</a></p>
+<p>Пробовал ставить numpy, начиная с 1.11, все падали, на 1.16 запустилось:</p>
+<pre><code>pip install -U numpy==1.16
+</code></pre><p>Итак, эта балалайка запустилась и не вылетела через 10 минут. В процессе я узнал, что в конфиге было задано 200 000 эпох. Прошло 36 часов. Я получил заветные данные.</p>
+<h3 id="экспорт-графа">Экспорт графа</h3>
+<p>Экспорт делается командой вроде этой, с заменой путей и номера чекпойнта (посмотрите в папке):</p>
+<pre><code>ckpt_num=63205; python object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path models/ssd_mobilenet_v1_coco/pipeline.config --trained_checkpoint_prefix model.ckpt-${ckpt_num} --output_directory model/exported-graphs-${ckpt_num}
+</code></pre><p>Получаю:</p>
+<pre><code>ValueError: The passed save_path is not a valid checkpoint
+</code></pre><p>conda install tensorflow-gpu=1.12 для 3.0
+<a href="https://stackoverflow.com/questions/39023581/tensorflow-cuda-compute-capability-3-0-the-minimum-required-cuda-capability-is">https://stackoverflow.com/questions/39023581/tensorflow-cuda-compute-capability-3-0-the-minimum-required-cuda-capability-is</a></p>
+<p>Nvidia 650 не тянет этот конфиг:</p>
+<pre><code>fixed_shape_resizer {
+  height: 300
+  width: 300
+}
+</code></pre><p>200x200 тоже не тянет, 150x150 входит.</p>
+<h2 id="ссылки">Ссылки:</h2>
+<ul>
+<li><a href="https://liupeirong.github.io/tfObjectDetection/">Custom object detection using Tensorflow Object Detection API</a></li>
+<li><a href="https://habr.com/ru/post/482126/">Перевод введения в Keras</a></li>
+<li><a href="https://habr.com/ru/post/439038/">Делаем нейронную сеть: как не сломать мозг</a></li>
+<li><a href="https://habr.com/ru/post/426797/">Нейронная сеть с использованием TensorFlow: классификация изображений</a></li>
+<li><a href="https://habr.com/ru/post/482126/">Обзор Keras для TensorFlow</a></li>
+<li><a href="https://github.com/antoniosehk/keras-tensorflow-windows-installation">Установка Tensorflow и Keras на Windows</a></li>
+<li><a href="https://medium.com/@soumyadipmajumder/complete-guide-to-tensorflow-gpu-installation-on-windows-10-36e5858640e9">Complete Guide to TensorFlow-GPU Installation on Windows 10</a></li>
+<li><a href="https://www.pyimagesearch.com/2019/10/21/keras-vs-tf-keras-whats-the-difference-in-tensorflow-2-0/">Keras vs. tf.keras: What’s the difference in TensorFlow 2.0?</a></li>
+</ul>
+<h3 id="видео">Видео:</h3>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PLtPJ9lKvJ4oiz9aaL_xcZd-x0qd8G0VN_">Курс &ldquo;Нейросети на Python&rdquo; Андрея Сазонова</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PLtPJ9lKvJ4oi5ATzKmmp6FznCHmnhVoey">Курс &ldquo;Нейросети для анализа изображений&rdquo; Андрея Сазонова</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PL5FkQ0AF9O_o2Eb5Qn8pwCDg7TniyV1Wb">Курс &ldquo;Deep learning на пальцах - 2019&rdquo; от sim0nsays</a></p>
+</li>
+<li>
+<p>[https://www.customvision.ai/](Custom Vision - сервис для обучения модели на своих размеченных картинках)</p>
+</li>
+</ul>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <time itemprop="datePublished" content="2020-03-19T14:20:00&#43;0600">19 Mar 2020, 14:20</time>
+    
+      <span class="categories">
+        , теги:
+        
+          <a class="category" href="https://blog.popstas.ru/tags/ml">ML</a><meta itemprop="about" content="ML">  <a class="category" href="https://blog.popstas.ru/tags/tensorflow">tensorflow</a><meta itemprop="about" content="tensorflow">  <a class="category" href="https://blog.popstas.ru/tags/keras">keras</a><meta itemprop="about" content="keras">  <a class="category" href="https://blog.popstas.ru/tags/smart-home">smart home</a><meta itemprop="about" content="smart home">  
+    
+    </span>
+  </p>
+
+  <div class="sharing">
+    
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_google_plus"></a><a class="a2a_button_vk"></a><a class="a2a_button_pocket"></a>
+    </div>
+    <script>
+      var a2a_config = a2a_config || {};
+      a2a_config.locale = "ru";
+      a2a_config.color_main = "undefined";
+      a2a_config.color_border = "undefined";
+      a2a_config.color_link_text = "undefined";
+      a2a_config.color_link_text_hover = "undefined";
+      a2a_config.color_bg = "undefined";
+      a2a_config.color_arrow = "undefined";
+      a2a_config.color_arrow_hover = "undefined";
+      a2a_config.prioritize = ["facebook", "twitter", "google_plus", "pocket", "vk"];
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    
+  </div>
+  
+
+  
+
+  <p class="meta">
+    
+        <div>Новее: <a class="related" href="https://blog.popstas.ru/blog/2020/02/29/books-100/" title="Мои книги: 10-й десяток">Мои книги: 10-й десяток</a></div>
+    
+
+    
+        <div>Старее: <a class="related" href="https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/" title="Конспекты курса Deep Learning на пальцах 2019: таймкоды">Конспекты курса Deep Learning на пальцах 2019: таймкоды</a></div>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        Обновления через <a href="https://tglink.ru/popstas_vk_wall">Telegram</a> или <a href="http://feeds.feedburner.com/popstas">RSS</a>
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <div class="sidebar-title">Последние посты:</div>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="/navigator/">Навигатор</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/12/29/new-year-2020/">Итоги 2020 года</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/06/05/eliyahu-goldratt-kriticheskaya-cep/">Содержание книги Элияху Голдратта «Критическая цепь»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/">Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/29/books-80/">Мои книги: 8-й десяток: когнитивные искажения, выход из кризисов и счастье</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/16/books-70/">Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/15/npm-version/">NPM version: версионирование, история изменений, деплой проекта</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/14/yandex-dialogs/">Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/13/yandex-dialogs-whatis/">Навык для Алисы &#34;Вторая память&#34;: технические особенности</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2015-2020 Stanislav Popov -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+
+  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
+  
+
+  <script src="/js/custom.js"></script>
+
+  
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(51681281, "init", {
+        id:51681281,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  
+
+  </body>
+</html>
+
