@@ -55,10 +55,32 @@ fieldset[role="search"] {
 }
 body>footer {
     margin: 0;
-    padding-left: 0;
+    padding-left: 8px;
     display: inline-block;
 }
 /* end layout */
+
+/* fixed aside */
+@media(min-width: 1520px) {
+    body {
+        max-width: 880px;
+    }
+    #content {
+        margin: 0;
+    }
+    header nav {
+        position: fixed;
+        right: 8px;
+    }
+    aside {
+        position: fixed;
+        display: block;
+        right: 8px;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+/* end fixed aside */
 
 a {
     color: #222;
