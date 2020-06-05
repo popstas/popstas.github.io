@@ -17,10 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // aside remove
-  const interval = setInterval(() => {
+  setInterval(() => {
     if(window.matchMedia('min-width:1520px')) {
       const top = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
-      console.log('top: ', top);
       if(top > 1000) {
         document.body.classList.add('aside-hidden');
       } else {
