@@ -71,6 +71,7 @@ body>footer {
     header nav {
         position: fixed;
         right: 8px;
+        transition: 0.3s ease-in;
     }
     aside {
         position: fixed;
@@ -78,6 +79,16 @@ body>footer {
         right: 8px;
         margin: 0 !important;
         padding: 0 !important;
+        transition: 0.3s ease-in;
+    }
+
+    .aside-hidden aside,
+    .aside-hidden header nav {
+        opacity: 0.1;
+    }
+    .aside-hidden aside:hover,
+    .aside-hidden header nav:hover {
+        opacity: 1;
     }
 }
 /* end fixed aside */
