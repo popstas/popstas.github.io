@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // anchors for headings
   document.querySelectorAll('.entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5').forEach((h) => {
-    h.innerHTML = `${h.innerText} <a class="heading-anchor" href="#${h.id}">🔗</a>`
+    h.innerHTML = `${h.innerText} <a class="heading-anchor" href="#${h.id}">🔗</a>`;
   });
 
   // clickable images in index
@@ -27,4 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }, 1000);
+});
+
+$(function(){
+  // скрыть текст, чтобы посмотреть на заголовки (по Ильяхову)
+  if(location.host == 'localhost:1313'){
+    $('aside').append(
+      $('<button class="hide-text-toggle">Скрыть текст</button>').
+        on('click', () => { $('body').toggleClass('hide-text'); })
+    );
+  }
 });
