@@ -2,12 +2,13 @@
 &lt;p>Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href="https://influxdata.com/get-started/what-is-the-tick-stack/">TICK&lt;/a> от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p>
 &lt;p>Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p>
 &lt;p>А также небольшое замечание о том, &lt;a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request">как делать Pull request'ы из браузера за 2 минуты&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" alt="Kapacitor">&lt;/p></description></item><item><title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title><link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link><pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid><description>&lt;p>UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p>
+&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" alt="Kapacitor">&lt;/p></description></item><item><title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title><link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link><pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid><description>&lt;div class="punch">&lt;p>UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p>
 &lt;p>Теперь я использую её так:&lt;/p>
 &lt;ul>
 &lt;li>В браузере стоит &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js">юзерскрипт&lt;/a>, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js">принимающий скрипт&lt;/a>)&lt;/li>
 &lt;li>Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li>
 &lt;/ul>
+&lt;/div>
 &lt;p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href="http://weburg.net">weburg.net&lt;/a>, дающая бонусы,
 их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p>
 &lt;p>Поддержку раздач можно разбить на несколько задач:&lt;/p>
