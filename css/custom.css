@@ -100,17 +100,19 @@ a {
     color: #222;
     display: inline-block;
 }
-a[href^="https://github.com"]::before{
+
+/* Github links */
+.entry-content a[href^="https://github.com"]::before{
     font: normal normal normal 1rem/1 ForkAwesome;
     content: "\f09b";
     display: inline-block;
     margin-right: 3px;
     text-decoration: none;
 }
-a[href^="https://github.com"]:visited::before{
+.entry-content a[href^="https://github.com"]:visited::before{
     color: #222;
 }
-a[href^="https://github.com"]:hover::before{
+.entry-content a[href^="https://github.com"]:hover::before{
     color: #0181eb;
 }
 
