@@ -7,6 +7,9 @@ body>header {
     padding: 15px;
     /* margin-bottom: -40px; */
 }
+header.draft {
+    background: #ffff00 !important;
+}
 .site-title {
     float: left;
     width: 50%;
@@ -95,7 +98,22 @@ body>footer {
 
 a {
     color: #222;
+    display: inline-block;
 }
+a[href^="https://github.com"]::before{
+    font: normal normal normal 1rem/1 ForkAwesome;
+    content: "\f09b";
+    display: inline-block;
+    margin-right: 3px;
+    text-decoration: none;
+}
+a[href^="https://github.com"]:visited::before{
+    color: #222;
+}
+a[href^="https://github.com"]:hover::before{
+    color: #0181eb;
+}
+
 .hide-text p {
     font-size: 8px;
 }
