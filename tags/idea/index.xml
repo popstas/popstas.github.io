@@ -1,10 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>idea on Popstas</title><link>https://blog.popstas.ru/tags/idea/</link><description>Recent content in idea on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/idea/index.xml" rel="self" type="application/rss+xml"/><item><title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title><link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link><pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid><description>&lt;p>Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p>
-&lt;p>Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p>
-&lt;ul>
-&lt;li>нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li>
-&lt;li>простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li>
-&lt;li>нельзя загружать файл по хоткею&lt;/li>
-&lt;li>нет git&lt;/li>
-&lt;/ul>
-&lt;p>TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" alt="nodemcu ide">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>idea on Popstas</title>
+    <link>https://blog.popstas.ru/tags/idea/</link>
+    <description>Recent content in idea on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
+      <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
+      <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
+&lt;p&gt;Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li&gt;
+&lt;li&gt;простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li&gt;
+&lt;li&gt;нельзя загружать файл по хоткею&lt;/li&gt;
+&lt;li&gt;нет git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; alt=&#34;nodemcu ide&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

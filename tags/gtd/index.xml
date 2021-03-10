@@ -1,6 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gtd on Popstas</title><link>https://blog.popstas.ru/tags/gtd/</link><description>Recent content in gtd on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 22 Nov 2015 09:40:45 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/gtd/index.xml" rel="self" type="application/rss+xml"/><item><title>Простой тайм-трекер для отслеживания потраченного времени</title><link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link><pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid><description>&lt;p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
-Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href="https://time.popstas.ru/">https://time.popstas.ru/&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gtd on Popstas</title>
+    <link>https://blog.popstas.ru/tags/gtd/</link>
+    <description>Recent content in gtd on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 22 Nov 2015 09:40:45 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/gtd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Простой тайм-трекер для отслеживания потраченного времени</title>
+      <link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid>
+      <description>&lt;p&gt;На работе у меня часто бывает такое, что не понятно, куда ушло время.
+Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href=&#34;https://time.popstas.ru/&#34;&gt;https://time.popstas.ru/&lt;/a&gt;
 Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
-глюки, которые раздражали последние годы :)&lt;/p>
-&lt;p>Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href="https://www.toggl.com/">https://www.toggl.com/&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true" alt="time tracker">&lt;/p></description></item></channel></rss>
+глюки, которые раздражали последние годы :)&lt;/p&gt;
+&lt;p&gt;Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href=&#34;https://www.toggl.com/&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true&#34; alt=&#34;time tracker&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,16 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>server-scripts on Popstas</title><link>https://blog.popstas.ru/tags/server-scripts/</link><description>Recent content in server-scripts on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 22 Feb 2017 01:19:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/server-scripts/index.xml" rel="self" type="application/rss+xml"/><item><title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title><link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link><pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid><description>&lt;p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p>
-&lt;h3 id="для-этого-надо">Для этого надо:&lt;/h3>
-&lt;ol>
-&lt;li>Извлечь директорию подпроекта в отдельный репозиторий&lt;/li>
-&lt;li>Удалить из проекта папку подпроекта&lt;/li>
-&lt;li>Добавить в большой проект зависимость от подпроекта&lt;/li>
-&lt;/ol>
-&lt;p>Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code>git-extract-subproject&lt;/code>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" alt="Git projects extract">&lt;/p></description></item><item><title>average: измерение среднего времени выполнения команды в bash</title><link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link><pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid><description>&lt;p>Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p>
-&lt;ul>
-&lt;li>простая проверка скорости загрузки страницы&lt;/li>
-&lt;li>подбор оптимальных параметров к команде&lt;/li>
-&lt;li>сравнение разных команд&lt;/li>
-&lt;/ul>
-&lt;p>Раньше я просто запускал несколько раз с &lt;code>time&lt;/code>, смотрел результат, у уме делил.
-Но мне это надоело, поэтому написал скрипт &lt;code>average&lt;/code>.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>server-scripts on Popstas</title>
+    <link>https://blog.popstas.ru/tags/server-scripts/</link>
+    <description>Recent content in server-scripts on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Wed, 22 Feb 2017 01:19:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/server-scripts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
+      <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
+      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
+      <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
+&lt;h3 id=&#34;для-этого-надо&#34;&gt;Для этого надо:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Извлечь директорию подпроекта в отдельный репозиторий&lt;/li&gt;
+&lt;li&gt;Удалить из проекта папку подпроекта&lt;/li&gt;
+&lt;li&gt;Добавить в большой проект зависимость от подпроекта&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code&gt;git-extract-subproject&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; alt=&#34;Git projects extract&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>average: измерение среднего времени выполнения команды в bash</title>
+      <link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
+      <pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
+      <description>&lt;p&gt;Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;простая проверка скорости загрузки страницы&lt;/li&gt;
+&lt;li&gt;подбор оптимальных параметров к команде&lt;/li&gt;
+&lt;li&gt;сравнение разных команд&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Раньше я просто запускал несколько раз с &lt;code&gt;time&lt;/code&gt;, смотрел результат, у уме делил.
+Но мне это надоело, поэтому написал скрипт &lt;code&gt;average&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

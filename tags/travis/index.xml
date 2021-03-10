@@ -1,30 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>travis on Popstas</title><link>https://blog.popstas.ru/tags/travis/</link><description>Recent content in travis on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/travis/index.xml" rel="self" type="application/rss+xml"/><item><title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title><link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link><pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid><description>&lt;p>Опишу процесс, к которому я пришел на данный момент.&lt;/p>
-&lt;p>TODO: concurrent
-TODO: несколько дистрибов&lt;/p>
-&lt;h4 id="особенности">Особенности&lt;/h4>
-&lt;ul>
-&lt;li>Стремление не писать роли&lt;/li>
-&lt;li>Постепенное ужесточение требований при написании, от &amp;ldquo;Лишь бы прошло с 10 раза&amp;rdquo; к &amp;ldquo;Скорее всего Travis пройдет с первого раза&amp;rdquo;&lt;/li>
-&lt;li>Тестирование на разных машинах&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/iterations.png" alt="build progress">&lt;/p></description></item><item><title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title><link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link><pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid><description>&lt;p>В &lt;a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">предыдущей статье&lt;/a> я настраивал &lt;code>apt-mirror&lt;/code> для тех же целей. У того способа нашлось несколько недостатков.&lt;/p>
-&lt;p>В статье ниже описано, как решить ту же проблему, используя &lt;code>apt-cacher-ng&lt;/code>.&lt;/p>
-&lt;p>Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png" alt="apt-cacher-ng and gitlab ci for ansible">&lt;/p></description></item><item><title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title><link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link><pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid><description>&lt;div class="punch">&lt;p>UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p>
-&lt;p>Теперь я использую её так:&lt;/p>
-&lt;ul>
-&lt;li>В браузере стоит &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js">юзерскрипт&lt;/a>, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js">принимающий скрипт&lt;/a>)&lt;/li>
-&lt;li>Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href="http://weburg.net">weburg.net&lt;/a>, дающая бонусы,
-их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p>
-&lt;p>Поддержку раздач можно разбить на несколько задач:&lt;/p>
-&lt;ol>
-&lt;li>периодически скачивать новинки фильмов&lt;/li>
-&lt;li>скачивать новые серии популярных сериалов&lt;/li>
-&lt;li>удалять то, что плохо раздается&lt;/li>
-&lt;/ol>
-&lt;p>Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
-&lt;a href="https://github.com/popstas/transmission-cli">transmission-cli&lt;/a> - консольная утилита, решающая часть этих задач.&lt;/p>
-&lt;p>&lt;img src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw" alt="transmission-cli grafana">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>travis on Popstas</title>
+    <link>https://blog.popstas.ru/tags/travis/</link>
+    <description>Recent content in travis on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/travis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
+      <link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
+      <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
+&lt;p&gt;TODO: concurrent
+TODO: несколько дистрибов&lt;/p&gt;
+&lt;h4 id=&#34;особенности&#34;&gt;Особенности&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Стремление не писать роли&lt;/li&gt;
+&lt;li&gt;Постепенное ужесточение требований при написании, от &amp;ldquo;Лишь бы прошло с 10 раза&amp;rdquo; к &amp;ldquo;Скорее всего Travis пройдет с первого раза&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Тестирование на разных машинах&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/iterations.png&#34; alt=&#34;build progress&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
+      <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
+&lt;p&gt;В статье ниже описано, как решить ту же проблему, используя &lt;code&gt;apt-cacher-ng&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png&#34; alt=&#34;apt-cacher-ng and gitlab ci for ansible&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
+      <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <description>&lt;div class=&#34;punch&#34;&gt;&lt;p&gt;UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p&gt;
+&lt;p&gt;Теперь я использую её так:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В браузере стоит &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js&#34;&gt;юзерскрипт&lt;/a&gt;, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js&#34;&gt;принимающий скрипт&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
+их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
+&lt;p&gt;Поддержку раздач можно разбить на несколько задач:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;периодически скачивать новинки фильмов&lt;/li&gt;
+&lt;li&gt;скачивать новые серии популярных сериалов&lt;/li&gt;
+&lt;li&gt;удалять то, что плохо раздается&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
+&lt;a href=&#34;https://github.com/popstas/transmission-cli&#34;&gt;transmission-cli&lt;/a&gt; - консольная утилита, решающая часть этих задач.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw&#34; alt=&#34;transmission-cli grafana&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

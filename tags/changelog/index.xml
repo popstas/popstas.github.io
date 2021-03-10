@@ -1,15 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>changelog on Popstas</title><link>https://blog.popstas.ru/tags/changelog/</link><description>Recent content in changelog on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 15 Apr 2020 20:58:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/changelog/index.xml" rel="self" type="application/rss+xml"/><item><title>NPM version: версионирование, история изменений, деплой проекта</title><link>https://blog.popstas.ru/blog/2020/04/15/npm-version/</link><pubDate>Wed, 15 Apr 2020 20:58:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/15/npm-version/</guid><description>&lt;p>Как я веду красивую историю изменений в своих проектах и деплою одной командой после коммита (нет, это не git hooks).&lt;/p>
-&lt;p>Если вы не пишете на JavaScript, пусть вас не смущает слово &amp;ldquo;NPM&amp;rdquo;, это подходит для любого языка.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/npm-version.png" alt="npm version">&lt;/p></description></item><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
-&lt;ul>
-&lt;li>Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li>
-&lt;li>Автоматическая сборка, Travis CI&lt;/li>
-&lt;li>Unit тесты, PHPUnit&lt;/li>
-&lt;li>Покрытие кода, Coveralls&lt;/li>
-&lt;li>Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li>
-&lt;li>Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li>
-&lt;/ul>
-&lt;p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p>
-&lt;p>Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p>
-&lt;div class="punch">UPD 15.04.2020: &lt;a href="https://blog.popstas.ru/blog/2020/04/15/npm-version/">как я использую conventional changelog в связке с npm version&lt;/a>&lt;/div>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/changelog.png" alt="changelog">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>changelog on Popstas</title>
+    <link>https://blog.popstas.ru/tags/changelog/</link>
+    <description>Recent content in changelog on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Wed, 15 Apr 2020 20:58:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/changelog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NPM version: версионирование, история изменений, деплой проекта</title>
+      <link>https://blog.popstas.ru/blog/2020/04/15/npm-version/</link>
+      <pubDate>Wed, 15 Apr 2020 20:58:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/15/npm-version/</guid>
+      <description>&lt;p&gt;Как я веду красивую историю изменений в своих проектах и деплою одной командой после коммита (нет, это не git hooks).&lt;/p&gt;
+&lt;p&gt;Если вы не пишете на JavaScript, пусть вас не смущает слово &amp;ldquo;NPM&amp;rdquo;, это подходит для любого языка.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/npm-version.png&#34; alt=&#34;npm version&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
+      <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
+      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
+&lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
+&lt;li&gt;Unit тесты, PHPUnit&lt;/li&gt;
+&lt;li&gt;Покрытие кода, Coveralls&lt;/li&gt;
+&lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
+&lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
+&lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
+&lt;div class=&#34;punch&#34;&gt;UPD 15.04.2020: &lt;a href=&#34;https://blog.popstas.ru/blog/2020/04/15/npm-version/&#34;&gt;как я использую conventional changelog в связке с npm version&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/changelog.png&#34; alt=&#34;changelog&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

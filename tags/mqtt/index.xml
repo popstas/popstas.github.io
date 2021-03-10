@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mqtt on Popstas</title><link>https://blog.popstas.ru/tags/mqtt/</link><description>Recent content in mqtt on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 16 Jan 2021 23:50:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/mqtt/index.xml" rel="self" type="application/rss+xml"/><item><title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</title><link>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</link><pubDate>Sat, 16 Jan 2021 23:50:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/github/popstas-github.svg" alt="Дом, поделенный на зоны">&lt;/p></description></item><item><title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title><link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link><pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/home-zones.jpg" alt="Дом, поделенный на зоны">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mqtt on Popstas</title>
+    <link>https://blog.popstas.ru/tags/mqtt/</link>
+    <description>Recent content in mqtt on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sat, 16 Jan 2021 23:50:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/mqtt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</title>
+      <link>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</link>
+      <pubDate>Sat, 16 Jan 2021 23:50:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/github/popstas-github.svg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title>
+      <link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link>
+      <pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/home-zones.jpg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

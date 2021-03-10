@@ -1,43 +1,130 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ubuntu on Popstas</title><link>https://blog.popstas.ru/tags/ubuntu/</link><description>Recent content in ubuntu on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Tue, 01 May 2018 08:20:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/ubuntu/index.xml" rel="self" type="application/rss+xml"/><item><title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title><link>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</link><pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</guid><description>&lt;p>26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.&lt;/p>
-&lt;p>Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - &lt;a href="https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),">https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),&lt;/a> несколько других похожих постов вообще остались лежать на локалке.&lt;/p>
-&lt;p>Так что буду писать по мере наступания на грабли и пополнять статью.&lt;/p>
-&lt;p>UPD 13.07.2018: цикл статей оборвался из-за того, что я не смог побороть глюк Nvidia (см. комменты) и вернулся на Windows. Можно сказать, что это был такой сложный способ найти крутую скриншотилку Monosnap :)&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg" alt="from windows to ubuntu">&lt;/p></description></item><item><title>Ext4 vs XFS</title><link>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</link><pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</guid><description>&lt;p>Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.&lt;/p>
-&lt;div class="punch">&lt;strong>UPD 09.05.2020&lt;/strong>: в итоге перешёл полностью на XFS.&lt;/div>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-12/ext4-vs-xfs.jpg" alt="ext4 vs xfs utilization in grafana">&lt;/p></description></item><item><title>Packer: создаем свои vagrant box и docker image из одного конфига</title><link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link><pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid><description>&lt;p>Проект &lt;a href="https://github.com/viasite-ansible/ansible-server">viasite-ansible/ansible-server&lt;/a> подошел к моменту,
-когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p>
-&lt;p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
-поэтому &lt;del>я потратил день&lt;/del> я вспомнил, что есть такой тул - &lt;a href="https://www.packer.io/">Packer&lt;/a>
-и решил, что пришло его время.&lt;/p>
-&lt;p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
-программах или разворачивания на хостинге.&lt;/p>
-&lt;p>Для чего это может пригодиться:&lt;/p>
-&lt;ul>
-&lt;li>ускорение тестирования&lt;/li>
-&lt;li>б&lt;strong>о&lt;/strong>льшая повторяемость, по сравнению с ansible&lt;/li>
-&lt;li>образы для продакшена для быстрого развертывания новых серверов&lt;/li>
-&lt;li>образы идентичные продакшену для локальной разработки&lt;/li>
-&lt;/ul>
-&lt;p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами &lt;a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь&lt;/a>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" alt="ansible with packer to vagrant and docker ">&lt;/p></description></item><item><title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title><link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link><pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid><description>&lt;p>В &lt;a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">предыдущей статье&lt;/a> я настраивал &lt;code>apt-mirror&lt;/code> для тех же целей. У того способа нашлось несколько недостатков.&lt;/p>
-&lt;p>В статье ниже описано, как решить ту же проблему, используя &lt;code>apt-cacher-ng&lt;/code>.&lt;/p>
-&lt;p>Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png" alt="apt-cacher-ng and gitlab ci for ansible">&lt;/p></description></item><item><title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title><link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link><pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid><description>&lt;p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
-и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p>
-&lt;p>Ниже описано, как создать зеркало из &lt;a href="http://mirror.yandex.ru/ubuntu">http://mirror.yandex.ru/ubuntu&lt;/a> и подружить его с Gitlab CI и molecule.&lt;/p>
-&lt;p>Tl;dr: не делайте локальный репозиторий через &lt;code>apt-mirror&lt;/code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng&lt;/a>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/apt-mirror.png" alt="Tux and servers">&lt;/p></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>&lt;p>Итак, &lt;a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления&lt;/a> Windows, поставил в нее Ubuntu &lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">по инструкции&lt;/a>, вот что было дальше:&lt;/p>
-&lt;p>Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" alt="Bash on Ubuntu on Windows">&lt;/p></description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
-&lt;p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5">issue про недоступность сборки 14316&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">Инструкция по обновлению на русском&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Показать все окна gnome terminal в Ubuntu</title><link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link><pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid><description>&lt;p>При работе за компом имею привычку открывать много терминалов,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ubuntu on Popstas</title>
+    <link>https://blog.popstas.ru/tags/ubuntu/</link>
+    <description>Recent content in ubuntu on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 01 May 2018 08:20:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title>
+      <link>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</link>
+      <pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</guid>
+      <description>&lt;p&gt;26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.&lt;/p&gt;
+&lt;p&gt;Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - &lt;a href=&#34;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),&#34;&gt;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),&lt;/a&gt; несколько других похожих постов вообще остались лежать на локалке.&lt;/p&gt;
+&lt;p&gt;Так что буду писать по мере наступания на грабли и пополнять статью.&lt;/p&gt;
+&lt;p&gt;UPD 13.07.2018: цикл статей оборвался из-за того, что я не смог побороть глюк Nvidia (см. комменты) и вернулся на Windows. Можно сказать, что это был такой сложный способ найти крутую скриншотилку Monosnap :)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg&#34; alt=&#34;from windows to ubuntu&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ext4 vs XFS</title>
+      <link>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</link>
+      <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</guid>
+      <description>&lt;p&gt;Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.&lt;/p&gt;
+&lt;div class=&#34;punch&#34;&gt;&lt;strong&gt;UPD 09.05.2020&lt;/strong&gt;: в итоге перешёл полностью на XFS.&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-12/ext4-vs-xfs.jpg&#34; alt=&#34;ext4 vs xfs utilization in grafana&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
+      <link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
+      <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
+когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p&gt;
+&lt;p&gt;Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
+поэтому &lt;del&gt;я потратил день&lt;/del&gt; я вспомнил, что есть такой тул - &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer&lt;/a&gt;
+и решил, что пришло его время.&lt;/p&gt;
+&lt;p&gt;Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
+программах или разворачивания на хостинге.&lt;/p&gt;
+&lt;p&gt;Для чего это может пригодиться:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ускорение тестирования&lt;/li&gt;
+&lt;li&gt;б&lt;strong&gt;о&lt;/strong&gt;льшая повторяемость, по сравнению с ansible&lt;/li&gt;
+&lt;li&gt;образы для продакшена для быстрого развертывания новых серверов&lt;/li&gt;
+&lt;li&gt;образы идентичные продакшену для локальной разработки&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
+Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png&#34; alt=&#34;ansible with packer to vagrant and docker &#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
+      <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
+&lt;p&gt;В статье ниже описано, как решить ту же проблему, используя &lt;code&gt;apt-cacher-ng&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png&#34; alt=&#34;apt-cacher-ng and gitlab ci for ansible&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
+      <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
+      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
+      <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
+и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p&gt;
+&lt;p&gt;Ниже описано, как создать зеркало из &lt;a href=&#34;http://mirror.yandex.ru/ubuntu&#34;&gt;http://mirror.yandex.ru/ubuntu&lt;/a&gt; и подружить его с Gitlab CI и molecule.&lt;/p&gt;
+&lt;p&gt;Tl;dr: не делайте локальный репозиторий через &lt;code&gt;apt-mirror&lt;/code&gt; для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;apt-cacher-ng&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/apt-mirror.png&#34; alt=&#34;Tux and servers&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Bash on Ubuntu on Windows: первый блин</title>
+      <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
+      <description>&lt;p&gt;Итак, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
+&lt;p&gt;Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png&#34; alt=&#34;Bash on Ubuntu on Windows&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
+      <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
+      <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
+&lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34;&gt;issue про недоступность сборки 14316&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;Инструкция по обновлению на русском&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Показать все окна gnome terminal в Ubuntu</title>
+      <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
+      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
+      <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,
 не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
-При этом терминалы расположены по всему рабочему экрану.&lt;/p>
-&lt;p>Из-за этого была такая проблема: при переключении на браузер или редактор,
-которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p>
-&lt;p>Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
-нажать хоткей и достать все окна этой же программы наверх.&lt;/p></description></item></channel></rss>
+При этом терминалы расположены по всему рабочему экрану.&lt;/p&gt;
+&lt;p&gt;Из-за этого была такая проблема: при переключении на браузер или редактор,
+которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p&gt;
+&lt;p&gt;Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
+нажать хоткей и достать все окна этой же программы наверх.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

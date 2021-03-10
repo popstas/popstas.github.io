@@ -1,4 +1,21 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=/css/fonts.css rel=stylesheet type=text/css><meta property="og:description" content="Проект viasite-ansible/ansible-server подошел к моменту,
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  <meta property="og:description" content="Проект viasite-ansible/ansible-server подошел к моменту,
 когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).
 Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
 поэтому я потратил день я вспомнил, что есть такой тул - Packer
@@ -13,7 +30,45 @@ Packer умеет брать чистую операционку, настраи
 образы идентичные продакшену для локальной разработки
 
 Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами здесь."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/"><meta property="og:title" content="Packer: создаем свои vagrant box и docker image из одного конфига"><meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta name=msapplication-TileColor content="#2b5797"><meta name=theme-color content="#ffffff"><title>Packer: создаем свои vagrant box и docker image из одного конфига - vagrant</title><link rel=stylesheet href=/css/hugo-octopress.css><link rel=stylesheet href=https://blog.popstas.ru/css/custom.css><link rel=stylesheet href=/css/fork-awesome.min.css><link href=https://blog.popstas.ru/favicon.png rel=icon><link href=http://feeds.feedburner.com/popstas rel=alternate type=application/rss+xml title=RSS><meta name=description content="Проект viasite-ansible/ansible-server подошел к моменту,
+Gist с результатами здесь.
+" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/" />
+  <meta property="og:title" content="Packer: создаем свои vagrant box и docker image из одного конфига" />
+  
+  <meta property="og:image" content="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" />
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <title>Packer: создаем свои vagrant box и docker image из одного конфига - vagrant </title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  <link href="http://feeds.feedburner.com/popstas" rel="alternate" type="application/rss+xml" title="RSS" />
+
+  <meta name="description" content="Проект viasite-ansible/ansible-server подошел к моменту,
 когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).
 Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
 поэтому я потратил день я вспомнил, что есть такой тул - Packer
@@ -28,31 +83,152 @@ Packer умеет брать чистую операционку, настраи
 образы идентичные продакшену для локальной разработки
 
 Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами здесь."><meta name=keywords content="vagrant,packer,ansible,ubuntu"><meta name=author content="Stanislav Popov"><meta name=generator content="Hugo 0.66.0"></head><body><header role=banner><hgroup><div class=site-title><a href=https://blog.popstas.ru/><img src=/favicon.png alt=popstas> Popstas</a></div><div></div></hgroup><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value;">
-<option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=http://feeds.feedburner.com/popstas target=_blank type=application/rss+xml title=RSS><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank><fieldset role=search><input class=search type=text name=q results=0 placeholder="Поискать в Google">
-<input type=hidden name=q value=site:https://blog.popstas.ru/></fieldset></form></nav></header><div id=main><div id=content><div><article class=hentry role=article itemscope itemtype=http://schema.org/Article><meta itemprop="author publisher" content="Stanislav Popov"><meta itemprop=mainEntityOfPage content="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/"><header><h1 class=entry-title itemprop=headline>Packer: создаем свои vagrant box и docker image из одного конфига</h1><p class="meta header-date">26.03.2017, 21:30 - 5 мин читать</p></header><div class=entry-content itemprop=articleBody><p>Проект <a href=https://github.com/viasite-ansible/ansible-server>viasite-ansible/ansible-server</a> подошел к моменту,
-когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).</p><p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
-поэтому <del>я потратил день</del> я вспомнил, что есть такой тул - <a href=https://www.packer.io/>Packer</a>
-и решил, что пришло его время.</p><p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
-программах или разворачивания на хостинге.</p><p>Для чего это может пригодиться:</p><ul><li>ускорение тестирования</li><li>б<strong>о</strong>льшая повторяемость, по сравнению с ansible</li><li>образы для продакшена для быстрого развертывания новых серверов</li><li>образы идентичные продакшену для локальной разработки</li></ul><p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами <a href=https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f>здесь</a>.</p><p><img src=/images/2017-03/ansible-packer-docker-vagrant.png alt="ansible with packer to vagrant and docker"></p><p>За основу я взял <a href=https://github.com/geerlingguy/packer-ubuntu-1604>geerlingguy/packer-ubuntu-1604</a>.
-Также смотрел на <a href=https://github.com/chef/bento>chef/bento</a>.</p><h2 id=vagrant-provision-vs-packer-build>Vagrant provision vs Packer build</h2><p>Если брать конкретный момент времени и запустить одновременно <code>vagrant provision</code> и <code>packer build</code> с одним и тем же ansible плейбуком,
-скорее всего результат будет одинаковым. Но:</p><h4 id=почему-не-vagrant-provision>Почему не vagrant provision:</h4><ul><li>В packer время тратится только один раз, а в ansible - при создании каждой машины из образа.</li><li>Со временем запуск ansible будет давать немного разные результаты (программы обновляются),
+Gist с результатами здесь.
+" />
+  <meta name="keywords" content="vagrant, packer, ansible, ubuntu">
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+  
+<hgroup>
+  
+  <div class="site-title"><a href="https://blog.popstas.ru/"><img src="/favicon.png" alt="popstas" /> Popstas</a></div>
+    <div></div>
+</hgroup>
+  
+  <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Поискать в Google"/>
+      <input type="hidden" name="q" value="site:https://blog.popstas.ru/" />
+    </fieldset>
+  </form>
+
+</nav>
+</header>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/">
+        <header>
+          <h1 class="entry-title" itemprop="headline">
+            Packer: создаем свои vagrant box и docker image из одного конфига 
+          </h1>
+          <p class="meta header-date">26.03.2017, 21:30 - 5 мин читать
+          
+
+          </p>
+        </header>
+        <div class="entry-content" itemprop="articleBody">
+          
+          
+          
+          <p>Проект <a href="https://github.com/viasite-ansible/ansible-server">viasite-ansible/ansible-server</a> подошел к моменту,
+когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).</p>
+<p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
+поэтому <del>я потратил день</del> я вспомнил, что есть такой тул - <a href="https://www.packer.io/">Packer</a>
+и решил, что пришло его время.</p>
+<p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
+программах или разворачивания на хостинге.</p>
+<p>Для чего это может пригодиться:</p>
+<ul>
+<li>ускорение тестирования</li>
+<li>б<strong>о</strong>льшая повторяемость, по сравнению с ansible</li>
+<li>образы для продакшена для быстрого развертывания новых серверов</li>
+<li>образы идентичные продакшену для локальной разработки</li>
+</ul>
+<p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
+Gist с результатами <a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь</a>.</p>
+<p><img src="/images/2017-03/ansible-packer-docker-vagrant.png" alt="ansible with packer to vagrant and docker "></p>
+<p>За основу я взял <a href="https://github.com/geerlingguy/packer-ubuntu-1604">geerlingguy/packer-ubuntu-1604</a>.
+Также смотрел на <a href="https://github.com/chef/bento">chef/bento</a>.</p>
+<h2 id="vagrant-provision-vs-packer-build">Vagrant provision vs Packer build</h2>
+<p>Если брать конкретный момент времени и запустить одновременно <code>vagrant provision</code> и <code>packer build</code> с одним и тем же ansible плейбуком,
+скорее всего результат будет одинаковым. Но:</p>
+<h4 id="почему-не-vagrant-provision">Почему не vagrant provision:</h4>
+<ul>
+<li>В packer время тратится только один раз, а в ansible - при создании каждой машины из образа.</li>
+<li>Со временем запуск ansible будет давать немного разные результаты (программы обновляются),
 рано или чуть позже это сломает образ, проблемы начнутся, когда это случится не у того, кто написал плейбук
-и кто просто хотел запустить систему.</li><li>Можно сделать образы сразу для нескольких систем, за счет того, что сборка происходит параллельно, высоки шансы,
-что содержимое образов будет одинаковым.</li><li>На Windows машинах есть проблемы с провиженингом ansible.</li></ul><h2 id=из-чего-состоит-packer>Из чего состоит Packer</h2><p>На самом деле там больше сущностей, перечислю то, с чем столкнулся я.</p><h3 id=provisionershttpswwwpackeriodocstemplatesprovisionershtml><a href=https://www.packer.io/docs/templates/provisioners.html>Provisioners</a></h3><p>Тут все как в Vagrant, provisioners - это то, что ставит все, что нужно, в ваш образ.
+и кто просто хотел запустить систему.</li>
+<li>Можно сделать образы сразу для нескольких систем, за счет того, что сборка происходит параллельно, высоки шансы,
+что содержимое образов будет одинаковым.</li>
+<li>На Windows машинах есть проблемы с провиженингом ansible.</li>
+</ul>
+<h2 id="из-чего-состоит-packer">Из чего состоит Packer</h2>
+<p>На самом деле там больше сущностей, перечислю то, с чем столкнулся я.</p>
+<h3 id="provisionershttpswwwpackeriodocstemplatesprovisionershtml"><a href="https://www.packer.io/docs/templates/provisioners.html">Provisioners</a></h3>
+<p>Тут все как в Vagrant, provisioners - это то, что ставит все, что нужно, в ваш образ.
 Я пользуюсь
-<a href=https://www.packer.io/docs/provisioners/shell.html>shell</a> и
-<a href=https://www.packer.io/docs/provisioners/ansible-local.html>ansible-local</a>.</p><h3 id=buildershttpswwwpackeriodocstemplatesbuildershtml><a href=https://www.packer.io/docs/templates/builders.html>Builders</a></h3><p>Builders определяют выходные форматы образов.
-OpenStack, AWS, Digital Ocean и других хостингов.</p><p>А еще можно <del>грабить корованы</del> собирать Docker контейнеры. Это удобно тем,
-что можно в одном конфиге описать сборку vagrant box и docker image и использовать то и другое по необходимости.</p><p>Необходимость у меня такая: docker образы меньше весят (спасибо слоям) и запускаются мгновенно (2 секунды против 1.5 минут в Vagrant).
-С другой стороны, не все роли можно протестировать в Docker. А еще мне кажется, что в среднем программистам проще работать с Vagrant.</p><p>Я использую
-<a href=https://www.packer.io/docs/builders/virtualbox.html>virtualbox</a> и
-<a href=https://www.packer.io/docs/builders/docker.html>docker</a>.</p><h3 id=post-rocessorshttpswwwpackeriodocstemplatespost-processorshtml><a href=https://www.packer.io/docs/templates/post-processors.html>Post-rocessors</a></h3><p>Пост-процессоры запаковывают получившиеся артефакты в разные форматы, публикуют их.
-Здесь можно протегировать образ, запушить образы в vagrant cloud и в docker hub.</p><p>Я использую
-<a href=https://www.packer.io/docs/post-processors/vagrant.html>vagrant</a> и
-<a href=https://www.packer.io/docs/post-processors/docker-tag.html>docker tag</a>.</p><h2 id=packer-build>packer build</h2><p>Всю магию делает <code>packer build ubuntu1604.json</code>. Полезные аргументы:</p><ul><li><code>--only=docker</code>, <code>--only=virtualbox-iso</code> - полезно для тестирования одного из builders</li><li><code>--on-error=ask</code> - позволяет перед убийством виртуалки залезть в нее и посмотреть, что пошло не так</li></ul><p>Перед запуском нужно скачать дистрибутив Ubuntu и положить его туда, куда указывает <code>iso_urls</code> в настройках билдера.
-Итак, запускаем&mldr;</p><h2 id=грабли-при-packer-build>Грабли при packer build</h2><h3 id=warning-authentication-failure-retrying>Warning: Authentication failure. Retrying&mldr;</h3><p>После первой удачной сборки при <code>vagrant up</code> получил такую ошибку:</p><pre><code>==&gt; default: Waiting for machine to boot. This may take a few minutes...
+<a href="https://www.packer.io/docs/provisioners/shell.html">shell</a> и
+<a href="https://www.packer.io/docs/provisioners/ansible-local.html">ansible-local</a>.</p>
+<h3 id="buildershttpswwwpackeriodocstemplatesbuildershtml"><a href="https://www.packer.io/docs/templates/builders.html">Builders</a></h3>
+<p>Builders определяют выходные форматы образов.
+OpenStack, AWS, Digital Ocean и других хостингов.</p>
+<p>А еще можно <del>грабить корованы</del> собирать Docker контейнеры. Это удобно тем,
+что можно в одном конфиге описать сборку vagrant box и docker image и использовать то и другое по необходимости.</p>
+<p>Необходимость у меня такая: docker образы меньше весят (спасибо слоям) и запускаются мгновенно (2 секунды против 1.5 минут в Vagrant).
+С другой стороны, не все роли можно протестировать в Docker. А еще мне кажется, что в среднем программистам проще работать с Vagrant.</p>
+<p>Я использую
+<a href="https://www.packer.io/docs/builders/virtualbox.html">virtualbox</a> и
+<a href="https://www.packer.io/docs/builders/docker.html">docker</a>.</p>
+<h3 id="post-rocessorshttpswwwpackeriodocstemplatespost-processorshtml"><a href="https://www.packer.io/docs/templates/post-processors.html">Post-rocessors</a></h3>
+<p>Пост-процессоры запаковывают получившиеся артефакты в разные форматы, публикуют их.
+Здесь можно протегировать образ, запушить образы в vagrant cloud и в docker hub.</p>
+<p>Я использую
+<a href="https://www.packer.io/docs/post-processors/vagrant.html">vagrant</a> и
+<a href="https://www.packer.io/docs/post-processors/docker-tag.html">docker tag</a>.</p>
+<h2 id="packer-build">packer build</h2>
+<p>Всю магию делает <code>packer build ubuntu1604.json</code>. Полезные аргументы:</p>
+<ul>
+<li><code>--only=docker</code>, <code>--only=virtualbox-iso</code> - полезно для тестирования одного из builders</li>
+<li><code>--on-error=ask</code> - позволяет перед убийством виртуалки залезть в нее и посмотреть, что пошло не так</li>
+</ul>
+<p>Перед запуском нужно скачать дистрибутив Ubuntu и положить его туда, куда указывает <code>iso_urls</code> в настройках билдера.
+Итак, запускаем&hellip;</p>
+<h2 id="грабли-при-packer-build">Грабли при packer build</h2>
+<h3 id="warning-authentication-failure-retrying">Warning: Authentication failure. Retrying&hellip;</h3>
+<p>После первой удачной сборки при <code>vagrant up</code> получил такую ошибку:</p>
+<pre><code>==&gt; default: Waiting for machine to boot. This may take a few minutes...
     default: SSH address: 127.0.0.1:2200
     default: SSH username: vagrant
     default: SSH auth method: private key
@@ -60,10 +236,13 @@ OpenStack, AWS, Digital Ocean и других хостингов.</p><p>А ещ�
     default: Warning: Authentication failure. Retrying...
     default: Warning: Authentication failure. Retrying...
 </code></pre><p>При этом через <code>vagrant ssh</code> можно зайти с паролем <code>vagrant</code>.
-Решение я позаимствовал у <a href=https://github.com/chef/bento/blob/master/scripts/ubuntu/vagrant.sh>chef/bento</a>,
-нужно добавить insecure public key в authorized_keys юзера:</p><pre><code>mkdir ~/.ssh
+Решение я позаимствовал у <a href="https://github.com/chef/bento/blob/master/scripts/ubuntu/vagrant.sh">chef/bento</a>,
+нужно добавить insecure public key в authorized_keys юзера:</p>
+<pre><code>mkdir ~/.ssh
 curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub &gt;&gt; ~/.ssh/authorized_keys
-</code></pre><h3 id=vagrant-was-unable-to-mount-virtualbox-shared-folders>Vagrant was unable to mount VirtualBox shared folders</h3><p>После исправления прошлой проблемы появилась новая:</p><pre><code>==&gt; default: Mounting shared folders...
+</code></pre><h3 id="vagrant-was-unable-to-mount-virtualbox-shared-folders">Vagrant was unable to mount VirtualBox shared folders</h3>
+<p>После исправления прошлой проблемы появилась новая:</p>
+<pre><code>==&gt; default: Mounting shared folders...
     default: /vagrant =&gt; /Users/popstas/projects/ansible/viasite-ansible/temp
 Vagrant was unable to mount VirtualBox shared folders. This is usually
 because the filesystem &quot;vboxsf&quot; is not available. This filesystem is
@@ -77,33 +256,270 @@ mount -t vboxsf -o uid=900,gid=900 vagrant /vagrant
 The error output from the command was:
 
 mount: unknown filesystem type 'vboxsf'
-</code></pre><p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-  <span style=color:#f92672>&#34;builders&#34;</span>: [
+</code></pre><p>Понятно, что проблема в отсутствии VirtualBox Guest Additions внутри образа. Это странно, потому что в конфиге есть строчки:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;builders&#34;</span>: [
     {
-      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;virtualbox-iso&#34;</span>,
-      <span style=color:#f92672>&#34;guest_additions_path&#34;</span>: <span style=color:#e6db74>&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
+      <span style="color:#f92672">&#34;guest_additions_path&#34;</span>: <span style="color:#e6db74">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>
     }
   ]
 }
-</code></pre></div><p>После чтения <a href=https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path>доки</a> стало понятно,
-что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:</p><pre><code>sudo apt-get install virtualbox-guest-utils --no-install-recommends
+</code></pre></div><p>После чтения <a href="https://www.packer.io/docs/builders/virtualbox-iso.html#guest_additions_path">доки</a> стало понятно,
+что это просто закачивает в образ iso, но не ставит его. Не понял, как это работает у geerlingguy и bento, но для себя решил так:</p>
+<pre><code>sudo apt-get install virtualbox-guest-utils --no-install-recommends
 </code></pre><p>Хотя чуть позже вычитал у Express 42
-<a href=https://github.com/express42-cookbooks/testo/blob/master/packer/scripts/postinstall.sh#L20-L24>как поставить из iso</a>,
-лично я не вижу ничего плохого в установке из пакетов.</p><h3 id=can-only-tag-from-docker-builder-artifacts-unknown-artifact-type-mitchellhvirtualbox-could-not-open-lock-file-varlibdpkglock>Can only tag from Docker builder artifacts, Unknown artifact type: mitchellh.virtualbox, Could not open lock file /var/lib/dpkg/lock</h3><p>Причиной этих ошибок было то, что по умолчанию все provisioners и post-processors применяются ко всем builders.
-Так как vagrant и docker отличаются, понадобилось внести изменения:</p><ul><li>внутри скриптов добавлены условия, например, <code>if [ -d /home/vagrant ]</code></li><li>в provisioners и post-processors были вписаны <code>"only": ["virtualbox-iso"]</code> и <code>"only": ["docker"]</code> куда надо</li><li>в shell provisioners была дописана строчка с <code>override</code>, которая запускает скрипт от имени vagrant и не влияет на docker builder:</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-  <span style=color:#f92672>&#34;provisioners&#34;</span>: [
+<a href="https://github.com/express42-cookbooks/testo/blob/master/packer/scripts/postinstall.sh#L20-L24">как поставить из iso</a>,
+лично я не вижу ничего плохого в установке из пакетов.</p>
+<h3 id="can-only-tag-from-docker-builder-artifacts-unknown-artifact-type-mitchellhvirtualbox-could-not-open-lock-file-varlibdpkglock">Can only tag from Docker builder artifacts, Unknown artifact type: mitchellh.virtualbox, Could not open lock file /var/lib/dpkg/lock</h3>
+<p>Причиной этих ошибок было то, что по умолчанию все provisioners и post-processors применяются ко всем builders.
+Так как vagrant и docker отличаются, понадобилось внести изменения:</p>
+<ul>
+<li>внутри скриптов добавлены условия, например, <code>if [ -d /home/vagrant ]</code></li>
+<li>в provisioners и post-processors были вписаны <code>&quot;only&quot;: [&quot;virtualbox-iso&quot;]</code> и <code>&quot;only&quot;: [&quot;docker&quot;]</code> куда надо</li>
+<li>в shell provisioners была дописана строчка с <code>override</code>, которая запускает скрипт от имени vagrant и не влияет на docker builder:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;provisioners&#34;</span>: [
     {
-      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;shell&#34;</span>,
-      <span style=color:#f92672>&#34;script&#34;</span>: <span style=color:#e6db74>&#34;packer/scripts/ansible.sh&#34;</span>,
-      <span style=color:#f92672>&#34;override&#34;</span>: {
-        <span style=color:#f92672>&#34;virtualbox-iso&#34;</span>: {
-          <span style=color:#f92672>&#34;execute_command&#34;</span>: <span style=color:#e6db74>&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -S -E bash &#39;{{.Path}}&#39;&#34;</span>
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#e6db74">&#34;packer/scripts/ansible.sh&#34;</span>,
+      <span style="color:#f92672">&#34;override&#34;</span>: {
+        <span style="color:#f92672">&#34;virtualbox-iso&#34;</span>: {
+          <span style="color:#f92672">&#34;execute_command&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -S -E bash &#39;{{.Path}}&#39;&#34;</span>
         }
       }
     },
 
-</code></pre></div><h3 id=сборка-docker-застывала-в-конце>Сборка Docker застывала в конце</h3><p>Не понял, с чем это связано, но заствала она на <code>apt autoremove</code>, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.</p><h2 id=итог>Итог</h2><p>Я получил готовый vagrant box, из которого можно поднять виртуалку за 1.5 минуты или контейнер за секунду, вместо 10 минут. Profit!</p></div><footer><p class=meta><time itemprop=datePublished content="2017-03-26T21:30:00UTC">26 Mar 2017, 21:30</time>
-<span class=categories>, теги:
-<a class=category href=https://blog.popstas.ru/tags/vagrant>vagrant</a><meta itemprop=about content="vagrant"><a class=category href=https://blog.popstas.ru/tags/packer>packer</a><meta itemprop=about content="packer"><a class=category href=https://blog.popstas.ru/tags/ansible>ansible</a><meta itemprop=about content="ansible"><a class=category href=https://blog.popstas.ru/tags/ubuntu>ubuntu</a><meta itemprop=about content="ubuntu"></span></p><div class=sharing><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a href=https://www.addtoany.com/share></a><a class=a2a_button_vk></a><a class=a2a_button_twitter></a><a class=a2a_button_telegram></a><a class=a2a_button_whatsapp></a><a class=a2a_button_facebook></a></div><script>var a2a_config=a2a_config||{};a2a_config.locale="ru";a2a_config.color_main="undefined";a2a_config.color_border="undefined";a2a_config.color_link_text="undefined";a2a_config.color_link_text_hover="undefined";a2a_config.color_bg="undefined";a2a_config.color_arrow="undefined";a2a_config.color_arrow_hover="undefined";a2a_config.prioritize=["vk","twitter","telegram","whatsapp","facebook"];a2a_config.templates=a2a_config.templates||{};a2a_config.templates.whatsapp={text:'${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'};a2a_config.templates.telegram={title:'',text:'${title} - ${link}?utm_medium=messenger&utm_source=telegram'};</script><script async src=https://static.addtoany.com/menu/page.js></script></div><p class=meta><div>Новее: <a class=related href=https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/ title="Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a></div><div>Старее: <a class=related href=https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/ title="Продублировать последний аргумент текущей команды в zsh, zle widget">Продублировать последний аргумент текущей команды в zsh, zle widget</a></div></p></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p><p>Обновления через <a href=https://tglink.ru/popstas_vk_wall>Telegram</a> или <a href=http://feeds.feedburner.com/popstas>RSS</a></p><p><a href=https://www.tinkoff.ru/sl/83wd1FGIcMR>Поблагодарить меня</a></p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank href=https://github.com/popstas/ title=https://github.com/popstas/><i class="fa fa-github fa-3x"></i></a><a target=_blank href=https://twitter.com/popstas/ title=https://twitter.com/popstas/><i class="fa fa-twitter fa-3x"></i></a><a target=_blank href="tg://resolve?domain=popstas" title=popstas><i class="fa fa-telegram fa-3x"></i></a><a target=_blank href=mailto:popstas@gmail.com title=popstas@gmail.com><i class="fa fa-at fa-3x"></i></a></li></ul><section class=even><div class=sidebar-title>Последние посты:</div><ul id=recent_posts><li class=post><a href=/navigator/>Навигатор</a></li><li class=post><a href=/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/>Содержание книги Барбары Оакли «Думай как математик»</a></li><li class=post><a href=/blog/2021/01/17/new-year-2020/>Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a></li><li class=post><a href=/blog/2021/01/16/github-projects-2020/>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a></li><li class=post><a href=/blog/2021/01/10/smarthome-2020/>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a></li><li class=post><a href=/blog/2021/01/06/content-2020/>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a></li><li class=post><a href=/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/>Содержание книги Элияху Голдратта «Критическая цепь»</a></li><li class=post><a href=/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/>Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a></li><li class=post><a href=/blog/2020/04/16/books-70/>Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2015-2021 Stanislav Popov -
-<span class=credit>Powered by <a target=_blank href=https://gohugo.io>Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/>Hugo-Octopress</a> theme.</p></footer><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WPJWVXB');</script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/custom.js></script><script type=text/javascript>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(51681281,"init",{id:51681281,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script><noscript><div><img src=https://mc.yandex.ru/watch/51681281 style=position:absolute;left:-9999px alt></div></noscript></body></html>
+</code></pre></div><h3 id="сборка-docker-застывала-в-конце">Сборка Docker застывала в конце</h3>
+<p>Не понял, с чем это связано, но заствала она на <code>apt autoremove</code>, не стал разбираться ради экономии 20 мб, просто убрал этот шаг.</p>
+<h2 id="итог">Итог</h2>
+<p>Я получил готовый vagrant box, из которого можно поднять виртуалку за 1.5 минуты или контейнер за секунду, вместо 10 минут. Profit!</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <time itemprop="datePublished" content="2017-03-26T21:30:00UTC">26 Mar 2017, 21:30</time>
+    
+      <span class="categories">
+        , теги:
+        
+          <a class="category" href="https://blog.popstas.ru/tags/vagrant">vagrant</a><meta itemprop="about" content="vagrant">  <a class="category" href="https://blog.popstas.ru/tags/packer">packer</a><meta itemprop="about" content="packer">  <a class="category" href="https://blog.popstas.ru/tags/ansible">ansible</a><meta itemprop="about" content="ansible">  <a class="category" href="https://blog.popstas.ru/tags/ubuntu">ubuntu</a><meta itemprop="about" content="ubuntu">  
+    
+    </span>
+  </p>
+
+  <div class="sharing">
+    
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_vk"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_facebook"></a>
+    </div>
+    <script>
+      var a2a_config = a2a_config || {};
+      a2a_config.locale = "ru";
+      a2a_config.color_main = "undefined";
+      a2a_config.color_border = "undefined";
+      a2a_config.color_link_text = "undefined";
+      a2a_config.color_link_text_hover = "undefined";
+      a2a_config.color_bg = "undefined";
+      a2a_config.color_arrow = "undefined";
+      a2a_config.color_arrow_hover = "undefined";
+      a2a_config.prioritize = ["vk", "twitter", "telegram", "whatsapp", "facebook"];
+
+      a2a_config.templates = a2a_config.templates || {};
+      a2a_config.templates.whatsapp = {
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'
+      };
+      a2a_config.templates.telegram = {
+        title: '',
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=telegram'
+      };
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    
+  </div>
+  
+
+  
+
+  <p class="meta">
+    
+        <div>Новее: <a class="related" href="https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/" title="Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE">Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</a></div>
+    
+
+    
+        <div>Старее: <a class="related" href="https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/" title="Продублировать последний аргумент текущей команды в zsh, zle widget">Продублировать последний аргумент текущей команды в zsh, zle widget</a></div>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <p>Обновления через <a href="https://tglink.ru/popstas_vk_wall">Telegram</a> или <a href="http://feeds.feedburner.com/popstas">RSS</a></p>
+<p><a href="https://www.tinkoff.ru/sl/83wd1FGIcMR">Поблагодарить меня</a></p>
+
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <div class="sidebar-title">Последние посты:</div>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="/navigator/">Навигатор</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/">Содержание книги Барбары Оакли «Думай как математик»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/17/new-year-2020/">Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/16/github-projects-2020/">Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/10/smarthome-2020/">Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/06/content-2020/">Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/">Содержание книги Элияху Голдратта «Критическая цепь»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/">Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/16/books-70/">Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2015-2021 Stanislav Popov -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+
+  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
+  
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/custom.js"></script>
+
+  
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(51681281, "init", {
+        id:51681281,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  
+
+  </body>
+</html>
+

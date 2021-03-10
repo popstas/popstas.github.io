@@ -1,8 +1,560 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=/css/fonts.css rel=stylesheet type=text/css><meta property="og:description" content><meta property="og:type" content="article"><meta property="og:url" content="https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/"><meta property="og:title" content="Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс"><meta property="og:image" content="https://blog.popstas.ru/images/2020/github/popstas-github.svg"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta name=msapplication-TileColor content="#2b5797"><meta name=theme-color content="#ffffff"><title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс - github</title><link rel=stylesheet href=/css/hugo-octopress.css><link rel=stylesheet href=https://blog.popstas.ru/css/custom.css><link rel=stylesheet href=/css/fork-awesome.min.css><link href=https://blog.popstas.ru/favicon.png rel=icon><link href=http://feeds.feedburner.com/popstas rel=alternate type=application/rss+xml title=RSS><meta name=description content><meta name=keywords content="github,projects,nodejs,mqtt,tinkoff,planfix,javascript,vue"><meta name=author content="Stanislav Popov"><meta name=generator content="Hugo 0.66.0"></head><body><header role=banner><hgroup><div class=site-title><a href=https://blog.popstas.ru/><img src=/favicon.png alt=popstas> Popstas</a></div><div></div></hgroup><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value;">
-<option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=http://feeds.feedburner.com/popstas target=_blank type=application/rss+xml title=RSS><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank><fieldset role=search><input class=search type=text name=q results=0 placeholder="Поискать в Google">
-<input type=hidden name=q value=site:https://blog.popstas.ru/></fieldset></form></nav></header><div id=main><div id=content><div><article class=hentry role=article itemscope itemtype=http://schema.org/Article><meta itemprop="author publisher" content="Stanislav Popov"><meta itemprop=mainEntityOfPage content="https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/"><header><h1 class=entry-title itemprop=headline>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</h1><p class="meta header-date">16.01.2021, 23:50 - 10 мин читать</p></header><div class=entry-content itemprop=articleBody><p><img src=/images/2020/github/popstas-github.svg alt="Дом, поделенный на зоны"></p><div class=contents data-header=h2><div>Оглавление:</div><ul class=contents-data></ul></div><div class="spoiler panel panel-default"><div class=panel-heading><a class="spoiler-link collapsed" data-toggle=collapse style=display:block href=#spoiler196>Немного статистики</a></div><div class="panel-collapse collapse" id=spoiler196><div class=panel-body><p>Этот год был активным, 1204 контрибьюта, круче было только <a href=/blog/2018/12/30/my-github-2018/>в 2018</a>.</p><p><img src=/images/2020/github/popstas-github.svg alt="popstas&rsquo;s github stats"></p><p>Закрыл почти все issues, некоторые висели дольше 2 лет.</p><p>По языкам: становится всё больше JavaScript.</p><h4 id=звёзды>Звёзды</h4><p>Появился второй проект с 100+ звезд - <a href=https://github.com/popstas/zsh-command-time>zsh-command-time</a>. Он показывает время выполнения команд в терминале zsh. Проект для меня интересен тем, что звёзд у него больше, чем строк кода.</p><p><a href=https://github.com/viasite-ansible/ansible-role-zsh>ansible-role-zsh</a> остаётся №1 по запросу &ldquo;<a href="https://www.google.ru/search?q=ansible+zsh">ansible zsh</a>", поддерживаю его.</p><h4 id=5-месяцев-коммитил-каждый-день>5 месяцев коммитил каждый день</h4><p>В апреле случайно начал череду ежедневных коммитов, когда заметил, было уже около 2 недель. Продолжил этот челлендж, получился непрерывный период с 9 апреля по 12 сентября (5 месяцев).</p><p>На меня такие штуки влияют, естественно, активность от этого повышается, причём не только в коде: блог и аккорды тоже лежат на Github, так что добавить новую песню или статью тоже считается за активность :)</p><p><img src=/images/2020/github-commits-2020.png alt=github-commits-2020></p><p>Wakatime 2020:
-<img src=/images/2020/wakatime-2020.png alt="Wakatime 2020"></p></div></div></div><h2 id=умный-дом>Умный дом</h2><p>Вынес в отдельный пост - <a href=/blog/2021/01/10/smarthome-2020/>Мой умный дом 2020</a>.</p><p>Там описаны проекты:</p><ul><li><a href=https://github.com/popstas/mqtt2tts>mqtt2tts</a> - озвучка сообщений, пришедших по MQTT (Windows, Linux)</li><li><a href=https://github.com/popstas/windows-mqtt>windows-mqtt</a> - управление Windows компом по MQTT</li><li><a href=https://github.com/popstas/strava-mqtt>strava-mqtt</a> - передача инфы о тренировках в MQTT</li><li><a href=https://github.com/popstas/mongoose-redmond-rcm-1512-mqtt>mongoose-redmond-rcm-1512-mqtt</a> - управление кофеваркой Redmond RCM-1512</li><li><a href=https://github.com/popstas/mongoose-mqtt-ssd1306>mongoose-mqtt-ssd1306</a> - вывод инфы на экранчик</li><li><a href=https://github.com/popstas/mongoose-mlx90614>mongoose-mlx90614</a> - бесконтактный термометр (для очень горячего)</li><li><a href=https://github.com/popstas/mongoose-button>mongoose-button</a> - разные датчики (в частности освещение)</li><li><a href=https://github.com/popstas/yandex-dialogs-smarthome-mqtt>yandex-dialogs-smarthome-mqtt</a> - управление MQTT устройствами через Алису</li></ul><h3 id=новые-проекты>Новые проекты:</h3><ul><li><a href=https://github.com/popstas/windows-mqtt>windows-mqtt</a></li><li><a href=https://github.com/popstas/strava-mqtt>strava-mqtt</a></li><li><a href=https://github.com/popstas/mongoose-redmond-rcm-1512-mqtt>mongoose-redmond-rcm-1512-mqtt</a></li><li><a href=https://github.com/popstas/mongoose-mqtt-ssd1306>mongoose-mqtt-ssd1306</a></li><li><a href=https://github.com/popstas/mongoose-mlx90614>mongoose-mlx90614</a></li><li><a href=https://github.com/popstas/tinkoff-invest-stats>tinkoff-invest-stats</a></li><li><a href=https://github.com/viasite/site-audit-seo>viasite/site-audit-seo</a></li><li><a href=https://github.com/viasite/site-audit-seo-viewer>viasite/site-audit-seo-viewer</a></li><li><a href=https://github.com/viasite/planfix-tools>viasite/planfix-tools</a></li><li><a href=https://github.com/viasite/tinkoff-openapi-payments-to-planfix>viasite/tinkoff-openapi-payments-to-planfix</a></li><li><a href=https://github.com/viasite/yandex-metrika>viasite/yandex-metrika</a></li></ul><p>Ниже подробнее о каждом проекте.</p><h2 id=сканер-сайтов-site-audit-seo>Сканер сайтов, site-audit-seo</h2><p><a href=https://github.com/viasite/site-audit-seo>viasite/site-audit-seo</a>, <a href=https://github.com/viasite/site-audit-seo-viewer>viasite/site-audit-seo-viewer</a></p><p><img src="https://github-readme-stats.vercel.app/api/pin/?username=viasite&show_owner=true&repo=site-audit-seo" alt=site-audit-seo></p><ul><li>Язык: JavaScript (NodeJS + Vue)</li><li>Особенности: Websockets, CLI + Web</li></ul><p>Если взять все проекты за год, то примерно половина трудозатрат пришлась на site-audit-seo.</p><p>Я несколько лет хотел написать более лучшую версию <a href=http://home.snafu.de/tilman/xenulink.html>Xenu</a>. Результаты превзошли мои ожидания :)</p><p>Получился сервис, похожий на <a href=https://ru.semrush.com/>Semrush</a>.</p><p>Посмотреть можно здесь - <a href=https://viasite.github.io/site-audit-seo-viewer/scan/>Site-audit-seo: Scan</a>.</p><p>В конце года нашёлся чувак из инета, который подключился к проекту и прислал несколько крутых фич: выделение главного контента, анализ ключевиков, объёма страницы.</p><p>Планирую дальше развивать этот проект.</p><div class="spoiler panel panel-default"><div class=panel-heading><a class="spoiler-link collapsed" data-toggle=collapse style=display:block href=#spoiler783>История появления site-audit-seo</a></div><div class="panel-collapse collapse" id=spoiler783><div class=panel-body><h3 id=01---первая-рабочая-версия-окупилась-сразу>0.1 - Первая рабочая версия окупилась сразу</h3><p>В марте пришла задача: нужно было проверить 25 сайтов и посчитать, сколько на них страниц и документов для скачивания. Я решил превратить рутинную задачу в интересную и написал скрипт для этого.</p><p><a href=https://github.com/viasite/site-audit-seo/tree/de18f1eb16f4e55c3b89559b86fe0eec9ee0a2af>Первая версия</a> содержала чуть больше 100 строк и умела создават CSV таблицу с данными всех страниц сайта.</p><p>По времени это заняло чуть больше времени, чем проверить 25 сайтов вручную, зато я получил основу инструмента.</p><h3 id=10---обгоняем-xenu>1.0 - Обгоняем Xenu</h3><p>Через неделю у меня был скрипт, который был лучше Xenu:</p><ul><li>Учитывал специфику наших сайтов</li><li>Выдавал больше данных о страницах</li></ul><h3 id=20---cli-утилита-command-line-interface>2.0 - CLI утилита (command line interface)</h3><p>Через месяц превратил скрипт в программу, которая запускается из терминала, параметрами указываются условия сканирования.</p><p>Появились новые данные о страницах, подсмотренные в другом сканере <a href=https://www.screamingfrog.co.uk/seo-spider/>Frog SEO Spider</a>.</p><h3 id=подсветка-ошибок>Подсветка ошибок</h3><p>После этого сделал сохранение в Excel и стал раскрашивать таблицу, чтобы можно было посмотреть на неё и быстро увидеть проблемные страницы.</p><h3 id=данные-lighthouse>Данные Lighthouse</h3><p>Добавил возможность анализировать каждую страницу через Lighthouse (технология, на которой работает Google PageSpeed). Это позволило отслеживать изменения скорости глобально по сайту, а не только по паре страниц.</p><h3 id=30---веб-интерфейс-просмотра-результатов>3.0 - Веб интерфейс просмотра результатов</h3><p>Через полгода произошёл переход от Excel к веб-смотрелке результатов. Теперь данные сохраняются в JSON и выводятся в интерактивной таблице с фильтрами, сортировками и т.д.</p><p>Интерактивная смотрелка JSON у меня уже была, но она выводила более глобальные данные: 1 ряд = 1 сайт.</p><p>Я унифицировал смотрелку и выложил её отдельным проектом <a href=https://github.com/viasite/site-audit-seo-viewer>viasite/site-audit-seo-viewer</a>. С этого момента ценность смотрелки выросла, она стала приносить пользу сразу двум проектам.</p><p>Появилась возможность собирать много данных: если в Excel смотреть 100 колонок неудобно, то в веб-смотрелке были наборы полей, стало можно собирать 100 колонок, а выводить только 5-10 нужных в данный момент.</p><p>Появились прямые ссылки на результаты анализа.</p><p>В таком виде она потихоньку улучшалась до декабря.</p><h3 id=40---веб-сервис-для-сканирования>4.0 - Веб-сервис для сканирования</h3><p>В декабре на Github пришёл чувак и <a href=https://github.com/viasite/site-audit-seo/issues/6>спросил</a>, нельзя ли сделать запуск по HTTP запросу. Через час была готова первая версия, через неделю первая веб-сканилка:</p><p><img src=https://user-images.githubusercontent.com/3027126/102402181-3817d700-4006-11eb-952c-75e962aa0d28.gif alt="web interface MVP"></p><p>И за последние 2 недели год проект полностью переехал из командной строки в браузер и обрёл человеческий вид:</p><p><img src=/images/2020/site-audit-seo-scan.gif alt=site-audit-seo-scan></p></div></div></div><h2 id=графики-портфеля-акций-в-тинькофф>Графики портфеля акций в Тинькофф</h2><p><a href=https://github.com/popstas/tinkoff-invest-stats>tinkoff-invest-stats</a></p><ul><li>Язык: JavaScript (NodeJS)</li><li>Особенности: отправка данных в MQTT или в InfluxDB</li></ul><p>Сделал вывод данных портфеля на графики, чтобы пореже заглядывать в приложение и чтобы получить больше данных.</p><p>Корреляция рублёвых (жёлтый) и долларовых (зелёный) акций:</p><p><img src=/images/2020/tinkoff-correlation.png alt=tinkoff-correlation></p><p>Портфель по бумагам, каждый цвет - отдельная бумага:</p><p><img src=/images/2020/tinkoff-portfolio.png alt=tinkoff-portfolio></p><p>Изменение стоимости бумаг в портфеле, можно навести мышку и посмотреть, почему именно вырос/упал портфель:</p><p><img src=/images/2020/tinkoff-diff.png alt=tinkoff-diff></p><p>Технически это скрипт, который раз в час получает данные портфеля и отправляет в MQTT.</p><p>Проект также позволяет получать котировки выбранных акций, я использую это, чтобы выводить интересующие в данный момент акции на экранчик:</p><img loading=lazy src="https://lh3.googleusercontent.com/pw/ACtC-3eJBCeD0jCts-lb7trE5BiQTP9C2sjB3Xu1B5WSAHgztusi57HMw1TxErP7kI7CB9IsVmeVVuF5Z2q3_NZpsyuhjl6BtqXyDIH7GWB2wYJ2sCSHOX7zGwrpvfO43860nQH4uy90uz-qHp6OwBc3R36Exw=w1424-h1068-no?authuser=0" title="Экранчик про биржу" alt="Экранчик про биржу"><h2 id=платежи-тинькофф-в-планфикс>Платежи Тинькофф в Планфикс</h2><p><a href=https://github.com/viasite/tinkoff-openapi-payments-to-planfix>viasite/tinkoff-openapi-payments-to-planfix</a></p><ul><li>Язык: JavaScript (NodeJS)</li><li>Особенности: кеширует данные прошлых поступлений в lowDB (раньше использовал LokiJS)</li></ul><p>Тинькофф не умеет отправлять уведомления о поступлениях на почту (этого хватило бы, чтобы сделать интеграцию). Пришлось написать этот проект, он перекладывает новые данные из банка в систему задач.</p><h2 id=инструменты-для-планфикса>Инструменты для Планфикса</h2><p><a href=https://github.com/viasite/planfix-tools>viasite/planfix-tools</a></p><ul><li>Язык: JavaScript (NodeJS)</li><li>Особенности: содержит код для работы с Планфикс API на NodeJS, в инете не нашёл такого</li></ul><p>Проект умеет:</p><ul><li>Вписывать данные в контрагентов (для ежемесячного обновления инфы о клиентах)</li><li>Формировать прайс в json из справочника цен</li><li>Массово обновлять цены в прайсе</li><li>Отправлять в MQTT количество активных/закрытых задач (для личного Планфикса)</li></ul><h2 id=быстрые-ссылки-для-яндексметрики>Быстрые ссылки для Яндекс.Метрики</h2><p><a href=https://github.com/viasite/yandex-metrika>viasite/yandex-metrika</a></p><ul><li>Язык: PHP</li><li>Особенности: использует API Яндекс.Метрики</li></ul><p>Я часто смотрю Метрику наших клиентов. Для ускорения сделал отдельную страничку, где можно в 2 клика открыть нужный отчёт по нужному клиенту или перейти в его Яндекс.Вебмастер.</p><p>Выглядит так:</p><p><img src=/images/2020/yandex-metrika.png alt=viasite/yandex-metrika></p><p>Умеет формировать данные по сайту для формирования сводного отчёта (данные вставляются в Google Sheets, на выходе PDF).</p><h2 id=обновления-в-старых-проектах>Обновления в старых проектах</h2><h3 id=коллекция-аккордов>Коллекция аккордов</h3><p><a href=https://github.com/popstas/chords-viewer>popstas/chords-viewer</a></p><p>В <a href=https://chords.popstas.ru/>сборнике аккордов</a> появились новые фичи:</p><ul><li>Быстрый переход к жанру или исполнителю</li><li>Счётчик просмотров (у каждого свой)</li><li>Появилась авторизация (через неё сохраняются просмотры)</li><li>Сортировка по просмотрам</li><li>Появился вывод аппликатур аккордов без наведения</li><li>Добавилось жанров</li><li>Убрались лишние элементы</li></ul><p>В июле сделал авторизацию, получилось красиво: вход через Google, хранение данных о просмотрах в Google Firebase, приложение по-прежнему без серверной части и может работать без интернета.</p><h3 id=интеграция-планфикса-и-toggl>Интеграция Планфикса и Toggl</h3><p><a href=https://github.com/viasite/planfix-toggl-server>viasite/planfix-toggl-server</a></p><p>Интеграцию Планфикса и Toggl довёл до состояния, когда ей можно пользоваться любому человеку. Снял видеоинструкцию по установке и настройке.</p><h3 id=дополнение-для-планфикса>Дополнение для Планфикса</h3><p><a href=https://github.com/viasite/userscript-planfixfix>viasite/userscript-planfixfix</a></p><p>Расширение (юзерскрипт) получило новые фичи:</p><ul><li>Формирование письма со сметой из аналитик</li><li>Быстрая вставка шаблонов в письма</li><li>Убирание сворачивания комментов в планфиксе</li><li>Отправка данных о непрочитанных в хронике для вывода на график</li><li>Всегда показывать аватарки адресатов в новом интерфейсе Планфикса</li></ul></div><footer><p class=meta><time itemprop=datePublished content="2021-01-16T23:50:00+0600">16 Jan 2021, 23:50</time>
-<span class=categories>, теги:
-<a class=category href=https://blog.popstas.ru/tags/github>github</a><meta itemprop=about content="github"><a class=category href=https://blog.popstas.ru/tags/projects>projects</a><meta itemprop=about content="projects"><a class=category href=https://blog.popstas.ru/tags/nodejs>nodejs</a><meta itemprop=about content="nodejs"><a class=category href=https://blog.popstas.ru/tags/mqtt>mqtt</a><meta itemprop=about content="mqtt"><a class=category href=https://blog.popstas.ru/tags/tinkoff>tinkoff</a><meta itemprop=about content="tinkoff"><a class=category href=https://blog.popstas.ru/tags/planfix>planfix</a><meta itemprop=about content="planfix"><a class=category href=https://blog.popstas.ru/tags/javascript>javascript</a><meta itemprop=about content="javascript"><a class=category href=https://blog.popstas.ru/tags/vue>vue</a><meta itemprop=about content="vue"></span></p><div class=sharing><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a href=https://www.addtoany.com/share></a><a class=a2a_button_vk></a><a class=a2a_button_twitter></a><a class=a2a_button_telegram></a><a class=a2a_button_whatsapp></a><a class=a2a_button_facebook></a></div><script>var a2a_config=a2a_config||{};a2a_config.locale="ru";a2a_config.color_main="undefined";a2a_config.color_border="undefined";a2a_config.color_link_text="undefined";a2a_config.color_link_text_hover="undefined";a2a_config.color_bg="undefined";a2a_config.color_arrow="undefined";a2a_config.color_arrow_hover="undefined";a2a_config.prioritize=["vk","twitter","telegram","whatsapp","facebook"];a2a_config.templates=a2a_config.templates||{};a2a_config.templates.whatsapp={text:'${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'};a2a_config.templates.telegram={title:'',text:'${title} - ${link}?utm_medium=messenger&utm_source=telegram'};</script><script async src=https://static.addtoany.com/menu/page.js></script></div><p class=meta><div>Новее: <a class=related href=https://blog.popstas.ru/blog/2021/01/17/new-year-2020/ title="Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт">Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a></div><div>Старее: <a class=related href=https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/ title="Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка">Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a></div></p></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p><p>Обновления через <a href=https://tglink.ru/popstas_vk_wall>Telegram</a> или <a href=http://feeds.feedburner.com/popstas>RSS</a></p><p><a href=https://www.tinkoff.ru/sl/83wd1FGIcMR>Поблагодарить меня</a></p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank href=https://github.com/popstas/ title=https://github.com/popstas/><i class="fa fa-github fa-3x"></i></a><a target=_blank href=https://twitter.com/popstas/ title=https://twitter.com/popstas/><i class="fa fa-twitter fa-3x"></i></a><a target=_blank href="tg://resolve?domain=popstas" title=popstas><i class="fa fa-telegram fa-3x"></i></a><a target=_blank href=mailto:popstas@gmail.com title=popstas@gmail.com><i class="fa fa-at fa-3x"></i></a></li></ul><section class=even><div class=sidebar-title>Последние посты:</div><ul id=recent_posts><li class=post><a href=/navigator/>Навигатор</a></li><li class=post><a href=/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/>Содержание книги Барбары Оакли «Думай как математик»</a></li><li class=post><a href=/blog/2021/01/17/new-year-2020/>Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a></li><li class=post><a href=/blog/2021/01/16/github-projects-2020/>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a></li><li class=post><a href=/blog/2021/01/10/smarthome-2020/>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a></li><li class=post><a href=/blog/2021/01/06/content-2020/>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a></li><li class=post><a href=/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/>Содержание книги Элияху Голдратта «Критическая цепь»</a></li><li class=post><a href=/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/>Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a></li><li class=post><a href=/blog/2020/04/16/books-70/>Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2015-2021 Stanislav Popov -
-<span class=credit>Powered by <a target=_blank href=https://gohugo.io>Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/>Hugo-Octopress</a> theme.</p></footer><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WPJWVXB');</script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/custom.js></script><script type=text/javascript>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(51681281,"init",{id:51681281,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script><noscript><div><img src=https://mc.yandex.ru/watch/51681281 style=position:absolute;left:-9999px alt></div></noscript></body></html>
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/" />
+  <meta property="og:title" content="Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс" />
+  
+  <meta property="og:image" content="https://blog.popstas.ru/images/2020/github/popstas-github.svg" />
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс - github </title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  <link href="http://feeds.feedburner.com/popstas" rel="alternate" type="application/rss+xml" title="RSS" />
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="github, projects, nodejs, mqtt, tinkoff, planfix, javascript, vue">
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+  
+<hgroup>
+  
+  <div class="site-title"><a href="https://blog.popstas.ru/"><img src="/favicon.png" alt="popstas" /> Popstas</a></div>
+    <div></div>
+</hgroup>
+  
+  <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Поискать в Google"/>
+      <input type="hidden" name="q" value="site:https://blog.popstas.ru/" />
+    </fieldset>
+  </form>
+
+</nav>
+</header>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/">
+        <header>
+          <h1 class="entry-title" itemprop="headline">
+            Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс 
+          </h1>
+          <p class="meta header-date">16.01.2021, 23:50 - 10 мин читать
+          
+
+          </p>
+        </header>
+        <div class="entry-content" itemprop="articleBody">
+          
+          
+          
+          <p><img src="/images/2020/github/popstas-github.svg" alt="Дом, поделенный на зоны"></p>
+<div class="contents" data-header="h2">
+    <div>Оглавление:</div>
+    <ul class="contents-data"></ul>
+</div>
+
+
+
+
+    <div class="spoiler panel panel-default "
+    >
+        <div class="panel-heading">
+            <a class="spoiler-link collapsed" data-toggle="collapse"
+            style="display:block;"
+            href="#spoiler812">Немного статистики</a>
+        </div>
+        
+        <div class="panel-collapse collapse "
+        id="spoiler812">
+            <div class="panel-body"><p>Этот год был активным, 1204 контрибьюта, круче было только <a href="/blog/2018/12/30/my-github-2018/">в 2018</a>.</p>
+<p><img src="/images/2020/github/popstas-github.svg" alt="popstas&rsquo;s github stats"></p>
+<p>Закрыл почти все issues, некоторые висели дольше 2 лет.</p>
+<p>По языкам: становится всё больше JavaScript.</p>
+<h4 id="звёзды">Звёзды</h4>
+<p>Появился второй проект с 100+ звезд - <a href="https://github.com/popstas/zsh-command-time">zsh-command-time</a>. Он показывает время выполнения команд в терминале zsh. Проект для меня интересен тем, что звёзд у него больше, чем строк кода.</p>
+<p><a href="https://github.com/viasite-ansible/ansible-role-zsh">ansible-role-zsh</a> остаётся №1 по запросу &ldquo;<a href="https://www.google.ru/search?q=ansible+zsh">ansible zsh</a>&quot;, поддерживаю его.</p>
+<h4 id="5-месяцев-коммитил-каждый-день">5 месяцев коммитил каждый день</h4>
+<p>В апреле случайно начал череду ежедневных коммитов, когда заметил, было уже около 2 недель. Продолжил этот челлендж, получился непрерывный период с 9 апреля по 12 сентября (5 месяцев).</p>
+<p>На меня такие штуки влияют, естественно, активность от этого повышается, причём не только в коде: блог и аккорды тоже лежат на Github, так что добавить новую песню или статью тоже считается за активность :)</p>
+<p><img src="/images/2020/github-commits-2020.png" alt="github-commits-2020"></p>
+<p>Wakatime 2020:
+<img src="/images/2020/wakatime-2020.png" alt="Wakatime 2020"></p>
+</div>
+            
+        </div>
+        
+    </div>
+
+<h2 id="умный-дом">Умный дом</h2>
+<p>Вынес в отдельный пост - <a href="/blog/2021/01/10/smarthome-2020/">Мой умный дом 2020</a>.</p>
+<p>Там описаны проекты:</p>
+<ul>
+<li><a href="https://github.com/popstas/mqtt2tts">mqtt2tts</a> - озвучка сообщений, пришедших по MQTT (Windows, Linux)</li>
+<li><a href="https://github.com/popstas/windows-mqtt">windows-mqtt</a> - управление Windows компом по MQTT</li>
+<li><a href="https://github.com/popstas/strava-mqtt">strava-mqtt</a> - передача инфы о тренировках в MQTT</li>
+<li><a href="https://github.com/popstas/mongoose-redmond-rcm-1512-mqtt">mongoose-redmond-rcm-1512-mqtt</a> - управление кофеваркой Redmond RCM-1512</li>
+<li><a href="https://github.com/popstas/mongoose-mqtt-ssd1306">mongoose-mqtt-ssd1306</a> - вывод инфы на экранчик</li>
+<li><a href="https://github.com/popstas/mongoose-mlx90614">mongoose-mlx90614</a> - бесконтактный термометр (для очень горячего)</li>
+<li><a href="https://github.com/popstas/mongoose-button">mongoose-button</a> - разные датчики (в частности освещение)</li>
+<li><a href="https://github.com/popstas/yandex-dialogs-smarthome-mqtt">yandex-dialogs-smarthome-mqtt</a> - управление MQTT устройствами через Алису</li>
+</ul>
+<h3 id="новые-проекты">Новые проекты:</h3>
+<ul>
+<li><a href="https://github.com/popstas/windows-mqtt">windows-mqtt</a></li>
+<li><a href="https://github.com/popstas/strava-mqtt">strava-mqtt</a></li>
+<li><a href="https://github.com/popstas/mongoose-redmond-rcm-1512-mqtt">mongoose-redmond-rcm-1512-mqtt</a></li>
+<li><a href="https://github.com/popstas/mongoose-mqtt-ssd1306">mongoose-mqtt-ssd1306</a></li>
+<li><a href="https://github.com/popstas/mongoose-mlx90614">mongoose-mlx90614</a></li>
+<li><a href="https://github.com/popstas/tinkoff-invest-stats">tinkoff-invest-stats</a></li>
+<li><a href="https://github.com/viasite/site-audit-seo">viasite/site-audit-seo</a></li>
+<li><a href="https://github.com/viasite/site-audit-seo-viewer">viasite/site-audit-seo-viewer</a></li>
+<li><a href="https://github.com/viasite/planfix-tools">viasite/planfix-tools</a></li>
+<li><a href="https://github.com/viasite/tinkoff-openapi-payments-to-planfix">viasite/tinkoff-openapi-payments-to-planfix</a></li>
+<li><a href="https://github.com/viasite/yandex-metrika">viasite/yandex-metrika</a></li>
+</ul>
+<p>Ниже подробнее о каждом проекте.</p>
+<h2 id="сканер-сайтов-site-audit-seo">Сканер сайтов, site-audit-seo</h2>
+<p><a href="https://github.com/viasite/site-audit-seo">viasite/site-audit-seo</a>, <a href="https://github.com/viasite/site-audit-seo-viewer">viasite/site-audit-seo-viewer</a></p>
+<p><img src="https://github-readme-stats.vercel.app/api/pin/?username=viasite&amp;show_owner=true&amp;repo=site-audit-seo" alt="site-audit-seo"></p>
+<ul>
+<li>Язык: JavaScript (NodeJS + Vue)</li>
+<li>Особенности: Websockets, CLI + Web</li>
+</ul>
+<p>Если взять все проекты за год, то примерно половина трудозатрат пришлась на site-audit-seo.</p>
+<p>Я несколько лет хотел написать более лучшую версию <a href="http://home.snafu.de/tilman/xenulink.html">Xenu</a>. Результаты превзошли мои ожидания :)</p>
+<p>Получился сервис, похожий на <a href="https://ru.semrush.com/">Semrush</a>.</p>
+<p>Посмотреть можно здесь - <a href="https://viasite.github.io/site-audit-seo-viewer/scan/">Site-audit-seo: Scan</a>.</p>
+<p>В конце года нашёлся чувак из инета, который подключился к проекту и прислал несколько крутых фич: выделение главного контента, анализ ключевиков, объёма страницы.</p>
+<p>Планирую дальше развивать этот проект.</p>
+
+
+
+    <div class="spoiler panel panel-default "
+    >
+        <div class="panel-heading">
+            <a class="spoiler-link collapsed" data-toggle="collapse"
+            style="display:block;"
+            href="#spoiler664">История появления site-audit-seo</a>
+        </div>
+        
+        <div class="panel-collapse collapse "
+        id="spoiler664">
+            <div class="panel-body"><h3 id="01---первая-рабочая-версия-окупилась-сразу">0.1 - Первая рабочая версия окупилась сразу</h3>
+<p>В марте пришла задача: нужно было проверить 25 сайтов и посчитать, сколько на них страниц и документов для скачивания. Я решил превратить рутинную задачу в интересную и написал скрипт для этого.</p>
+<p><a href="https://github.com/viasite/site-audit-seo/tree/de18f1eb16f4e55c3b89559b86fe0eec9ee0a2af">Первая версия</a> содержала чуть больше 100 строк и умела создават CSV таблицу с данными всех страниц сайта.</p>
+<p>По времени это заняло чуть больше времени, чем проверить 25 сайтов вручную, зато я получил основу инструмента.</p>
+<h3 id="10---обгоняем-xenu">1.0 - Обгоняем Xenu</h3>
+<p>Через неделю у меня был скрипт, который был лучше Xenu:</p>
+<ul>
+<li>Учитывал специфику наших сайтов</li>
+<li>Выдавал больше данных о страницах</li>
+</ul>
+<h3 id="20---cli-утилита-command-line-interface">2.0 - CLI утилита (command line interface)</h3>
+<p>Через месяц превратил скрипт в программу, которая запускается из терминала, параметрами указываются условия сканирования.</p>
+<p>Появились новые данные о страницах, подсмотренные в другом сканере <a href="https://www.screamingfrog.co.uk/seo-spider/">Frog SEO Spider</a>.</p>
+<h3 id="подсветка-ошибок">Подсветка ошибок</h3>
+<p>После этого сделал сохранение в Excel и стал раскрашивать таблицу, чтобы можно было посмотреть на неё и быстро увидеть проблемные страницы.</p>
+<h3 id="данные-lighthouse">Данные Lighthouse</h3>
+<p>Добавил возможность анализировать каждую страницу через Lighthouse (технология, на которой работает Google PageSpeed). Это позволило отслеживать изменения скорости глобально по сайту, а не только по паре страниц.</p>
+<h3 id="30---веб-интерфейс-просмотра-результатов">3.0 - Веб интерфейс просмотра результатов</h3>
+<p>Через полгода произошёл переход от Excel к веб-смотрелке результатов. Теперь данные сохраняются в JSON и выводятся в интерактивной таблице с фильтрами, сортировками и т.д.</p>
+<p>Интерактивная смотрелка JSON у меня уже была, но она выводила более глобальные данные: 1 ряд = 1 сайт.</p>
+<p>Я унифицировал смотрелку и выложил её отдельным проектом <a href="https://github.com/viasite/site-audit-seo-viewer">viasite/site-audit-seo-viewer</a>. С этого момента ценность смотрелки выросла, она стала приносить пользу сразу двум проектам.</p>
+<p>Появилась возможность собирать много данных: если в Excel смотреть 100 колонок неудобно, то в веб-смотрелке были наборы полей, стало можно собирать 100 колонок, а выводить только 5-10 нужных в данный момент.</p>
+<p>Появились прямые ссылки на результаты анализа.</p>
+<p>В таком виде она потихоньку улучшалась до декабря.</p>
+<h3 id="40---веб-сервис-для-сканирования">4.0 - Веб-сервис для сканирования</h3>
+<p>В декабре на Github пришёл чувак и <a href="https://github.com/viasite/site-audit-seo/issues/6">спросил</a>, нельзя ли сделать запуск по HTTP запросу. Через час была готова первая версия, через неделю первая веб-сканилка:</p>
+<p><img src="https://user-images.githubusercontent.com/3027126/102402181-3817d700-4006-11eb-952c-75e962aa0d28.gif" alt="web interface MVP"></p>
+<p>И за последние 2 недели год проект полностью переехал из командной строки в браузер и обрёл человеческий вид:</p>
+<p><img src="/images/2020/site-audit-seo-scan.gif" alt="site-audit-seo-scan"></p>
+</div>
+            
+        </div>
+        
+    </div>
+
+<h2 id="графики-портфеля-акций-в-тинькофф">Графики портфеля акций в Тинькофф</h2>
+<p><a href="https://github.com/popstas/tinkoff-invest-stats">tinkoff-invest-stats</a></p>
+<ul>
+<li>Язык: JavaScript (NodeJS)</li>
+<li>Особенности: отправка данных в MQTT или в InfluxDB</li>
+</ul>
+<p>Сделал вывод данных портфеля на графики, чтобы пореже заглядывать в приложение и чтобы получить больше данных.</p>
+<p>Корреляция рублёвых (жёлтый) и долларовых (зелёный) акций:</p>
+<p><img src="/images/2020/tinkoff-correlation.png" alt="tinkoff-correlation"></p>
+<p>Портфель по бумагам, каждый цвет - отдельная бумага:</p>
+<p><img src="/images/2020/tinkoff-portfolio.png" alt="tinkoff-portfolio"></p>
+<p>Изменение стоимости бумаг в портфеле, можно навести мышку и посмотреть, почему именно вырос/упал портфель:</p>
+<p><img src="/images/2020/tinkoff-diff.png" alt="tinkoff-diff"></p>
+<p>Технически это скрипт, который раз в час получает данные портфеля и отправляет в MQTT.</p>
+<p>Проект также позволяет получать котировки выбранных акций, я использую это, чтобы выводить интересующие в данный момент акции на экранчик:</p>
+<img loading="lazy" src="https://lh3.googleusercontent.com/pw/ACtC-3eJBCeD0jCts-lb7trE5BiQTP9C2sjB3Xu1B5WSAHgztusi57HMw1TxErP7kI7CB9IsVmeVVuF5Z2q3_NZpsyuhjl6BtqXyDIH7GWB2wYJ2sCSHOX7zGwrpvfO43860nQH4uy90uz-qHp6OwBc3R36Exw=w1424-h1068-no?authuser=0" title="Экранчик про биржу" alt="Экранчик про биржу" />
+<h2 id="платежи-тинькофф-в-планфикс">Платежи Тинькофф в Планфикс</h2>
+<p><a href="https://github.com/viasite/tinkoff-openapi-payments-to-planfix">viasite/tinkoff-openapi-payments-to-planfix</a></p>
+<ul>
+<li>Язык: JavaScript (NodeJS)</li>
+<li>Особенности: кеширует данные прошлых поступлений в lowDB (раньше использовал LokiJS)</li>
+</ul>
+<p>Тинькофф не умеет отправлять уведомления о поступлениях на почту (этого хватило бы, чтобы сделать интеграцию). Пришлось написать этот проект, он перекладывает новые данные из банка в систему задач.</p>
+<h2 id="инструменты-для-планфикса">Инструменты для Планфикса</h2>
+<p><a href="https://github.com/viasite/planfix-tools">viasite/planfix-tools</a></p>
+<ul>
+<li>Язык: JavaScript (NodeJS)</li>
+<li>Особенности: содержит код для работы с Планфикс API на NodeJS, в инете не нашёл такого</li>
+</ul>
+<p>Проект умеет:</p>
+<ul>
+<li>Вписывать данные в контрагентов (для ежемесячного обновления инфы о клиентах)</li>
+<li>Формировать прайс в json из справочника цен</li>
+<li>Массово обновлять цены в прайсе</li>
+<li>Отправлять в MQTT количество активных/закрытых задач (для личного Планфикса)</li>
+</ul>
+<h2 id="быстрые-ссылки-для-яндексметрики">Быстрые ссылки для Яндекс.Метрики</h2>
+<p><a href="https://github.com/viasite/yandex-metrika">viasite/yandex-metrika</a></p>
+<ul>
+<li>Язык: PHP</li>
+<li>Особенности: использует API Яндекс.Метрики</li>
+</ul>
+<p>Я часто смотрю Метрику наших клиентов. Для ускорения сделал отдельную страничку, где можно в 2 клика открыть нужный отчёт по нужному клиенту или перейти в его Яндекс.Вебмастер.</p>
+<p>Выглядит так:</p>
+<p><img src="/images/2020/yandex-metrika.png" alt="viasite/yandex-metrika"></p>
+<p>Умеет формировать данные по сайту для формирования сводного отчёта (данные вставляются в Google Sheets, на выходе PDF).</p>
+<h2 id="обновления-в-старых-проектах">Обновления в старых проектах</h2>
+<h3 id="коллекция-аккордов">Коллекция аккордов</h3>
+<p><a href="https://github.com/popstas/chords-viewer">popstas/chords-viewer</a></p>
+<p>В <a href="https://chords.popstas.ru/">сборнике аккордов</a> появились новые фичи:</p>
+<ul>
+<li>Быстрый переход к жанру или исполнителю</li>
+<li>Счётчик просмотров (у каждого свой)</li>
+<li>Появилась авторизация (через неё сохраняются просмотры)</li>
+<li>Сортировка по просмотрам</li>
+<li>Появился вывод аппликатур аккордов без наведения</li>
+<li>Добавилось жанров</li>
+<li>Убрались лишние элементы</li>
+</ul>
+<p>В июле сделал авторизацию, получилось красиво: вход через Google, хранение данных о просмотрах в Google Firebase, приложение по-прежнему без серверной части и может работать без интернета.</p>
+<h3 id="интеграция-планфикса-и-toggl">Интеграция Планфикса и Toggl</h3>
+<p><a href="https://github.com/viasite/planfix-toggl-server">viasite/planfix-toggl-server</a></p>
+<p>Интеграцию Планфикса и Toggl довёл до состояния, когда ей можно пользоваться любому человеку. Снял видеоинструкцию по установке и настройке.</p>
+<h3 id="дополнение-для-планфикса">Дополнение для Планфикса</h3>
+<p><a href="https://github.com/viasite/userscript-planfixfix">viasite/userscript-planfixfix</a></p>
+<p>Расширение (юзерскрипт) получило новые фичи:</p>
+<ul>
+<li>Формирование письма со сметой из аналитик</li>
+<li>Быстрая вставка шаблонов в письма</li>
+<li>Убирание сворачивания комментов в планфиксе</li>
+<li>Отправка данных о непрочитанных в хронике для вывода на график</li>
+<li>Всегда показывать аватарки адресатов в новом интерфейсе Планфикса</li>
+</ul>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <time itemprop="datePublished" content="2021-01-16T23:50:00&#43;0600">16 Jan 2021, 23:50</time>
+    
+      <span class="categories">
+        , теги:
+        
+          <a class="category" href="https://blog.popstas.ru/tags/github">github</a><meta itemprop="about" content="github">  <a class="category" href="https://blog.popstas.ru/tags/projects">projects</a><meta itemprop="about" content="projects">  <a class="category" href="https://blog.popstas.ru/tags/nodejs">nodejs</a><meta itemprop="about" content="nodejs">  <a class="category" href="https://blog.popstas.ru/tags/mqtt">mqtt</a><meta itemprop="about" content="mqtt">  <a class="category" href="https://blog.popstas.ru/tags/tinkoff">tinkoff</a><meta itemprop="about" content="tinkoff">  <a class="category" href="https://blog.popstas.ru/tags/planfix">planfix</a><meta itemprop="about" content="planfix">  <a class="category" href="https://blog.popstas.ru/tags/javascript">javascript</a><meta itemprop="about" content="javascript">  <a class="category" href="https://blog.popstas.ru/tags/vue">vue</a><meta itemprop="about" content="vue">  
+    
+    </span>
+  </p>
+
+  <div class="sharing">
+    
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_vk"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_facebook"></a>
+    </div>
+    <script>
+      var a2a_config = a2a_config || {};
+      a2a_config.locale = "ru";
+      a2a_config.color_main = "undefined";
+      a2a_config.color_border = "undefined";
+      a2a_config.color_link_text = "undefined";
+      a2a_config.color_link_text_hover = "undefined";
+      a2a_config.color_bg = "undefined";
+      a2a_config.color_arrow = "undefined";
+      a2a_config.color_arrow_hover = "undefined";
+      a2a_config.prioritize = ["vk", "twitter", "telegram", "whatsapp", "facebook"];
+
+      a2a_config.templates = a2a_config.templates || {};
+      a2a_config.templates.whatsapp = {
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'
+      };
+      a2a_config.templates.telegram = {
+        title: '',
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=telegram'
+      };
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    
+  </div>
+  
+
+  
+
+  <p class="meta">
+    
+        <div>Новее: <a class="related" href="https://blog.popstas.ru/blog/2021/01/17/new-year-2020/" title="Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт">Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a></div>
+    
+
+    
+        <div>Старее: <a class="related" href="https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/" title="Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка">Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a></div>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <p>Обновления через <a href="https://tglink.ru/popstas_vk_wall">Telegram</a> или <a href="http://feeds.feedburner.com/popstas">RSS</a></p>
+<p><a href="https://www.tinkoff.ru/sl/83wd1FGIcMR">Поблагодарить меня</a></p>
+
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <div class="sidebar-title">Последние посты:</div>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="/navigator/">Навигатор</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/">Содержание книги Барбары Оакли «Думай как математик»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/17/new-year-2020/">Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/16/github-projects-2020/">Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/10/smarthome-2020/">Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/06/content-2020/">Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/">Содержание книги Элияху Голдратта «Критическая цепь»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/">Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/16/books-70/">Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2015-2021 Stanislav Popov -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+
+  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
+  
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/custom.js"></script>
+
+  
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(51681281, "init", {
+        id:51681281,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  
+
+  </body>
+</html>
+

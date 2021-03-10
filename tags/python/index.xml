@@ -1,37 +1,87 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python on Popstas</title><link>https://blog.popstas.ru/tags/python/</link><description>Recent content in python on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 10 Jan 2021 09:30:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title><link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link><pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/home-zones.jpg" alt="Дом, поделенный на зоны">&lt;/p></description></item><item><title>Мой Github 2018</title><link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link><pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid><description>&lt;p>Новые проекты:&lt;/p>
-&lt;ul>
-&lt;li>planfix-toggl-server - Go&lt;/li>
-&lt;li>planfix-toggl-client - Vue&lt;/li>
-&lt;li>chords-viewer - Vue&lt;/li>
-&lt;li>chords-parser - JS&lt;/li>
-&lt;li>voice-list - Vue&lt;/li>
-&lt;li>yandex-dialogs-client - Vue&lt;/li>
-&lt;li>yandex-dialogs-whatis - JS&lt;/li>
-&lt;li>yandex-dialogs-tester - JS&lt;/li>
-&lt;li>hain-plugin-puttytray - JS&lt;/li>
-&lt;li>viasite-projects - JS, Vue&lt;/li>
-&lt;/ul>
-&lt;p>Правки старых:&lt;/p>
-&lt;ul>
-&lt;li>site-discovery - Python&lt;/li>
-&lt;li>ansible-role-zsh - YML&lt;/li>
-&lt;/ul>
-&lt;p>Проект года: &lt;a href="https://chords.popstas.ru">https://chords.popstas.ru&lt;/a>&lt;/p>
-&lt;p>Все остальные ссылки и описания под катом.&lt;/p>
-&lt;p>PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p>
-&lt;p>Держусь на уровне 1000 коммитов в год.&lt;/p>
-&lt;p>Было это так:&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-12/github-octocat.png" alt="Octocat">&lt;/p></description></item><item><title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title><link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link><pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid><description>&lt;p>Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p>
-&lt;p>Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p>
-&lt;ul>
-&lt;li>нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li>
-&lt;li>простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li>
-&lt;li>нельзя загружать файл по хоткею&lt;/li>
-&lt;li>нет git&lt;/li>
-&lt;/ul>
-&lt;p>TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" alt="nodemcu ide">&lt;/p></description></item><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
-&lt;p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p>
-&lt;p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
-&lt;a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm">Официальная документация&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" alt="python in phpstorm">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Popstas</title>
+    <link>https://blog.popstas.ru/tags/python/</link>
+    <description>Recent content in python on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 10 Jan 2021 09:30:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title>
+      <link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link>
+      <pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/home-zones.jpg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой Github 2018</title>
+      <link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid>
+      <description>&lt;p&gt;Новые проекты:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;planfix-toggl-server - Go&lt;/li&gt;
+&lt;li&gt;planfix-toggl-client - Vue&lt;/li&gt;
+&lt;li&gt;chords-viewer - Vue&lt;/li&gt;
+&lt;li&gt;chords-parser - JS&lt;/li&gt;
+&lt;li&gt;voice-list - Vue&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-client - Vue&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-whatis - JS&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-tester - JS&lt;/li&gt;
+&lt;li&gt;hain-plugin-puttytray - JS&lt;/li&gt;
+&lt;li&gt;viasite-projects - JS, Vue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Правки старых:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;site-discovery - Python&lt;/li&gt;
+&lt;li&gt;ansible-role-zsh - YML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Проект года: &lt;a href=&#34;https://chords.popstas.ru&#34;&gt;https://chords.popstas.ru&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Все остальные ссылки и описания под катом.&lt;/p&gt;
+&lt;p&gt;PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p&gt;
+&lt;p&gt;Держусь на уровне 1000 коммитов в год.&lt;/p&gt;
+&lt;p&gt;Было это так:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/github-octocat.png&#34; alt=&#34;Octocat&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
+      <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
+      <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
+&lt;p&gt;Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li&gt;
+&lt;li&gt;простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li&gt;
+&lt;li&gt;нельзя загружать файл по хоткею&lt;/li&gt;
+&lt;li&gt;нет git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; alt=&#34;nodemcu ide&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Подсветка Python синтаксиса в PhpStorm</title>
+      <link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
+      <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
+&lt;p&gt;Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p&gt;
+&lt;p&gt;Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
+&lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/phpstorm-python.gif&#34; alt=&#34;python in phpstorm&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

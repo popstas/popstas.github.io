@@ -1,62 +1,503 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=/css/fonts.css rel=stylesheet type=text/css><meta property="og:description" content="Как устроена &ldquo;Вторая память&rdquo; для Алисы: кишки, кровь, расчленёнка команды, матчеры, мидлвари."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/"><meta property="og:title" content="Навык для Алисы &#34;Вторая память&#34;: технические особенности"><meta property="og:image" content="https://blog.popstas.ru/images/2020-04/yandex-dialogs-whatis.png"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta name=msapplication-TileColor content="#2b5797"><meta name=theme-color content="#ffffff"><title>Навык для Алисы "Вторая память": технические особенности - projects</title><link rel=stylesheet href=/css/hugo-octopress.css><link rel=stylesheet href=https://blog.popstas.ru/css/custom.css><link rel=stylesheet href=/css/fork-awesome.min.css><link href=https://blog.popstas.ru/favicon.png rel=icon><link href=http://feeds.feedburner.com/popstas rel=alternate type=application/rss+xml title=RSS><meta name=description content="Как устроена &ldquo;Вторая память&rdquo; для Алисы: кишки, кровь, расчленёнка команды, матчеры, мидлвари."><meta name=keywords content="projects,nodejs,vue,yandex-dialogs"><meta name=author content="Stanislav Popov"><meta name=generator content="Hugo 0.66.0"></head><body><header role=banner><hgroup><div class=site-title><a href=https://blog.popstas.ru/><img src=/favicon.png alt=popstas> Popstas</a></div><div></div></hgroup><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value;">
-<option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=http://feeds.feedburner.com/popstas target=_blank type=application/rss+xml title=RSS><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank><fieldset role=search><input class=search type=text name=q results=0 placeholder="Поискать в Google">
-<input type=hidden name=q value=site:https://blog.popstas.ru/></fieldset></form></nav></header><div id=main><div id=content><div><article class=hentry role=article itemscope itemtype=http://schema.org/Article><meta itemprop="author publisher" content="Stanislav Popov"><meta itemprop=mainEntityOfPage content="https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/"><header><h1 class=entry-title itemprop=headline>Навык для Алисы "Вторая память": технические особенности</h1><p class="meta header-date">13.04.2020, 23:55 - 5 мин читать</p></header><div class=entry-content itemprop=articleBody><p>Как устроена &ldquo;Вторая память&rdquo; для Алисы: <del>кишки, кровь, расчленёнка</del> команды, матчеры, мидлвари.</p><p><img src=/images/2020-04/yandex-dialogs-whatis.png alt="Навык Вторая память"></p><p>По сути &ldquo;Вторая память&rdquo; - это <a href=https://github.com/popstas/voice-whatis>voice-whatis</a>, реализованный в виде навыка.</p><p>Пример использования:</p><blockquote><p>&ndash; В красной бутылке налит арбуз<br>&ndash; В красной бутылке налит арбуз, поняла</p></blockquote><blockquote><p>&ndash; Что в красной бутылке?<br>&ndash; Арбуз</p></blockquote><blockquote><p>&ndash; Где арбуз?<br>&ndash; В красной бутылке</p></blockquote><p>Попробовать можно так: скажите Алисе &ldquo;Запусти навык <a href=https://dialogs.yandex.ru/store/skills/00203e6e-vtoraya-pamya>Вторая память</a>".</p><p>Сценарии использования описаны <a href=https://github.com/popstas/yandex-dialogs-whatis#%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B8-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F>на Github</a>.</p><h2 id=технические-особенности>Технические особенности</h2><p>Проект написан на Node.js поверх <a href=https://github.com/fletcherist/yandex-dialogs-sdk>yandex-dialogs-sdk</a>, который поверх Express.js.</p><p>Github - <a href=https://github.com/popstas/yandex-dialogs-whatis>yandex-dialogs-whatis</a>.</p><p>Начал писать 28.06.2018, первую версию запустил 08.07.2018, последнюю 10.03.2019.</p><ul><li>Используются commands, scenes, matchers, middlewares из SDK</li><li>Выбор базы данных между MongoDB и Loki (локальное файловое хранилище) через драйвер БД</li><li>Выбор сценария на основе простого морфологического разбора</li><li>Система тестирования на основе <a href=https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/#yandex-dialogs-client---%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82-%D0%B4%D0%BB%D1%8F-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0%D0%B2%D1%8B%D0%BA%D0%BE%D0%B2>сценариев</a></li><li>Модульность команд (подробнее в CONTRIBUTING.md), главный файл навыка состоит только из подключений middlewares и commands</li><li>Метрики передаются в <a href=https://github.com/popstas/yandex-dialogs-sdk-chatbase>chatbase</a>, с полной разметкой intents и в Яндекс.Метрику</li><li>Лог запросов и ответов с id юзеров, номером визита и номером сообщения в визите</li><li>Корректировка типичных неправильных ударений</li><li>Строка очищается от ненужных слов с учетом контекста запроса</li><li>Упрощенное указание эффектов: <code>[megaphone]говорите громче!</code> вместо <code>&lt;speaker effect="megaphone">говорите громче!</code></li><li>Возможность указывать некоторую фонетическую разметку в text, а не в tts</li></ul><h2 id=структура-навыка>Структура навыка:</h2><h3 id=commands>commands</h3><p>Главная сущность, команда юзера. Команды расширены, по сравнению с SDK. Можно сказать, что это интенты. Команда состоит из mather'а (то, что определяет, сработает эта команда или нет) и handler'а (что собственно команда делает).</p><p>Пример простой команды:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> {
-  <span style=color:#a6e22e>intent</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;thankyou&#39;</span>,
-  <span style=color:#a6e22e>matcher</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;спасибо&#39;</span>,
 
-  <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>ctx</span>) {
-    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>replyRandom</span>([
-      <span style=color:#e6db74>&#39;Всегда пожалуйста&#39;</span>,
-      <span style=color:#e6db74>&#39;Не за что&#39;</span>,
-      <span style=color:#e6db74>&#39;Обращайся!&#39;</span>,
-      <span style=color:#e6db74>&#39;Пожалуйста&#39;</span>,
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  <meta property="og:description" content="Как устроена &ldquo;Вторая память&rdquo; для Алисы: кишки, кровь, расчленёнка команды, матчеры, мидлвари.
+" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/" />
+  <meta property="og:title" content="Навык для Алисы &#34;Вторая память&#34;: технические особенности" />
+  
+  <meta property="og:image" content="https://blog.popstas.ru/images/2020-04/yandex-dialogs-whatis.png" />
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <title>Навык для Алисы &#34;Вторая память&#34;: технические особенности - projects </title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  <link href="http://feeds.feedburner.com/popstas" rel="alternate" type="application/rss+xml" title="RSS" />
+
+  <meta name="description" content="Как устроена &ldquo;Вторая память&rdquo; для Алисы: кишки, кровь, расчленёнка команды, матчеры, мидлвари.
+" />
+  <meta name="keywords" content="projects, nodejs, vue, yandex-dialogs">
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+  
+<hgroup>
+  
+  <div class="site-title"><a href="https://blog.popstas.ru/"><img src="/favicon.png" alt="popstas" /> Popstas</a></div>
+    <div></div>
+</hgroup>
+  
+  <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Поискать в Google"/>
+      <input type="hidden" name="q" value="site:https://blog.popstas.ru/" />
+    </fieldset>
+  </form>
+
+</nav>
+</header>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/">
+        <header>
+          <h1 class="entry-title" itemprop="headline">
+            Навык для Алисы &#34;Вторая память&#34;: технические особенности 
+          </h1>
+          <p class="meta header-date">13.04.2020, 23:55 - 5 мин читать
+          
+
+          </p>
+        </header>
+        <div class="entry-content" itemprop="articleBody">
+          
+          
+          
+          <p>Как устроена &ldquo;Вторая память&rdquo; для Алисы: <del>кишки, кровь, расчленёнка</del> команды, матчеры, мидлвари.</p>
+<p><img src="/images/2020-04/yandex-dialogs-whatis.png" alt="Навык Вторая память"></p>
+<p>По сути &ldquo;Вторая память&rdquo; - это <a href="https://github.com/popstas/voice-whatis">voice-whatis</a>, реализованный в виде навыка.</p>
+<p>Пример использования:</p>
+<blockquote>
+<p>&ndash; В красной бутылке налит арбуз<br>
+&ndash; В красной бутылке налит арбуз, поняла</p>
+</blockquote>
+<blockquote>
+<p>&ndash; Что в красной бутылке?<br>
+&ndash; Арбуз</p>
+</blockquote>
+<blockquote>
+<p>&ndash; Где арбуз?<br>
+&ndash; В красной бутылке</p>
+</blockquote>
+<p>Попробовать можно так: скажите Алисе &ldquo;Запусти навык <a href="https://dialogs.yandex.ru/store/skills/00203e6e-vtoraya-pamya">Вторая память</a>&quot;.</p>
+<p>Сценарии использования описаны <a href="https://github.com/popstas/yandex-dialogs-whatis#%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B8-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">на Github</a>.</p>
+<h2 id="технические-особенности">Технические особенности</h2>
+<p>Проект написан на Node.js поверх <a href="https://github.com/fletcherist/yandex-dialogs-sdk">yandex-dialogs-sdk</a>, который поверх Express.js.</p>
+<p>Github - <a href="https://github.com/popstas/yandex-dialogs-whatis">yandex-dialogs-whatis</a>.</p>
+<p>Начал писать 28.06.2018, первую версию запустил 08.07.2018, последнюю 10.03.2019.</p>
+<ul>
+<li>Используются commands, scenes, matchers, middlewares из SDK</li>
+<li>Выбор базы данных между MongoDB и Loki (локальное файловое хранилище) через драйвер БД</li>
+<li>Выбор сценария на основе простого морфологического разбора</li>
+<li>Система тестирования на основе <a href="https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/#yandex-dialogs-client---%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82-%D0%B4%D0%BB%D1%8F-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0%D0%B2%D1%8B%D0%BA%D0%BE%D0%B2">сценариев</a></li>
+<li>Модульность команд (подробнее в CONTRIBUTING.md), главный файл навыка состоит только из подключений middlewares и commands</li>
+<li>Метрики передаются в <a href="https://github.com/popstas/yandex-dialogs-sdk-chatbase">chatbase</a>, с полной разметкой intents и в Яндекс.Метрику</li>
+<li>Лог запросов и ответов с id юзеров, номером визита и номером сообщения в визите</li>
+<li>Корректировка типичных неправильных ударений</li>
+<li>Строка очищается от ненужных слов с учетом контекста запроса</li>
+<li>Упрощенное указание эффектов: <code>[megaphone]говорите громче!</code> вместо <code>&lt;speaker effect=&quot;megaphone&quot;&gt;говорите громче!</code></li>
+<li>Возможность указывать некоторую фонетическую разметку в text, а не в tts</li>
+</ul>
+<h2 id="структура-навыка">Структура навыка:</h2>
+<h3 id="commands">commands</h3>
+<p>Главная сущность, команда юзера. Команды расширены, по сравнению с SDK. Можно сказать, что это интенты. Команда состоит из mather'а (то, что определяет, сработает эта команда или нет) и handler'а (что собственно команда делает).</p>
+<p>Пример простой команды:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">intent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;thankyou&#39;</span>,
+  <span style="color:#a6e22e">matcher</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;спасибо&#39;</span>,
+
+  <span style="color:#a6e22e">handler</span>(<span style="color:#a6e22e">ctx</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">replyRandom</span>([
+      <span style="color:#e6db74">&#39;Всегда пожалуйста&#39;</span>,
+      <span style="color:#e6db74">&#39;Не за что&#39;</span>,
+      <span style="color:#e6db74">&#39;Обращайся!&#39;</span>,
+      <span style="color:#e6db74">&#39;Пожалуйста&#39;</span>,
     ]);
   }
 };
-</code></pre></div><p>Команд <strong>много</strong>. Когда я начинал писать навык, который умеет делать не так уж много, я не думал, что команд будет больше 50.</p><p>Команды разбиты на группы:</p><ul><li><code>core</code> - общие команды, типа реакции на оскорбления, похвалы, привет, пока, номер версии, посещаемость за последние 2 дня</li><li><code>help</code> - справка о разных функциях навыка</li><li><code>items</code> - действия непосредственно с данными, основной функционал</li></ul><h3 id=matchers>matchers</h3><p>Отделённые от команд матчеры, которые я посчитал пригодятся в других проектах. Например, во всех диалогах юзеры говорят &ldquo;нет&rdquo;, но говорят по-разному. Матчер &ldquo;no&rdquo; содержит в себе логику определения &ldquo;нет&rdquo;: <code>/^(не|да не|нет спасибо|спасибо не надо)/i</code> (на самом деле чуть длиннее).</p><p>Матчеры могут быть как строками, регулярками или функциями.</p><h3 id=middlewares>middlewares</h3><p>Тут по сути лежат модули навыка. Мидлвари - сущности SDK и совместимы с ним без всего остального. Они делятся на группы:</p><h4 id=обработчики---меняют-текст>Обработчики - меняют текст</h4><ul><li><code>cleaner</code> убирает из фразы слова, которые не влияют на смысл: &ldquo;ну&rdquo;, &ldquo;Алиса&rdquo; и т.п.</li><li><code>corrector</code> исправляет типичные опечатки</li></ul><p>Обработчики срабатывают перед основным кодом, чтобы упростить анализ текста.</p><h4 id=анализаторы---извлекают-информацию>Анализаторы - извлекают информацию</h4><ul><li><a href=https://github.com/popstas/yandex-dialogs-sdk-chatbase><code>chatbase</code></a> (вынесен в отдельный репозиторий) отправляет данные в Google Chatbase (спец. сервис статистики для переписок)</li><li><code>counter</code> собирает данные о сессии пользователя: кол-во сообщений за сессию, время последнего сообщения, кол-во визитов</li><li><code>logMessage</code> записывает сообщение в лог</li><li><code>store</code> извлекает данные о юзере из базы в память</li><li><code>yametrika</code> отправляет данные о реплике в Яндекс.Метрику</li></ul><h4 id=функции---после-подключения-можно-их-использовать-в-навыке>Функции - после подключения можно их использовать в навыке</h4><ul><li><code>auth</code> выдаёт пользователю код, который можно сказать на другом устройстве, чтобы сделать единую базу знаний у 2 и более устройств</li><li><code>az</code> подключает морфологический анализатор az, он может определять части речи</li><li><code>comfirm</code> запускает процесс, когда от юзера ожидается ответ &ldquo;да&rdquo; или &ldquo;нет&rdquo;</li><li><code>reply</code> главная функция, через которую отправляется ответ пользователю</li><li><code>replyRandom</code> отвечает случайным сообщением из переданного массива</li></ul><p>Поясню про <code>confirm</code>: он есть как в мидлварях, так и в командах. Мидлварь устанавливает <code>ctx.session.confirm</code>, типа входит в scene, но это не сцена, т.к. сцена может быть только одна в один момент времени.</p><p>Команда матчится всегда, когда установлен <code>ctx.session.confirm</code>, таким образом, пока юзер не ответит &ldquo;да&rdquo; или &ldquo;нет&rdquo;, его не выпустят из этого круга.</p><h3 id=entities>entities</h3><p>Последняя сущность структуры - это сущность, в сущности&mldr; которая выделяет сущности из текста.</p><p>Можно сказать, что это NLU (Natural Language Understanding). При успешном нахождении в <code>ctx.entities</code> появляются дополнительные данные. У меня сущность была одна: <code>shop</code>, то есть распознавались покупки и действия с ними. Например, <code>{ action: 'delete', products: 'колбаса' }</code></p><h3 id=собираем-всё-вместе>Собираем всё вместе</h3><p>Само приложение состоит из подключение всех этих составляющих, вот по сути весь его код (<a href=https://github.com/popstas/yandex-dialogs-whatis/blob/master/src/app.js>полная версия app.js</a>):</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>async</span> <span style=color:#a6e22e>init</span>() {
-  <span style=color:#75715e>// добавляют функции в ctx
-</span><span style=color:#75715e></span>  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>reply</span>());
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>replyRandom</span>());
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>az</span>());
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>logMessage</span>());
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>yametrika</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>YAMETRIKA_ID</span>));
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>chatbase</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>CHATBASE_KEY</span>, <span style=color:#a6e22e>packageJson</span>.<span style=color:#a6e22e>version</span>));
+</code></pre></div><p>Команд <strong>много</strong>. Когда я начинал писать навык, который умеет делать не так уж много, я не думал, что команд будет больше 50.</p>
+<p>Команды разбиты на группы:</p>
+<ul>
+<li><code>core</code> - общие команды, типа реакции на оскорбления, похвалы, привет, пока, номер версии, посещаемость за последние 2 дня</li>
+<li><code>help</code> - справка о разных функциях навыка</li>
+<li><code>items</code> - действия непосредственно с данными, основной функционал</li>
+</ul>
+<h3 id="matchers">matchers</h3>
+<p>Отделённые от команд матчеры, которые я посчитал пригодятся в других проектах. Например, во всех диалогах юзеры говорят &ldquo;нет&rdquo;, но говорят по-разному. Матчер &ldquo;no&rdquo; содержит в себе логику определения &ldquo;нет&rdquo;: <code>/^(не|да не|нет спасибо|спасибо не надо)/i</code> (на самом деле чуть длиннее).</p>
+<p>Матчеры могут быть как строками, регулярками или функциями.</p>
+<h3 id="middlewares">middlewares</h3>
+<p>Тут по сути лежат модули навыка. Мидлвари - сущности SDK и совместимы с ним без всего остального. Они делятся на группы:</p>
+<h4 id="обработчики---меняют-текст">Обработчики - меняют текст</h4>
+<ul>
+<li><code>cleaner</code> убирает из фразы слова, которые не влияют на смысл: &ldquo;ну&rdquo;, &ldquo;Алиса&rdquo; и т.п.</li>
+<li><code>corrector</code> исправляет типичные опечатки</li>
+</ul>
+<p>Обработчики срабатывают перед основным кодом, чтобы упростить анализ текста.</p>
+<h4 id="анализаторы---извлекают-информацию">Анализаторы - извлекают информацию</h4>
+<ul>
+<li><a href="https://github.com/popstas/yandex-dialogs-sdk-chatbase"><code>chatbase</code></a> (вынесен в отдельный репозиторий) отправляет данные в Google Chatbase (спец. сервис статистики для переписок)</li>
+<li><code>counter</code> собирает данные о сессии пользователя: кол-во сообщений за сессию, время последнего сообщения, кол-во визитов</li>
+<li><code>logMessage</code> записывает сообщение в лог</li>
+<li><code>store</code> извлекает данные о юзере из базы в память</li>
+<li><code>yametrika</code> отправляет данные о реплике в Яндекс.Метрику</li>
+</ul>
+<h4 id="функции---после-подключения-можно-их-использовать-в-навыке">Функции - после подключения можно их использовать в навыке</h4>
+<ul>
+<li><code>auth</code> выдаёт пользователю код, который можно сказать на другом устройстве, чтобы сделать единую базу знаний у 2 и более устройств</li>
+<li><code>az</code> подключает морфологический анализатор az, он может определять части речи</li>
+<li><code>comfirm</code> запускает процесс, когда от юзера ожидается ответ &ldquo;да&rdquo; или &ldquo;нет&rdquo;</li>
+<li><code>reply</code> главная функция, через которую отправляется ответ пользователю</li>
+<li><code>replyRandom</code> отвечает случайным сообщением из переданного массива</li>
+</ul>
+<p>Поясню про <code>confirm</code>: он есть как в мидлварях, так и в командах. Мидлварь устанавливает <code>ctx.session.confirm</code>, типа входит в scene, но это не сцена, т.к. сцена может быть только одна в один момент времени.</p>
+<p>Команда матчится всегда, когда установлен <code>ctx.session.confirm</code>, таким образом, пока юзер не ответит &ldquo;да&rdquo; или &ldquo;нет&rdquo;, его не выпустят из этого круга.</p>
+<h3 id="entities">entities</h3>
+<p>Последняя сущность структуры - это сущность, в сущности&hellip; которая выделяет сущности из текста.</p>
+<p>Можно сказать, что это NLU (Natural Language Understanding). При успешном нахождении в <code>ctx.entities</code> появляются дополнительные данные. У меня сущность была одна: <code>shop</code>, то есть распознавались покупки и действия с ними. Например, <code>{ action: 'delete', products: 'колбаса' }</code></p>
+<h3 id="собираем-всё-вместе">Собираем всё вместе</h3>
+<p>Само приложение состоит из подключение всех этих составляющих, вот по сути весь его код (<a href="https://github.com/popstas/yandex-dialogs-whatis/blob/master/src/app.js">полная версия app.js</a>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">async</span> <span style="color:#a6e22e">init</span>() {
+  <span style="color:#75715e">// добавляют функции в ctx
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">reply</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">replyRandom</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">az</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">logMessage</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">yametrika</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">YAMETRIKA_ID</span>));
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">chatbase</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">CHATBASE_KEY</span>, <span style="color:#a6e22e">packageJson</span>.<span style="color:#a6e22e">version</span>));
 
-  <span style=color:#75715e>// изменяют ctx во время запроса
-</span><span style=color:#75715e></span>  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>store</span>());
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>cleaner</span>());
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>counter</span>());
+  <span style="color:#75715e">// изменяют ctx во время запроса
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">store</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">cleaner</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">counter</span>());
 
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>middlewares</span>.<span style=color:#a6e22e>confirm</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">middlewares</span>.<span style="color:#a6e22e">confirm</span>());
 
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>entities</span>.<span style=color:#a6e22e>shop</span>());
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">shop</span>());
 
-  <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>utils</span>.<span style=color:#a6e22e>initMorph</span>();
+  <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">initMorph</span>();
 
-  <span style=color:#75715e>// подключение всех команд
-</span><span style=color:#75715e></span>  <span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>utils</span>.<span style=color:#a6e22e>useCommands</span>(<span style=color:#a6e22e>alice</span>, <span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>core</span>);
-  <span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>utils</span>.<span style=color:#a6e22e>useCommands</span>(<span style=color:#a6e22e>alice</span>, <span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>items</span>);
-  <span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>utils</span>.<span style=color:#a6e22e>useCommands</span>(<span style=color:#a6e22e>alice</span>, <span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>help</span>);
+  <span style="color:#75715e">// подключение всех команд
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">useCommands</span>(<span style="color:#a6e22e">alice</span>, <span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">core</span>);
+  <span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">useCommands</span>(<span style="color:#a6e22e">alice</span>, <span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">items</span>);
+  <span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">useCommands</span>(<span style="color:#a6e22e">alice</span>, <span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">help</span>);
 
-  <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>any</span>(<span style=color:#a6e22e>commands</span>.<span style=color:#a6e22e>core</span>.<span style=color:#a6e22e>any</span>.<span style=color:#a6e22e>handler</span>);
+  <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">any</span>.<span style="color:#a6e22e">handler</span>);
 }
-</code></pre></div><h4 id=обход-cors>Обход CORS</h4><p>Чтобы мой навык принимал запросы в браузере с любых доменов, я запускаю SDK не обычным <code>alice.listen()</code>, а своим хэндлером, который добавляет заголовки CORS после этого вызывает функцию SDK <code>alice.handleRequest()</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>handlerExpress</span>() {
-  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>app</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>express</span>();
-  <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>bodyParser</span>.<span style=color:#a6e22e>json</span>());
-  <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>use</span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>next</span>) {
-    <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>header</span>(<span style=color:#e6db74>&#39;Access-Control-Allow-Origin&#39;</span>, <span style=color:#e6db74>&#39;*&#39;</span>);
-    <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>header</span>(<span style=color:#e6db74>&#39;Access-Control-Allow-Headers&#39;</span>, <span style=color:#e6db74>&#39;Origin, X-Requested-With, Content-Type, Accept&#39;</span>);
-    <span style=color:#a6e22e>next</span>();
+</code></pre></div><h4 id="обход-cors">Обход CORS</h4>
+<p>Чтобы мой навык принимал запросы в браузере с любых доменов, я запускаю SDK не обычным <code>alice.listen()</code>, а своим хэндлером, который добавляет заголовки CORS после этого вызывает функцию SDK <code>alice.handleRequest()</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">handlerExpress</span>() {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+  <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">bodyParser</span>.<span style="color:#a6e22e">json</span>());
+  <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>, <span style="color:#e6db74">&#39;*&#39;</span>);
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>, <span style="color:#e6db74">&#39;Origin, X-Requested-With, Content-Type, Accept&#39;</span>);
+    <span style="color:#a6e22e">next</span>();
   });
-  <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>express</span>.<span style=color:#66d9ef>static</span>(<span style=color:#e6db74>&#39;static&#39;</span>));
-  <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>post</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>API_ENDPOINT</span>, <span style=color:#a6e22e>async</span> (<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>res</span>) =&gt; {
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>jsonAnswer</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>alice</span>.<span style=color:#a6e22e>handleRequest</span>(<span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>body</span>);
-    <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>(<span style=color:#a6e22e>jsonAnswer</span>);
+  <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">express</span>.<span style="color:#66d9ef">static</span>(<span style="color:#e6db74">&#39;static&#39;</span>));
+  <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">API_ENDPOINT</span>, <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">jsonAnswer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">alice</span>.<span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>);
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>(<span style="color:#a6e22e">jsonAnswer</span>);
   });
-  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>app</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">app</span>;
 }
-</code></pre></div><h4 id=запуск-в-продакшене>Запуск в продакшене</h4><p>Навык в бою крутится в docker контейнере, при пуше в git прогоняются тесты на Travis CI и собирается контейнер на Docker Hub, по <code>npm version</code> автоматически прогоняется весь процесс деплоя: установка версии, обновление Changelog (который генерируется из коммитов, благодаря <a href=/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/>Conventional Changelog</a>). Вся эта магия в <a href=https://github.com/popstas/yandex-dialogs-whatis/blob/master/package.json><code>package.json</code></a>.</p><hr><p>Надеюсь, эта статья поможет тем, кто захочет написать свой навык на этом SDK. Можно некоторые команды и мидлвари прямо себе копировать. За кажущейся простотой скрываются часы чтения логов того, что же там юзеры говорят, такое не придумать в вакууме.</p></div><footer><p class=meta><time itemprop=datePublished content="2020-04-13T23:55:00+0600">13 Apr 2020, 23:55</time>
-<span class=categories>, теги:
-<a class=category href=https://blog.popstas.ru/tags/projects>projects</a><meta itemprop=about content="projects"><a class=category href=https://blog.popstas.ru/tags/nodejs>nodejs</a><meta itemprop=about content="nodejs"><a class=category href=https://blog.popstas.ru/tags/vue>vue</a><meta itemprop=about content="vue"><a class=category href=https://blog.popstas.ru/tags/yandex-dialogs>yandex-dialogs</a><meta itemprop=about content="yandex-dialogs"></span></p><div class=sharing><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a href=https://www.addtoany.com/share></a><a class=a2a_button_vk></a><a class=a2a_button_twitter></a><a class=a2a_button_telegram></a><a class=a2a_button_whatsapp></a><a class=a2a_button_facebook></a></div><script>var a2a_config=a2a_config||{};a2a_config.locale="ru";a2a_config.color_main="undefined";a2a_config.color_border="undefined";a2a_config.color_link_text="undefined";a2a_config.color_link_text_hover="undefined";a2a_config.color_bg="undefined";a2a_config.color_arrow="undefined";a2a_config.color_arrow_hover="undefined";a2a_config.prioritize=["vk","twitter","telegram","whatsapp","facebook"];a2a_config.templates=a2a_config.templates||{};a2a_config.templates.whatsapp={text:'${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'};a2a_config.templates.telegram={title:'',text:'${title} - ${link}?utm_medium=messenger&utm_source=telegram'};</script><script async src=https://static.addtoany.com/menu/page.js></script></div><p class=meta><div>Новее: <a class=related href=https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/ title="Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки">Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</a></div><div>Старее: <a class=related href=https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/ title="Конспекты курса Deep Learning на пальцах 2019: таймкоды">Конспекты курса Deep Learning на пальцах 2019: таймкоды</a></div></p></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p><p>Обновления через <a href=https://tglink.ru/popstas_vk_wall>Telegram</a> или <a href=http://feeds.feedburner.com/popstas>RSS</a></p><p><a href=https://www.tinkoff.ru/sl/83wd1FGIcMR>Поблагодарить меня</a></p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank href=https://github.com/popstas/ title=https://github.com/popstas/><i class="fa fa-github fa-3x"></i></a><a target=_blank href=https://twitter.com/popstas/ title=https://twitter.com/popstas/><i class="fa fa-twitter fa-3x"></i></a><a target=_blank href="tg://resolve?domain=popstas" title=popstas><i class="fa fa-telegram fa-3x"></i></a><a target=_blank href=mailto:popstas@gmail.com title=popstas@gmail.com><i class="fa fa-at fa-3x"></i></a></li></ul><section class=even><div class=sidebar-title>Последние посты:</div><ul id=recent_posts><li class=post><a href=/navigator/>Навигатор</a></li><li class=post><a href=/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/>Содержание книги Барбары Оакли «Думай как математик»</a></li><li class=post><a href=/blog/2021/01/17/new-year-2020/>Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a></li><li class=post><a href=/blog/2021/01/16/github-projects-2020/>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a></li><li class=post><a href=/blog/2021/01/10/smarthome-2020/>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a></li><li class=post><a href=/blog/2021/01/06/content-2020/>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a></li><li class=post><a href=/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/>Содержание книги Элияху Голдратта «Критическая цепь»</a></li><li class=post><a href=/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/>Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a></li><li class=post><a href=/blog/2020/04/16/books-70/>Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2015-2021 Stanislav Popov -
-<span class=credit>Powered by <a target=_blank href=https://gohugo.io>Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/>Hugo-Octopress</a> theme.</p></footer><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WPJWVXB');</script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/custom.js></script><script type=text/javascript>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(51681281,"init",{id:51681281,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script><noscript><div><img src=https://mc.yandex.ru/watch/51681281 style=position:absolute;left:-9999px alt></div></noscript></body></html>
+</code></pre></div><h4 id="запуск-в-продакшене">Запуск в продакшене</h4>
+<p>Навык в бою крутится в docker контейнере, при пуше в git прогоняются тесты на Travis CI и собирается контейнер на Docker Hub, по <code>npm version</code> автоматически прогоняется весь процесс деплоя: установка версии, обновление Changelog (который генерируется из коммитов, благодаря <a href="/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/">Conventional Changelog</a>). Вся эта магия в <a href="https://github.com/popstas/yandex-dialogs-whatis/blob/master/package.json"><code>package.json</code></a>.</p>
+<hr>
+<p>Надеюсь, эта статья поможет тем, кто захочет написать свой навык на этом SDK. Можно некоторые команды и мидлвари прямо себе копировать. За кажущейся простотой скрываются часы чтения логов того, что же там юзеры говорят, такое не придумать в вакууме.</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <time itemprop="datePublished" content="2020-04-13T23:55:00&#43;0600">13 Apr 2020, 23:55</time>
+    
+      <span class="categories">
+        , теги:
+        
+          <a class="category" href="https://blog.popstas.ru/tags/projects">projects</a><meta itemprop="about" content="projects">  <a class="category" href="https://blog.popstas.ru/tags/nodejs">nodejs</a><meta itemprop="about" content="nodejs">  <a class="category" href="https://blog.popstas.ru/tags/vue">vue</a><meta itemprop="about" content="vue">  <a class="category" href="https://blog.popstas.ru/tags/yandex-dialogs">yandex-dialogs</a><meta itemprop="about" content="yandex-dialogs">  
+    
+    </span>
+  </p>
+
+  <div class="sharing">
+    
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_vk"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_facebook"></a>
+    </div>
+    <script>
+      var a2a_config = a2a_config || {};
+      a2a_config.locale = "ru";
+      a2a_config.color_main = "undefined";
+      a2a_config.color_border = "undefined";
+      a2a_config.color_link_text = "undefined";
+      a2a_config.color_link_text_hover = "undefined";
+      a2a_config.color_bg = "undefined";
+      a2a_config.color_arrow = "undefined";
+      a2a_config.color_arrow_hover = "undefined";
+      a2a_config.prioritize = ["vk", "twitter", "telegram", "whatsapp", "facebook"];
+
+      a2a_config.templates = a2a_config.templates || {};
+      a2a_config.templates.whatsapp = {
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'
+      };
+      a2a_config.templates.telegram = {
+        title: '',
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=telegram'
+      };
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    
+  </div>
+  
+
+  
+
+  <p class="meta">
+    
+        <div>Новее: <a class="related" href="https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/" title="Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки">Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</a></div>
+    
+
+    
+        <div>Старее: <a class="related" href="https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/" title="Конспекты курса Deep Learning на пальцах 2019: таймкоды">Конспекты курса Deep Learning на пальцах 2019: таймкоды</a></div>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <p>Обновления через <a href="https://tglink.ru/popstas_vk_wall">Telegram</a> или <a href="http://feeds.feedburner.com/popstas">RSS</a></p>
+<p><a href="https://www.tinkoff.ru/sl/83wd1FGIcMR">Поблагодарить меня</a></p>
+
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <div class="sidebar-title">Последние посты:</div>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="/navigator/">Навигатор</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/">Содержание книги Барбары Оакли «Думай как математик»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/17/new-year-2020/">Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/16/github-projects-2020/">Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/10/smarthome-2020/">Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/06/content-2020/">Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/">Содержание книги Элияху Голдратта «Критическая цепь»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/">Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/16/books-70/">Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2015-2021 Stanislav Popov -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+
+  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
+  
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/custom.js"></script>
+
+  
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(51681281, "init", {
+        id:51681281,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  
+
+  </body>
+</html>
+

@@ -1,378 +1,959 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Popstas</title><link>https://blog.popstas.ru/</link><description>Recent content on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 25 Jan 2021 19:15:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Навигатор</title><link>https://blog.popstas.ru/navigator/</link><pubDate>Sat, 11 Apr 2020 19:12:00 +0600</pubDate><guid>https://blog.popstas.ru/navigator/</guid><description>&lt;ul>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/projects/">Проекты&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/offtop/">Все нетехнические посты&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/">Книги&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0">Итоги года&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/3d-printer">3D печать&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/smart-home/">Умный дом&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/gadgets/">Девайсы&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;div class="spoiler panel panel-default "
->
-&lt;div class="panel-heading">
-&lt;a class="spoiler-link collapsed" data-toggle="collapse"
-style="display:block;"
-href="#spoiler793">Другие категории&lt;/a>
-&lt;/div>
-&lt;div class="panel-collapse collapse "
-id="spoiler793">
-&lt;div class="panel-body">&lt;h2 id="процессы-и-инструменты-разработки">Процессы и инструменты разработки&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/jetbrains/">JetBrains&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/docker/">Docker&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/ubuntu/">Ubuntu&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/ubuntu-desktop/">Ubuntu Desktop&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/windows/">Windows&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/git/">Git&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/ci/">Continous integration&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/planfix/">Планфикс&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="по-языкам">По языкам&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/nodejs/">Node.js&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/vue/">Vue.js&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/javascript/">JavaScript&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/python">Python&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/go/">Go&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/php/">PHP&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/bash/">Bash&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/zsh/">Zsh&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.popstas.ru/tags/ansible/">Ansible&lt;/a>, &lt;a href="https://blog.popstas.ru/tags/molecule/">Molecule&lt;/a>&lt;/li>
-&lt;/ul>&lt;/div>
-&lt;/div>
-&lt;/div></description></item><item><title>Содержание книги Барбары Оакли «Думай как математик»</title><link>https://blog.popstas.ru/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/</link><pubDate>Mon, 25 Jan 2021 19:15:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/</guid><description>&lt;p>Книга о техниках изучения нового материала и техниках запоминания.&lt;/p>
-&lt;p>Автор — женщина-филолог, не дружила с техникой и боялась математики (или наоборот). Карьера поставила её перед необходимостью вникать в технику, она решилась, начала учиться и в итоге доучилась до технологического доктора наук.&lt;/p>
-&lt;p>Методы, описанные в книге, Барбара собирала у учёных, которые дошли до них сами и не знали, что ими пользуются другие, она систематизировала их знания.&lt;/p>
-&lt;p>Для тех, кто хочет, но боится освоить математику и естественные науки.&lt;/p>
-&lt;p>Советы подходят для изучения чего угодно.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/barbara-oakli-dumay-kak-matematik.jpg" alt="Думай как математик">&lt;/p></description></item><item><title>Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</title><link>https://blog.popstas.ru/blog/2021/01/17/new-year-2020/</link><pubDate>Sun, 17 Jan 2021 19:05:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/17/new-year-2020/</guid><description>&lt;p>Итоги года разделил на 3 части:&lt;/p>
-&lt;ol>
-&lt;li>&lt;a href="https://blog.popstas.ru/blog/2021/01/06/content-2020/">Контент&lt;/a>&lt;/li>
-&lt;li>Технические итоги - про &lt;a href="https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/">умный дом&lt;/a> и про &lt;a href="https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/">другие проекты&lt;/a>&lt;/li>
-&lt;li>Про жизнь - кому интересно лично про меня&lt;/li>
-&lt;/ol>
-&lt;p>Это третья часть.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/2020.png" alt="2020 год">&lt;/p></description></item><item><title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</title><link>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</link><pubDate>Sat, 16 Jan 2021 23:50:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/github/popstas-github.svg" alt="Дом, поделенный на зоны">&lt;/p></description></item><item><title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title><link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link><pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/home-zones.jpg" alt="Дом, поделенный на зоны">&lt;/p></description></item><item><title>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</title><link>https://blog.popstas.ru/blog/2021/01/06/content-2020/</link><pubDate>Wed, 06 Jan 2021 02:50:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/06/content-2020/</guid><description>&lt;p>Что я читал, слушал и смотрел в 2020-м.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/content-2020.png" alt="2020 год">&lt;/p></description></item><item><title>Содержание книги Элияху Голдратта «Критическая цепь»</title><link>https://blog.popstas.ru/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/</link><pubDate>Thu, 11 Jun 2020 18:25:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/</guid><description>&lt;p>Бизнес-роман про преподавателя в бизнес-школе (MBA), который помогал технологической компании запустить проект в срок. Книга о разработанной для этого системе управления проектами.&lt;/p>
-&lt;p>Приводятся примеры разных компаний: производство, программирование, строительство, маркетинг. Работа с подрядчиками и поставщиками. Все студенты пришли решать проблемы своих компаний, все так или иначе работают с проектами.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/goldratt-cep/cover.jpg" alt="Критическая цепь">&lt;/p></description></item><item><title>Содержание книги Дэна Ариели «Предсказуемая иррациональность»</title><link>https://blog.popstas.ru/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/</link><pubDate>Wed, 20 May 2020 02:10:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-05/arieli.jpg" alt="Предсказуемая иррациональность">&lt;/p>
-&lt;p>Исследование ошибок, которые люди постоянно совершают. Рекомендую всем прочитать хотя бы это (не очень) краткое изложение.&lt;/p>
-&lt;p>Книга похожа на книгу Даниэля Канемана &amp;ldquo;&lt;a href="https://blog.popstas.ru/blog/2019/12/29/books-2019/#27-%D0%B4%D0%B0%D0%BD%D0%B8%D1%8D%D0%BB%D1%8C-%D0%BA%D0%B0%D0%BD%D0%B5%D0%BC%D0%B0%D0%BD---%D0%B4%D1%83%D0%BC%D0%B0%D0%B9-%D0%BC%D0%B5%D0%B4%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE-%D1%80%D0%B5%D1%88%D0%B0%D0%B9-%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE">Думай медленно, решай быстро&lt;/a>&amp;quot;. Каждая мысль в книге сопровождается экспериментами с фокус-группой и контрольной группой.&lt;/p>
-&lt;p>Мы живём не в реальности, а в нашем представлении о реальности, из-за этого и возникают все эти странные искажения, о которых говорится в книге.&lt;/p>
-&lt;p>Во многие закономерности сложно поверить, напрашивается мысль: &amp;ldquo;Да, это влияет на недалёких людей, но не на меня&amp;rdquo;. Так вот, большинство экспериментов проводилось на студентах MIT и школы MBA, можно сказать, что это мировая элита от инженеров и бизнесменов. Они тоже думали, что на них это не влияет, каждый из них, но результаты экспериментов это опровергают. Думаю очень важно понимать это.&lt;/p>
-&lt;p>Книга для меня решает 2 задачи:&lt;/p>
-&lt;ol>
-&lt;li>Уменьшить вред: даёт информацию о различных уловках, которые можно потом распознавать в жизни и не попадаться на них.&lt;/li>
-&lt;li>Увеличить пользу: самому использовать уловки в работе и в жизни. Считайте это лайфхаками.&lt;/li>
-&lt;/ol></description></item><item><title>Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</title><link>https://blog.popstas.ru/blog/2020/04/16/books-70/</link><pubDate>Thu, 16 Apr 2020 19:05:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/16/books-70/</guid><description>&lt;p>Решил больше не тянуть до конца года, а выкладывать десятками.&lt;/p>
-&lt;p>Лучшее: &lt;a href="https://blog.popstas.ru/blog/2020/04/16/books-70/#70-%D1%80%D0%B8%D1%87%D0%B0%D1%80%D0%B4-%D0%BA%D0%BE%D1%85---%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-80-%D0%BD%D0%B0-20">Ричард Кох - Принцип 80 на 20&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-03/books-70.jpg" alt="зал библиотеки">&lt;/p></description></item><item><title>NPM version: версионирование, история изменений, деплой проекта</title><link>https://blog.popstas.ru/blog/2020/04/15/npm-version/</link><pubDate>Wed, 15 Apr 2020 20:58:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/15/npm-version/</guid><description>&lt;p>Как я веду красивую историю изменений в своих проектах и деплою одной командой после коммита (нет, это не git hooks).&lt;/p>
-&lt;p>Если вы не пишете на JavaScript, пусть вас не смущает слово &amp;ldquo;NPM&amp;rdquo;, это подходит для любого языка.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/npm-version.png" alt="npm version">&lt;/p></description></item><item><title>Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</title><link>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</link><pubDate>Tue, 14 Apr 2020 19:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</guid><description>&lt;p>История написания навыков для Алисы и тестилок для них.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/yandex-dialogs.png" alt="Яндекс Алиса, Список покупок, Вторая память, Node.js">&lt;/p></description></item><item><title>Навык для Алисы "Вторая память": технические особенности</title><link>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</link><pubDate>Mon, 13 Apr 2020 23:55:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</guid><description>&lt;p>Как устроена &amp;ldquo;Вторая память&amp;rdquo; для Алисы: &lt;del>кишки, кровь, расчленёнка&lt;/del> команды, матчеры, мидлвари.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/yandex-dialogs-whatis.png" alt="Навык Вторая память">&lt;/p></description></item><item><title>Конспекты курса Deep Learning на пальцах 2019: таймкоды</title><link>https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/</link><pubDate>Sun, 12 Apr 2020 22:51:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/</guid><description>&lt;p>&lt;a href="https://www.youtube.com/playlist?list=PL5FkQ0AF9O_o2Eb5Qn8pwCDg7TniyV1Wb">Курс &amp;ldquo;Deep learning на пальцах - 2019&amp;rdquo; от sim0nsays&lt;/a>&lt;/p>
-&lt;p>Хорошие обзорные теоретические курсы по нейросетям. У них есть недостаток: отсутствие таймкодов.&lt;/p>
-&lt;p>Этот пост по сути список таймкодов.&lt;/p>
-&lt;p>На данный момент я посмотрел 10 лекций.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/deep-learning-2019.jpg" alt="">&lt;/p></description></item><item><title>Итоги 2019 года</title><link>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</link><pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</guid><description>&lt;p>Обзор разделён на 3 части:&lt;/p>
-&lt;ol>
-&lt;li>Контент - что я читал, слушал и смотрел, самая полезная часть, отсюда можно что-то утянуть себе&lt;/li>
-&lt;li>Технические итоги - для инженеров&lt;/li>
-&lt;li>Про жизнь - кому интересно лично про меня&lt;/li>
-&lt;/ol>
-&lt;p>&lt;img src="https://image.freepik.com/free-photo/2019_1205-6006.jpg" alt="2019 год">&lt;/p></description></item><item><title>Мои книги в 2019: 1-60: психология, бизнес, художка</title><link>https://blog.popstas.ru/blog/2019/12/29/books-2019/</link><pubDate>Sun, 29 Dec 2019 02:05:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/29/books-2019/</guid><description>&lt;p>В этом году я резко начал читать, 14 февраля (с днём Святого Валентина не связано).&lt;/p>
-&lt;p>В феврале коллега посоветовал прочитать (послушать) книгу &amp;ldquo;Путы материнской любви&amp;rdquo;. Для меня это послужило рычагом, и понеслась: никогда не слушал нон-фикшен, думал, что это всё заменяется статьями из инета. Как бы не так, жаль, что я недооценивал такие книги, зато теперь буду знать. думаю, что это надолго. Не надо жалеть о прошлом, надо верить в будущее и радоваться настоящему )&lt;/p>
-&lt;p>К июню я уже послушал 20 книг, это наверное больше, чем за последние 5 лет (художественную литературу я всё-таки иногда слушаю, филфак не прошёл зря). Такой массив новой информации конечно повлиял на мой разум, я больше никогда не стану прежним )&lt;/p>
-&lt;p>Составил список, чтобы вспомнить и поделиться:&lt;/p>
-&lt;p>&lt;img src="https://cdnimg.rg.ru/img/content/177/12/83/iStock-9491180681000_d_850.jpg" alt="пирамида из книг">&lt;/p></description></item><item><title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title><link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link><pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid><description>&lt;p>В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2019-12/smarthome.jpg" alt="smart home robot">
-(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href="https://www.youtube.com/watch?v=WfI69DC_jaw">Будет ласковый дождь&lt;/a>&amp;quot;).&lt;/p></description></item><item><title>Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</title><link>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</link><pubDate>Sat, 06 Apr 2019 16:05:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</guid><description>&lt;p>После &lt;a href="https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/">недавнего теста пылесоса&lt;/a> и трёх уборок подряд остался один вопрос: когда же пыль исчезнет? Я уже давно думал, откуда берется пыль на мебели, решил, что с улицы.&lt;/p>
-&lt;p>TL;DR: много, очень много, не знаю сколько. И дело не в плохом роботе-пылесосе.&lt;/p>
-&lt;p>UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p>
-&lt;p>UPD 08.03.2020: после отката на версию 2.x заработало.&lt;/p></description></item><item><title>Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</title><link>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</link><pubDate>Thu, 04 Apr 2019 20:55:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</guid><description>&lt;p>Психанул и купил робот-пылесос.&lt;/p>
-&lt;p>TL;DR: первые тесты показали, что функция построения карты помещения рулит, пылесос убирает, для автоматического применения пригоден, я получил то, на что рассчитывал.&lt;/p>
-&lt;p>UPD 06.04.2019: &lt;a href="https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/">продолжение теста на чистоту&lt;/a>.&lt;/p>
-&lt;p>UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p>
-&lt;p>UPD 08.03.2020: после отката на версию 2.x заработало.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2019-04/ilife-a9s.jpg" alt="ilife a9s на ковре">&lt;/p></description></item><item><title>Итоги 2018 года</title><link>https://blog.popstas.ru/blog/2019/03/17/new-year-2018/</link><pubDate>Sun, 17 Mar 2019 15:50:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/03/17/new-year-2018/</guid><description>&lt;p>Этот пост должен был выйти в конце года, но я про него забыл, лучше поздно, чем никогда )&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-12/new-year.jpg" alt="ёлочный шар">&lt;/p></description></item><item><title>Мой Github 2018</title><link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link><pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid><description>&lt;p>Новые проекты:&lt;/p>
-&lt;ul>
-&lt;li>planfix-toggl-server - Go&lt;/li>
-&lt;li>planfix-toggl-client - Vue&lt;/li>
-&lt;li>chords-viewer - Vue&lt;/li>
-&lt;li>chords-parser - JS&lt;/li>
-&lt;li>voice-list - Vue&lt;/li>
-&lt;li>yandex-dialogs-client - Vue&lt;/li>
-&lt;li>yandex-dialogs-whatis - JS&lt;/li>
-&lt;li>yandex-dialogs-tester - JS&lt;/li>
-&lt;li>hain-plugin-puttytray - JS&lt;/li>
-&lt;li>viasite-projects - JS, Vue&lt;/li>
-&lt;/ul>
-&lt;p>Правки старых:&lt;/p>
-&lt;ul>
-&lt;li>site-discovery - Python&lt;/li>
-&lt;li>ansible-role-zsh - YML&lt;/li>
-&lt;/ul>
-&lt;p>Проект года: &lt;a href="https://chords.popstas.ru">https://chords.popstas.ru&lt;/a>&lt;/p>
-&lt;p>Все остальные ссылки и описания под катом.&lt;/p>
-&lt;p>PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p>
-&lt;p>Держусь на уровне 1000 коммитов в год.&lt;/p>
-&lt;p>Было это так:&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-12/github-octocat.png" alt="Octocat">&lt;/p></description></item><item><title>Обзор умной колонки IRBIS A c Алисой от Яндекса</title><link>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</link><pubDate>Fri, 28 Dec 2018 20:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</guid><description>&lt;p>14 декабря Яндекс &lt;a href="https://yandex.ru/blog/company/kolonki-mladshie">сообщил&lt;/a> о поступлении мини-колонок в продажу.
-Обзор после 2 дней использования.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-12/irbis-a1.jpg" alt="irbis a на кофеварке на кухне">&lt;/p></description></item><item><title>Крышка-дозатор для насыпания кофе на 3d принтере</title><link>https://blog.popstas.ru/blog/2018/12/16/3d-printed-coffee-cap/</link><pubDate>Sun, 16 Dec 2018 16:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/16/3d-printed-coffee-cap/</guid><description>&lt;p>В последнее время я интересуюсь разными воронками, оказалось, физическая воронка - штука с одной стороны универсальная, с другой - под разные задачи нужны воронки разного размера и формы.&lt;/p>
-&lt;p>Этой статьей я хотел показать, что даже не имея никакого опыта 3д печати (я до этого спроектировал две модели, принтер у меня 1.5 месяца), можно применять принтер для решения разных бытовых потребностей, которые без принтера не всегда можно решить.&lt;/p>
-&lt;p>TL;DR: Решил проблему с насыпанием кофе в кофеварку с помощью 3d принтера, времени на проект ушло около 1 часа (не считая освоения OpenSCAD).&lt;/p>
-&lt;p>&lt;img src="https://lh3.googleusercontent.com/8AHAl0xgWUvr359m_eFOmpWy2HBtXnSL2vP1_VC7UI0abjlHIezz8lsqeiVfWnO6GRsHEJwQjua7ZZgWsKvQpHWNtLf3JGfZVnqZ2sTC5BMW_VazxPRl--pGuhGQkmW3LKtAwwUUTGjRyVUsxGjpZsEvKmi9SoMtxgBq-pD-el-5122_B51HQ4225bZ8QEbblK1KdSfnmfyNjRVefvWe5FC_N3ybzdMIBJLmQRtCWii0-hGL5hERvS2sz1xPCITIlGcaaDgDovghUXb4fi1H2DC8J9lDUliV56wPNVzE-xpeQVtb4IvRXi25lqwbp8B_s13yObqot-i2qwx5sV8EBt90fXf8spe7k_RfW79_Tefe9c8M1bq5uGTPmbPKCAXaUnWHHnmqllbp3H39HBF3IHN_M2brgcgiE_OhJlGsSLRcoe1pvAJNeQL2ANHLL72XWkDXolvgF3wU6TFDG9Ycmfo6kn_r7XJdb9M3CoSQZNE-X0Z_66TWHVcDxmRCGKo7hcbduIyg04__ditwSy3o-ogviGfYSVG_HkSqyE5dEzv8d9FUR--9CkME8B7FRz4kpA2KCi-viEFqoakG0RpfFiRez8qcKPEEJqLFwbIVq-ULQgT6BhuGaQBcXrOWu8pG_KUi370M6V_AeyQr4miIUYDhdT9Earhi_cTKSBvbusjAV1bGgGGhnL0UoOR8Oo1HLEzUdm71B4YZlNNKaA=w1474-h1106-no" alt="3d-printed coffee cap">&lt;/p></description></item><item><title>Полочки для чая на 3d принтере</title><link>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</link><pubDate>Wed, 07 Nov 2018 20:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</guid><description>&lt;p>Через неделю после приобретения 3d принтера решил воплотить давнюю идею: навести порядок в шкафчике с чаем.&lt;/p>
-&lt;p>TL;DR: получилось достаточно хорошо, чтобы выложить &lt;a href="https://www.thingiverse.com/thing:3197921">первую модель на thingverse&lt;/a>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-11/3d-printed-expandable-tea-box-1.jpg" alt="3d-printed expandable tea box">&lt;/p></description></item><item><title>Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</title><link>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</link><pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</guid><description>&lt;p>Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p></description></item><item><title>Переключение окон назад по Alt+Shift+Tab в Ubuntu 18.04</title><link>https://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</link><pubDate>Tue, 01 May 2018 05:55:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</guid><description>&lt;p>Я был очень удивлен, что такой базовый функционал сломан из коробки. К счастью, это чинится легко, если вам не нужно переключение языка по Alt+Shift, т.к. именно оно мешает хоткею. Решение нашел случайно, настраивая &lt;a href="https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/">gxneur&lt;/a>, нужно сменить комбинацию в gconf на Super+Space:&lt;/p>
-&lt;pre>&lt;code>gsettings set org.gnome.desktop.input-sources xkb-options &amp;quot;['grp:super_space_toggle,grp_led:scroll']&amp;quot;
-&lt;/code>&lt;/pre>&lt;p>Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p></description></item><item><title>Настройка gxneur в Ubuntu 18.04</title><link>https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/</link><pubDate>Tue, 01 May 2018 05:35:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/</guid><description>&lt;p>Для тех, кто не может жить без Punto Switcher, у меня плохие новости: нормальной замены на Ubuntu нет, на форуме люди говорят, что у кого-то работает идеально, я с 10.04 пробую, никогда идеально не было. Будем настраивать то, что есть.&lt;/p>
-&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/ru/a/a3/Xneur_project.png" alt="gxneur">&lt;/p></description></item><item><title>Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</title><link>https://blog.popstas.ru/blog/2018/05/01/time-zone-ubuntu-windows-reboot/</link><pubDate>Tue, 01 May 2018 03:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/05/01/time-zone-ubuntu-windows-reboot/</guid><description>&lt;p>При перезагрузке из Ubuntu в Windows часы прыгают на разницу между Гринвичем и вашим часовым поясом. Нетрудно догадаться до причины: Ubuntu предполагает, что в BIOS часы настроены по UTC+0, а Windows считает, что там указано местное время.&lt;/p>
-&lt;p>Не знаю, как это исправляется в Windows, но нетрудно найти &lt;a href="https://help.ubuntu.com/community/UbuntuTime#Make_Linux_use_.27Local.27_time">решение в Ubuntu&lt;/a>:&lt;/p>
-&lt;pre>&lt;code>timedatectl set-local-rtc 1
-&lt;/code>&lt;/pre></description></item><item><title>Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</title><link>https://blog.popstas.ru/blog/2018/05/01/seahorse-password-on-ubuntu-boot/</link><pubDate>Tue, 01 May 2018 03:28:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/05/01/seahorse-password-on-ubuntu-boot/</guid><description>&lt;p>При каждом входе по умолчанию загружается агент SSH ключей и просит ввести мастер-пароль. Если вы часто перезагружаетесь (как я при настройке системы), это напрягает, отключить можно &lt;a href="https://askubuntu.com/questions/867/how-can-i-stop-being-prompted-to-unlock-the-default-keyring-on-boot">так&lt;/a>:&lt;/p>
-&lt;ul>
-&lt;li>Открыть связку ключей (seahorse)&lt;/li>
-&lt;li>Нажать ПКМ по папке Вход&lt;/li>
-&lt;li>Сменить пароль на пустой&lt;/li>
-&lt;/ul>
-&lt;p>Учтите, что это стремное решение, и лучше так не делать. Я верну пароль, когда система настроена, я не перезагружаюсь каждый день.&lt;/p></description></item><item><title>Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</title><link>https://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</link><pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</guid><description>&lt;p>Драйвера поставились сами. Звук определился, но не играл. Помог &lt;a href="https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound">этот пост&lt;/a>:&lt;/p>
-&lt;p>alsa-utils у меня уже были установлены, запустил alsamixer, переключил выход с Headphones на Multichannel, заработало.&lt;/p>
-&lt;p>Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg" alt="alsamixer">&lt;/p></description></item><item><title>Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</title><link>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</link><pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</guid><description>&lt;p>Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux">эта статья&lt;/a>, вот краткое содержание:&lt;/p>
-&lt;pre>&lt;code>apt install ubuntu-drivers-common
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Popstas</title>
+    <link>https://blog.popstas.ru/</link>
+    <description>Recent content on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 25 Jan 2021 19:15:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Навигатор</title>
+      <link>https://blog.popstas.ru/navigator/</link>
+      <pubDate>Sat, 11 Apr 2020 19:12:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/navigator/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/projects/&#34;&gt;Проекты&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/offtop/&#34;&gt;Все нетехнические посты&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/&#34;&gt;Книги&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B3%D0%BE%D0%B4%D0%B0&#34;&gt;Итоги года&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/3d-printer&#34;&gt;3D печать&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/smart-home/&#34;&gt;Умный дом&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/gadgets/&#34;&gt;Девайсы&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+    &lt;div class=&#34;spoiler panel panel-default &#34;
+    &gt;
+        &lt;div class=&#34;panel-heading&#34;&gt;
+            &lt;a class=&#34;spoiler-link collapsed&#34; data-toggle=&#34;collapse&#34;
+            style=&#34;display:block;&#34;
+            href=&#34;#spoiler964&#34;&gt;Другие категории&lt;/a&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;panel-collapse collapse &#34;
+        id=&#34;spoiler964&#34;&gt;
+            &lt;div class=&#34;panel-body&#34;&gt;&lt;h2 id=&#34;процессы-и-инструменты-разработки&#34;&gt;Процессы и инструменты разработки&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/jetbrains/&#34;&gt;JetBrains&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/docker/&#34;&gt;Docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/ubuntu/&#34;&gt;Ubuntu&lt;/a&gt;, &lt;a href=&#34;https://blog.popstas.ru/tags/ubuntu-desktop/&#34;&gt;Ubuntu Desktop&lt;/a&gt;, &lt;a href=&#34;https://blog.popstas.ru/tags/windows/&#34;&gt;Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/git/&#34;&gt;Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/ci/&#34;&gt;Continous integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/planfix/&#34;&gt;Планфикс&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;по-языкам&#34;&gt;По языкам&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/nodejs/&#34;&gt;Node.js&lt;/a&gt;, &lt;a href=&#34;https://blog.popstas.ru/tags/vue/&#34;&gt;Vue.js&lt;/a&gt;, &lt;a href=&#34;https://blog.popstas.ru/tags/javascript/&#34;&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/python&#34;&gt;Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/go/&#34;&gt;Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/php/&#34;&gt;PHP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/bash/&#34;&gt;Bash&lt;/a&gt;, &lt;a href=&#34;https://blog.popstas.ru/tags/zsh/&#34;&gt;Zsh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/ansible/&#34;&gt;Ansible&lt;/a&gt;, &lt;a href=&#34;https://blog.popstas.ru/tags/molecule/&#34;&gt;Molecule&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+            
+        &lt;/div&gt;
+        
+    &lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Содержание книги Барбары Оакли «Думай как математик»</title>
+      <link>https://blog.popstas.ru/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/</link>
+      <pubDate>Mon, 25 Jan 2021 19:15:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/</guid>
+      <description>&lt;p&gt;Книга о техниках изучения нового материала и техниках запоминания.&lt;/p&gt;
+&lt;p&gt;Автор — женщина-филолог, не дружила с техникой и боялась математики (или наоборот). Карьера поставила её перед необходимостью вникать в технику, она решилась, начала учиться и в итоге доучилась до технологического доктора наук.&lt;/p&gt;
+&lt;p&gt;Методы, описанные в книге, Барбара собирала у учёных, которые дошли до них сами и не знали, что ими пользуются другие, она систематизировала их знания.&lt;/p&gt;
+&lt;p&gt;Для тех, кто хочет, но боится освоить математику и естественные науки.&lt;/p&gt;
+&lt;p&gt;Советы подходят для изучения чего угодно.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/barbara-oakli-dumay-kak-matematik.jpg&#34; alt=&#34;Думай как математик&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</title>
+      <link>https://blog.popstas.ru/blog/2021/01/17/new-year-2020/</link>
+      <pubDate>Sun, 17 Jan 2021 19:05:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/17/new-year-2020/</guid>
+      <description>&lt;p&gt;Итоги года разделил на 3 части:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/blog/2021/01/06/content-2020/&#34;&gt;Контент&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Технические итоги - про &lt;a href=&#34;https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/&#34;&gt;умный дом&lt;/a&gt; и про &lt;a href=&#34;https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/&#34;&gt;другие проекты&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Про жизнь - кому интересно лично про меня&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Это третья часть.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/2020.png&#34; alt=&#34;2020 год&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</title>
+      <link>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</link>
+      <pubDate>Sat, 16 Jan 2021 23:50:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/github/popstas-github.svg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title>
+      <link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link>
+      <pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/home-zones.jpg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</title>
+      <link>https://blog.popstas.ru/blog/2021/01/06/content-2020/</link>
+      <pubDate>Wed, 06 Jan 2021 02:50:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/06/content-2020/</guid>
+      <description>&lt;p&gt;Что я читал, слушал и смотрел в 2020-м.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/content-2020.png&#34; alt=&#34;2020 год&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Содержание книги Элияху Голдратта «Критическая цепь»</title>
+      <link>https://blog.popstas.ru/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/</link>
+      <pubDate>Thu, 11 Jun 2020 18:25:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/</guid>
+      <description>&lt;p&gt;Бизнес-роман про преподавателя в бизнес-школе (MBA), который помогал технологической компании запустить проект в срок. Книга о разработанной для этого системе управления проектами.&lt;/p&gt;
+&lt;p&gt;Приводятся примеры разных компаний: производство, программирование, строительство, маркетинг. Работа с подрядчиками и поставщиками. Все студенты пришли решать проблемы своих компаний, все так или иначе работают с проектами.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/goldratt-cep/cover.jpg&#34; alt=&#34;Критическая цепь&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Содержание книги Дэна Ариели «Предсказуемая иррациональность»</title>
+      <link>https://blog.popstas.ru/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/</link>
+      <pubDate>Wed, 20 May 2020 02:10:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-05/arieli.jpg&#34; alt=&#34;Предсказуемая иррациональность&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Исследование ошибок, которые люди постоянно совершают. Рекомендую всем прочитать хотя бы это (не очень) краткое изложение.&lt;/p&gt;
+&lt;p&gt;Книга похожа на книгу Даниэля Канемана &amp;ldquo;&lt;a href=&#34;https://blog.popstas.ru/blog/2019/12/29/books-2019/#27-%D0%B4%D0%B0%D0%BD%D0%B8%D1%8D%D0%BB%D1%8C-%D0%BA%D0%B0%D0%BD%D0%B5%D0%BC%D0%B0%D0%BD---%D0%B4%D1%83%D0%BC%D0%B0%D0%B9-%D0%BC%D0%B5%D0%B4%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE-%D1%80%D0%B5%D1%88%D0%B0%D0%B9-%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE&#34;&gt;Думай медленно, решай быстро&lt;/a&gt;&amp;quot;. Каждая мысль в книге сопровождается экспериментами с фокус-группой и контрольной группой.&lt;/p&gt;
+&lt;p&gt;Мы живём не в реальности, а в нашем представлении о реальности, из-за этого и возникают все эти странные искажения, о которых говорится в книге.&lt;/p&gt;
+&lt;p&gt;Во многие закономерности сложно поверить, напрашивается мысль: &amp;ldquo;Да, это влияет на недалёких людей, но не на меня&amp;rdquo;. Так вот, большинство экспериментов проводилось на студентах MIT и школы MBA, можно сказать, что это мировая элита от инженеров и бизнесменов. Они тоже думали, что на них это не влияет, каждый из них, но результаты экспериментов это опровергают. Думаю очень важно понимать это.&lt;/p&gt;
+&lt;p&gt;Книга для меня решает 2 задачи:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Уменьшить вред: даёт информацию о различных уловках, которые можно потом распознавать в жизни и не попадаться на них.&lt;/li&gt;
+&lt;li&gt;Увеличить пользу: самому использовать уловки в работе и в жизни. Считайте это лайфхаками.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</title>
+      <link>https://blog.popstas.ru/blog/2020/04/16/books-70/</link>
+      <pubDate>Thu, 16 Apr 2020 19:05:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/16/books-70/</guid>
+      <description>&lt;p&gt;Решил больше не тянуть до конца года, а выкладывать десятками.&lt;/p&gt;
+&lt;p&gt;Лучшее: &lt;a href=&#34;https://blog.popstas.ru/blog/2020/04/16/books-70/#70-%D1%80%D0%B8%D1%87%D0%B0%D1%80%D0%B4-%D0%BA%D0%BE%D1%85---%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-80-%D0%BD%D0%B0-20&#34;&gt;Ричард Кох - Принцип 80 на 20&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-03/books-70.jpg&#34; alt=&#34;зал библиотеки&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NPM version: версионирование, история изменений, деплой проекта</title>
+      <link>https://blog.popstas.ru/blog/2020/04/15/npm-version/</link>
+      <pubDate>Wed, 15 Apr 2020 20:58:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/15/npm-version/</guid>
+      <description>&lt;p&gt;Как я веду красивую историю изменений в своих проектах и деплою одной командой после коммита (нет, это не git hooks).&lt;/p&gt;
+&lt;p&gt;Если вы не пишете на JavaScript, пусть вас не смущает слово &amp;ldquo;NPM&amp;rdquo;, это подходит для любого языка.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/npm-version.png&#34; alt=&#34;npm version&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</title>
+      <link>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</link>
+      <pubDate>Tue, 14 Apr 2020 19:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</guid>
+      <description>&lt;p&gt;История написания навыков для Алисы и тестилок для них.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/yandex-dialogs.png&#34; alt=&#34;Яндекс Алиса, Список покупок, Вторая память, Node.js&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Навык для Алисы &#34;Вторая память&#34;: технические особенности</title>
+      <link>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</link>
+      <pubDate>Mon, 13 Apr 2020 23:55:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</guid>
+      <description>&lt;p&gt;Как устроена &amp;ldquo;Вторая память&amp;rdquo; для Алисы: &lt;del&gt;кишки, кровь, расчленёнка&lt;/del&gt; команды, матчеры, мидлвари.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/yandex-dialogs-whatis.png&#34; alt=&#34;Навык Вторая память&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Конспекты курса Deep Learning на пальцах 2019: таймкоды</title>
+      <link>https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/</link>
+      <pubDate>Sun, 12 Apr 2020 22:51:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/12/deep-learning-ngu-2019/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/playlist?list=PL5FkQ0AF9O_o2Eb5Qn8pwCDg7TniyV1Wb&#34;&gt;Курс &amp;ldquo;Deep learning на пальцах - 2019&amp;rdquo; от sim0nsays&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Хорошие обзорные теоретические курсы по нейросетям. У них есть недостаток: отсутствие таймкодов.&lt;/p&gt;
+&lt;p&gt;Этот пост по сути список таймкодов.&lt;/p&gt;
+&lt;p&gt;На данный момент я посмотрел 10 лекций.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/deep-learning-2019.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Итоги 2019 года</title>
+      <link>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</link>
+      <pubDate>Sun, 29 Dec 2019 14:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/12/29/new-year-2019/</guid>
+      <description>&lt;p&gt;Обзор разделён на 3 части:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Контент - что я читал, слушал и смотрел, самая полезная часть, отсюда можно что-то утянуть себе&lt;/li&gt;
+&lt;li&gt;Технические итоги - для инженеров&lt;/li&gt;
+&lt;li&gt;Про жизнь - кому интересно лично про меня&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://image.freepik.com/free-photo/2019_1205-6006.jpg&#34; alt=&#34;2019 год&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мои книги в 2019: 1-60: психология, бизнес, художка</title>
+      <link>https://blog.popstas.ru/blog/2019/12/29/books-2019/</link>
+      <pubDate>Sun, 29 Dec 2019 02:05:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/12/29/books-2019/</guid>
+      <description>&lt;p&gt;В этом году я резко начал читать, 14 февраля (с днём Святого Валентина не связано).&lt;/p&gt;
+&lt;p&gt;В феврале коллега посоветовал прочитать (послушать) книгу &amp;ldquo;Путы материнской любви&amp;rdquo;. Для меня это послужило рычагом, и понеслась: никогда не слушал нон-фикшен, думал, что это всё заменяется статьями из инета. Как бы не так, жаль, что я недооценивал такие книги, зато теперь буду знать. думаю, что это надолго. Не надо жалеть о прошлом, надо верить в будущее и радоваться настоящему )&lt;/p&gt;
+&lt;p&gt;К июню я уже послушал 20 книг, это наверное больше, чем за последние 5 лет (художественную литературу я всё-таки иногда слушаю, филфак не прошёл зря). Такой массив новой информации конечно повлиял на мой разум, я больше никогда не стану прежним )&lt;/p&gt;
+&lt;p&gt;Составил список, чтобы вспомнить и поделиться:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdnimg.rg.ru/img/content/177/12/83/iStock-9491180681000_d_850.jpg&#34; alt=&#34;пирамида из книг&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title>
+      <link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid>
+      <description>&lt;p&gt;В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2019-12/smarthome.jpg&#34; alt=&#34;smart home robot&#34;&gt;
+(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href=&#34;https://www.youtube.com/watch?v=WfI69DC_jaw&#34;&gt;Будет ласковый дождь&lt;/a&gt;&amp;quot;).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Сколько раз нужно пропылесосить ковёр, чтобы полностью очистить от пыли? Продолжение теста пылесоса ILIFE a9s</title>
+      <link>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</link>
+      <pubDate>Sat, 06 Apr 2019 16:05:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/</guid>
+      <description>&lt;p&gt;После &lt;a href=&#34;https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/&#34;&gt;недавнего теста пылесоса&lt;/a&gt; и трёх уборок подряд остался один вопрос: когда же пыль исчезнет? Я уже давно думал, откуда берется пыль на мебели, решил, что с улицы.&lt;/p&gt;
+&lt;p&gt;TL;DR: много, очень много, не знаю сколько. И дело не в плохом роботе-пылесосе.&lt;/p&gt;
+&lt;p&gt;UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p&gt;
+&lt;p&gt;UPD 08.03.2020: после отката на версию 2.x заработало.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мини обзор и тестирование робота-пылесоса ILIFE a9s: автоматическая уборка квартиры с коврами</title>
+      <link>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</link>
+      <pubDate>Thu, 04 Apr 2019 20:55:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/04/04/robot-vacuum-cleaner-ilife-a9s-test/</guid>
+      <description>&lt;p&gt;Психанул и купил робот-пылесос.&lt;/p&gt;
+&lt;p&gt;TL;DR: первые тесты показали, что функция построения карты помещения рулит, пылесос убирает, для автоматического применения пригоден, я получил то, на что рассчитывал.&lt;/p&gt;
+&lt;p&gt;UPD 06.04.2019: &lt;a href=&#34;https://blog.popstas.ru/blog/2019/04/06/ilife-a9s-stress-test/&#34;&gt;продолжение теста на чистоту&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;UPD 14.01.2020: после обновления приложения до версии 3.0.3 пылесос перестал соединяться с телефоном. Не очень надо, всё ещё работает установка расписания через пульт, но всё равно неприятно.&lt;/p&gt;
+&lt;p&gt;UPD 08.03.2020: после отката на версию 2.x заработало.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2019-04/ilife-a9s.jpg&#34; alt=&#34;ilife a9s на ковре&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Итоги 2018 года</title>
+      <link>https://blog.popstas.ru/blog/2019/03/17/new-year-2018/</link>
+      <pubDate>Sun, 17 Mar 2019 15:50:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/03/17/new-year-2018/</guid>
+      <description>&lt;p&gt;Этот пост должен был выйти в конце года, но я про него забыл, лучше поздно, чем никогда )&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/new-year.jpg&#34; alt=&#34;ёлочный шар&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой Github 2018</title>
+      <link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid>
+      <description>&lt;p&gt;Новые проекты:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;planfix-toggl-server - Go&lt;/li&gt;
+&lt;li&gt;planfix-toggl-client - Vue&lt;/li&gt;
+&lt;li&gt;chords-viewer - Vue&lt;/li&gt;
+&lt;li&gt;chords-parser - JS&lt;/li&gt;
+&lt;li&gt;voice-list - Vue&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-client - Vue&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-whatis - JS&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-tester - JS&lt;/li&gt;
+&lt;li&gt;hain-plugin-puttytray - JS&lt;/li&gt;
+&lt;li&gt;viasite-projects - JS, Vue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Правки старых:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;site-discovery - Python&lt;/li&gt;
+&lt;li&gt;ansible-role-zsh - YML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Проект года: &lt;a href=&#34;https://chords.popstas.ru&#34;&gt;https://chords.popstas.ru&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Все остальные ссылки и описания под катом.&lt;/p&gt;
+&lt;p&gt;PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p&gt;
+&lt;p&gt;Держусь на уровне 1000 коммитов в год.&lt;/p&gt;
+&lt;p&gt;Было это так:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/github-octocat.png&#34; alt=&#34;Octocat&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Обзор умной колонки IRBIS A c Алисой от Яндекса</title>
+      <link>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</link>
+      <pubDate>Fri, 28 Dec 2018 20:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</guid>
+      <description>&lt;p&gt;14 декабря Яндекс &lt;a href=&#34;https://yandex.ru/blog/company/kolonki-mladshie&#34;&gt;сообщил&lt;/a&gt; о поступлении мини-колонок в продажу.
+Обзор после 2 дней использования.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/irbis-a1.jpg&#34; alt=&#34;irbis a на кофеварке на кухне&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Крышка-дозатор для насыпания кофе на 3d принтере</title>
+      <link>https://blog.popstas.ru/blog/2018/12/16/3d-printed-coffee-cap/</link>
+      <pubDate>Sun, 16 Dec 2018 16:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/16/3d-printed-coffee-cap/</guid>
+      <description>&lt;p&gt;В последнее время я интересуюсь разными воронками, оказалось, физическая воронка - штука с одной стороны универсальная, с другой - под разные задачи нужны воронки разного размера и формы.&lt;/p&gt;
+&lt;p&gt;Этой статьей я хотел показать, что даже не имея никакого опыта 3д печати (я до этого спроектировал две модели, принтер у меня 1.5 месяца), можно применять принтер для решения разных бытовых потребностей, которые без принтера не всегда можно решить.&lt;/p&gt;
+&lt;p&gt;TL;DR: Решил проблему с насыпанием кофе в кофеварку с помощью 3d принтера, времени на проект ушло около 1 часа (не считая освоения OpenSCAD).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/8AHAl0xgWUvr359m_eFOmpWy2HBtXnSL2vP1_VC7UI0abjlHIezz8lsqeiVfWnO6GRsHEJwQjua7ZZgWsKvQpHWNtLf3JGfZVnqZ2sTC5BMW_VazxPRl--pGuhGQkmW3LKtAwwUUTGjRyVUsxGjpZsEvKmi9SoMtxgBq-pD-el-5122_B51HQ4225bZ8QEbblK1KdSfnmfyNjRVefvWe5FC_N3ybzdMIBJLmQRtCWii0-hGL5hERvS2sz1xPCITIlGcaaDgDovghUXb4fi1H2DC8J9lDUliV56wPNVzE-xpeQVtb4IvRXi25lqwbp8B_s13yObqot-i2qwx5sV8EBt90fXf8spe7k_RfW79_Tefe9c8M1bq5uGTPmbPKCAXaUnWHHnmqllbp3H39HBF3IHN_M2brgcgiE_OhJlGsSLRcoe1pvAJNeQL2ANHLL72XWkDXolvgF3wU6TFDG9Ycmfo6kn_r7XJdb9M3CoSQZNE-X0Z_66TWHVcDxmRCGKo7hcbduIyg04__ditwSy3o-ogviGfYSVG_HkSqyE5dEzv8d9FUR--9CkME8B7FRz4kpA2KCi-viEFqoakG0RpfFiRez8qcKPEEJqLFwbIVq-ULQgT6BhuGaQBcXrOWu8pG_KUi370M6V_AeyQr4miIUYDhdT9Earhi_cTKSBvbusjAV1bGgGGhnL0UoOR8Oo1HLEzUdm71B4YZlNNKaA=w1474-h1106-no&#34; alt=&#34;3d-printed coffee cap&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Полочки для чая на 3d принтере</title>
+      <link>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</link>
+      <pubDate>Wed, 07 Nov 2018 20:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/11/07/3d-printed-expandable-tea-box/</guid>
+      <description>&lt;p&gt;Через неделю после приобретения 3d принтера решил воплотить давнюю идею: навести порядок в шкафчике с чаем.&lt;/p&gt;
+&lt;p&gt;TL;DR: получилось достаточно хорошо, чтобы выложить &lt;a href=&#34;https://www.thingiverse.com/thing:3197921&#34;&gt;первую модель на thingverse&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-11/3d-printed-expandable-tea-box-1.jpg&#34; alt=&#34;3d-printed expandable tea box&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка Gnome Terminal: Solarized Dark и быстрый выбор профиля</title>
+      <link>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</link>
+      <pubDate>Tue, 01 May 2018 08:20:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/05/01/gnome-terminal-solarized/</guid>
+      <description>&lt;p&gt;Ниже будет описана настройка Solarized Dark, быстрого открытия терминала с нужным профилем и история бага во встроенной схеме.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переключение окон назад по Alt&#43;Shift&#43;Tab в Ubuntu 18.04</title>
+      <link>https://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</link>
+      <pubDate>Tue, 01 May 2018 05:55:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/05/01/alt-shift-tab-in-ubuntu/</guid>
+      <description>&lt;p&gt;Я был очень удивлен, что такой базовый функционал сломан из коробки. К счастью, это чинится легко, если вам не нужно переключение языка по Alt+Shift, т.к. именно оно мешает хоткею. Решение нашел случайно, настраивая &lt;a href=&#34;https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/&#34;&gt;gxneur&lt;/a&gt;, нужно сменить комбинацию в gconf на Super+Space:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gsettings set org.gnome.desktop.input-sources xkb-options &amp;quot;[&#39;grp:super_space_toggle,grp_led:scroll&#39;]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Кстати, это же мешало ставить хоткеи Alt+Ctrl+Shift, определялось только Ctrl+Shift.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка gxneur в Ubuntu 18.04</title>
+      <link>https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/</link>
+      <pubDate>Tue, 01 May 2018 05:35:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/05/01/gxneur-punto-switcher-ubuntu/</guid>
+      <description>&lt;p&gt;Для тех, кто не может жить без Punto Switcher, у меня плохие новости: нормальной замены на Ubuntu нет, на форуме люди говорят, что у кого-то работает идеально, я с 10.04 пробую, никогда идеально не было. Будем настраивать то, что есть.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/ru/a/a3/Xneur_project.png&#34; alt=&#34;gxneur&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка времени в Ubuntu 18.04 так, чтобы при перезагрузке в Windows часы не слетали</title>
+      <link>https://blog.popstas.ru/blog/2018/05/01/time-zone-ubuntu-windows-reboot/</link>
+      <pubDate>Tue, 01 May 2018 03:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/05/01/time-zone-ubuntu-windows-reboot/</guid>
+      <description>&lt;p&gt;При перезагрузке из Ubuntu в Windows часы прыгают на разницу между Гринвичем и вашим часовым поясом. Нетрудно догадаться до причины: Ubuntu предполагает, что в BIOS часы настроены по UTC+0, а Windows считает, что там указано местное время.&lt;/p&gt;
+&lt;p&gt;Не знаю, как это исправляется в Windows, но нетрудно найти &lt;a href=&#34;https://help.ubuntu.com/community/UbuntuTime#Make_Linux_use_.27Local.27_time&#34;&gt;решение в Ubuntu&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;timedatectl set-local-rtc 1
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Не спрашивать пароль от связки ключей при каждой загрузке на Ubuntu 18.04</title>
+      <link>https://blog.popstas.ru/blog/2018/05/01/seahorse-password-on-ubuntu-boot/</link>
+      <pubDate>Tue, 01 May 2018 03:28:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/05/01/seahorse-password-on-ubuntu-boot/</guid>
+      <description>&lt;p&gt;При каждом входе по умолчанию загружается агент SSH ключей и просит ввести мастер-пароль. Если вы часто перезагружаетесь (как я при настройке системы), это напрягает, отключить можно &lt;a href=&#34;https://askubuntu.com/questions/867/how-can-i-stop-being-prompted-to-unlock-the-default-keyring-on-boot&#34;&gt;так&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Открыть связку ключей (seahorse)&lt;/li&gt;
+&lt;li&gt;Нажать ПКМ по папке Вход&lt;/li&gt;
+&lt;li&gt;Сменить пароль на пустой&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Учтите, что это стремное решение, и лучше так не делать. Я верну пароль, когда система настроена, я не перезагружаюсь каждый день.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка звука Asus DGX Xonar 5.1 на Ubuntu 18.04</title>
+      <link>https://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</link>
+      <pubDate>Mon, 30 Apr 2018 19:53:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/04/30/asus-dgx-xonar-ubuntu-18.04/</guid>
+      <description>&lt;p&gt;Драйвера поставились сами. Звук определился, но не играл. Помог &lt;a href=&#34;https://askubuntu.com/questions/598759/asus-xonar-dgx-recognized-but-no-sound&#34;&gt;этот пост&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;alsa-utils у меня уже были установлены, запустил alsamixer, переключил выход с Headphones на Multichannel, заработало.&lt;/p&gt;
+&lt;p&gt;Примечательно, что таким же способом я чинил звук на Redhat и Creative Live 5.1 в 2003-м, прошло 15 лет, а глюки всё те же, печально.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/asus-dgx-alsamixer.jpg&#34; alt=&#34;alsamixer&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка Nvidia Geforce 1050Ti на Ubuntu 18.04</title>
+      <link>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</link>
+      <pubDate>Mon, 30 Apr 2018 19:46:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/04/30/nvidia-ubuntu-18.04/</guid>
+      <description>&lt;p&gt;Видяшка из коробки работала погано: томоза, видео глючило, 4к монитор работал на 30 герц. Это было из коробки, с драйверами nouveau. Помогла &lt;a href=&#34;https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux&#34;&gt;эта статья&lt;/a&gt;, вот краткое содержание:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt install ubuntu-drivers-common
 ubuntu-drivers devices
 ubuntu-drivers autoinstall
-&lt;/code>&lt;/pre>&lt;p>Звук по HDMI работал нормально на обоих драйверах.&lt;/p>
-&lt;h4 id="другие-проблемы-с-видео">Другие проблемы с видео:&lt;/h4>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/">Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a>&lt;/li>
-&lt;li>Черный экран после загрузки - &lt;a href="https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053">https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</title><link>https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</link><pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-04/yandex-browser-black-line.jpg" alt="ubuntu yandex browser black line">&lt;/p>
-&lt;p>На решение натолкнуло видео - &lt;a href="https://www.youtube.com/watch?v=qUIsn5-B2XY">https://www.youtube.com/watch?v=qUIsn5-B2XY&lt;/a>&lt;/p>
-&lt;p>Предлагалось в настройках убрать галочку &amp;ldquo;Использовать аппаратное ускорение, если возможно&amp;rdquo;.&lt;/p>
-&lt;p>С галочкой или без у меня была полоса и тормозило (конечно, я перезапускал браузер после изменения настройки). На Chrome нормально было, без галочки тормозило без полосы.&lt;/p>
-&lt;p>Мне помог обратный вариант: включить принудительное ускорение.&lt;/p>
-&lt;ul>
-&lt;li>Зайти в about:flags&lt;/li>
-&lt;li>В поиске вбить gpu, найти пункт &amp;ldquo;Override software rendering list&amp;rdquo;, включить&lt;/li>
-&lt;li>Перезапустить браузер&lt;/li>
-&lt;/ul>
-&lt;p>Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.&lt;/p>
-&lt;p>Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.&lt;/p></description></item><item><title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title><link>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</link><pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</guid><description>&lt;p>26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.&lt;/p>
-&lt;p>Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - &lt;a href="https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),">https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),&lt;/a> несколько других похожих постов вообще остались лежать на локалке.&lt;/p>
-&lt;p>Так что буду писать по мере наступания на грабли и пополнять статью.&lt;/p>
-&lt;p>UPD 13.07.2018: цикл статей оборвался из-за того, что я не смог побороть глюк Nvidia (см. комменты) и вернулся на Windows. Можно сказать, что это был такой сложный способ найти крутую скриншотилку Monosnap :)&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg" alt="from windows to ubuntu">&lt;/p></description></item><item><title>Интеграция Планфикса и Toggl для учета времени</title><link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link><pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid><description>&lt;p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git&lt;/a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p>
-&lt;p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server">Описание&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки&lt;/a> (проверялось только под Windows и Linux)&lt;/li>
-&lt;li>Расширения для &lt;a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome&lt;/a> и &lt;a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" alt="planfix and toggl">&lt;/p></description></item><item><title>Итоги 2017 года</title><link>https://blog.popstas.ru/blog/2017/12/31/new-year-2018/</link><pubDate>Sun, 31 Dec 2017 01:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2017/12/31/new-year-2018/</guid><description>&lt;p>Решил зафиксировать уходящий год и вспомнить, что было. Давно хотелось иметь такую шпаргалку, чтобы вспоминать, в каком же году это было. К счастью, в этом году перед долгой новогодней ночью нам достались выходные, использую их для этой записи.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-12/new-year.jpg" alt="monitors, synth and microphones">&lt;/p></description></item><item><title>Ext4 vs XFS</title><link>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</link><pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</guid><description>&lt;p>Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.&lt;/p>
-&lt;div class="punch">&lt;strong>UPD 09.05.2020&lt;/strong>: в итоге перешёл полностью на XFS.&lt;/div>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-12/ext4-vs-xfs.jpg" alt="ext4 vs xfs utilization in grafana">&lt;/p></description></item><item><title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title><link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link><pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid><description>&lt;p>Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p>
-&lt;p>Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p>
-&lt;ul>
-&lt;li>нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li>
-&lt;li>простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li>
-&lt;li>нельзя загружать файл по хоткею&lt;/li>
-&lt;li>нет git&lt;/li>
-&lt;/ul>
-&lt;p>TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-05/nodemcu-idea.png" alt="nodemcu ide">&lt;/p></description></item><item><title>Packer: создаем свои vagrant box и docker image из одного конфига</title><link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link><pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid><description>&lt;p>Проект &lt;a href="https://github.com/viasite-ansible/ansible-server">viasite-ansible/ansible-server&lt;/a> подошел к моменту,
-когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p>
-&lt;p>Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
-поэтому &lt;del>я потратил день&lt;/del> я вспомнил, что есть такой тул - &lt;a href="https://www.packer.io/">Packer&lt;/a>
-и решил, что пришло его время.&lt;/p>
-&lt;p>Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
-программах или разворачивания на хостинге.&lt;/p>
-&lt;p>Для чего это может пригодиться:&lt;/p>
-&lt;ul>
-&lt;li>ускорение тестирования&lt;/li>
-&lt;li>б&lt;strong>о&lt;/strong>льшая повторяемость, по сравнению с ansible&lt;/li>
-&lt;li>образы для продакшена для быстрого развертывания новых серверов&lt;/li>
-&lt;li>образы идентичные продакшену для локальной разработки&lt;/li>
-&lt;/ul>
-&lt;p>Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
-Gist с результатами &lt;a href="https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f">здесь&lt;/a>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png" alt="ansible with packer to vagrant and docker ">&lt;/p></description></item><item><title>Продублировать последний аргумент текущей команды в zsh, zle widget</title><link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link><pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid><description>&lt;p>В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
-поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.&lt;/p>
-&lt;p>Так вот, у меня в терминале бывает частая задача: скопировать файл и положить рядом с немного другим именем.
-Раньше я пользовался такой схемой:&lt;/p>
-&lt;pre>&lt;code>ls filename.ext
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Звук по HDMI работал нормально на обоих драйверах.&lt;/p&gt;
+&lt;h4 id=&#34;другие-проблемы-с-видео&#34;&gt;Другие проблемы с видео:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/&#34;&gt;Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Черный экран после загрузки - &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-390/+bug/1752053&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Черная полоса в яндекс браузере на Ubuntu 18.04, GPU ускорение</title>
+      <link>https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</link>
+      <pubDate>Mon, 30 Apr 2018 18:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/04/30/ubuntu-yandex-browser-black-line/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/yandex-browser-black-line.jpg&#34; alt=&#34;ubuntu yandex browser black line&#34;&gt;&lt;/p&gt;
+&lt;p&gt;На решение натолкнуло видео - &lt;a href=&#34;https://www.youtube.com/watch?v=qUIsn5-B2XY&#34;&gt;https://www.youtube.com/watch?v=qUIsn5-B2XY&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Предлагалось в настройках убрать галочку &amp;ldquo;Использовать аппаратное ускорение, если возможно&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;С галочкой или без у меня была полоса и тормозило (конечно, я перезапускал браузер после изменения настройки). На Chrome нормально было, без галочки тормозило без полосы.&lt;/p&gt;
+&lt;p&gt;Мне помог обратный вариант: включить принудительное ускорение.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Зайти в about:flags&lt;/li&gt;
+&lt;li&gt;В поиске вбить gpu, найти пункт &amp;ldquo;Override software rendering list&amp;rdquo;, включить&lt;/li&gt;
+&lt;li&gt;Перезапустить браузер&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Как ни странно, после этого я убрал принудительное ускорение, и способ из видео начал работать.&lt;/p&gt;
+&lt;p&gt;Ubuntu 18.04 чистая, яндекс браузер 18.3.1.1122 beta (64-bit), Geforce 1050Ti, драйвера nvidia-driver-390.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переезд с Windows на Ubuntu 18.04, попытка номер 5</title>
+      <link>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</link>
+      <pubDate>Mon, 30 Apr 2018 18:40:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/</guid>
+      <description>&lt;p&gt;26.04.2018 вышла новая Ubuntu 18.04 LTS, и по традиции я решил попробовать на нее переехать, этот пост - отчет о переезде.&lt;/p&gt;
+&lt;p&gt;Решил не писать один пост месяц, а то будет как в тот раз (например, аналогичный пост по переезду на MacOS так никогда и не вышел, остался на gist - &lt;a href=&#34;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),&#34;&gt;https://gist.github.com/popstas/d0fdf4cd5c37dc5b8d93),&lt;/a&gt; несколько других похожих постов вообще остались лежать на локалке.&lt;/p&gt;
+&lt;p&gt;Так что буду писать по мере наступания на грабли и пополнять статью.&lt;/p&gt;
+&lt;p&gt;UPD 13.07.2018: цикл статей оборвался из-за того, что я не смог побороть глюк Nvidia (см. комменты) и вернулся на Windows. Можно сказать, что это был такой сложный способ найти крутую скриншотилку Monosnap :)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-04/windows-ubuntu.jpg&#34; alt=&#34;from windows to ubuntu&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция Планфикса и Toggl для учета времени</title>
+      <link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid>
+      <description>&lt;p&gt;Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href=&#34;https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/&#34;&gt;Планфикса с Git&lt;/a&gt;, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p&gt;
+&lt;p&gt;Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/viasite/planfix-toggl-server&#34;&gt;Описание&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/viasite/planfix-toggl-server/releases&#34;&gt;Ссылки на загрузки&lt;/a&gt; (проверялось только под Windows и Linux)&lt;/li&gt;
+&lt;li&gt;Расширения для &lt;a href=&#34;https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl&#34;&gt;Chrome&lt;/a&gt; и &lt;a href=&#34;https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-03/planfix-toggl.png&#34; alt=&#34;planfix and toggl&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Итоги 2017 года</title>
+      <link>https://blog.popstas.ru/blog/2017/12/31/new-year-2018/</link>
+      <pubDate>Sun, 31 Dec 2017 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/12/31/new-year-2018/</guid>
+      <description>&lt;p&gt;Решил зафиксировать уходящий год и вспомнить, что было. Давно хотелось иметь такую шпаргалку, чтобы вспоминать, в каком же году это было. К счастью, в этом году перед долгой новогодней ночью нам достались выходные, использую их для этой записи.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-12/new-year.jpg&#34; alt=&#34;monitors, synth and microphones&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ext4 vs XFS</title>
+      <link>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</link>
+      <pubDate>Fri, 01 Dec 2017 23:25:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/12/01/ext4-vs-xfs/</guid>
+      <description>&lt;p&gt;Мне недавно подсказали посмотреть на файловую систему XFS. Я посмотрел, первые результаты понравились, буду переходить на разделах с кучей файлов.&lt;/p&gt;
+&lt;div class=&#34;punch&#34;&gt;&lt;strong&gt;UPD 09.05.2020&lt;/strong&gt;: в итоге перешёл полностью на XFS.&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-12/ext4-vs-xfs.jpg&#34; alt=&#34;ext4 vs xfs utilization in grafana&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
+      <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
+      <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
+&lt;p&gt;Самый простой способ писать код на Lua под ESP-8266 - ESPlorer. У меня есть ряд претензий к этому редактору:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;нет структуры проекта (можно только открывать вкладки по одной через File - Open)&lt;/li&gt;
+&lt;li&gt;простой редактор без автодополнения, мультиредактирования и т.д.&lt;/li&gt;
+&lt;li&gt;нельзя загружать файл по хоткею&lt;/li&gt;
+&lt;li&gt;нет git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TL;DR: написал свой велосипед, работает, но не без проблем.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-05/nodemcu-idea.png&#34; alt=&#34;nodemcu ide&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
+      <link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
+      <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
+когда нужно протестировать роль, которая зависит сразу от нескольких ролей (роль установки сайта).&lt;/p&gt;
+&lt;p&gt;Естественно, при тестировании этой роли я не хочу ждать по 10 минут каждый раз,
+поэтому &lt;del&gt;я потратил день&lt;/del&gt; я вспомнил, что есть такой тул - &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer&lt;/a&gt;
+и решил, что пришло его время.&lt;/p&gt;
+&lt;p&gt;Packer умеет брать чистую операционку, настраивать ее и упаковывать результат в образ системы для использования в других
+программах или разворачивания на хостинге.&lt;/p&gt;
+&lt;p&gt;Для чего это может пригодиться:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ускорение тестирования&lt;/li&gt;
+&lt;li&gt;б&lt;strong&gt;о&lt;/strong&gt;льшая повторяемость, по сравнению с ansible&lt;/li&gt;
+&lt;li&gt;образы для продакшена для быстрого развертывания новых серверов&lt;/li&gt;
+&lt;li&gt;образы идентичные продакшену для локальной разработки&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tl;dr: я буду собирать образы для Docker и Vagrant из Ubuntu, на которую накатили ansible плейбук.
+Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas/9a42d198fe7c5bee317d0bc4e2e2af9f&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-packer-docker-vagrant.png&#34; alt=&#34;ansible with packer to vagrant and docker &#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
+      <link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
+      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
+      <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
+поучаствовав в правке пары плагинов, я начал понимать, как работает вся эта магия, которой я давно пользуюсь.&lt;/p&gt;
+&lt;p&gt;Так вот, у меня в терминале бывает частая задача: скопировать файл и положить рядом с немного другим именем.
+Раньше я пользовался такой схемой:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls filename.ext
 cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
-Потом через &lt;code>Alt+.&lt;/code> вставлял 2 раза последний аргумент предыдущей команды.&lt;/p>
-&lt;p>Другие примеры использования:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>mv path/file1 path/file2&lt;/code>&lt;/li>
-&lt;li>&lt;code>cp config.example config&lt;/code>&lt;/li>
-&lt;li>&lt;code>mc /home/user /home/user&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Теперь я могу делать так:&lt;/p>
-&lt;pre>&lt;code>cp filename.ext &amp;lt;Alt+,&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>В действии:&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif" alt="zsh duplicate last argument">&lt;/p></description></item><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
-&lt;p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p>
-&lt;p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
-&lt;a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm">Официальная документация&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" alt="python in phpstorm">&lt;/p></description></item><item><title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title><link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link><pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/323496/">моей статьи с хабра&lt;/a>.&lt;/p>
-&lt;p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;То есть, я сначала вводил команду-пустышку, такую, чтобы в историю попала команда, где последним аргументом будет путь к файлу.
+Потом через &lt;code&gt;Alt+.&lt;/code&gt; вставлял 2 раза последний аргумент предыдущей команды.&lt;/p&gt;
+&lt;p&gt;Другие примеры использования:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mv path/file1 path/file2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cp config.example config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mc /home/user /home/user&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Теперь я могу делать так:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp filename.ext &amp;lt;Alt+,&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;В действии:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/zsh-duplicate-last-arg.gif&#34; alt=&#34;zsh duplicate last argument&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Подсветка Python синтаксиса в PhpStorm</title>
+      <link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
+      <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
+&lt;p&gt;Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p&gt;
+&lt;p&gt;Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
+&lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/phpstorm-python.gif&#34; alt=&#34;python in phpstorm&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
+      <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
 Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
 Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
-Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p>
-&lt;p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
-и обновление. В итоге появилась роль &lt;a href="https://github.com/viasite-ansible/ansible-role-zsh">ansible-role-zsh&lt;/a>,
-которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p>
-&lt;h3 id="особенности">Особенности:&lt;/h3>
-&lt;ul>
-&lt;li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li>
-&lt;li>быстро загружается, быстро работает&lt;/li>
-&lt;li>полностью настраивается через ansible, &lt;code>~/.zshrc&lt;/code>&lt;/li>
-&lt;li>полностью локальная (в систему ничего не ставится, все хранится в &lt;code>~/.oh-my-zsh&lt;/code>)&lt;/li>
-&lt;li>оставляет возможность юзеру вносить свои настройки через &lt;code>~/.zshrc.local&lt;/code>&lt;/li>
-&lt;li>&lt;del>одинаково&lt;/del> работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li>
-&lt;li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li>
-&lt;li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li>
-&lt;li>автодополнение по истории команд (помогает реже нажимать &lt;code>Ctrl+R&lt;/code>)&lt;/li>
-&lt;li>отображение времени для долго выполняемых команд (помогает реже использовать &lt;code>time&lt;/code>)&lt;/li>
-&lt;/ul>
-&lt;p>Демонстрация фич за 1 минуту:&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" alt="ansible role zsh">&lt;/p></description></item><item><title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title><link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link><pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid><description>&lt;p>Опишу процесс, к которому я пришел на данный момент.&lt;/p>
-&lt;p>TODO: concurrent
-TODO: несколько дистрибов&lt;/p>
-&lt;h4 id="особенности">Особенности&lt;/h4>
-&lt;ul>
-&lt;li>Стремление не писать роли&lt;/li>
-&lt;li>Постепенное ужесточение требований при написании, от &amp;ldquo;Лишь бы прошло с 10 раза&amp;rdquo; к &amp;ldquo;Скорее всего Travis пройдет с первого раза&amp;rdquo;&lt;/li>
-&lt;li>Тестирование на разных машинах&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/iterations.png" alt="build progress">&lt;/p></description></item><item><title>Перенос блога с Octopress на Hugo</title><link>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link><pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid><description>&lt;p>Эта статья первая на новом движке.&lt;/p>
-&lt;h4 id="зачем">Зачем:&lt;/h4>
-&lt;ul>
-&lt;li>Не зависеть от ruby&lt;/li>
-&lt;li>быстрее&lt;/li>
-&lt;li>просто интересно&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/octopress-to-hugo.png" alt="from octopress to hugo">&lt;/p></description></item><item><title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title><link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link><pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid><description>&lt;p>В &lt;a href="https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/">предыдущей статье&lt;/a> я настраивал &lt;code>apt-mirror&lt;/code> для тех же целей. У того способа нашлось несколько недостатков.&lt;/p>
-&lt;p>В статье ниже описано, как решить ту же проблему, используя &lt;code>apt-cacher-ng&lt;/code>.&lt;/p>
-&lt;p>Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png" alt="apt-cacher-ng and gitlab ci for ansible">&lt;/p></description></item><item><title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title><link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link><pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid><description>&lt;p>При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
-и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p>
-&lt;p>Ниже описано, как создать зеркало из &lt;a href="http://mirror.yandex.ru/ubuntu">http://mirror.yandex.ru/ubuntu&lt;/a> и подружить его с Gitlab CI и molecule.&lt;/p>
-&lt;p>Tl;dr: не делайте локальный репозиторий через &lt;code>apt-mirror&lt;/code> для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href="https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/">apt-cacher-ng&lt;/a>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/apt-mirror.png" alt="Tux and servers">&lt;/p></description></item><item><title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title><link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link><pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid><description>&lt;p>Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p>
-&lt;h3 id="для-этого-надо">Для этого надо:&lt;/h3>
-&lt;ol>
-&lt;li>Извлечь директорию подпроекта в отдельный репозиторий&lt;/li>
-&lt;li>Удалить из проекта папку подпроекта&lt;/li>
-&lt;li>Добавить в большой проект зависимость от подпроекта&lt;/li>
-&lt;/ol>
-&lt;p>Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code>git-extract-subproject&lt;/code>.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg" alt="Git projects extract">&lt;/p></description></item><item><title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title><link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link><pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid><description>&lt;p>Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p>
-&lt;p>Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href="https://influxdata.com/get-started/what-is-the-tick-stack/">TICK&lt;/a> от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p>
-&lt;p>Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p>
-&lt;p>А также небольшое замечание о том, &lt;a href="https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request">как делать Pull request'ы из браузера за 2 минуты&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-05/kapacitor.svg" alt="Kapacitor">&lt;/p></description></item><item><title>Bash on Ubuntu on Windows: первый блин</title><link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link><pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid><description>&lt;p>Итак, &lt;a href="https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/">дождался обновления&lt;/a> Windows, поставил в нее Ubuntu &lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">по инструкции&lt;/a>, вот что было дальше:&lt;/p>
-&lt;p>Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png" alt="Bash on Ubuntu on Windows">&lt;/p></description></item><item><title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title><link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link><pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid><description>&lt;p>Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p>
-&lt;p>UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/Microsoft/CommandLine-Documentation/issues/5">issue про недоступность сборки 14316&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/">Инструкция по обновлению на русском&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title><link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link><pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid><description>&lt;p>С начала января я веду свой &lt;a href="https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/">проектик&lt;/a>, на котором обкатываю новые для меня технологии:&lt;/p>
-&lt;ul>
-&lt;li>Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li>
-&lt;li>Автоматическая сборка, Travis CI&lt;/li>
-&lt;li>Unit тесты, PHPUnit&lt;/li>
-&lt;li>Покрытие кода, Coveralls&lt;/li>
-&lt;li>Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li>
-&lt;li>Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li>
-&lt;/ul>
-&lt;p>В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p>
-&lt;p>Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p>
-&lt;div class="punch">UPD 15.04.2020: &lt;a href="https://blog.popstas.ru/blog/2020/04/15/npm-version/">как я использую conventional changelog в связке с npm version&lt;/a>&lt;/div>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/changelog.png" alt="changelog">&lt;/p></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
-&lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
-&lt;ul>
-&lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
-&lt;li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
-на Gitlab, если проект подключен к репозиторию.&lt;/li>
-&lt;/ul>
-&lt;p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
-после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
-&lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" alt="planfix">&lt;/p></description></item><item><title>average: измерение среднего времени выполнения команды в bash</title><link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link><pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid><description>&lt;p>Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p>
-&lt;ul>
-&lt;li>простая проверка скорости загрузки страницы&lt;/li>
-&lt;li>подбор оптимальных параметров к команде&lt;/li>
-&lt;li>сравнение разных команд&lt;/li>
-&lt;/ul>
-&lt;p>Раньше я просто запускал несколько раз с &lt;code>time&lt;/code>, смотрел результат, у уме делил.
-Но мне это надоело, поэтому написал скрипт &lt;code>average&lt;/code>.&lt;/p></description></item><item><title>Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</title><link>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</link><pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid><description>&lt;p>Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.&lt;/p>
-&lt;p>Tl;dr: RSS + Twitter + Email → Pocket → Firefox → Twitter + закладки.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-02/content_pyramid.png" alt="content pyramid">&lt;/p></description></item><item><title>Docker в картинках</title><link>https://blog.popstas.ru/blog/2016/02/26/docker-in-images/</link><pubDate>Fri, 26 Feb 2016 21:29:45 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/26/docker-in-images/</guid><description>&lt;p>Оставлю здесь &lt;a href="http://habrahabr.ru/post/272145/">свой пост&lt;/a> с хабра.&lt;/p>
-&lt;p>&lt;em>Перевод поста &lt;a href="http://merrigrove.blogspot.co.uk/2015/10/visualizing-docker-containers-and-images.html">Visualizing Docker Containers and Images&lt;/a>, от новичка к новичкам, автор на простых примерах объясняет базовые сущности и процессы в использовании docker.&lt;/em>&lt;/p>
-&lt;p>Если вы не знаете, что такое Docker или не понимаете, как он соотносится с виртуальными машинами или с инструментами configuration management, то этот пост может показаться немного сложным.&lt;/p>
-&lt;p>Пост предназначен для тех, кто пытается освоить docker cli, понять, чем отличается контейнер и образ. В частности, будет объяснена разница между просто контейнером и запущенным контейнером.&lt;/p>
-&lt;p>&lt;img src="https://habrastorage.org/files/8ff/349/fb2/8ff349fb23f840589c479d029964b8dc.png" alt="docker layers">&lt;/p></description></item><item><title>Большой тачпад как замена мышки</title><link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link><pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid><description>&lt;p>Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
-нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg" alt="touchpad">&lt;/p></description></item><item><title>Проверяем изменения на странице через cron</title><link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link><pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid><description>&lt;p>Сегодня хотел заказать ароматизаторов на &lt;a href="http://baker-flavors.blogspot.ru/">Baker Flavours&lt;/a>, дошел до страницы заказа,
-и увидел &amp;ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&amp;quot;.&lt;/p>
-&lt;p>Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.&lt;/p>
-&lt;p>Строчка для crontab:&lt;/p>
-&lt;pre>&lt;code>0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &amp;quot;временно прекращен&amp;quot; &amp;gt; /dev/null || { echo &amp;quot;BF order started&amp;quot; | terminal-notifier &amp;amp;&amp;amp; open http://bakerflavors.ru/formbf.htm }
-&lt;/code>&lt;/pre>&lt;p>Подробности под катом.&lt;/p></description></item><item><title>E.ggtimer: таймер в пару кликов в любом браузере</title><link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link><pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid><description>&lt;p>Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
+Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p&gt;
+&lt;p&gt;Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
+и обновление. В итоге появилась роль &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-zsh&#34;&gt;ansible-role-zsh&lt;/a&gt;,
+которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p&gt;
+&lt;h3 id=&#34;особенности&#34;&gt;Особенности:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li&gt;
+&lt;li&gt;быстро загружается, быстро работает&lt;/li&gt;
+&lt;li&gt;полностью настраивается через ansible, &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;полностью локальная (в систему ничего не ставится, все хранится в &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;оставляет возможность юзеру вносить свои настройки через &lt;code&gt;~/.zshrc.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;одинаково&lt;/del&gt; работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li&gt;
+&lt;li&gt;нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li&gt;
+&lt;li&gt;встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li&gt;
+&lt;li&gt;автодополнение по истории команд (помогает реже нажимать &lt;code&gt;Ctrl+R&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;отображение времени для долго выполняемых команд (помогает реже использовать &lt;code&gt;time&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Демонстрация фич за 1 минуту:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; alt=&#34;ansible role zsh&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
+      <link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
+      <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
+&lt;p&gt;TODO: concurrent
+TODO: несколько дистрибов&lt;/p&gt;
+&lt;h4 id=&#34;особенности&#34;&gt;Особенности&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Стремление не писать роли&lt;/li&gt;
+&lt;li&gt;Постепенное ужесточение требований при написании, от &amp;ldquo;Лишь бы прошло с 10 раза&amp;rdquo; к &amp;ldquo;Скорее всего Travis пройдет с первого раза&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Тестирование на разных машинах&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/iterations.png&#34; alt=&#34;build progress&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Перенос блога с Octopress на Hugo</title>
+      <link>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid>
+      <description>&lt;p&gt;Эта статья первая на новом движке.&lt;/p&gt;
+&lt;h4 id=&#34;зачем&#34;&gt;Зачем:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Не зависеть от ruby&lt;/li&gt;
+&lt;li&gt;быстрее&lt;/li&gt;
+&lt;li&gt;просто интересно&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/octopress-to-hugo.png&#34; alt=&#34;from octopress to hugo&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
+      <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
+&lt;p&gt;В статье ниже описано, как решить ту же проблему, используя &lt;code&gt;apt-cacher-ng&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Tl;dr: на этот раз все получилось, этот способ меня устроил.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/apt-cacher-ng.png&#34; alt=&#34;apt-cacher-ng and gitlab ci for ansible&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
+      <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
+      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
+      <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
+и уж точно самые большие по трафику уходят на установку пакетов из системного репозитория. Особенно это заметно, когда видишь, что один и тот же тест Travis CI прогоняет в 1.5 раза быстрее.&lt;/p&gt;
+&lt;p&gt;Ниже описано, как создать зеркало из &lt;a href=&#34;http://mirror.yandex.ru/ubuntu&#34;&gt;http://mirror.yandex.ru/ubuntu&lt;/a&gt; и подружить его с Gitlab CI и molecule.&lt;/p&gt;
+&lt;p&gt;Tl;dr: не делайте локальный репозиторий через &lt;code&gt;apt-mirror&lt;/code&gt; для мелких задач, не стоит оно того. Вместо этого нужно поднять кеширующий сервер через &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/&#34;&gt;apt-cacher-ng&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/apt-mirror.png&#34; alt=&#34;Tux and servers&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
+      <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
+      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
+      <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
+&lt;h3 id=&#34;для-этого-надо&#34;&gt;Для этого надо:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Извлечь директорию подпроекта в отдельный репозиторий&lt;/li&gt;
+&lt;li&gt;Удалить из проекта папку подпроекта&lt;/li&gt;
+&lt;li&gt;Добавить в большой проект зависимость от подпроекта&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ниже написано, как сделать 1-й шаг одной командой через скрипт &lt;code&gt;git-extract-subproject&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-02/git-extract-subproject.jpg&#34; alt=&#34;Git projects extract&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
+      <link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
+      <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
+&lt;p&gt;Речь пойдет о Kapacitor, последнеем слое из стека &lt;a href=&#34;https://influxdata.com/get-started/what-is-the-tick-stack/&#34;&gt;TICK&lt;/a&gt; от InfluxData, набора программ для сбора, отображения и обработке метрик.&lt;/p&gt;
+&lt;p&gt;Tl;dr: думаю, что Kapacitor нужен только тем, кто уже использует InfluxDB для сбора метрик. С установкой могут быть проблемы, если руки кривые.&lt;/p&gt;
+&lt;p&gt;А также небольшое замечание о том, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/#github-pull-request&#34;&gt;как делать Pull request&#39;ы из браузера за 2 минуты&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-05/kapacitor.svg&#34; alt=&#34;Kapacitor&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Bash on Ubuntu on Windows: первый блин</title>
+      <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
+      <description>&lt;p&gt;Итак, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
+&lt;p&gt;Tl;dr: оно очень сырое, не работает почти ничего.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-04/windows-ubuntu-bash.png&#34; alt=&#34;Bash on Ubuntu on Windows&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
+      <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
+      <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
+&lt;p&gt;UPD 11.04.2016: сборка 14316 дошла до меня, смотрите инструкцию по настройке.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Microsoft/CommandLine-Documentation/issues/5&#34;&gt;issue про недоступность сборки 14316&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;Инструкция по обновлению на русском&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
+      <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
+      <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Статический анализ кода, phpcs, phpmd, Scrutinizer&lt;/li&gt;
+&lt;li&gt;Автоматическая сборка, Travis CI&lt;/li&gt;
+&lt;li&gt;Unit тесты, PHPUnit&lt;/li&gt;
+&lt;li&gt;Покрытие кода, Coveralls&lt;/li&gt;
+&lt;li&gt;Работу через задачи для любых изменений, Github Issues, PhpStorm tasks&lt;/li&gt;
+&lt;li&gt;Документирование всего: README, CHANGELOG, сайт проекта, &amp;ndash;help&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В этом посте изложена история изменений моего мнения о разных генераторах историй изменения.&lt;/p&gt;
+&lt;p&gt;Tl;dr: conventional-changelog, стандартизация коммитов.&lt;/p&gt;
+&lt;div class=&#34;punch&#34;&gt;UPD 15.04.2020: &lt;a href=&#34;https://blog.popstas.ru/blog/2020/04/15/npm-version/&#34;&gt;как я использую conventional changelog в связке с npm version&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/changelog.png&#34; alt=&#34;changelog&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
+      <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
+      <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
+&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
+&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; alt=&#34;planfix&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>average: измерение среднего времени выполнения команды в bash</title>
+      <link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
+      <pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
+      <description>&lt;p&gt;Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;простая проверка скорости загрузки страницы&lt;/li&gt;
+&lt;li&gt;подбор оптимальных параметров к команде&lt;/li&gt;
+&lt;li&gt;сравнение разных команд&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Раньше я просто запускал несколько раз с &lt;code&gt;time&lt;/code&gt;, смотрел результат, у уме делил.
+Но мне это надоело, поэтому написал скрипт &lt;code&gt;average&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</title>
+      <link>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</link>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid>
+      <description>&lt;p&gt;Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.&lt;/p&gt;
+&lt;p&gt;Tl;dr: RSS + Twitter + Email → Pocket → Firefox → Twitter + закладки.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-02/content_pyramid.png&#34; alt=&#34;content pyramid&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker в картинках</title>
+      <link>https://blog.popstas.ru/blog/2016/02/26/docker-in-images/</link>
+      <pubDate>Fri, 26 Feb 2016 21:29:45 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/02/26/docker-in-images/</guid>
+      <description>&lt;p&gt;Оставлю здесь &lt;a href=&#34;http://habrahabr.ru/post/272145/&#34;&gt;свой пост&lt;/a&gt; с хабра.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Перевод поста &lt;a href=&#34;http://merrigrove.blogspot.co.uk/2015/10/visualizing-docker-containers-and-images.html&#34;&gt;Visualizing Docker Containers and Images&lt;/a&gt;, от новичка к новичкам, автор на простых примерах объясняет базовые сущности и процессы в использовании docker.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Если вы не знаете, что такое Docker или не понимаете, как он соотносится с виртуальными машинами или с инструментами configuration management, то этот пост может показаться немного сложным.&lt;/p&gt;
+&lt;p&gt;Пост предназначен для тех, кто пытается освоить docker cli, понять, чем отличается контейнер и образ. В частности, будет объяснена разница между просто контейнером и запущенным контейнером.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/8ff/349/fb2/8ff349fb23f840589c479d029964b8dc.png&#34; alt=&#34;docker layers&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Большой тачпад как замена мышки</title>
+      <link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
+      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
+      <description>&lt;p&gt;Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
+нашел способ испытать это на себе бесплатно. Описываю свои впечатления как обычно: плюсы, минусы, грабли, способы обхода.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-02/touchpad_wacom.jpg&#34; alt=&#34;touchpad&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Проверяем изменения на странице через cron</title>
+      <link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
+      <pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
+      <description>&lt;p&gt;Сегодня хотел заказать ароматизаторов на &lt;a href=&#34;http://baker-flavors.blogspot.ru/&#34;&gt;Baker Flavours&lt;/a&gt;, дошел до страницы заказа,
+и увидел &amp;ldquo;Уважаемые заказчики! В связи с чрезвычайно большим количеством заказов, прием заказов временно прекращен.&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Ок, будем ждать, пока эта надпись не пропадет, а чтобы не проверять руками, будем делать это на автомате и ждать уведомления.&lt;/p&gt;
+&lt;p&gt;Строчка для crontab:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 20 * * * curl -s http://bakerflavors.ru/formbf.htm | iconv -f windows-1251 -t utf-8 | grep &amp;quot;временно прекращен&amp;quot; &amp;gt; /dev/null || { echo &amp;quot;BF order started&amp;quot; | terminal-notifier &amp;amp;&amp;amp; open http://bakerflavors.ru/formbf.htm }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Подробности под катом.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
+      <link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
+      <pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
+      <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
 бросить заниматься фигней через полчаса - для таких вещей идеально подходит таймер. От таймера требуется только одно:
-возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p>
-&lt;ul>
-&lt;li>Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера&lt;/li>
-&lt;li>Пользоваться легко&lt;/li>
-&lt;/ul>
-&lt;p>UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p>
-&lt;p>UPD 12.04.2020: больше не пользуюсь, теперь в каждой комнате есть колонка с Алисой, проще сказать: &amp;ldquo;Алиса, таймер на 5 минут&amp;rdquo;.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-01/eggtimer.png" alt="egg timer">&lt;/p></description></item><item><title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title><link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link><pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid><description>&lt;div class="punch">&lt;p>UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p>
-&lt;p>Теперь я использую её так:&lt;/p>
-&lt;ul>
-&lt;li>В браузере стоит &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js">юзерскрипт&lt;/a>, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js">принимающий скрипт&lt;/a>)&lt;/li>
-&lt;li>Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href="http://weburg.net">weburg.net&lt;/a>, дающая бонусы,
-их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p>
-&lt;p>Поддержку раздач можно разбить на несколько задач:&lt;/p>
-&lt;ol>
-&lt;li>периодически скачивать новинки фильмов&lt;/li>
-&lt;li>скачивать новые серии популярных сериалов&lt;/li>
-&lt;li>удалять то, что плохо раздается&lt;/li>
-&lt;/ol>
-&lt;p>Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
-&lt;a href="https://github.com/popstas/transmission-cli">transmission-cli&lt;/a> - консольная утилита, решающая часть этих задач.&lt;/p>
-&lt;p>&lt;img src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw" alt="transmission-cli grafana">&lt;/p></description></item><item><title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title><link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link><pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid><description>&lt;p>Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
+возможность установить его в течение 5 секунд. Недавно я нашел такой с такими плюсами:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Настроить нужно один раз, после этого будет работать на всех системах, если включена синхронизация настроек браузера&lt;/li&gt;
+&lt;li&gt;Пользоваться легко&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;UPD 05.03.2017: до сих пор пользуюсь через раз, либо этим способом, либо: &amp;ldquo;Окей, гугл, таймер на пять минут&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;UPD 12.04.2020: больше не пользуюсь, теперь в каждой комнате есть колонка с Алисой, проще сказать: &amp;ldquo;Алиса, таймер на 5 минут&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-01/eggtimer.png&#34; alt=&#34;egg timer&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
+      <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <description>&lt;div class=&#34;punch&#34;&gt;&lt;p&gt;UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p&gt;
+&lt;p&gt;Теперь я использую её так:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В браузере стоит &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js&#34;&gt;юзерскрипт&lt;/a&gt;, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js&#34;&gt;принимающий скрипт&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
+их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
+&lt;p&gt;Поддержку раздач можно разбить на несколько задач:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;периодически скачивать новинки фильмов&lt;/li&gt;
+&lt;li&gt;скачивать новые серии популярных сериалов&lt;/li&gt;
+&lt;li&gt;удалять то, что плохо раздается&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
+&lt;a href=&#34;https://github.com/popstas/transmission-cli&#34;&gt;transmission-cli&lt;/a&gt; - консольная утилита, решающая часть этих задач.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw&#34; alt=&#34;transmission-cli grafana&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
+      <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
+      <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
 под Mac этот плейбук не расчитан, к тому же версию ему надо было указвать вручную.
-Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p>
-&lt;p>UPD: 06.06.2016
-Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p>
-&lt;p>UPD: 30.03.2018
-JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href="https://www.jetbrains.com/toolbox-app/">Toolbox App&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png" alt="phpstorm">&lt;/p></description></item><item><title>Разворачиваем Drupal 8 с помощью Otto</title><link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link><pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/273009/">моей статьи&lt;/a> с хабра.&lt;/p>
-&lt;p>Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
-о котором уже была &lt;!-- raw HTML omitted -->обзорная статья&lt;!-- raw HTML omitted --> на хабре.&lt;/p>
-&lt;p>Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
-чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p>
-&lt;p>&lt;img src="https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png" alt="Otto">&lt;/p></description></item><item><title>Интерактивная Zsh history с поиском и скроллом, percol</title><link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link><pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid><description>&lt;p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code>Ctrl+R&lt;/code> и начать набирать
+Поэтому написал скрипт, не совместимый с Ubuntu :)&lt;/p&gt;
+&lt;p&gt;UPD: 06.06.2016
+Сегодня вышла EAP 2016.1.1, так вот, теперь app ставится не в PhpStormEAP, как раньше, а с версией, поэтому мой скрипт перестал работать.&lt;/p&gt;
+&lt;p&gt;UPD: 30.03.2018
+JetBrains выпустил официальный инструмент для автообновления всего: &lt;a href=&#34;https://www.jetbrains.com/toolbox-app/&#34;&gt;Toolbox App&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jetbrains.com/phpstorm/files/2016/01/PhpStorm11EAP_splash_2@2x.png&#34; alt=&#34;phpstorm&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Разворачиваем Drupal 8 с помощью Otto</title>
+      <link>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</link>
+      <pubDate>Mon, 14 Dec 2015 08:16:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2015/12/14/drupal-8-with-otto/</guid>
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/273009/&#34;&gt;моей статьи&lt;/a&gt; с хабра.&lt;/p&gt;
+&lt;p&gt;Этот пост получился в результате моего ознакомления с Otto, одним из последних продуктов Hashicorp,
+о котором уже была &lt;!-- raw HTML omitted --&gt;обзорная статья&lt;!-- raw HTML omitted --&gt; на хабре.&lt;/p&gt;
+&lt;p&gt;Мой пост носит более практический характер. Я решил поднять на otto стандартный проект,
+чтобы сразу не наткнуться на тонкости настройки, а чтобы было интересно, выбрал Drupal 8, вышедший недавно.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://habrastorage.org/files/6d4/ec4/b47/6d4ec4b4786f47048d5fd55301234115.png&#34; alt=&#34;Otto&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
+      <link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
+      <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
+      <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
 команду, отобразится последняя команда из истории, для навигации можно использовать
-&lt;code>Ctrl+R&lt;/code>, &lt;code>Ctrl+Shift+R&lt;/code>. При этом видно одновременно видно только одну команду из истории.&lt;/p>
-&lt;p>Утилита &lt;a href="https://github.com/mooz/percol#zsh-history-search">percol&lt;/a> решает эту проблему.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2015-12/percol.gif" alt="zsh history percol">&lt;/p></description></item><item><title>Простой тайм-трекер для отслеживания потраченного времени</title><link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link><pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid><description>&lt;p>На работе у меня часто бывает такое, что не понятно, куда ушло время.
-Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href="https://time.popstas.ru/">https://time.popstas.ru/&lt;/a>
+&lt;code&gt;Ctrl+R&lt;/code&gt;, &lt;code&gt;Ctrl+Shift+R&lt;/code&gt;. При этом видно одновременно видно только одну команду из истории.&lt;/p&gt;
+&lt;p&gt;Утилита &lt;a href=&#34;https://github.com/mooz/percol#zsh-history-search&#34;&gt;percol&lt;/a&gt; решает эту проблему.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2015-12/percol.gif&#34; alt=&#34;zsh history percol&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Простой тайм-трекер для отслеживания потраченного времени</title>
+      <link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid>
+      <description>&lt;p&gt;На работе у меня часто бывает такое, что не понятно, куда ушло время.
+Поэтому написал для себя небольшое приложение, тайм-трекер - &lt;a href=&#34;https://time.popstas.ru/&#34;&gt;https://time.popstas.ru/&lt;/a&gt;
 Пользуюсь им уже 2 года, сегодня решил выложить на гитхаб и заодно исправил
-глюки, которые раздражали последние годы :)&lt;/p>
-&lt;p>Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href="https://www.toggl.com/">https://www.toggl.com/&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true" alt="time tracker">&lt;/p></description></item><item><title>Показать все окна gnome terminal в Ubuntu</title><link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link><pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate><guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid><description>&lt;p>При работе за компом имею привычку открывать много терминалов,
+глюки, которые раздражали последние годы :)&lt;/p&gt;
+&lt;p&gt;Tl; dr: выбросил свою поделку, теперь пользуюсь &lt;a href=&#34;https://www.toggl.com/&#34;&gt;https://www.toggl.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/time-tracker/raw/master/img/screenshot.png?raw=true&#34; alt=&#34;time tracker&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Показать все окна gnome terminal в Ubuntu</title>
+      <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
+      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
+      <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,
 не группируя их по вкладкам, рабочим столам или менеджером терминалов типа tmux.
-При этом терминалы расположены по всему рабочему экрану.&lt;/p>
-&lt;p>Из-за этого была такая проблема: при переключении на браузер или редактор,
-которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p>
-&lt;p>Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
-нажать хоткей и достать все окна этой же программы наверх.&lt;/p></description></item></channel></rss>
+При этом терминалы расположены по всему рабочему экрану.&lt;/p&gt;
+&lt;p&gt;Из-за этого была такая проблема: при переключении на браузер или редактор,
+которые обычно занимают по полэкрана, все терминалы оказывались под большими окнами.&lt;/p&gt;
+&lt;p&gt;Придумал решение: нужно, чтобы можно было выбрать один терминал (который обычно доступен по Alt-Tab),
+нажать хоткей и достать все окна этой же программы наверх.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

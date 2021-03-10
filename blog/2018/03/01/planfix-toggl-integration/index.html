@@ -1,17 +1,437 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=/css/fonts.css rel=stylesheet type=text/css><meta property="og:description" content="Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию Планфикса с Git, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  <meta property="og:description" content="Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию Планфикса с Git, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.
 Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:
 
 Описание
 Ссылки на загрузки (проверялось только под Windows и Linux)
-Расширения для Chrome и Firefox"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/"><meta property="og:title" content="Интеграция Планфикса и Toggl для учета времени"><meta property="og:image" content="https://blog.popstas.ru/images/2018-03/planfix-toggl.png"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta name=msapplication-TileColor content="#2b5797"><meta name=theme-color content="#ffffff"><title>Интеграция Планфикса и Toggl для учета времени - projects</title><link rel=stylesheet href=/css/hugo-octopress.css><link rel=stylesheet href=https://blog.popstas.ru/css/custom.css><link rel=stylesheet href=/css/fork-awesome.min.css><link href=https://blog.popstas.ru/favicon.png rel=icon><link href=http://feeds.feedburner.com/popstas rel=alternate type=application/rss+xml title=RSS><meta name=description content="Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию Планфикса с Git, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.
+Расширения для Chrome и Firefox
+
+" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/" />
+  <meta property="og:title" content="Интеграция Планфикса и Toggl для учета времени" />
+  
+  <meta property="og:image" content="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" />
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <title>Интеграция Планфикса и Toggl для учета времени - projects </title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://blog.popstas.ru/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  <link href="https://blog.popstas.ru/favicon.png" rel="icon">
+
+  
+  <link href="http://feeds.feedburner.com/popstas" rel="alternate" type="application/rss+xml" title="RSS" />
+
+  <meta name="description" content="Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию Планфикса с Git, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.
 Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:
 
 Описание
 Ссылки на загрузки (проверялось только под Windows и Linux)
-Расширения для Chrome и Firefox"><meta name=keywords content="projects,planfix,toggl,go,nodejs,vue,javascript,onsenui"><meta name=author content="Stanislav Popov"><meta name=generator content="Hugo 0.66.0"></head><body><header role=banner><hgroup><div class=site-title><a href=https://blog.popstas.ru/><img src=/favicon.png alt=popstas> Popstas</a></div><div></div></hgroup><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value;">
-<option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=http://feeds.feedburner.com/popstas target=_blank type=application/rss+xml title=RSS><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank><fieldset role=search><input class=search type=text name=q results=0 placeholder="Поискать в Google">
-<input type=hidden name=q value=site:https://blog.popstas.ru/></fieldset></form></nav></header><div id=main><div id=content><div><article class=hentry role=article itemscope itemtype=http://schema.org/Article><meta itemprop="author publisher" content="Stanislav Popov"><meta itemprop=mainEntityOfPage content="https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/"><header><h1 class=entry-title itemprop=headline>Интеграция Планфикса и Toggl для учета времени</h1><p class="meta header-date">01.03.2018, 20:30 - 6 мин читать</p></header><div class=entry-content itemprop=articleBody><p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию <a href=/blog/2016/03/02/git-gitlab-planfix-integration/>Планфикса с Git</a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.</p><p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:</p><ul><li><a href=https://github.com/viasite/planfix-toggl-server>Описание</a></li><li><a href=https://github.com/viasite/planfix-toggl-server/releases>Ссылки на загрузки</a> (проверялось только под Windows и Linux)</li><li>Расширения для <a href=https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl>Chrome</a> и <a href=https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/>Firefox</a></li></ul><p><img src=/images/2018-03/planfix-toggl.png alt="planfix and toggl"></p><h2 id=toggl>Toggl</h2><p>Я постоянно пользуюсь Toggl с ноября 2015, так как у меня в рабочем дне бывает очень много переключений с одной задачи на другую (20-30 в день - обычное дело), Toggl стал для меня незаменимым инструментом для отслеживания того, на что сколько именно времени я потратил. Так как в нашей компании потраченное время напрямую влияет на зарплату и на стоимость для наших клиентов, учет времени для меня был довольно важен.</p><p>Еще до Toggl я делал <a href=/blog/2015/11/22/simple-time-tracker/>что-то похожее на него</a>, то ли не понял тогда, как им пользоваться, то ли там фич не хватало. В любом случае, ничего лучше Toggl для учета времени я не видел, хотя в последние годы и не искал, кто еще не пробовал, советую на него посмотреть - <a href=https://toggl.com>https://toggl.com</a></p><h2 id=планфикс>Планфикс</h2><p>Планфикс не имеет из коробки автоматической системы учета времени, если не считать <a href=https://planfix.ru/timer/>Таймера</a>, который не ложится под нашу систему учета времени: мы используем кастомные аналитики, а Таймер умеет ставить только Фактическое время работы.</p><p>В то же время, на форуме <a href="https://forum.planfix.ru/viewtopic.php?f=30&t=1612">уже</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&t=1209">не раз</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&t=1354">поднималась</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&t=2688">тема трекинга времени</a>, в частности, <a href="https://forum.planfix.ru/viewtopic.php?f=32&t=4348">интеграцией с Toggl</a></p><p>Я же последние 2 года переносил данные из Toggl в Планфикс вручную, это было сравнительно легко, чтобы было еще проще, я написал <a href=https://github.com/viasite/userscript-planfixfix>небольшой юзерскрипт</a>, который сокращал ввод аналитики до пары кликов (не будет работать без дописывания под вас).</p><p>Схема была такая:</p><ul><li>если задача закончена, смотрю общее время в Toggl и сразу переношу в Планфикс, <a href=/blog/2016/03/02/git-gitlab-planfix-integration/>через коммит</a> или вручную</li><li>если задача вернулась в работу, считаю в уме, сколько я уже внес и сколько осталось</li><li>в конце месяца смотрю сумму по самым большим проектам, сравниваю с отчетом Планфикса и добавляю разницу</li></ul><p>В общем, так можно было и продолжать пользоваться, но это было не очень удобно, да и часть времени все равно не доходила до Планфикса.</p><h2 id=от-прототипа-до-сегодня>От прототипа до сегодня</h2><p>Я знал, что у Планфикса и Toggl есть API, что можно это все использовать и связать, но мне казалось это слишком сложным (так и оказалось :) и я не мог придумать, как связывать записи в Toggl с задачами в Планфиксе.</p><p>Но вот месяц назад звезды сошлись и я вдруг понял: нужно хранить в Toggl номер задачи, а назад отправлять через email! Чтобы номер задачи был отдельно и не мельтешил, я решил, что разумнее всего будет сделать его в виде тега.</p><p>Тем же вечером я пришел домой и за 3 часа написал <a href=https://github.com/viasite/planfix-toggl/blob/17627de92067302e5ad5deeb1ccc9e9814eacad5/renderer.js>рабочий прототип</a>: nodejs скрипт, который при запуске находит Toggl-записи с тегом из цифр, отправляет email на соответствующий адрес и отмечает в Toggl запись как отправленную добавлением к ней тега <code>sent</code>.</p><p>Следующую неделю я занимался ежедневным переписыванием с нуля проекта:</p><ol><li>NodeJS скрипт</li><li>Electron приложение</li><li>Express.js + серверный рендеринг twig</li><li>Express.js + Vue + OnsenUI</li></ol><p>Вечером переписывал, а днем использовал на работе последнюю рабочую версию.</p><p>В первые пару дней я понял, что теги с номером задач вручную ставить не очень удобно, поэтому я решился дописать официальное расширение Toggl для браузеров, чтобы прямо на странице задачи была кнопка Play, как положено. На удивление, это оказалось так просто, что я пожалел, что не сделал это давно. Естественно, я отправил <a href=https://github.com/toggl/toggl-button/pull/969>pull request</a>, который к сожалению был проигнорирован, как и другие недавние запросы интеграций. Если у вас есть github аккаунт и вы собираетесь пользоваться расширением, пожалуйста, оставьте палец вверх в пулл реквесте, может быть так быстрее примут, мне не хочется сопровождать два расширения.</p><p>К концу первой недели вся видимая часть уже выглядела почти так, как сейчас, но внутри было всё настолько прототипно, что кроме меня этим никто не мог пользоваться.</p><p>Потом я решил оставить web UI как есть, а серверную часть переписать на Go, который давно хотелось попробовать. Это разделило проект на 2 части: <a href=https://github.com/viasite/planfix-toggl-client>planfix-toggl-client</a> (web UI), <a href=https://github.com/viasite/planfix-toggl-server>planfix-toggl-server</a> (отправлялка и API для UI).</p><p>Через несколько дней я что-то сломал, и письма перестали доходить до Планфикса. Дело было в выходные, я решил, что письма стали попадать в спам. В тот день я решил отказаться от отправки письмами и переписать отправку на Планфикс API. Это в итоге добавило неделю, чтобы переписать на API без изменения остального. Конечно, API на Go для Планфикса никто не использовал, поэтому выделился еще один подпроект - <a href=https://github.com/popstas/planfix-go>planfix-go</a> (API для между отправлялкой и Планфиксом). API позволило настроить весь процесс, не используя обработку действий в Планфиксе, как я делал раньше, а сразу отправлять готовую аналитику с гарантией того, что она отправится и без необходимости указывать логин и пароль от своего ящика в конфиге.</p><p>После этого уже были мелкие доработки, чистка кода, добавление удобняшек, дальнейшая история есть в <a href=https://github.com/viasite/planfix-toggl-server/blob/master/CHANGELOG.md>CHANGELOG.md</a>.</p><p>Наконец, я вернулся к расширению браузера, до сих пор оно работало в режиме разработчика, чтобы этим мог пользоваться кто-то, кроме меня, нужно было опубликовать расширение официально, что я и сделал, оказалось тоже всё просто, и через час расширения для <a href=https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl>Chrome</a> и <a href=https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/>Firefox</a> уже были доступны.</p><h2 id=планфикс--toggl>Планфикс + Toggl</h2><p>Что получилось в итоге, я постарался изложить в <a href=https://github.com/viasite/planfix-toggl-server>описании проекта</a>.</p><p>UI в общем-то сделан больше для интереса, для проверки того, что процесс запущен, но также выполняет одну удобную мне функцию: я могу из него перейти на страницу любой из последних 10-15 задач, над которыми я работал. В левой колонке указано количество сгруппированных записей (кол-во переключений), в правой - потраченное на задачу время, примерно как в Toggl, но с группировкой по задачам Планфикса.</p><p>Выглядит это так:</p><img loading=lazy src=/images/2018-03/planfix-toggl-server-ui.jpg alt><p>Остальной &ldquo;интерфейс&rdquo; довольно суров: конфиг для настройки и лог для обратной связи.</p><p>Как я использую planfix-toggl-server (не очень удачное название, решил не называть sender, вдруг еще что-то захочется добавить):</p><ul><li>Добавил программу в автозагрузку Windows через планировщик заданий</li><li>Программа работает на фоне и раз в час отправляет накопившиеся неотправленные записи</li><li>Новую задачу я начинаю в Планфиксе, через расширение, после этого переключаюсь на нее уже через Toggl (отправлялка уберет тег <code>sent</code> из активной записи, если вы вернулись к уже отправленной задаче)</li></ul><p>Что насчет отправки: способ через API доступен только для платных аккаунтов Планфикса, тут никакого заговора нет, просто так надежнее. По этой же причине отправка через email стала еще ненадежнее, т.к. я ей больше не пользуюсь.</p><p>Что насчет паролей: чтобы пользоваться отправлялкой, вам нужно будет внести свои ключи API от Планфикса и Toggl и логин с паролем от вашего юзера в Планфиксе, тут ничего секьюрного я не придумал (да и не пытался). Все исходники открыты, я могу только сказать, что никакие данные не отправляются никуда, кроме как по маршруту из Toggl в Планфикс, статистика не собирается (поэтому надеюсь получить обратную связь другими способами).</p><p>Конечно, проект такой, что вряд ли им сможет пользоваться не программист, но я постарался сделать всё просто, насколько возможно было сделать без написания полноценного UI и чтобы не делать больше того, что мне хотелось сделать. Буду рад, если кому-то еще это пригодится.</p><h2 id=код>Код</h2><ul><li><a href=https://github.com/viasite/planfix-toggl-server>https://github.com/viasite/planfix-toggl-server</a></li><li><a href=https://github.com/viasite/planfix-toggl-client>https://github.com/viasite/planfix-toggl-client</a></li><li><a href=https://github.com/viasite/toggl-button-planfix>https://github.com/viasite/toggl-button-planfix</a></li><li><a href=https://github.com/popstas/planfix-go>https://github.com/popstas/planfix-go</a></li><li><a href=https://github.com/popstas/go-toggl>https://github.com/popstas/go-toggl</a></li></ul></div><footer><p class=meta><time itemprop=datePublished content="2018-03-01T20:30:00+0600">1 Mar 2018, 20:30</time>
-<span class=categories>, теги:
-<a class=category href=https://blog.popstas.ru/tags/projects>projects</a><meta itemprop=about content="projects"><a class=category href=https://blog.popstas.ru/tags/planfix>planfix</a><meta itemprop=about content="planfix"><a class=category href=https://blog.popstas.ru/tags/toggl>toggl</a><meta itemprop=about content="toggl"><a class=category href=https://blog.popstas.ru/tags/go>go</a><meta itemprop=about content="go"><a class=category href=https://blog.popstas.ru/tags/nodejs>nodejs</a><meta itemprop=about content="nodejs"><a class=category href=https://blog.popstas.ru/tags/vue>vue</a><meta itemprop=about content="vue"><a class=category href=https://blog.popstas.ru/tags/javascript>javascript</a><meta itemprop=about content="javascript"><a class=category href=https://blog.popstas.ru/tags/onsenui>onsenui</a><meta itemprop=about content="onsenui"></span></p><div class=sharing><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a href=https://www.addtoany.com/share></a><a class=a2a_button_vk></a><a class=a2a_button_twitter></a><a class=a2a_button_telegram></a><a class=a2a_button_whatsapp></a><a class=a2a_button_facebook></a></div><script>var a2a_config=a2a_config||{};a2a_config.locale="ru";a2a_config.color_main="undefined";a2a_config.color_border="undefined";a2a_config.color_link_text="undefined";a2a_config.color_link_text_hover="undefined";a2a_config.color_bg="undefined";a2a_config.color_arrow="undefined";a2a_config.color_arrow_hover="undefined";a2a_config.prioritize=["vk","twitter","telegram","whatsapp","facebook"];a2a_config.templates=a2a_config.templates||{};a2a_config.templates.whatsapp={text:'${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'};a2a_config.templates.telegram={title:'',text:'${title} - ${link}?utm_medium=messenger&utm_source=telegram'};</script><script async src=https://static.addtoany.com/menu/page.js></script></div><p class=meta><div>Новее: <a class=related href=https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/ title="Переезд с Windows на Ubuntu 18.04, попытка номер 5">Переезд с Windows на Ubuntu 18.04, попытка номер 5</a></div><div>Старее: <a class=related href=https://blog.popstas.ru/blog/2017/12/31/new-year-2018/ title="Итоги 2017 года">Итоги 2017 года</a></div></p></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p><p>Обновления через <a href=https://tglink.ru/popstas_vk_wall>Telegram</a> или <a href=http://feeds.feedburner.com/popstas>RSS</a></p><p><a href=https://www.tinkoff.ru/sl/83wd1FGIcMR>Поблагодарить меня</a></p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank href=https://github.com/popstas/ title=https://github.com/popstas/><i class="fa fa-github fa-3x"></i></a><a target=_blank href=https://twitter.com/popstas/ title=https://twitter.com/popstas/><i class="fa fa-twitter fa-3x"></i></a><a target=_blank href="tg://resolve?domain=popstas" title=popstas><i class="fa fa-telegram fa-3x"></i></a><a target=_blank href=mailto:popstas@gmail.com title=popstas@gmail.com><i class="fa fa-at fa-3x"></i></a></li></ul><section class=even><div class=sidebar-title>Последние посты:</div><ul id=recent_posts><li class=post><a href=/navigator/>Навигатор</a></li><li class=post><a href=/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/>Содержание книги Барбары Оакли «Думай как математик»</a></li><li class=post><a href=/blog/2021/01/17/new-year-2020/>Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a></li><li class=post><a href=/blog/2021/01/16/github-projects-2020/>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a></li><li class=post><a href=/blog/2021/01/10/smarthome-2020/>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a></li><li class=post><a href=/blog/2021/01/06/content-2020/>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a></li><li class=post><a href=/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/>Содержание книги Элияху Голдратта «Критическая цепь»</a></li><li class=post><a href=/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/>Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a></li><li class=post><a href=/blog/2020/04/16/books-70/>Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2015-2021 Stanislav Popov -
-<span class=credit>Powered by <a target=_blank href=https://gohugo.io>Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/>Hugo-Octopress</a> theme.</p></footer><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WPJWVXB');</script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/custom.js></script><script type=text/javascript>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(51681281,"init",{id:51681281,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script><noscript><div><img src=https://mc.yandex.ru/watch/51681281 style=position:absolute;left:-9999px alt></div></noscript></body></html>
+Расширения для Chrome и Firefox
+
+" />
+  <meta name="keywords" content="projects, planfix, toggl, go, nodejs, vue, javascript, onsenui">
+  <meta name="author" content="Stanislav Popov">
+
+  
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+  
+<hgroup>
+  
+  <div class="site-title"><a href="https://blog.popstas.ru/"><img src="/favicon.png" alt="popstas" /> Popstas</a></div>
+    <div></div>
+</hgroup>
+  
+  <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://feeds.feedburner.com/popstas" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Поискать в Google"/>
+      <input type="hidden" name="q" value="site:https://blog.popstas.ru/" />
+    </fieldset>
+  </form>
+
+</nav>
+</header>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <meta itemprop="author publisher" content="Stanislav Popov">
+        <meta itemprop="mainEntityOfPage" content="https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/">
+        <header>
+          <h1 class="entry-title" itemprop="headline">
+            Интеграция Планфикса и Toggl для учета времени 
+          </h1>
+          <p class="meta header-date">01.03.2018, 20:30 - 6 мин читать
+          
+
+          </p>
+        </header>
+        <div class="entry-content" itemprop="articleBody">
+          
+          
+          
+          <p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию <a href="/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git</a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.</p>
+<p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:</p>
+<ul>
+<li><a href="https://github.com/viasite/planfix-toggl-server">Описание</a></li>
+<li><a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки</a> (проверялось только под Windows и Linux)</li>
+<li>Расширения для <a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome</a> и <a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox</a></li>
+</ul>
+<p><img src="/images/2018-03/planfix-toggl.png" alt="planfix and toggl"></p>
+<h2 id="toggl">Toggl</h2>
+<p>Я постоянно пользуюсь Toggl с ноября 2015, так как у меня в рабочем дне бывает очень много переключений с одной задачи на другую (20-30 в день - обычное дело), Toggl стал для меня незаменимым инструментом для отслеживания того, на что сколько именно времени я потратил. Так как в нашей компании потраченное время напрямую влияет на зарплату и на стоимость для наших клиентов, учет времени для меня был довольно важен.</p>
+<p>Еще до Toggl я делал <a href="/blog/2015/11/22/simple-time-tracker/">что-то похожее на него</a>, то ли не понял тогда, как им пользоваться, то ли там фич не хватало. В любом случае, ничего лучше Toggl для учета времени я не видел, хотя в последние годы и не искал, кто еще не пробовал, советую на него посмотреть - <a href="https://toggl.com">https://toggl.com</a></p>
+<h2 id="планфикс">Планфикс</h2>
+<p>Планфикс не имеет из коробки автоматической системы учета времени, если не считать <a href="https://planfix.ru/timer/">Таймера</a>, который не ложится под нашу систему учета времени: мы используем кастомные аналитики, а Таймер умеет ставить только Фактическое время работы.</p>
+<p>В то же время, на форуме <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1612">уже</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1209">не раз</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=1354">поднималась</a> <a href="https://forum.planfix.ru/viewtopic.php?f=30&amp;t=2688">тема трекинга времени</a>, в частности, <a href="https://forum.planfix.ru/viewtopic.php?f=32&amp;t=4348">интеграцией с Toggl</a></p>
+<p>Я же последние 2 года переносил данные из Toggl в Планфикс вручную, это было сравнительно легко, чтобы было еще проще, я написал <a href="https://github.com/viasite/userscript-planfixfix">небольшой юзерскрипт</a>, который сокращал ввод аналитики до пары кликов (не будет работать без дописывания под вас).</p>
+<p>Схема была такая:</p>
+<ul>
+<li>если задача закончена, смотрю общее время в Toggl и сразу переношу в Планфикс, <a href="/blog/2016/03/02/git-gitlab-planfix-integration/">через коммит</a> или вручную</li>
+<li>если задача вернулась в работу, считаю в уме, сколько я уже внес и сколько осталось</li>
+<li>в конце месяца смотрю сумму по самым большим проектам, сравниваю с отчетом Планфикса и добавляю разницу</li>
+</ul>
+<p>В общем, так можно было и продолжать пользоваться, но это было не очень удобно, да и часть времени все равно не доходила до Планфикса.</p>
+<h2 id="от-прототипа-до-сегодня">От прототипа до сегодня</h2>
+<p>Я знал, что у Планфикса и Toggl есть API, что можно это все использовать и связать, но мне казалось это слишком сложным (так и оказалось :) и я не мог придумать, как связывать записи в Toggl с задачами в Планфиксе.</p>
+<p>Но вот месяц назад звезды сошлись и я вдруг понял: нужно хранить в Toggl номер задачи, а назад отправлять через email! Чтобы номер задачи был отдельно и не мельтешил, я решил, что разумнее всего будет сделать его в виде тега.</p>
+<p>Тем же вечером я пришел домой и за 3 часа написал <a href="https://github.com/viasite/planfix-toggl/blob/17627de92067302e5ad5deeb1ccc9e9814eacad5/renderer.js">рабочий прототип</a>: nodejs скрипт, который при запуске находит Toggl-записи с тегом из цифр, отправляет email на соответствующий адрес и отмечает в Toggl запись как отправленную добавлением к ней тега <code>sent</code>.</p>
+<p>Следующую неделю я занимался ежедневным переписыванием с нуля проекта:</p>
+<ol>
+<li>NodeJS скрипт</li>
+<li>Electron приложение</li>
+<li>Express.js + серверный рендеринг twig</li>
+<li>Express.js + Vue + OnsenUI</li>
+</ol>
+<p>Вечером переписывал, а днем использовал на работе последнюю рабочую версию.</p>
+<p>В первые пару дней я понял, что теги с номером задач вручную ставить не очень удобно, поэтому я решился дописать официальное расширение Toggl для браузеров, чтобы прямо на странице задачи была кнопка Play, как положено. На удивление, это оказалось так просто, что я пожалел, что не сделал это давно. Естественно, я отправил <a href="https://github.com/toggl/toggl-button/pull/969">pull request</a>, который к сожалению был проигнорирован, как и другие недавние запросы интеграций. Если у вас есть github аккаунт и вы собираетесь пользоваться расширением, пожалуйста, оставьте палец вверх в пулл реквесте, может быть так быстрее примут, мне не хочется сопровождать два расширения.</p>
+<p>К концу первой недели вся видимая часть уже выглядела почти так, как сейчас, но внутри было всё настолько прототипно, что кроме меня этим никто не мог пользоваться.</p>
+<p>Потом я решил оставить web UI как есть, а серверную часть переписать на Go, который давно хотелось попробовать. Это разделило проект на 2 части: <a href="https://github.com/viasite/planfix-toggl-client">planfix-toggl-client</a> (web UI), <a href="https://github.com/viasite/planfix-toggl-server">planfix-toggl-server</a> (отправлялка и API для UI).</p>
+<p>Через несколько дней я что-то сломал, и письма перестали доходить до Планфикса. Дело было в выходные, я решил, что письма стали попадать в спам. В тот день я решил отказаться от отправки письмами и переписать отправку на Планфикс API. Это в итоге добавило неделю, чтобы переписать на API без изменения остального. Конечно, API на Go для Планфикса никто не использовал, поэтому выделился еще один подпроект - <a href="https://github.com/popstas/planfix-go">planfix-go</a> (API для между отправлялкой и Планфиксом). API позволило настроить весь процесс, не используя обработку действий в Планфиксе, как я делал раньше, а сразу отправлять готовую аналитику с гарантией того, что она отправится и без необходимости указывать логин и пароль от своего ящика в конфиге.</p>
+<p>После этого уже были мелкие доработки, чистка кода, добавление удобняшек, дальнейшая история есть в <a href="https://github.com/viasite/planfix-toggl-server/blob/master/CHANGELOG.md">CHANGELOG.md</a>.</p>
+<p>Наконец, я вернулся к расширению браузера, до сих пор оно работало в режиме разработчика, чтобы этим мог пользоваться кто-то, кроме меня, нужно было опубликовать расширение официально, что я и сделал, оказалось тоже всё просто, и через час расширения для <a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome</a> и <a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox</a> уже были доступны.</p>
+<h2 id="планфикс--toggl">Планфикс + Toggl</h2>
+<p>Что получилось в итоге, я постарался изложить в <a href="https://github.com/viasite/planfix-toggl-server">описании проекта</a>.</p>
+<p>UI в общем-то сделан больше для интереса, для проверки того, что процесс запущен, но также выполняет одну удобную мне функцию: я могу из него перейти на страницу любой из последних 10-15 задач, над которыми я работал. В левой колонке указано количество сгруппированных записей (кол-во переключений), в правой - потраченное на задачу время, примерно как в Toggl, но с группировкой по задачам Планфикса.</p>
+<p>Выглядит это так:</p>
+<img loading="lazy" src="/images/2018-03/planfix-toggl-server-ui.jpg" title="" alt="" />
+<p>Остальной &ldquo;интерфейс&rdquo; довольно суров: конфиг для настройки и лог для обратной связи.</p>
+<p>Как я использую planfix-toggl-server (не очень удачное название, решил не называть sender, вдруг еще что-то захочется добавить):</p>
+<ul>
+<li>Добавил программу в автозагрузку Windows через планировщик заданий</li>
+<li>Программа работает на фоне и раз в час отправляет накопившиеся неотправленные записи</li>
+<li>Новую задачу я начинаю в Планфиксе, через расширение, после этого переключаюсь на нее уже через Toggl (отправлялка уберет тег <code>sent</code> из активной записи, если вы вернулись к уже отправленной задаче)</li>
+</ul>
+<p>Что насчет отправки: способ через API доступен только для платных аккаунтов Планфикса, тут никакого заговора нет, просто так надежнее. По этой же причине отправка через email стала еще ненадежнее, т.к. я ей больше не пользуюсь.</p>
+<p>Что насчет паролей: чтобы пользоваться отправлялкой, вам нужно будет внести свои ключи API от Планфикса и Toggl и логин с паролем от вашего юзера в Планфиксе, тут ничего секьюрного я не придумал (да и не пытался). Все исходники открыты, я могу только сказать, что никакие данные не отправляются никуда, кроме как по маршруту из Toggl в Планфикс, статистика не собирается (поэтому надеюсь получить обратную связь другими способами).</p>
+<p>Конечно, проект такой, что вряд ли им сможет пользоваться не программист, но я постарался сделать всё просто, насколько возможно было сделать без написания полноценного UI и чтобы не делать больше того, что мне хотелось сделать. Буду рад, если кому-то еще это пригодится.</p>
+<h2 id="код">Код</h2>
+<ul>
+<li><a href="https://github.com/viasite/planfix-toggl-server">https://github.com/viasite/planfix-toggl-server</a></li>
+<li><a href="https://github.com/viasite/planfix-toggl-client">https://github.com/viasite/planfix-toggl-client</a></li>
+<li><a href="https://github.com/viasite/toggl-button-planfix">https://github.com/viasite/toggl-button-planfix</a></li>
+<li><a href="https://github.com/popstas/planfix-go">https://github.com/popstas/planfix-go</a></li>
+<li><a href="https://github.com/popstas/go-toggl">https://github.com/popstas/go-toggl</a></li>
+</ul>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <time itemprop="datePublished" content="2018-03-01T20:30:00&#43;0600">1 Mar 2018, 20:30</time>
+    
+      <span class="categories">
+        , теги:
+        
+          <a class="category" href="https://blog.popstas.ru/tags/projects">projects</a><meta itemprop="about" content="projects">  <a class="category" href="https://blog.popstas.ru/tags/planfix">planfix</a><meta itemprop="about" content="planfix">  <a class="category" href="https://blog.popstas.ru/tags/toggl">toggl</a><meta itemprop="about" content="toggl">  <a class="category" href="https://blog.popstas.ru/tags/go">go</a><meta itemprop="about" content="go">  <a class="category" href="https://blog.popstas.ru/tags/nodejs">nodejs</a><meta itemprop="about" content="nodejs">  <a class="category" href="https://blog.popstas.ru/tags/vue">vue</a><meta itemprop="about" content="vue">  <a class="category" href="https://blog.popstas.ru/tags/javascript">javascript</a><meta itemprop="about" content="javascript">  <a class="category" href="https://blog.popstas.ru/tags/onsenui">onsenui</a><meta itemprop="about" content="onsenui">  
+    
+    </span>
+  </p>
+
+  <div class="sharing">
+    
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_vk"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_facebook"></a>
+    </div>
+    <script>
+      var a2a_config = a2a_config || {};
+      a2a_config.locale = "ru";
+      a2a_config.color_main = "undefined";
+      a2a_config.color_border = "undefined";
+      a2a_config.color_link_text = "undefined";
+      a2a_config.color_link_text_hover = "undefined";
+      a2a_config.color_bg = "undefined";
+      a2a_config.color_arrow = "undefined";
+      a2a_config.color_arrow_hover = "undefined";
+      a2a_config.prioritize = ["vk", "twitter", "telegram", "whatsapp", "facebook"];
+
+      a2a_config.templates = a2a_config.templates || {};
+      a2a_config.templates.whatsapp = {
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=whatsapp'
+      };
+      a2a_config.templates.telegram = {
+        title: '',
+        text: '${title} - ${link}?utm_medium=messenger&utm_source=telegram'
+      };
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    
+  </div>
+  
+
+  
+
+  <p class="meta">
+    
+        <div>Новее: <a class="related" href="https://blog.popstas.ru/blog/2018/04/30/windows-ubuntu-18.04-migrate/" title="Переезд с Windows на Ubuntu 18.04, попытка номер 5">Переезд с Windows на Ubuntu 18.04, попытка номер 5</a></div>
+    
+
+    
+        <div>Старее: <a class="related" href="https://blog.popstas.ru/blog/2017/12/31/new-year-2018/" title="Итоги 2017 года">Итоги 2017 года</a></div>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <p>Обновления через <a href="https://tglink.ru/popstas_vk_wall">Telegram</a> или <a href="http://feeds.feedburner.com/popstas">RSS</a></p>
+<p><a href="https://www.tinkoff.ru/sl/83wd1FGIcMR">Поблагодарить меня</a></p>
+
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/popstas/" title="https://github.com/popstas/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/popstas/" title="https://twitter.com/popstas/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+      <a target="_blank" href="tg://resolve?domain=popstas" title="popstas"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="mailto:popstas@gmail.com" title="popstas@gmail.com"><i class="fa fa-at fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <div class="sidebar-title">Последние посты:</div>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="/navigator/">Навигатор</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/">Содержание книги Барбары Оакли «Думай как математик»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/17/new-year-2020/">Итоги 2020 года: таблица активностей, сон, еда, музыка, спорт</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/16/github-projects-2020/">Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/10/smarthome-2020/">Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2021/01/06/content-2020/">Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/">Содержание книги Элияху Голдратта «Критическая цепь»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/05/20/den-arieli-predskazuemaya-irracionalnost/">Содержание книги Дэна Ариели «Предсказуемая иррациональность»</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2020/04/16/books-70/">Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2015-2021 Stanislav Popov -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+
+  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPJWVXB');</script>
+  
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/custom.js"></script>
+
+  
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(51681281, "init", {
+        id:51681281,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/51681281" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  
+
+  </body>
+</html>
+

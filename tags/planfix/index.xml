@@ -1,19 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>planfix on Popstas</title><link>https://blog.popstas.ru/tags/planfix/</link><description>Recent content in planfix on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 16 Jan 2021 23:50:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/planfix/index.xml" rel="self" type="application/rss+xml"/><item><title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</title><link>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</link><pubDate>Sat, 16 Jan 2021 23:50:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/github/popstas-github.svg" alt="Дом, поделенный на зоны">&lt;/p></description></item><item><title>Интеграция Планфикса и Toggl для учета времени</title><link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link><pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid><description>&lt;p>Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href="https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/">Планфикса с Git&lt;/a>, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p>
-&lt;p>Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server">Описание&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/viasite/planfix-toggl-server/releases">Ссылки на загрузки&lt;/a> (проверялось только под Windows и Linux)&lt;/li>
-&lt;li>Расширения для &lt;a href="https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl">Chrome&lt;/a> и &lt;a href="https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/">Firefox&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-03/planfix-toggl.png" alt="planfix and toggl">&lt;/p></description></item><item><title>Интеграция Git, Gitlab и Planfix почти как на Github</title><link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link><pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid><description>&lt;p>Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p>
-&lt;p>Ниже будет написано, как настроить в &lt;a href="https://planfix.ru/">Планфиксе&lt;/a> такое поведение:&lt;/p>
-&lt;ul>
-&lt;li>В коммите упоминаем задачу, например, &lt;code>Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code>&lt;/li>
-&lt;li>После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
-на Gitlab, если проект подключен к репозиторию.&lt;/li>
-&lt;/ul>
-&lt;p>Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
-после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p>
-&lt;p>Вся интеграция делается в одном файле, код хука лежит здесь -
-&lt;a href="https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive">git-hook-post-receive&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2016-03/planfix_logo.png" alt="planfix">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>planfix on Popstas</title>
+    <link>https://blog.popstas.ru/tags/planfix/</link>
+    <description>Recent content in planfix on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sat, 16 Jan 2021 23:50:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/planfix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Мои проекты 2020: умный дом, сканер сайтов, Тинькофф API, Яндекс.Метрика, аккорды, Планфикс</title>
+      <link>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</link>
+      <pubDate>Sat, 16 Jan 2021 23:50:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/16/github-projects-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/github/popstas-github.svg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция Планфикса и Toggl для учета времени</title>
+      <link>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</link>
+      <pubDate>Thu, 01 Mar 2018 20:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/03/01/planfix-toggl-integration/</guid>
+      <description>&lt;p&gt;Прошло ровно 2 года с тех пор, как я сделал прошлую интеграцию &lt;a href=&#34;https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/&#34;&gt;Планфикса с Git&lt;/a&gt;, так получилось, что я опять в отпуске и опять готов поделиться новой интеграцией.&lt;/p&gt;
+&lt;p&gt;Tl;dr: автоматическая отправка из Toggl в Планфикс через аналитики. Ссылки:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/viasite/planfix-toggl-server&#34;&gt;Описание&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/viasite/planfix-toggl-server/releases&#34;&gt;Ссылки на загрузки&lt;/a&gt; (проверялось только под Windows и Linux)&lt;/li&gt;
+&lt;li&gt;Расширения для &lt;a href=&#34;https://chrome.google.com/webstore/detail/toggl-button-planfix-edit/hkhchfdjhfegkhkgjongbodaphidfmcl&#34;&gt;Chrome&lt;/a&gt; и &lt;a href=&#34;https://addons.mozilla.org/ru/firefox/addon/toggl-button-planfix/&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-03/planfix-toggl.png&#34; alt=&#34;planfix and toggl&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
+      <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
+      <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
+&lt;p&gt;Ниже будет написано, как настроить в &lt;a href=&#34;https://planfix.ru/&#34;&gt;Планфиксе&lt;/a&gt; такое поведение:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В коммите упоминаем задачу, например, &lt;code&gt;Правки футера шаблона, https://test.planfix.ru/task/123456&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;После push в удаленный репозиторий в упомянутой задаче появляется комментарий с текстом коммита и ссылкой на страницу коммита
+на Gitlab, если проект подключен к репозиторию.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tl;dr: настраивается post-receive hook в Git на удаленном сервере,
+после каждого пуша анализируются сообщения пришедших коммитов, коммиты, содержащие ссылки на задачи отправляются в задачи по email.&lt;/p&gt;
+&lt;p&gt;Вся интеграция делается в одном файле, код хука лежит здесь -
+&lt;a href=&#34;https://github.com/popstas/server-scripts/blob/master/bin/git-hook-post-receive&#34;&gt;git-hook-post-receive&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2016-03/planfix_logo.png&#34; alt=&#34;planfix&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

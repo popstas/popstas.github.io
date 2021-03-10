@@ -1,23 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>zsh-syntax-highlighting on Popstas</title><link>https://blog.popstas.ru/tags/zsh-syntax-highlighting/</link><description>Recent content in zsh-syntax-highlighting on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/zsh-syntax-highlighting/index.xml" rel="self" type="application/rss+xml"/><item><title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title><link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link><pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid><description>&lt;p>Репост &lt;a href="https://habrahabr.ru/post/323496/">моей статьи с хабра&lt;/a>.&lt;/p>
-&lt;p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zsh-syntax-highlighting on Popstas</title>
+    <link>https://blog.popstas.ru/tags/zsh-syntax-highlighting/</link>
+    <description>Recent content in zsh-syntax-highlighting on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/zsh-syntax-highlighting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
+      <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
+      <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
 Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
 Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
-Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p>
-&lt;p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
-и обновление. В итоге появилась роль &lt;a href="https://github.com/viasite-ansible/ansible-role-zsh">ansible-role-zsh&lt;/a>,
-которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p>
-&lt;h3 id="особенности">Особенности:&lt;/h3>
-&lt;ul>
-&lt;li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li>
-&lt;li>быстро загружается, быстро работает&lt;/li>
-&lt;li>полностью настраивается через ansible, &lt;code>~/.zshrc&lt;/code>&lt;/li>
-&lt;li>полностью локальная (в систему ничего не ставится, все хранится в &lt;code>~/.oh-my-zsh&lt;/code>)&lt;/li>
-&lt;li>оставляет возможность юзеру вносить свои настройки через &lt;code>~/.zshrc.local&lt;/code>&lt;/li>
-&lt;li>&lt;del>одинаково&lt;/del> работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li>
-&lt;li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li>
-&lt;li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li>
-&lt;li>автодополнение по истории команд (помогает реже нажимать &lt;code>Ctrl+R&lt;/code>)&lt;/li>
-&lt;li>отображение времени для долго выполняемых команд (помогает реже использовать &lt;code>time&lt;/code>)&lt;/li>
-&lt;/ul>
-&lt;p>Демонстрация фич за 1 минуту:&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif" alt="ansible role zsh">&lt;/p></description></item></channel></rss>
+Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.&lt;/p&gt;
+&lt;p&gt;Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
+и обновление. В итоге появилась роль &lt;a href=&#34;https://github.com/viasite-ansible/ansible-role-zsh&#34;&gt;ansible-role-zsh&lt;/a&gt;,
+которая полностью настраивает терминалы на локалке и на моих серверах.&lt;/p&gt;
+&lt;h3 id=&#34;особенности&#34;&gt;Особенности:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)&lt;/li&gt;
+&lt;li&gt;быстро загружается, быстро работает&lt;/li&gt;
+&lt;li&gt;полностью настраивается через ansible, &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;полностью локальная (в систему ничего не ставится, все хранится в &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;оставляет возможность юзеру вносить свои настройки через &lt;code&gt;~/.zshrc.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;одинаково&lt;/del&gt; работает на macOS, старом Debian, Ubuntu, CentOS&lt;/li&gt;
+&lt;li&gt;нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)&lt;/li&gt;
+&lt;li&gt;встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)&lt;/li&gt;
+&lt;li&gt;автодополнение по истории команд (помогает реже нажимать &lt;code&gt;Ctrl+R&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;отображение времени для долго выполняемых команд (помогает реже использовать &lt;code&gt;time&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Демонстрация фич за 1 минуту:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/ansible-role-zsh-demo.gif&#34; alt=&#34;ansible role zsh&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

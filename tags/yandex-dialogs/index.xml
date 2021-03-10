@@ -1,30 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>yandex-dialogs on Popstas</title><link>https://blog.popstas.ru/tags/yandex-dialogs/</link><description>Recent content in yandex-dialogs on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 10 Jan 2021 09:30:00 +0600</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/yandex-dialogs/index.xml" rel="self" type="application/rss+xml"/><item><title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title><link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link><pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid><description>&lt;p>&lt;img src="https://blog.popstas.ru/images/2020/home-zones.jpg" alt="Дом, поделенный на зоны">&lt;/p></description></item><item><title>Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</title><link>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</link><pubDate>Tue, 14 Apr 2020 19:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</guid><description>&lt;p>История написания навыков для Алисы и тестилок для них.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/yandex-dialogs.png" alt="Яндекс Алиса, Список покупок, Вторая память, Node.js">&lt;/p></description></item><item><title>Навык для Алисы "Вторая память": технические особенности</title><link>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</link><pubDate>Mon, 13 Apr 2020 23:55:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</guid><description>&lt;p>Как устроена &amp;ldquo;Вторая память&amp;rdquo; для Алисы: &lt;del>кишки, кровь, расчленёнка&lt;/del> команды, матчеры, мидлвари.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2020-04/yandex-dialogs-whatis.png" alt="Навык Вторая память">&lt;/p></description></item><item><title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title><link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link><pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid><description>&lt;p>В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2019-12/smarthome.jpg" alt="smart home robot">
-(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href="https://www.youtube.com/watch?v=WfI69DC_jaw">Будет ласковый дождь&lt;/a>&amp;quot;).&lt;/p></description></item><item><title>Мой Github 2018</title><link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link><pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid><description>&lt;p>Новые проекты:&lt;/p>
-&lt;ul>
-&lt;li>planfix-toggl-server - Go&lt;/li>
-&lt;li>planfix-toggl-client - Vue&lt;/li>
-&lt;li>chords-viewer - Vue&lt;/li>
-&lt;li>chords-parser - JS&lt;/li>
-&lt;li>voice-list - Vue&lt;/li>
-&lt;li>yandex-dialogs-client - Vue&lt;/li>
-&lt;li>yandex-dialogs-whatis - JS&lt;/li>
-&lt;li>yandex-dialogs-tester - JS&lt;/li>
-&lt;li>hain-plugin-puttytray - JS&lt;/li>
-&lt;li>viasite-projects - JS, Vue&lt;/li>
-&lt;/ul>
-&lt;p>Правки старых:&lt;/p>
-&lt;ul>
-&lt;li>site-discovery - Python&lt;/li>
-&lt;li>ansible-role-zsh - YML&lt;/li>
-&lt;/ul>
-&lt;p>Проект года: &lt;a href="https://chords.popstas.ru">https://chords.popstas.ru&lt;/a>&lt;/p>
-&lt;p>Все остальные ссылки и описания под катом.&lt;/p>
-&lt;p>PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p>
-&lt;p>Держусь на уровне 1000 коммитов в год.&lt;/p>
-&lt;p>Было это так:&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-12/github-octocat.png" alt="Octocat">&lt;/p></description></item><item><title>Обзор умной колонки IRBIS A c Алисой от Яндекса</title><link>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</link><pubDate>Fri, 28 Dec 2018 20:45:00 +0600</pubDate><guid>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</guid><description>&lt;p>14 декабря Яндекс &lt;a href="https://yandex.ru/blog/company/kolonki-mladshie">сообщил&lt;/a> о поступлении мини-колонок в продажу.
-Обзор после 2 дней использования.&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2018-12/irbis-a1.jpg" alt="irbis a на кофеварке на кухне">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yandex-dialogs on Popstas</title>
+    <link>https://blog.popstas.ru/tags/yandex-dialogs/</link>
+    <description>Recent content in yandex-dialogs on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 10 Jan 2021 09:30:00 +0600</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/yandex-dialogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Мой умный дом 2020: камера, голос, экранчики, кофеварка, сигарета с WiFi, умная банка</title>
+      <link>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</link>
+      <pubDate>Sun, 10 Jan 2021 09:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2021/01/10/smarthome-2020/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/home-zones.jpg&#34; alt=&#34;Дом, поделенный на зоны&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Яндекс.Диалоги: как я делал навыки для Алисы и инструменты для разработки</title>
+      <link>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</link>
+      <pubDate>Tue, 14 Apr 2020 19:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/14/yandex-dialogs/</guid>
+      <description>&lt;p&gt;История написания навыков для Алисы и тестилок для них.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/yandex-dialogs.png&#34; alt=&#34;Яндекс Алиса, Список покупок, Вторая память, Node.js&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Навык для Алисы &#34;Вторая память&#34;: технические особенности</title>
+      <link>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</link>
+      <pubDate>Mon, 13 Apr 2020 23:55:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2020/04/13/yandex-dialogs-whatis/</guid>
+      <description>&lt;p&gt;Как устроена &amp;ldquo;Вторая память&amp;rdquo; для Алисы: &lt;del&gt;кишки, кровь, расчленёнка&lt;/del&gt; команды, матчеры, мидлвари.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020-04/yandex-dialogs-whatis.png&#34; alt=&#34;Навык Вторая память&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой умный дом 2019: Sonoff, ESP8266, MQTT, Node-red, Алиса</title>
+      <link>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</link>
+      <pubDate>Mon, 02 Dec 2019 02:00:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2019/12/02/smarthome-node-red-2019/</guid>
+      <description>&lt;p&gt;В начале года начал делать так называемый умный дом, ниже описание того, что получилось и немного деталей.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2019-12/smarthome.jpg&#34; alt=&#34;smart home robot&#34;&gt;
+(Кадр из психоделического советского мультика на тему, &amp;ldquo;&lt;a href=&#34;https://www.youtube.com/watch?v=WfI69DC_jaw&#34;&gt;Будет ласковый дождь&lt;/a&gt;&amp;quot;).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Мой Github 2018</title>
+      <link>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</link>
+      <pubDate>Sun, 30 Dec 2018 01:30:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/30/my-github-2018/</guid>
+      <description>&lt;p&gt;Новые проекты:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;planfix-toggl-server - Go&lt;/li&gt;
+&lt;li&gt;planfix-toggl-client - Vue&lt;/li&gt;
+&lt;li&gt;chords-viewer - Vue&lt;/li&gt;
+&lt;li&gt;chords-parser - JS&lt;/li&gt;
+&lt;li&gt;voice-list - Vue&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-client - Vue&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-whatis - JS&lt;/li&gt;
+&lt;li&gt;yandex-dialogs-tester - JS&lt;/li&gt;
+&lt;li&gt;hain-plugin-puttytray - JS&lt;/li&gt;
+&lt;li&gt;viasite-projects - JS, Vue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Правки старых:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;site-discovery - Python&lt;/li&gt;
+&lt;li&gt;ansible-role-zsh - YML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Проект года: &lt;a href=&#34;https://chords.popstas.ru&#34;&gt;https://chords.popstas.ru&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Все остальные ссылки и описания под катом.&lt;/p&gt;
+&lt;p&gt;PR я сделал проектов в 10, один из PR был в престу (PrestaShop).&lt;/p&gt;
+&lt;p&gt;Держусь на уровне 1000 коммитов в год.&lt;/p&gt;
+&lt;p&gt;Было это так:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/github-octocat.png&#34; alt=&#34;Octocat&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Обзор умной колонки IRBIS A c Алисой от Яндекса</title>
+      <link>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</link>
+      <pubDate>Fri, 28 Dec 2018 20:45:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2018/12/28/irbis-a-yandex-alice-review/</guid>
+      <description>&lt;p&gt;14 декабря Яндекс &lt;a href=&#34;https://yandex.ru/blog/company/kolonki-mladshie&#34;&gt;сообщил&lt;/a&gt; о поступлении мини-колонок в продажу.
+Обзор после 2 дней использования.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2018-12/irbis-a1.jpg&#34; alt=&#34;irbis a на кофеварке на кухне&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

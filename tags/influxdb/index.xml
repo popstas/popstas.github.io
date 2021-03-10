@@ -1,18 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>influxdb on Popstas</title><link>https://blog.popstas.ru/tags/influxdb/</link><description>Recent content in influxdb on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sun, 17 Jan 2016 08:22:25 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/influxdb/index.xml" rel="self" type="application/rss+xml"/><item><title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title><link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link><pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate><guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid><description>&lt;div class="punch">&lt;p>UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p>
-&lt;p>Теперь я использую её так:&lt;/p>
-&lt;ul>
-&lt;li>В браузере стоит &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js">юзерскрипт&lt;/a>, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href="https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js">принимающий скрипт&lt;/a>)&lt;/li>
-&lt;li>Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;p>У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href="http://weburg.net">weburg.net&lt;/a>, дающая бонусы,
-их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p>
-&lt;p>Поддержку раздач можно разбить на несколько задач:&lt;/p>
-&lt;ol>
-&lt;li>периодически скачивать новинки фильмов&lt;/li>
-&lt;li>скачивать новые серии популярных сериалов&lt;/li>
-&lt;li>удалять то, что плохо раздается&lt;/li>
-&lt;/ol>
-&lt;p>Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
-&lt;a href="https://github.com/popstas/transmission-cli">transmission-cli&lt;/a> - консольная утилита, решающая часть этих задач.&lt;/p>
-&lt;p>&lt;img src="https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw" alt="transmission-cli grafana">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>influxdb on Popstas</title>
+    <link>https://blog.popstas.ru/tags/influxdb/</link>
+    <description>Recent content in influxdb on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 17 Jan 2016 08:22:25 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/influxdb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
+      <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
+      <description>&lt;div class=&#34;punch&#34;&gt;&lt;p&gt;UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p&gt;
+&lt;p&gt;Теперь я использую её так:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В браузере стоит &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/scripts/weburg-torrent-add.user.js&#34;&gt;юзерскрипт&lt;/a&gt;, который позволяет ставить на закачку в Transmission в 1 клик (на сервере должен быть запущен &lt;a href=&#34;https://github.com/popstas/transmission-cli/blob/master/scripts/server-torrent-add.js&#34;&gt;принимающий скрипт&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Когда смотрю какой-то сериал, ставлю в cron задачу на ежедневное докачивание новых серий&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;У моего интернет-провайдера Планета есть бонусная программа поощрения раздачи торрентов с &lt;a href=&#34;http://weburg.net&#34;&gt;weburg.net&lt;/a&gt;, дающая бонусы,
+их можно тратить на абонентскую плату. У меня комп постоянно включен, я сразу стал участвовать.&lt;/p&gt;
+&lt;p&gt;Поддержку раздач можно разбить на несколько задач:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;периодически скачивать новинки фильмов&lt;/li&gt;
+&lt;li&gt;скачивать новые серии популярных сериалов&lt;/li&gt;
+&lt;li&gt;удалять то, что плохо раздается&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Через пару месяцев мне это надоело, задумался об автоматизации этого процесса и вот в новогодние каникулы родился
+&lt;a href=&#34;https://github.com/popstas/transmission-cli&#34;&gt;transmission-cli&lt;/a&gt; - консольная утилита, решающая часть этих задач.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/popstas/transmission-cli/raw/master/docs/img/grafana.png?raw&#34; alt=&#34;transmission-cli grafana&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,5 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>textmate on Popstas</title><link>https://blog.popstas.ru/tags/textmate/</link><description>Recent content in textmate on Popstas</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 13 Mar 2017 00:30:00 +0000</lastBuildDate><atom:link href="https://blog.popstas.ru/tags/textmate/index.xml" rel="self" type="application/rss+xml"/><item><title>Подсветка Python синтаксиса в PhpStorm</title><link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link><pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate><guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid><description>&lt;p>Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p>
-&lt;p>Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p>
-&lt;p>Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
-&lt;a href="https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm">Официальная документация&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.popstas.ru/images/2017-03/phpstorm-python.gif" alt="python in phpstorm">&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>textmate on Popstas</title>
+    <link>https://blog.popstas.ru/tags/textmate/</link>
+    <description>Recent content in textmate on Popstas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 13 Mar 2017 00:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.popstas.ru/tags/textmate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Подсветка Python синтаксиса в PhpStorm</title>
+      <link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
+      <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
+&lt;p&gt;Оказалось, что можно и делается хоть и не за минуту, а за 5-10 минут.&lt;/p&gt;
+&lt;p&gt;Tl;dr: можно сделать только подсветку, Solarized Dark нельзя.
+&lt;a href=&#34;https://confluence.jetbrains.com/display/PhpStorm/TextMate+Bundles+in+PhpStorm&#34;&gt;Официальная документация&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2017-03/phpstorm-python.gif&#34; alt=&#34;python in phpstorm&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
