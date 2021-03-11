@@ -6,7 +6,7 @@
     <description>Recent content in nodemcu on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 May 2017 21:20:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/nodemcu/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
       <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
       <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;

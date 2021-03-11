@@ -6,7 +6,7 @@
     <description>Recent content in textmate on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 13 Mar 2017 00:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Mar 2017 00:30:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/textmate/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Подсветка Python синтаксиса в PhpStorm</title>
       <link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
-      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
       <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;

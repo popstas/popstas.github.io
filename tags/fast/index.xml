@@ -6,7 +6,7 @@
     <description>Recent content in fast on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/fast/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
       <link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
-      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
+      <pubDate>Sat, 18 Mar 2017 22:20:28 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
       <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
@@ -40,7 +40,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
     <item>
       <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
       <link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
-      <pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate>
+      <pubDate>Sun, 31 Jan 2016 01:43:24 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
       <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
@@ -58,7 +58,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
       <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
-      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,

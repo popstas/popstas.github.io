@@ -6,7 +6,7 @@
     <description>Recent content in zle on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Mar 2017 22:20:28 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/zle/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
       <link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
-      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
+      <pubDate>Sat, 18 Mar 2017 22:20:28 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
       <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:

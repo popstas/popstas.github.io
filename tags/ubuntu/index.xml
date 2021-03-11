@@ -39,7 +39,7 @@
     <item>
       <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
       <link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
       <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
@@ -64,7 +64,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
       <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
       <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
@@ -76,7 +76,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
       <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
-      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
+      <pubDate>Fri, 24 Feb 2017 17:39:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
       <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
@@ -89,7 +89,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Bash on Ubuntu on Windows: первый блин</title>
       <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
-      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
       <description>&lt;p&gt;Итак, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
@@ -100,7 +100,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
       <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
-      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
       <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
@@ -114,7 +114,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Показать все окна gnome terminal в Ubuntu</title>
       <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
-      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
+      <pubDate>Mon, 16 Nov 2015 23:55:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
       <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,

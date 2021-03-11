@@ -6,7 +6,7 @@
     <description>Recent content in bash on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
       <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
       <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
@@ -45,7 +45,7 @@
     <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
       <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
-      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
+      <pubDate>Wed, 22 Feb 2017 01:19:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
       <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
@@ -62,7 +62,7 @@
     <item>
       <title>Bash on Ubuntu on Windows: первый блин</title>
       <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
-      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
       <description>&lt;p&gt;Итак, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
@@ -73,7 +73,7 @@
     <item>
       <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
       <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
-      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
       <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
@@ -87,7 +87,7 @@
     <item>
       <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
       <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
-      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
@@ -107,7 +107,7 @@
     <item>
       <title>average: измерение среднего времени выполнения команды в bash</title>
       <link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
-      <pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate>
+      <pubDate>Mon, 29 Feb 2016 03:46:56 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
       <description>&lt;p&gt;Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p&gt;
@@ -123,7 +123,7 @@
     <item>
       <title>Проверяем изменения на странице через cron</title>
       <link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
-      <pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate>
+      <pubDate>Sun, 31 Jan 2016 02:00:13 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
       <description>&lt;p&gt;Сегодня хотел заказать ароматизаторов на &lt;a href=&#34;http://baker-flavors.blogspot.ru/&#34;&gt;Baker Flavours&lt;/a&gt;, дошел до страницы заказа,
@@ -137,7 +137,7 @@
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
       <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
-      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
@@ -153,7 +153,7 @@ JetBrains выпустил официальный инструмент для а
     <item>
       <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
       <link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
-      <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
+      <pubDate>Thu, 10 Dec 2015 19:55:20 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
       <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
@@ -166,7 +166,7 @@ JetBrains выпустил официальный инструмент для а
     <item>
       <title>Показать все окна gnome terminal в Ubuntu</title>
       <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
-      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
+      <pubDate>Mon, 16 Nov 2015 23:55:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
       <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,

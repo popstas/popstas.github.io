@@ -6,7 +6,7 @@
     <description>Recent content in zsh-command-time on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Mar 2017 08:00:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/zsh-command-time/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
       <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
       <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;

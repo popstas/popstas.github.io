@@ -76,7 +76,7 @@
     <item>
       <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
       <link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
       <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
@@ -89,7 +89,7 @@
     <item>
       <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
       <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
       <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
@@ -111,7 +111,7 @@
     <item>
       <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
       <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
-      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;

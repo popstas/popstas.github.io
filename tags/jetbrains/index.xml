@@ -6,7 +6,7 @@
     <description>Recent content in jetbrains on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Tue, 23 May 2017 21:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 May 2017 21:20:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/jetbrains/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
       <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
       <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
@@ -32,7 +32,7 @@
     <item>
       <title>Подсветка Python синтаксиса в PhpStorm</title>
       <link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
-      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
       <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
@@ -45,7 +45,7 @@
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
       <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
-      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,

@@ -6,7 +6,7 @@
     <description>Recent content in docs on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sun, 06 Mar 2016 10:09:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Mar 2016 10:09:13 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
       <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
       <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;

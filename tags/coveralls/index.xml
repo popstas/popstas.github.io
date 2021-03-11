@@ -6,7 +6,7 @@
     <description>Recent content in coveralls on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Sun, 17 Jan 2016 08:22:25 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Jan 2016 08:22:25 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/coveralls/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
       <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
       <description>&lt;div class=&#34;punch&#34;&gt;&lt;p&gt;UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p&gt;

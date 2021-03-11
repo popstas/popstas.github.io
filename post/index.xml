@@ -34,11 +34,11 @@
         &lt;div class=&#34;panel-heading&#34;&gt;
             &lt;a class=&#34;spoiler-link collapsed&#34; data-toggle=&#34;collapse&#34;
             style=&#34;display:block;&#34;
-            href=&#34;#spoiler515&#34;&gt;Другие категории&lt;/a&gt;
+            href=&#34;#spoiler369&#34;&gt;Другие категории&lt;/a&gt;
         &lt;/div&gt;
         
         &lt;div class=&#34;panel-collapse collapse &#34;
-        id=&#34;spoiler515&#34;&gt;
+        id=&#34;spoiler369&#34;&gt;
             &lt;div class=&#34;panel-body&#34;&gt;&lt;h2 id=&#34;процессы-и-инструменты-разработки&#34;&gt;Процессы и инструменты разработки&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.popstas.ru/tags/jetbrains/&#34;&gt;JetBrains&lt;/a&gt;&lt;/li&gt;
@@ -507,7 +507,7 @@ ubuntu-drivers autoinstall
     <item>
       <title>Интеграция NodeMCU и JetBrains IDE на примере IDEA или как я чуть не написал свою IDE</title>
       <link>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</link>
-      <pubDate>Tue, 23 May 2017 21:20:00 +0000</pubDate>
+      <pubDate>Tue, 23 May 2017 21:20:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/05/23/nodemcu-integrate-jetbrains-ide/</guid>
       <description>&lt;p&gt;Я в последнее время делаю себе домашние девайсы на ESP-8266, использую прошивку nodemcu-firmware, а значит Lua.&lt;/p&gt;
@@ -525,7 +525,7 @@ ubuntu-drivers autoinstall
     <item>
       <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
       <link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
       <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
@@ -550,7 +550,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Продублировать последний аргумент текущей команды в zsh, zle widget</title>
       <link>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</link>
-      <pubDate>Sat, 18 Mar 2017 22:20:28 +0000</pubDate>
+      <pubDate>Sat, 18 Mar 2017 22:20:28 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/18/zsh-duplicate-last-argument-in-current-command/</guid>
       <description>&lt;p&gt;В последнее время я упоролся по тюнингу своего zsh. Потратил на это кучу времени, но есть и плюсы:
@@ -576,7 +576,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
     <item>
       <title>Подсветка Python синтаксиса в PhpStorm</title>
       <link>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</link>
-      <pubDate>Mon, 13 Mar 2017 00:30:00 +0000</pubDate>
+      <pubDate>Mon, 13 Mar 2017 00:30:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/13/python-highlight-syntax-in-phpstorm/</guid>
       <description>&lt;p&gt;Я долго терпел, но сегодня решил выяснить: можно ли добавить поддержку Python в PhpStorm.&lt;/p&gt;
@@ -589,7 +589,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
     <item>
       <title>ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</title>
       <link>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</link>
-      <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Mar 2017 08:00:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/</guid>
       <description>&lt;p&gt;Репост &lt;a href=&#34;https://habrahabr.ru/post/323496/&#34;&gt;моей статьи с хабра&lt;/a&gt;.&lt;/p&gt;
@@ -620,7 +620,7 @@ cp &amp;lt;Alt+.&amp;gt; &amp;lt;Alt+.&amp;gt;
     <item>
       <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
       <link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
       <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
@@ -638,7 +638,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Перенос блога с Octopress на Hugo</title>
       <link>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</link>
-      <pubDate>Sun, 05 Mar 2017 20:45:00 +0000</pubDate>
+      <pubDate>Sun, 05 Mar 2017 20:45:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/05/migrate-from-octopress-to-hugo/</guid>
       <description>&lt;p&gt;Эта статья первая на новом движке.&lt;/p&gt;
@@ -654,7 +654,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
       <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
       <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
@@ -666,7 +666,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
       <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
-      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
+      <pubDate>Fri, 24 Feb 2017 17:39:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
       <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
@@ -679,7 +679,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
       <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
-      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
+      <pubDate>Wed, 22 Feb 2017 01:19:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
       <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
@@ -696,7 +696,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
       <link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
       <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
@@ -709,7 +709,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Bash on Ubuntu on Windows: первый блин</title>
       <link>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</link>
-      <pubDate>Mon, 11 Apr 2016 05:01:00 +0000</pubDate>
+      <pubDate>Mon, 11 Apr 2016 05:01:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/04/11/bash-on-ubuntu-on-windows/</guid>
       <description>&lt;p&gt;Итак, &lt;a href=&#34;https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/&#34;&gt;дождался обновления&lt;/a&gt; Windows, поставил в нее Ubuntu &lt;a href=&#34;http://blog.zacorp.ru/main/kak-vklyuchit-podderzhku-ubuntu-v-windows-10/&#34;&gt;по инструкции&lt;/a&gt;, вот что было дальше:&lt;/p&gt;
@@ -720,7 +720,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Windows 10 build 14316 со встроенной Ubuntu и bash через программу Microsoft Insider Preview доступна не всем</title>
       <link>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</link>
-      <pubDate>Thu, 07 Apr 2016 00:26:00 +0000</pubDate>
+      <pubDate>Thu, 07 Apr 2016 00:26:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/04/07/windows-ubuntu-bash-insider-update-not-available/</guid>
       <description>&lt;p&gt;Все конечно слышали, что Microsoft и Canonical сговорились и встроили в винду линукс. Так вот, его пока еще нельзя потрогать.&lt;/p&gt;
@@ -734,7 +734,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>CHANGELOG.md: ручное и автоматическое ведение истории изменений проекта в Git</title>
       <link>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</link>
-      <pubDate>Sun, 06 Mar 2016 10:09:13 +0000</pubDate>
+      <pubDate>Sun, 06 Mar 2016 10:09:13 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/03/06/changelog-dot-md-generate-from-git-conventions/</guid>
       <description>&lt;p&gt;С начала января я веду свой &lt;a href=&#34;https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/&#34;&gt;проектик&lt;/a&gt;, на котором обкатываю новые для меня технологии:&lt;/p&gt;
@@ -756,7 +756,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Интеграция Git, Gitlab и Planfix почти как на Github</title>
       <link>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</link>
-      <pubDate>Wed, 02 Mar 2016 00:49:29 +0000</pubDate>
+      <pubDate>Wed, 02 Mar 2016 00:49:29 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/03/02/git-gitlab-planfix-integration/</guid>
       <description>&lt;p&gt;Распробовал тут на неделе интеграцию задач Github и самого Git issue tracker.&lt;/p&gt;
@@ -776,7 +776,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>average: измерение среднего времени выполнения команды в bash</title>
       <link>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</link>
-      <pubDate>Mon, 29 Feb 2016 03:46:56 +0000</pubDate>
+      <pubDate>Mon, 29 Feb 2016 03:46:56 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/02/29/average-time-of-script-execution-in-bash/</guid>
       <description>&lt;p&gt;Периодически хочется посчитать среднее время, у меня были такие сценарии:&lt;/p&gt;
@@ -792,7 +792,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Как я обрабатываю входящие потоки контента через RSS и Pocket или моя воронка статей</title>
       <link>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</link>
-      <pubDate>Sat, 27 Feb 2016 14:48:03 +0000</pubDate>
+      <pubDate>Sat, 27 Feb 2016 14:48:03 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/02/27/content-consumption-pyramid-rss/</guid>
       <description>&lt;p&gt;Хочу поделиться своим способом быть в курсе всего интересного в мире IT, читать много статей и знать, где быстро найти нужную статью.&lt;/p&gt;
@@ -803,7 +803,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Docker в картинках</title>
       <link>https://blog.popstas.ru/blog/2016/02/26/docker-in-images/</link>
-      <pubDate>Fri, 26 Feb 2016 21:29:45 +0000</pubDate>
+      <pubDate>Fri, 26 Feb 2016 21:29:45 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/02/26/docker-in-images/</guid>
       <description>&lt;p&gt;Оставлю здесь &lt;a href=&#34;http://habrahabr.ru/post/272145/&#34;&gt;свой пост&lt;/a&gt; с хабра.&lt;/p&gt;
@@ -816,7 +816,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Большой тачпад как замена мышки</title>
       <link>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</link>
-      <pubDate>Thu, 25 Feb 2016 23:31:57 +0000</pubDate>
+      <pubDate>Thu, 25 Feb 2016 23:31:57 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/02/25/big-touchpad-as-mouse-replacement/</guid>
       <description>&lt;p&gt;Наслушавшись рассказов про то, какой на макбуке офигенный большой тачпад и как он легко заменяет мышку,
@@ -827,7 +827,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Проверяем изменения на странице через cron</title>
       <link>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</link>
-      <pubDate>Sun, 31 Jan 2016 02:00:13 +0000</pubDate>
+      <pubDate>Sun, 31 Jan 2016 02:00:13 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/31/check-webpage-changes-with-cron/</guid>
       <description>&lt;p&gt;Сегодня хотел заказать ароматизаторов на &lt;a href=&#34;http://baker-flavors.blogspot.ru/&#34;&gt;Baker Flavours&lt;/a&gt;, дошел до страницы заказа,
@@ -841,7 +841,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>E.ggtimer: таймер в пару кликов в любом браузере</title>
       <link>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</link>
-      <pubDate>Sun, 31 Jan 2016 01:43:24 +0000</pubDate>
+      <pubDate>Sun, 31 Jan 2016 01:43:24 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/31/timer-in-browser-with-1-second-time-to-start/</guid>
       <description>&lt;p&gt;Бывает, что надо вспомнить о чем-то в ближайшее время: выключить чайник, выйти к подъезду через 10 минут,
@@ -859,7 +859,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Автоматическое скачивание торрентов с Weburg в Transmission и статистика на InfluxDB &amp; Grafana</title>
       <link>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</link>
-      <pubDate>Sun, 17 Jan 2016 08:22:25 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2016 08:22:25 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/17/torrent-transmission-client-for-weburg/</guid>
       <description>&lt;div class=&#34;punch&#34;&gt;&lt;p&gt;UPD 20.05.2020: я уже несколько лет как не абонент Планеты, но Вебургом продолжаю пользоваться.&lt;/p&gt;
@@ -886,7 +886,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Быстрое обновление PhpStorm EAP на Mac OS через bash</title>
       <link>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</link>
-      <pubDate>Sun, 17 Jan 2016 07:50:17 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2016 07:50:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/01/17/automacic-update-phpstorm-eap-on-mac-os/</guid>
       <description>&lt;p&gt;Надоело постоянно обновлять PhpStorm руками. На Ubuntu последнее время делал это с помощью ansible,
@@ -916,7 +916,7 @@ JetBrains выпустил официальный инструмент для а
     <item>
       <title>Интерактивная Zsh history с поиском и скроллом, percol</title>
       <link>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</link>
-      <pubDate>Thu, 10 Dec 2015 19:55:20 +0000</pubDate>
+      <pubDate>Thu, 10 Dec 2015 19:55:20 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/</guid>
       <description>&lt;p&gt;Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать &lt;code&gt;Ctrl+R&lt;/code&gt; и начать набирать
@@ -929,7 +929,7 @@ JetBrains выпустил официальный инструмент для а
     <item>
       <title>Простой тайм-трекер для отслеживания потраченного времени</title>
       <link>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</link>
-      <pubDate>Sun, 22 Nov 2015 09:40:45 +0000</pubDate>
+      <pubDate>Sun, 22 Nov 2015 09:40:45 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/11/22/simple-time-tracker/</guid>
       <description>&lt;p&gt;На работе у меня часто бывает такое, что не понятно, куда ушло время.
@@ -943,7 +943,7 @@ JetBrains выпустил официальный инструмент для а
     <item>
       <title>Показать все окна gnome terminal в Ubuntu</title>
       <link>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</link>
-      <pubDate>Mon, 16 Nov 2015 23:55:17 +0000</pubDate>
+      <pubDate>Mon, 16 Nov 2015 23:55:17 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2015/11/16/show-all-terminal-windows-in-ubuntu/</guid>
       <description>&lt;p&gt;При работе за компом имею привычку открывать много терминалов,

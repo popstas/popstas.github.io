@@ -6,7 +6,7 @@
     <description>Recent content in gitlab-ci on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Mar 2017 01:00:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/gitlab-ci/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
       <link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
       <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;

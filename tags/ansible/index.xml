@@ -24,7 +24,7 @@
     <item>
       <title>Packer: создаем свои vagrant box и docker image из одного конфига</title>
       <link>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</link>
-      <pubDate>Sun, 26 Mar 2017 21:30:00 +0000</pubDate>
+      <pubDate>Sun, 26 Mar 2017 21:30:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/26/packer-create-vagrant-box-from-ansible-playbook/</guid>
       <description>&lt;p&gt;Проект &lt;a href=&#34;https://github.com/viasite-ansible/ansible-server&#34;&gt;viasite-ansible/ansible-server&lt;/a&gt; подошел к моменту,
@@ -49,7 +49,7 @@ Gist с результатами &lt;a href=&#34;https://gist.github.com/popstas
     <item>
       <title>Мой процесс написания ansible роли с Molecule и Gitlab CI</title>
       <link>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</link>
-      <pubDate>Wed, 08 Mar 2017 01:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Mar 2017 01:00:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/03/08/develop-ansible-roles-with-molecule-and-gitlab-ci/</guid>
       <description>&lt;p&gt;Опишу процесс, к которому я пришел на данный момент.&lt;/p&gt;
@@ -67,7 +67,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Настройка кеширующего прокси apt-cacher-ng для ускорения тестирования ansible ролей с Molecule, Gitlab CI и Docker</title>
       <link>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</link>
-      <pubDate>Sun, 26 Feb 2017 04:14:00 +0000</pubDate>
+      <pubDate>Sun, 26 Feb 2017 04:14:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/26/apt-cacher-ng-for-testing-ansible-roles-with-docker-and-gitlab-ci/</guid>
       <description>&lt;p&gt;В &lt;a href=&#34;https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/&#34;&gt;предыдущей статье&lt;/a&gt; я настраивал &lt;code&gt;apt-mirror&lt;/code&gt; для тех же целей. У того способа нашлось несколько недостатков.&lt;/p&gt;
@@ -79,7 +79,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Как я создал и отказался от локального репозитория apt-mirror для Ubuntu для ускорения тестирования ansible ролей</title>
       <link>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</link>
-      <pubDate>Fri, 24 Feb 2017 17:39:00 +0000</pubDate>
+      <pubDate>Fri, 24 Feb 2017 17:39:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/24/why-you-should-not-use-apt-mirror-for-ansible-tests-in-docker/</guid>
       <description>&lt;p&gt;При тестировании плейбуков на чистой Ubuntu (а как же еще?) самые большие накладные расходы по времени (субъективно)
@@ -92,7 +92,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Извлечение одной из папок в git репозитории в отдельный репозиторий с сохранением истории - git-extract-subproject</title>
       <link>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</link>
-      <pubDate>Wed, 22 Feb 2017 01:19:00 +0000</pubDate>
+      <pubDate>Wed, 22 Feb 2017 01:19:00 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2017/02/22/2017/02/22/git-extract-subproject-preserving-history/</guid>
       <description>&lt;p&gt;Занялся я тут распиливанием большого проекта (дерево ansible ролей) на отдельные репозитории.&lt;/p&gt;
@@ -109,7 +109,7 @@ TODO: несколько дистрибов&lt;/p&gt;
     <item>
       <title>Kapacitor: часть 1. Введение, сравнение с Monit, установка с Ansible и без, настройка</title>
       <link>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</link>
-      <pubDate>Thu, 19 May 2016 00:47:52 +0000</pubDate>
+      <pubDate>Thu, 19 May 2016 00:47:52 +0600</pubDate>
       
       <guid>https://blog.popstas.ru/blog/2016/05/19/kapacitor-ansible-install-monit-comparsion/</guid>
       <description>&lt;p&gt;Несколько недель назад я начал разбираться с Kapacitor, попутно записывая свои действия. Конца разбирательствам было не видно, записей становилось все больше и накопилось на серию.&lt;/p&gt;
