@@ -123,6 +123,53 @@
         
 
 <header  class="">
+  <p class="meta">09.03.2017, 08:00
+     - 7 мин читать 
+
+    
+  </p>
+  <div class="entry-title">
+    <a href="https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/">ansible-role-zsh: zsh терминал с autosuggestions, fzf и красивым удобным prompt</a>
+  </div>
+</header>
+
+        
+          <p><p>Репост <a href="https://habrahabr.ru/post/323496/">моей статьи с хабра</a>.</p>
+<p>Я провожу в терминале много времени, поэтому хочется, чтобы все было красиво, быстро и удобно.
+Из этого рождается постоянное желание его настраивать, пробовать разные плагины.
+Шеллом я выбрал для себя zsh лет 5 назад, пару лет назад нашел oh-my-zsh для его удобной настройки.
+Со временем к этому конфигу добавились некоторые сбоку торчащие части в виде powerline и percol.</p>
+<p>Недавно я решил пересобрать все так, чтобы избавиться от ненужных плагинов, добавить нужные, сделать легкую установку
+и обновление. В итоге появилась роль <a href="https://github.com/viasite-ansible/ansible-role-zsh">ansible-role-zsh</a>,
+которая полностью настраивает терминалы на локалке и на моих серверах.</p>
+<h3 id="особенности">Особенности:</h3>
+<ul>
+<li>устанавливается одной командой (кроме шрифта и темы вашего терминального клиента)</li>
+<li>быстро загружается, быстро работает</li>
+<li>полностью настраивается через ansible, <code>~/.zshrc</code></li>
+<li>полностью локальная (в систему ничего не ставится, все хранится в <code>~/.oh-my-zsh</code>)</li>
+<li>оставляет возможность юзеру вносить свои настройки через <code>~/.zshrc.local</code></li>
+<li><del>одинаково</del> работает на macOS, старом Debian, Ubuntu, CentOS</li>
+<li>нормально выглядит на разных цветовых схемах (но лучше всего на Solarized Dark)</li>
+<li>встроенная подсветка синтаксиса (помогает реже ошибаться и лучше читать длинные команды)</li>
+<li>автодополнение по истории команд (помогает реже нажимать <code>Ctrl+R</code>)</li>
+<li>отображение времени для долго выполняемых команд (помогает реже использовать <code>time</code>)</li>
+</ul>
+<p>Демонстрация фич за 1 минуту:</p>
+<p><img src="/images/2017-03/ansible-role-zsh-demo.gif" alt="ansible role zsh"></p></p>
+          
+            <footer>
+              <a href="https://blog.popstas.ru/blog/2017/03/09/ansible-role-zsh-powerlevel9k-fzf-syntax-autosuggestions/" class="full-article" rel="nofollow">Читать &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header  class="">
   <p class="meta">08.03.2017, 01:00
      - 3 мин читать 
 
@@ -718,35 +765,6 @@ JetBrains выпустил официальный инструмент для а
         
       </article>
       
-      <article>
-        
-        
-
-<header  class="">
-  <p class="meta">10.12.2015, 19:55
-     - 2 мин читать 
-
-    
-  </p>
-  <div class="entry-title">
-    <a href="https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/">Интерактивная Zsh history с поиском и скроллом, percol</a>
-  </div>
-</header>
-
-        
-          <p><p>Если кто не знает, в bash/zsh есть поиск по истории комманд, если нажать <code>Ctrl+R</code> и начать набирать
-команду, отобразится последняя команда из истории, для навигации можно использовать
-<code>Ctrl+R</code>, <code>Ctrl+Shift+R</code>. При этом видно одновременно видно только одну команду из истории.</p>
-<p>Утилита <a href="https://github.com/mooz/percol#zsh-history-search">percol</a> решает эту проблему.</p>
-<p><img src="/images/2015-12/percol.gif" alt="zsh history percol"></p></p>
-          
-            <footer>
-              <a href="https://blog.popstas.ru/blog/2015/12/10/interactive-bash-history-with-search/" class="full-article" rel="nofollow">Читать &rarr;</a>
-            </footer>
-          
-        
-      </article>
-      
       
       
 
@@ -859,6 +877,12 @@ JetBrains выпустил официальный инструмент для а
           
             
               <li class="post">
+                <a href="/blog/2022/01/29/content-2021/">Мой контент 2021: книги, музыка, фильмы, подкасты, каналы</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="/blog/2021/01/25/barbara-oakli-dumay-kak-matematik/">Содержание книги Барбары Оакли «Думай как математик»</a>
               </li>
             
@@ -899,12 +923,6 @@ JetBrains выпустил официальный инструмент для а
               </li>
             
           
-            
-              <li class="post">
-                <a href="/blog/2020/04/16/books-70/">Мои книги: 7-й десяток: эволюция, продуктивность и дзен-буддизм</a>
-              </li>
-            
-          
         </ul>
       </section>
     
@@ -914,7 +932,7 @@ JetBrains выпустил официальный инструмент для а
   </div>
 </div>
     <footer role="contentinfo">
-      <p>Copyright &copy; 2015-2021 Stanislav Popov -
+      <p>Copyright &copy; 2015-2022 Stanislav Popov -
         <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
       </p>
     </footer>

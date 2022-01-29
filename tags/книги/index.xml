@@ -6,10 +6,20 @@
     <description>Recent content in книги on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 25 Jan 2021 19:15:00 +0600</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jan 2022 16:29:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Мой контент 2021: книги, музыка, фильмы, подкасты, каналы</title>
+      <link>https://blog.popstas.ru/blog/2022/01/29/content-2021/</link>
+      <pubDate>Sat, 29 Jan 2022 16:29:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2022/01/29/content-2021/</guid>
+      <description>&lt;p&gt;Что я читал, слушал и смотрел в 2021-м.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2021/content-2021.png&#34; alt=&#34;2021 год&#34;&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Содержание книги Барбары Оакли «Думай как математик»</title>
@@ -43,7 +53,11 @@
       <guid>https://blog.popstas.ru/blog/2020/06/11/eliyahu-goldratt-kriticheskaya-cep/</guid>
       <description>&lt;p&gt;Бизнес-роман про преподавателя в бизнес-школе (MBA), который помогал технологической компании запустить проект в срок. Книга о разработанной для этого системе управления проектами.&lt;/p&gt;
 &lt;p&gt;Приводятся примеры разных компаний: производство, программирование, строительство, маркетинг. Работа с подрядчиками и поставщиками. Все студенты пришли решать проблемы своих компаний, все так или иначе работают с проектами.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/goldratt-cep/cover.jpg&#34; alt=&#34;Критическая цепь&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2020/goldratt-cep/cover.jpg&#34; alt=&#34;Критическая цепь&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;contents&#34; data-header=&#34;h2&#34;&gt;
+    &lt;div&gt;Оглавление:&lt;/div&gt;
+    &lt;ul class=&#34;contents-data&#34;&gt;&lt;/ul&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>

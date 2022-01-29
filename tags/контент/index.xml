@@ -6,10 +6,20 @@
     <description>Recent content in контент on Popstas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Wed, 06 Jan 2021 02:50:00 +0600</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jan 2022 16:29:00 +0600</lastBuildDate>
     
 	<atom:link href="https://blog.popstas.ru/tags/%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Мой контент 2021: книги, музыка, фильмы, подкасты, каналы</title>
+      <link>https://blog.popstas.ru/blog/2022/01/29/content-2021/</link>
+      <pubDate>Sat, 29 Jan 2022 16:29:00 +0600</pubDate>
+      
+      <guid>https://blog.popstas.ru/blog/2022/01/29/content-2021/</guid>
+      <description>&lt;p&gt;Что я читал, слушал и смотрел в 2021-м.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.popstas.ru/images/2021/content-2021.png&#34; alt=&#34;2021 год&#34;&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Мой контент 2020: книги, музыка, фильмы, подкасты, каналы</title>

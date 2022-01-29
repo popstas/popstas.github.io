@@ -199,6 +199,10 @@ h5:hover .heading-anchor {
     display: inline-block;
 }
 
+ol {
+    margin-left: 1.7em !important;
+}
+
 #content .blog-index a.full-article {
     background: #ebebeb;
     display: inline-block;
